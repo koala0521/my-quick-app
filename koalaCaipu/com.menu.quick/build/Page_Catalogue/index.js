@@ -1,4 +1,7 @@
-/******/ (function(modules) { // webpackBootstrap
+(function(){
+  
+  var createPageHandler = function() {
+    return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -81,506 +84,105 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 39);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Page_Catalogue/index.ux?uxType=page");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 39:
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {\n  \".catalogue_list_container\": {\n    \"marginTop\": \"0px\",\n    \"marginRight\": \"33px\",\n    \"marginBottom\": \"0px\",\n    \"marginLeft\": \"33px\",\n    \"flexDirection\": \"column\"\n  },\n  \".catalogue_header\": {\n    \"marginTop\": \"46px\",\n    \"justifyContent\": \"space-between\"\n  },\n  \".select\": {\n    \"width\": \"200px\",\n    \"height\": \"67px\",\n    \"color\": \"#1a1a1a\",\n    \"fontSize\": \"31.3px\"\n  },\n  \".option\": {\n    \"fontSize\": \"31.3px\",\n    \"color\": \"#1A1A1A\",\n    \"height\": \"200px\"\n  },\n  \".catalogue_total\": {\n    \"fontSize\": \"27.1px\",\n    \"color\": \"rgba(0,0,0,0.5)\"\n  },\n  \".catalogue_list\": {\n    \"justifyContent\": \"space-between\",\n    \"height\": \"100px\"\n  },\n  \".catalogue_catalogueTitle\": {\n    \"color\": \"#000000\",\n    \"fontSize\": \"31.3px\"\n  },\n  \".catalogue_catalogueNumber\": {\n    \"marginRight\": \"15px\",\n    \"color\": \"#000000\",\n    \"fontSize\": \"31.3px\"\n  },\n  \".catalogue_free\": {\n    \"fontSize\": \"27.1px\",\n    \"color\": \"rgba(0,0,0,0.5)\"\n  },\n  \".catalogue_right\": {\n    \"width\": \"167px\",\n    \"borderBottomColor\": \"rgba(24,34,51,0.2)\",\n    \"borderBottomWidth\": \"0.5px\",\n    \"justifyContent\": \"flex-end\"\n  }\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2pzb24tbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9zdHlsZS1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXN0eWxlIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXN0eWxlIS4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2NvbXBvbmVudC9jX2NhdGFsb2d1ZV9saXN0LnV4P3V4VHlwZT1jb21wLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2NvbXBvbmVudC9jX2NhdGFsb2d1ZV9saXN0LnV4P2NkMjAiXSwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwiLmNhdGFsb2d1ZV9saXN0X2NvbnRhaW5lclwiOiB7XG4gICAgXCJtYXJnaW5Ub3BcIjogXCIwcHhcIixcbiAgICBcIm1hcmdpblJpZ2h0XCI6IFwiMzNweFwiLFxuICAgIFwibWFyZ2luQm90dG9tXCI6IFwiMHB4XCIsXG4gICAgXCJtYXJnaW5MZWZ0XCI6IFwiMzNweFwiLFxuICAgIFwiZmxleERpcmVjdGlvblwiOiBcImNvbHVtblwiXG4gIH0sXG4gIFwiLmNhdGFsb2d1ZV9oZWFkZXJcIjoge1xuICAgIFwibWFyZ2luVG9wXCI6IFwiNDZweFwiLFxuICAgIFwianVzdGlmeUNvbnRlbnRcIjogXCJzcGFjZS1iZXR3ZWVuXCJcbiAgfSxcbiAgXCIuc2VsZWN0XCI6IHtcbiAgICBcIndpZHRoXCI6IFwiMjAwcHhcIixcbiAgICBcImhlaWdodFwiOiBcIjY3cHhcIixcbiAgICBcImNvbG9yXCI6IFwiIzFhMWExYVwiLFxuICAgIFwiZm9udFNpemVcIjogXCIzMS4zcHhcIlxuICB9LFxuICBcIi5vcHRpb25cIjoge1xuICAgIFwiZm9udFNpemVcIjogXCIzMS4zcHhcIixcbiAgICBcImNvbG9yXCI6IFwiIzFBMUExQVwiLFxuICAgIFwiaGVpZ2h0XCI6IFwiMjAwcHhcIlxuICB9LFxuICBcIi5jYXRhbG9ndWVfdG90YWxcIjoge1xuICAgIFwiZm9udFNpemVcIjogXCIyNy4xcHhcIixcbiAgICBcImNvbG9yXCI6IFwicmdiYSgwLDAsMCwwLjUpXCJcbiAgfSxcbiAgXCIuY2F0YWxvZ3VlX2xpc3RcIjoge1xuICAgIFwianVzdGlmeUNvbnRlbnRcIjogXCJzcGFjZS1iZXR3ZWVuXCIsXG4gICAgXCJoZWlnaHRcIjogXCIxMDBweFwiXG4gIH0sXG4gIFwiLmNhdGFsb2d1ZV9jYXRhbG9ndWVUaXRsZVwiOiB7XG4gICAgXCJjb2xvclwiOiBcIiMwMDAwMDBcIixcbiAgICBcImZvbnRTaXplXCI6IFwiMzEuM3B4XCJcbiAgfSxcbiAgXCIuY2F0YWxvZ3VlX2NhdGFsb2d1ZU51bWJlclwiOiB7XG4gICAgXCJtYXJnaW5SaWdodFwiOiBcIjE1cHhcIixcbiAgICBcImNvbG9yXCI6IFwiIzAwMDAwMFwiLFxuICAgIFwiZm9udFNpemVcIjogXCIzMS4zcHhcIlxuICB9LFxuICBcIi5jYXRhbG9ndWVfZnJlZVwiOiB7XG4gICAgXCJmb250U2l6ZVwiOiBcIjI3LjFweFwiLFxuICAgIFwiY29sb3JcIjogXCJyZ2JhKDAsMCwwLDAuNSlcIlxuICB9LFxuICBcIi5jYXRhbG9ndWVfcmlnaHRcIjoge1xuICAgIFwid2lkdGhcIjogXCIxNjdweFwiLFxuICAgIFwiYm9yZGVyQm90dG9tQ29sb3JcIjogXCJyZ2JhKDI0LDM0LDUxLDAuMilcIixcbiAgICBcImJvcmRlckJvdHRvbVdpZHRoXCI6IFwiMC41cHhcIixcbiAgICBcImp1c3RpZnlDb250ZW50XCI6IFwiZmxleC1lbmRcIlxuICB9XG59Il0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/index.ux?uxType=page":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/index.ux?uxType=page ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {\n  \".container\": {\n    \"flexDirection\": \"column\"\n  }\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2pzb24tbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9zdHlsZS1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXN0eWxlIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXN0eWxlIS4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2luZGV4LnV4P3V4VHlwZT1wYWdlLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2luZGV4LnV4PzE1M2IiXSwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwiLmNvbnRhaW5lclwiOiB7XG4gICAgXCJmbGV4RGlyZWN0aW9uXCI6IFwiY29sdW1uXCJcbiAgfVxufSJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/index.ux?uxType=page\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {\n  \"type\": \"div\",\n  \"attr\": {},\n  \"classList\": [\n    \"catalogue_list_container\"\n  ],\n  \"children\": [\n    {\n      \"type\": \"div\",\n      \"attr\": {},\n      \"classList\": [\n        \"catalogue_header\"\n      ],\n      \"children\": [\n        {\n          \"type\": \"text\",\n          \"attr\": {\n            \"value\": function () {return '' + '共' + (this.catalogue.total) + '章'}\n          },\n          \"classList\": [\n            \"catalogue_total\"\n          ]\n        },\n        {\n          \"type\": \"select\",\n          \"attr\": {\n            \"id\": \"select\"\n          },\n          \"id\": \"select\",\n          \"classList\": [\n            \"select\"\n          ],\n          \"events\": {\n            \"change\": function (evt) {this.changeValue(evt)}\n          },\n          \"children\": [\n            {\n              \"type\": \"option\",\n              \"attr\": {\n                \"value\": function () {return this.item.evry},\n                \"content\": function () {return '' + (this.item.evry) + ' 章'}\n              },\n              \"classList\": [\n                \"option\"\n              ],\n              \"repeat\": {\n                \"exp\": function () {return this.options},\n                \"value\": \"item\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"div\",\n      \"attr\": {},\n      \"classList\": [\n        \"catalogue_list\"\n      ],\n      \"repeat\": {\n        \"exp\": function () {return this.newList},\n        \"value\": \"item\"\n      },\n      \"events\": {\n        \"click\": function (evt) {this.goToRead(this.item,evt)}\n      },\n      \"children\": [\n        {\n          \"type\": \"div\",\n          \"attr\": {},\n          \"classList\": [\n            \"catalogue_left\"\n          ],\n          \"children\": [\n            {\n              \"type\": \"text\",\n              \"attr\": {\n                \"value\": function () {return '' + '第' + (this.item.catalogueNumber) + '章'}\n              },\n              \"classList\": [\n                \"catalogue_catalogueNumber\"\n              ]\n            },\n            {\n              \"type\": \"text\",\n              \"attr\": {\n                \"value\": function () {return this.item.catalogueTitle}\n              },\n              \"classList\": [\n                \"catalogue_catalogueTitle\"\n              ]\n            }\n          ]\n        },\n        {\n          \"type\": \"div\",\n          \"attr\": {},\n          \"classList\": [\n            \"catalogue_right\"\n          ],\n          \"children\": [\n            {\n              \"type\": \"text\",\n              \"attr\": {\n                \"value\": \"免费\"\n              },\n              \"classList\": [\n                \"catalogue_free\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2pzb24tbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci90ZW1wbGF0ZS1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9dGVtcGxhdGUhLi9zcmMvUGFnZV9DYXRhbG9ndWUvY29tcG9uZW50L2NfY2F0YWxvZ3VlX2xpc3QudXg/dXhUeXBlPWNvbXAmLmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2NvbXBvbmVudC9jX2NhdGFsb2d1ZV9saXN0LnV4PzAxYTEiXSwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwidHlwZVwiOiBcImRpdlwiLFxuICBcImF0dHJcIjoge30sXG4gIFwiY2xhc3NMaXN0XCI6IFtcbiAgICBcImNhdGFsb2d1ZV9saXN0X2NvbnRhaW5lclwiXG4gIF0sXG4gIFwiY2hpbGRyZW5cIjogW1xuICAgIHtcbiAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgXCJhdHRyXCI6IHt9LFxuICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICBcImNhdGFsb2d1ZV9oZWFkZXJcIlxuICAgICAgXSxcbiAgICAgIFwiY2hpbGRyZW5cIjogW1xuICAgICAgICB7XG4gICAgICAgICAgXCJ0eXBlXCI6IFwidGV4dFwiLFxuICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICBcInZhbHVlXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gJycgKyAn5YWxJyArICh0aGlzLmNhdGFsb2d1ZS50b3RhbCkgKyAn56ugJ31cbiAgICAgICAgICB9LFxuICAgICAgICAgIFwiY2xhc3NMaXN0XCI6IFtcbiAgICAgICAgICAgIFwiY2F0YWxvZ3VlX3RvdGFsXCJcbiAgICAgICAgICBdXG4gICAgICAgIH0sXG4gICAgICAgIHtcbiAgICAgICAgICBcInR5cGVcIjogXCJzZWxlY3RcIixcbiAgICAgICAgICBcImF0dHJcIjoge1xuICAgICAgICAgICAgXCJpZFwiOiBcInNlbGVjdFwiXG4gICAgICAgICAgfSxcbiAgICAgICAgICBcImlkXCI6IFwic2VsZWN0XCIsXG4gICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgXCJzZWxlY3RcIlxuICAgICAgICAgIF0sXG4gICAgICAgICAgXCJldmVudHNcIjoge1xuICAgICAgICAgICAgXCJjaGFuZ2VcIjogZnVuY3Rpb24gKGV2dCkge3RoaXMuY2hhbmdlVmFsdWUoZXZ0KX1cbiAgICAgICAgICB9LFxuICAgICAgICAgIFwiY2hpbGRyZW5cIjogW1xuICAgICAgICAgICAge1xuICAgICAgICAgICAgICBcInR5cGVcIjogXCJvcHRpb25cIixcbiAgICAgICAgICAgICAgXCJhdHRyXCI6IHtcbiAgICAgICAgICAgICAgICBcInZhbHVlXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5pdGVtLmV2cnl9LFxuICAgICAgICAgICAgICAgIFwiY29udGVudFwiOiBmdW5jdGlvbiAoKSB7cmV0dXJuICcnICsgKHRoaXMuaXRlbS5ldnJ5KSArICcg56ugJ31cbiAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgICAgIFwib3B0aW9uXCJcbiAgICAgICAgICAgICAgXSxcbiAgICAgICAgICAgICAgXCJyZXBlYXRcIjoge1xuICAgICAgICAgICAgICAgIFwiZXhwXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5vcHRpb25zfSxcbiAgICAgICAgICAgICAgICBcInZhbHVlXCI6IFwiaXRlbVwiXG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICBdXG4gICAgICAgIH1cbiAgICAgIF1cbiAgICB9LFxuICAgIHtcbiAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgXCJhdHRyXCI6IHt9LFxuICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICBcImNhdGFsb2d1ZV9saXN0XCJcbiAgICAgIF0sXG4gICAgICBcInJlcGVhdFwiOiB7XG4gICAgICAgIFwiZXhwXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5uZXdMaXN0fSxcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIml0ZW1cIlxuICAgICAgfSxcbiAgICAgIFwiZXZlbnRzXCI6IHtcbiAgICAgICAgXCJjbGlja1wiOiBmdW5jdGlvbiAoZXZ0KSB7dGhpcy5nb1RvUmVhZCh0aGlzLml0ZW0sZXZ0KX1cbiAgICAgIH0sXG4gICAgICBcImNoaWxkcmVuXCI6IFtcbiAgICAgICAge1xuICAgICAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgICAgIFwiYXR0clwiOiB7fSxcbiAgICAgICAgICBcImNsYXNzTGlzdFwiOiBbXG4gICAgICAgICAgICBcImNhdGFsb2d1ZV9sZWZ0XCJcbiAgICAgICAgICBdLFxuICAgICAgICAgIFwiY2hpbGRyZW5cIjogW1xuICAgICAgICAgICAge1xuICAgICAgICAgICAgICBcInR5cGVcIjogXCJ0ZXh0XCIsXG4gICAgICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICAgICAgXCJ2YWx1ZVwiOiBmdW5jdGlvbiAoKSB7cmV0dXJuICcnICsgJ+esrCcgKyAodGhpcy5pdGVtLmNhdGFsb2d1ZU51bWJlcikgKyAn56ugJ31cbiAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgICAgIFwiY2F0YWxvZ3VlX2NhdGFsb2d1ZU51bWJlclwiXG4gICAgICAgICAgICAgIF1cbiAgICAgICAgICAgIH0sXG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgIFwidHlwZVwiOiBcInRleHRcIixcbiAgICAgICAgICAgICAgXCJhdHRyXCI6IHtcbiAgICAgICAgICAgICAgICBcInZhbHVlXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5pdGVtLmNhdGFsb2d1ZVRpdGxlfVxuICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICBcImNsYXNzTGlzdFwiOiBbXG4gICAgICAgICAgICAgICAgXCJjYXRhbG9ndWVfY2F0YWxvZ3VlVGl0bGVcIlxuICAgICAgICAgICAgICBdXG4gICAgICAgICAgICB9XG4gICAgICAgICAgXVxuICAgICAgICB9LFxuICAgICAgICB7XG4gICAgICAgICAgXCJ0eXBlXCI6IFwiZGl2XCIsXG4gICAgICAgICAgXCJhdHRyXCI6IHt9LFxuICAgICAgICAgIFwiY2xhc3NMaXN0XCI6IFtcbiAgICAgICAgICAgIFwiY2F0YWxvZ3VlX3JpZ2h0XCJcbiAgICAgICAgICBdLFxuICAgICAgICAgIFwiY2hpbGRyZW5cIjogW1xuICAgICAgICAgICAge1xuICAgICAgICAgICAgICBcInR5cGVcIjogXCJ0ZXh0XCIsXG4gICAgICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICAgICAgXCJ2YWx1ZVwiOiBcIuWFjei0uVwiXG4gICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgIFwiY2xhc3NMaXN0XCI6IFtcbiAgICAgICAgICAgICAgICBcImNhdGFsb2d1ZV9mcmVlXCJcbiAgICAgICAgICAgICAgXVxuICAgICAgICAgICAgfVxuICAgICAgICAgIF1cbiAgICAgICAgfVxuICAgICAgXVxuICAgIH1cbiAgXVxufSJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/index.ux?uxType=page&importNames[]=catalogue":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/index.ux?uxType=page&importNames[]=catalogue ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = {\n  \"type\": \"div\",\n  \"attr\": {},\n  \"classList\": [\n    \"container\"\n  ],\n  \"children\": [\n    {\n      \"type\": \"catalogue\",\n      \"attr\": {\n        \"catalogue\": function () {return this.catalogueList}\n      }\n    }\n  ]\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2pzb24tbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci90ZW1wbGF0ZS1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9dGVtcGxhdGUhLi9zcmMvUGFnZV9DYXRhbG9ndWUvaW5kZXgudXg/dXhUeXBlPXBhZ2UmaW1wb3J0TmFtZXNbXT1jYXRhbG9ndWUuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvUGFnZV9DYXRhbG9ndWUvaW5kZXgudXg/Mzg5NCJdLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHtcbiAgXCJ0eXBlXCI6IFwiZGl2XCIsXG4gIFwiYXR0clwiOiB7fSxcbiAgXCJjbGFzc0xpc3RcIjogW1xuICAgIFwiY29udGFpbmVyXCJcbiAgXSxcbiAgXCJjaGlsZHJlblwiOiBbXG4gICAge1xuICAgICAgXCJ0eXBlXCI6IFwiY2F0YWxvZ3VlXCIsXG4gICAgICBcImF0dHJcIjoge1xuICAgICAgICBcImNhdGFsb2d1ZVwiOiBmdW5jdGlvbiAoKSB7cmV0dXJuIHRoaXMuY2F0YWxvZ3VlTGlzdH1cbiAgICAgIH1cbiAgICB9XG4gIF1cbn0iXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/index.ux?uxType=page&importNames[]=catalogue\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/access-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/index.ux?uxType=page":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/access-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/index.ux?uxType=page ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function __scriptModule__ (module, exports, $app_require$){module.exports = {\n  data: {\n    catalogueList: {\n      total: 26,\n      list: [{\n        catalogueNumber: 1,\n        catalogueTitle: '机会',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 2,\n        catalogueTitle: '大战',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 3,\n        catalogueTitle: '回家',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 4,\n        catalogueTitle: '显灵',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 5,\n        catalogueTitle: '杀人灭口',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 6,\n        catalogueTitle: '被追杀',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 7,\n        catalogueTitle: '亲情',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 8,\n        catalogueTitle: '爱情',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 9,\n        catalogueTitle: '逆袭',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 10,\n        catalogueTitle: '完美',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 11,\n        catalogueTitle: '落幕',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 12,\n        catalogueTitle: '旅途',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 13,\n        catalogueTitle: '偶遇',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 14,\n        catalogueTitle: '夜幕',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 15,\n        catalogueTitle: '偷听',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 16,\n        catalogueTitle: '形势',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 17,\n        catalogueTitle: '风起云涌',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 18,\n        catalogueTitle: '卷土重来',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 19,\n        catalogueTitle: '奋不顾身',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 20,\n        catalogueTitle: '事与愿违',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 21,\n        catalogueTitle: '失去',\n        catalogueFree: 0\n      }, {\n        catalogueNumber: 22,\n        catalogueTitle: '悲壮',\n        catalogueFree: 1\n      }, {\n        catalogueNumber: 23,\n        catalogueTitle: '不顾一切',\n        catalogueFree: 1\n      }, {\n        catalogueNumber: 24,\n        catalogueTitle: '没死',\n        catalogueFree: 1\n      }, {\n        catalogueNumber: 25,\n        catalogueTitle: '养伤',\n        catalogueFree: 1\n      }, {\n        catalogueNumber: 26,\n        catalogueTitle: '寻找灵源',\n        catalogueFree: 1\n      }]\n    }\n  },\n\n  onInit() {\n    this.$page.setTitleBar({\n      text: '目录',\n      textColor: '##1A1A1A',\n      backgroundColor: 'rgba(242,242,242,0.95)',\n      menu: false\n    });\n  }\n\n};\nconst moduleOwn = exports.default || module.exports;\nconst accessors = ['public', 'protected', 'private'];\n\nif (moduleOwn.data && accessors.some(function (acc) {\n  return moduleOwn[acc];\n})) {\n  throw new Error('页面VM对象中的属性data不可与\"' + accessors.join(',') + '\"同时存在，请使用private替换data名称');\n} else if (!moduleOwn.data) {\n  moduleOwn.data = {};\n  moduleOwn._descriptor = {};\n  accessors.forEach(function (acc) {\n    const accType = typeof moduleOwn[acc];\n\n    if (accType === 'object') {\n      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);\n\n      for (const name in moduleOwn[acc]) {\n        moduleOwn._descriptor[name] = {\n          access: acc\n        };\n      }\n    } else if (accType === 'function') {\n      console.warn('页面VM对象中的属性' + acc + '的值不能是函数，请使用对象');\n    }\n  });\n}}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL3NjcmlwdC1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL21vZHVsZS1sb2FkZXIuanMhLi9ub2RlX21vZHVsZXMvYmFiZWwtbG9hZGVyL2xpYi9pbmRleC5qcz9jd2Q9L1VzZXJzL2tvYWxhL0Rlc2t0b3Av8J+QqC/lv6vlupTnlKgvbXktbWVudS0va29hbGFDYWlwdS9jb20ubWVudS5xdWljayZjYWNoZURpcmVjdG9yeSZwbHVnaW5zW109L0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9iYWJlbC1wbHVnaW4tanN4LmpzJmNvbW1lbnRzPWZhbHNlIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9hY2Nlc3MtbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXNjcmlwdCEuL3NyYy9QYWdlX0NhdGFsb2d1ZS9pbmRleC51eD91eFR5cGU9cGFnZS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9Vc2Vycy9rb2FsYS9EZXNrdG9wL/CfkKgv5b+r5bqU55SoL215LW1lbnUtL2tvYWxhQ2FpcHUvY29tLm1lbnUucXVpY2svc3JjL1BhZ2VfQ2F0YWxvZ3VlL2luZGV4LnV4P2EwYjEiXSwic291cmNlc0NvbnRlbnQiOlsiPGltcG9ydCBuYW1lPVwiY2F0YWxvZ3VlXCIgc3JjPVwiLi9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdFwiPjwvaW1wb3J0PlxuPHRlbXBsYXRlPlxuICA8ZGl2IGNsYXNzPVwiY29udGFpbmVyXCI+XG4gICAgPGNhdGFsb2d1ZSBjYXRhbG9ndWU9XCJ7e2NhdGFsb2d1ZUxpc3R9fVwiPjwvY2F0YWxvZ3VlPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU+XG5cblxuPHN0eWxlPlxuICAuY29udGFpbmVyIHtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICB9XG48L3N0eWxlPlxuXG48c2NyaXB0PlxuXG4gIG1vZHVsZS5leHBvcnRzID0ge1xuICAgIGRhdGE6IHtcbiAgICAgIGNhdGFsb2d1ZUxpc3Q6IHtcbiAgICAgICAgdG90YWw6IDI2LFxuICAgICAgICBsaXN0OiBbXG4gICAgICAgICAge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxLFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfmnLrkvJonLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMixcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5aSn5oiYJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDMsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WbnuWuticsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiA0LFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfmmL7ngbUnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogNSxcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5p2A5Lq654Gt5Y+jJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDYsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+iiq+i/veadgCcsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiA3LFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfkurLmg4UnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogOCxcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn54ix5oOFJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDksXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+mAhuiirScsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxMCxcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5a6M576OJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDExLFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfokL3luZUnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTIsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+aXhemAlCcsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxMyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5YG26YGHJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDE0LFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICflpJzluZUnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTUsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WBt+WQrCcsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxNixcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5b2i5Yq/JyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDE3LFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfpo47otbfkupHmtownLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTgsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WNt+Wcn+mHjeadpScsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxOSxcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5aWL5LiN6aG+6LqrJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDIwLFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfkuovkuI7mhL/ov50nLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMjEsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WkseWOuycsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICAgICAgfSwge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAyMixcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5oKy5aOuJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDFcbiAgICAgICAgICB9LCB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDIzLFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfkuI3pob7kuIDliIcnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMVxuICAgICAgICAgIH0sIHtcbiAgICAgICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMjQsXG4gICAgICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+ayoeatuycsXG4gICAgICAgICAgICBjYXRhbG9ndWVGcmVlOiAxXG4gICAgICAgICAgfSxcbiAgICAgICAgICB7XG4gICAgICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDI1LFxuICAgICAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICflhbvkvKQnLFxuICAgICAgICAgICAgY2F0YWxvZ3VlRnJlZTogMVxuICAgICAgICAgIH0sXG4gICAgICAgICAge1xuICAgICAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAyNixcbiAgICAgICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5a+75om+54G15rqQJyxcbiAgICAgICAgICAgIGNhdGFsb2d1ZUZyZWU6IDFcbiAgICAgICAgICB9LFxuICAgICAgICBdXG4gICAgICB9XG4gICAgfSxcblxuICAgIG9uSW5pdCgpIHtcbiAgICAgIHRoaXMuJHBhZ2Uuc2V0VGl0bGVCYXIoe1xuICAgICAgICAvL3RpdGxlYmFy55qE54q25oCB77yM5ZyobWFuaWZlc3QuanNvbuS4rWRpc3BsYXnorr7nva7nmoRcbiAgICAgICAgdGV4dDogJ+ebruW9lScsXG4gICAgICAgIHRleHRDb2xvcjogJyMjMUExQTFBJyxcbiAgICAgICAgYmFja2dyb3VuZENvbG9yOiAncmdiYSgyNDIsMjQyLDI0MiwwLjk1KScsXG4gICAgICAgIG1lbnU6IGZhbHNlXG4gICAgICB9KTtcbiAgICB9LFxuXG4gIH1cbjwvc2NyaXB0PiJdLCJtYXBwaW5ncyI6IkFBZUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQUtBO0FBQ0E7QUFDQTtBQUhBO0FBS0E7QUFDQTtBQUNBO0FBSEE7QUFLQTtBQUNBO0FBQ0E7QUFIQTtBQU1BO0FBQ0E7QUFDQTtBQUhBO0FBTUE7QUFDQTtBQUNBO0FBSEE7QUF6R0E7QUFEQTtBQUNBO0FBa0hBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUxBO0FBT0E7QUFDQTtBQTdIQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/access-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/index.ux?uxType=page\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module parse failed: 'import' and 'export' may only appear at the top level (2:0)\\nFile was processed with these loaders:\\n * ../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js\\n * ../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js\\n * ./node_modules/babel-loader/lib/index.js\\n * ../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js\\nYou may need an additional loader to handle the result of these loaders.\\n| module.exports = function __scriptModule__ (module, exports, $app_require$){var router = $app_require$('@app-module/system.router');\\n> export default {\\n|   props: ['catalogue'],\\n|   data: {\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL3NjcmlwdC1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL21vZHVsZS1sb2FkZXIuanMhLi9ub2RlX21vZHVsZXMvYmFiZWwtbG9hZGVyL2xpYi9pbmRleC5qcz9jd2Q9L1VzZXJzL2tvYWxhL0Rlc2t0b3Av8J+QqC/lv6vlupTnlKgvbXktbWVudS0va29hbGFDYWlwdS9jb20ubWVudS5xdWljayZjYWNoZURpcmVjdG9yeSZwbHVnaW5zW109L0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9iYWJlbC1wbHVnaW4tanN4LmpzJmNvbW1lbnRzPWZhbHNlIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXNjcmlwdCEuL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD91eFR5cGU9Y29tcC5qcyIsInNvdXJjZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp\n");
+
+/***/ }),
+
+/***/ "../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/ux-loader.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&type=import!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&name=catalogue":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/ux-loader.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&type=import!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&name=catalogue ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(40)
-var $app_template$ = __webpack_require__(44)
-var $app_style$ = __webpack_require__(45)
-var $app_script$ = __webpack_require__(46)
-
-$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){
-     $app_script$($app_module$, $app_exports$, $app_require$)
-     if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = $app_template$
-     $app_module$.exports.style = $app_style$
-})
-
-$app_bootstrap$('@app-component/index',{ packagerName:'fa-toolkit', packagerVersion: '2.1.0-Stable.300'})
+eval("var $app_template$ = __webpack_require__(/*! ../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./c_catalogue_list.ux?uxType=comp& */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&\")\nvar $app_style$ = __webpack_require__(/*! ../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./c_catalogue_list.ux?uxType=comp */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp\")\nvar $app_script$ = __webpack_require__(/*! ../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!../../../node_modules/babel-loader?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./c_catalogue_list.ux?uxType=comp */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp\")\n\n$app_define$('@app-component/catalogue', [], function($app_require$, $app_exports$, $app_module$){\n     $app_script$($app_module$, $app_exports$, $app_require$)\n     if ($app_exports$.__esModule && $app_exports$.default) {\n            $app_module$.exports = $app_exports$.default\n        }\n     $app_module$.exports.template = $app_template$\n     $app_module$.exports.style = $app_style$\n})\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL3V4LWxvYWRlci5qcz9jd2Q9L1VzZXJzL2tvYWxhL0Rlc2t0b3Av8J+QqC/lv6vlupTnlKgvbXktbWVudS0va29hbGFDYWlwdS9jb20ubWVudS5xdWljayZ0eXBlPWltcG9ydCEuL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD91eFR5cGU9Y29tcCZuYW1lPWNhdGFsb2d1ZS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD9hY2Q0Il0sInNvdXJjZXNDb250ZW50IjpbInZhciAkYXBwX3RlbXBsYXRlJCA9IHJlcXVpcmUoXCIhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2pzb24tbG9hZGVyLmpzIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci90ZW1wbGF0ZS1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9dGVtcGxhdGUhLi9jX2NhdGFsb2d1ZV9saXN0LnV4P3V4VHlwZT1jb21wJlwiKVxudmFyICRhcHBfc3R5bGUkID0gcmVxdWlyZShcIiEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvanNvbi1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL3N0eWxlLWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c3R5bGUhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c3R5bGUhLi9jX2NhdGFsb2d1ZV9saXN0LnV4P3V4VHlwZT1jb21wXCIpXG52YXIgJGFwcF9zY3JpcHQkID0gcmVxdWlyZShcIiEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvc2NyaXB0LWxvYWRlci5qcyEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvbW9kdWxlLWxvYWRlci5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvYmFiZWwtbG9hZGVyP2N3ZD0vVXNlcnMva29hbGEvRGVza3RvcC/wn5CoL+W/q+W6lOeUqC9teS1tZW51LS9rb2FsYUNhaXB1L2NvbS5tZW51LnF1aWNrJmNhY2hlRGlyZWN0b3J5JnBsdWdpbnNbXT0vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2JhYmVsLXBsdWdpbi1qc3guanMmY29tbWVudHM9ZmFsc2UhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c2NyaXB0IS4vY19jYXRhbG9ndWVfbGlzdC51eD91eFR5cGU9Y29tcFwiKVxuXG4kYXBwX2RlZmluZSQoJ0BhcHAtY29tcG9uZW50L2NhdGFsb2d1ZScsIFtdLCBmdW5jdGlvbigkYXBwX3JlcXVpcmUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX21vZHVsZSQpe1xuICAgICAkYXBwX3NjcmlwdCQoJGFwcF9tb2R1bGUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX3JlcXVpcmUkKVxuICAgICBpZiAoJGFwcF9leHBvcnRzJC5fX2VzTW9kdWxlICYmICRhcHBfZXhwb3J0cyQuZGVmYXVsdCkge1xuICAgICAgICAgICAgJGFwcF9tb2R1bGUkLmV4cG9ydHMgPSAkYXBwX2V4cG9ydHMkLmRlZmF1bHRcbiAgICAgICAgfVxuICAgICAkYXBwX21vZHVsZSQuZXhwb3J0cy50ZW1wbGF0ZSA9ICRhcHBfdGVtcGxhdGUkXG4gICAgICRhcHBfbW9kdWxlJC5leHBvcnRzLnN0eWxlID0gJGFwcF9zdHlsZSRcbn0pXG4iXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/ux-loader.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&type=import!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&name=catalogue\n");
 
 /***/ }),
 
-/***/ 40:
+/***/ "./src/Page_Catalogue/index.ux?uxType=page":
+/*!*************************************************!*\
+  !*** ./src/Page_Catalogue/index.ux?uxType=page ***!
+  \*************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $app_template$ = __webpack_require__(41)
-var $app_style$ = __webpack_require__(42)
-var $app_script$ = __webpack_require__(43)
-
-$app_define$('@app-component/catalogue', [], function($app_require$, $app_exports$, $app_module$){
-     $app_script$($app_module$, $app_exports$, $app_require$)
-     if ($app_exports$.__esModule && $app_exports$.default) {
-            $app_module$.exports = $app_exports$.default
-        }
-     $app_module$.exports.template = $app_template$
-     $app_module$.exports.style = $app_style$
-})
-
-
-/***/ }),
-
-/***/ 41:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "type": "div",
-  "attr": {},
-  "classList": [
-    "catalogue_list_container"
-  ],
-  "children": [
-    {
-      "type": "div",
-      "attr": {},
-      "classList": [
-        "catalogue_header"
-      ],
-      "children": [
-        {
-          "type": "text",
-          "attr": {
-            "value": function () {return '共'+(this.catalogue.total)+'章'}
-          },
-          "classList": [
-            "catalogue_total"
-          ]
-        },
-        {
-          "type": "select",
-          "attr": {
-            "id": "select"
-          },
-          "id": "select",
-          "classList": [
-            "select"
-          ],
-          "events": {
-            "change": "changeValue"
-          },
-          "children": [
-            {
-              "type": "option",
-              "attr": {
-                "value": function () {return this.item.evry},
-                "content": function () {return (this.item.evry)+' 章'}
-              },
-              "classList": [
-                "option"
-              ],
-              "repeat": {
-                "exp": function () {return this.options},
-                "value": "item"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "div",
-      "attr": {},
-      "classList": [
-        "catalogue_list"
-      ],
-      "repeat": {
-        "exp": function () {return this.newList},
-        "value": "item"
-      },
-      "events": {
-        "click": function(evt){this.goToRead(this.item,evt)}
-      },
-      "children": [
-        {
-          "type": "div",
-          "attr": {},
-          "classList": [
-            "catalogue_left"
-          ],
-          "children": [
-            {
-              "type": "text",
-              "attr": {
-                "value": function () {return '第'+(this.item.catalogueNumber)+'章'}
-              },
-              "classList": [
-                "catalogue_catalogueNumber"
-              ]
-            },
-            {
-              "type": "text",
-              "attr": {
-                "value": function () {return this.item.catalogueTitle}
-              },
-              "classList": [
-                "catalogue_catalogueTitle"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "div",
-          "attr": {},
-          "classList": [
-            "catalogue_right"
-          ],
-          "children": [
-            {
-              "type": "text",
-              "attr": {
-                "value": "免费"
-              },
-              "classList": [
-                "catalogue_free"
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-
-/***/ }),
-
-/***/ 42:
-/***/ (function(module, exports) {
-
-module.exports = {
-  ".catalogue_list_container": {
-    "marginTop": "0px",
-    "marginRight": "33px",
-    "marginBottom": "0px",
-    "marginLeft": "33px",
-    "flexDirection": "column"
-  },
-  ".catalogue_header": {
-    "marginTop": "46px",
-    "justifyContent": "space-between"
-  },
-  ".select": {
-    "width": "200px",
-    "height": "67px",
-    "color": "#1a1a1a",
-    "fontSize": "31.3px"
-  },
-  ".option": {
-    "fontSize": "31.3px",
-    "color": "#1A1A1A",
-    "height": "200px"
-  },
-  ".catalogue_total": {
-    "fontSize": "27.1px",
-    "color": "rgba(0,0,0,0.5)"
-  },
-  ".catalogue_list": {
-    "justifyContent": "space-between",
-    "height": "100px"
-  },
-  ".catalogue_catalogueTitle": {
-    "color": "#000000",
-    "fontSize": "31.3px"
-  },
-  ".catalogue_catalogueNumber": {
-    "marginRight": "15px",
-    "color": "#000000",
-    "fontSize": "31.3px"
-  },
-  ".catalogue_free": {
-    "fontSize": "27.1px",
-    "color": "rgba(0,0,0,0.5)"
-  },
-  ".catalogue_right": {
-    "width": "167px",
-    "borderBottomColor": "rgba(24,34,51,0.2)",
-    "borderBottomWidth": "0.5px",
-    "justifyContent": "flex-end"
-  }
-}
-
-/***/ }),
-
-/***/ 43:
-/***/ (function(module, exports) {
-
-module.exports = function(module, exports, $app_require$){"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _system = _interopRequireDefault($app_require$("@app-module/system.router"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _default = {
-  props: ['catalogue'],
-  data: {
-    itemList: [],
-    options: [],
-    newList: []
-  },
-  onInit: function onInit() {
-    this.separateTotalPage();
-  },
-  separateTotalPage: function separateTotalPage() {
-    var itemList = [];
-    var totalPage = this.catalogue.total;
-    var items = 20;
-    var seperatePageMathCeil = Math.ceil(totalPage / items);
-    var beginNumber = 0,
-        endNumber = 0;
-
-    for (var i = 0; i < seperatePageMathCeil; i++) {
-      var item = {};
-
-      if (i === 0) {
-        beginNumber = 1;
-        item.evry = 1 + "-" + items;
-        itemList.push(item);
-      } else {
-        beginNumber += items;
-        endNumber = beginNumber + items - 1;
-
-        if (i === seperatePageMathCeil - 1) {
-          item.evry = beginNumber + "-" + totalPage;
-        } else {
-          item.evry = beginNumber + "-" + endNumber;
-        }
-
-        itemList.push(item);
-      }
-    }
-
-    this.options = itemList;
-    this.newList = this.catalogue.list;
-  },
-  changeValue: function changeValue(value) {
-    var selectedArr = value.newValue.split('-');
-    var newList = this.catalogue.list.slice(selectedArr[0] - 1, selectedArr[1]);
-    this.newList = newList;
-  },
-  goToRead: function goToRead(item) {
-    _system["default"].push({
-      uri: '/Page_Read',
-      params: {
-        item: item
-      }
-    });
-  }
-};
-exports["default"] = _default;
-var moduleOwn = exports.default || module.exports;
-var accessors = ['public', 'protected', 'private'];
-if (moduleOwn.data && accessors.some(function (acc) {
-    return moduleOwn[acc];
-  })) {
-  throw new Error('For VM objects, attribute data must not coexist with public, protected, or private. Please replace data with public.');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function(acc) {
-    var accType = typeof moduleOwn[acc];
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {access : acc};
-      }
-    } else if (accType === 'function') {
-      console.warn('For VM objects, attribute ' + acc + ' value must not be a function. Change the value to an object.');
-    }
-  });
-}}
-
-/***/ }),
-
-/***/ 44:
-/***/ (function(module, exports) {
-
-module.exports = {
-  "type": "div",
-  "attr": {},
-  "classList": [
-    "container"
-  ],
-  "children": [
-    {
-      "type": "catalogue",
-      "attr": {
-        "catalogue": function () {return this.catalogueList}
-      }
-    }
-  ]
-}
-
-/***/ }),
-
-/***/ 45:
-/***/ (function(module, exports) {
-
-module.exports = {
-  ".container": {
-    "flexDirection": "column"
-  }
-}
-
-/***/ }),
-
-/***/ 46:
-/***/ (function(module, exports) {
-
-module.exports = function(module, exports, $app_require$){"use strict";
-
-module.exports = {
-  data: {
-    catalogueList: {
-      total: 26,
-      list: [{
-        catalogueNumber: 1,
-        catalogueTitle: '机会',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 2,
-        catalogueTitle: '大战',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 3,
-        catalogueTitle: '回家',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 4,
-        catalogueTitle: '显灵',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 5,
-        catalogueTitle: '杀人灭口',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 6,
-        catalogueTitle: '被追杀',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 7,
-        catalogueTitle: '亲情',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 8,
-        catalogueTitle: '爱情',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 9,
-        catalogueTitle: '逆袭',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 10,
-        catalogueTitle: '完美',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 11,
-        catalogueTitle: '落幕',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 12,
-        catalogueTitle: '旅途',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 13,
-        catalogueTitle: '偶遇',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 14,
-        catalogueTitle: '夜幕',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 15,
-        catalogueTitle: '偷听',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 16,
-        catalogueTitle: '形势',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 17,
-        catalogueTitle: '风起云涌',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 18,
-        catalogueTitle: '卷土重来',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 19,
-        catalogueTitle: '奋不顾身',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 20,
-        catalogueTitle: '事与愿违',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 21,
-        catalogueTitle: '失去',
-        catalogueFree: 0
-      }, {
-        catalogueNumber: 22,
-        catalogueTitle: '悲壮',
-        catalogueFree: 1
-      }, {
-        catalogueNumber: 23,
-        catalogueTitle: '不顾一切',
-        catalogueFree: 1
-      }, {
-        catalogueNumber: 24,
-        catalogueTitle: '没死',
-        catalogueFree: 1
-      }, {
-        catalogueNumber: 25,
-        catalogueTitle: '养伤',
-        catalogueFree: 1
-      }, {
-        catalogueNumber: 26,
-        catalogueTitle: '寻找灵源',
-        catalogueFree: 1
-      }]
-    }
-  },
-  onInit: function onInit() {
-    this.$page.setTitleBar({
-      text: '目录',
-      textColor: '##1A1A1A',
-      backgroundColor: 'rgba(242,242,242,0.95)',
-      menu: false
-    });
-  }
-};
-var moduleOwn = exports.default || module.exports;
-var accessors = ['public', 'protected', 'private'];
-if (moduleOwn.data && accessors.some(function (acc) {
-    return moduleOwn[acc];
-  })) {
-  throw new Error('For VM objects, attribute data must not coexist with public, protected, or private. Please replace data with public.');
-} else if (!moduleOwn.data) {
-  moduleOwn.data = {};
-  moduleOwn._descriptor = {};
-  accessors.forEach(function(acc) {
-    var accType = typeof moduleOwn[acc];
-    if (accType === 'object') {
-      moduleOwn.data = Object.assign(moduleOwn.data, moduleOwn[acc]);
-      for (var name in moduleOwn[acc]) {
-        moduleOwn._descriptor[name] = {access : acc};
-      }
-    } else if (accType === 'function') {
-      console.warn('For VM objects, attribute ' + acc + ' value must not be a function. Change the value to an object.');
-    }
-  });
-}}
+eval("__webpack_require__(/*! ../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/ux-loader.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&type=import!./component/c_catalogue_list.ux?uxType=comp&name=catalogue */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/ux-loader.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&type=import!./src/Page_Catalogue/component/c_catalogue_list.ux?uxType=comp&name=catalogue\")\nvar $app_template$ = __webpack_require__(/*! ../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./index.ux?uxType=page&importNames[]=catalogue */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/template-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=template!./src/Page_Catalogue/index.ux?uxType=page&importNames[]=catalogue\")\nvar $app_style$ = __webpack_require__(/*! ../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./index.ux?uxType=page */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/json-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/style-loader.js?index=0&type=style!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=style!./src/Page_Catalogue/index.ux?uxType=page\")\nvar $app_script$ = __webpack_require__(/*! ../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!../../node_modules/babel-loader?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/access-loader.js!../../../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./index.ux?uxType=page */ \"../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/script-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/module-loader.js!./node_modules/babel-loader/lib/index.js?cwd=/Users/koala/Desktop/🐨/快应用/my-menu-/koalaCaipu/com.menu.quick&cacheDirectory&plugins[]=/Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/babel-plugin-jsx.js&comments=false!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/access-loader.js!../../../../../../../../Applications/快应用开发工具.app/Contents/Resources/app/extensions/hap-debugger/node_modules.asar/@hap-toolkit/dsl-xvm/lib/loader/fragment-loader.js?index=0&type=script!./src/Page_Catalogue/index.ux?uxType=page\")\n\n$app_define$('@app-component/index', [], function($app_require$, $app_exports$, $app_module$){\n     $app_script$($app_module$, $app_exports$, $app_require$)\n     if ($app_exports$.__esModule && $app_exports$.default) {\n            $app_module$.exports = $app_exports$.default\n        }\n     $app_module$.exports.template = $app_template$\n     $app_module$.exports.style = $app_style$\n})\n\n$app_bootstrap$('@app-component/index',{ packagerVersion: '0.6.6'})\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvUGFnZV9DYXRhbG9ndWUvaW5kZXgudXg/dXhUeXBlPXBhZ2UuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvUGFnZV9DYXRhbG9ndWUvaW5kZXgudXg/MzRjZSJdLCJzb3VyY2VzQ29udGVudCI6WyJyZXF1aXJlKFwiIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci91eC1sb2FkZXIuanM/Y3dkPS9Vc2Vycy9rb2FsYS9EZXNrdG9wL/CfkKgv5b+r5bqU55SoL215LW1lbnUtL2tvYWxhQ2FpcHUvY29tLm1lbnUucXVpY2smdHlwZT1pbXBvcnQhLi9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD91eFR5cGU9Y29tcCZuYW1lPWNhdGFsb2d1ZVwiKVxudmFyICRhcHBfdGVtcGxhdGUkID0gcmVxdWlyZShcIiEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvanNvbi1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL3RlbXBsYXRlLWxvYWRlci5qcyEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvZnJhZ21lbnQtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT10ZW1wbGF0ZSEuL2luZGV4LnV4P3V4VHlwZT1wYWdlJmltcG9ydE5hbWVzW109Y2F0YWxvZ3VlXCIpXG52YXIgJGFwcF9zdHlsZSQgPSByZXF1aXJlKFwiIS4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL0FwcGxpY2F0aW9ucy/lv6vlupTnlKjlvIDlj5Hlt6XlhbcuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9hcHAvZXh0ZW5zaW9ucy9oYXAtZGVidWdnZXIvbm9kZV9tb2R1bGVzLmFzYXIvQGhhcC10b29sa2l0L2RzbC14dm0vbGliL2xvYWRlci9qc29uLWxvYWRlci5qcyEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvc3R5bGUtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT1zdHlsZSEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvZnJhZ21lbnQtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT1zdHlsZSEuL2luZGV4LnV4P3V4VHlwZT1wYWdlXCIpXG52YXIgJGFwcF9zY3JpcHQkID0gcmVxdWlyZShcIiEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvc2NyaXB0LWxvYWRlci5qcyEuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9BcHBsaWNhdGlvbnMv5b+r5bqU55So5byA5Y+R5bel5YW3LmFwcC9Db250ZW50cy9SZXNvdXJjZXMvYXBwL2V4dGVuc2lvbnMvaGFwLWRlYnVnZ2VyL25vZGVfbW9kdWxlcy5hc2FyL0BoYXAtdG9vbGtpdC9kc2wteHZtL2xpYi9sb2FkZXIvbW9kdWxlLWxvYWRlci5qcyEuLi8uLi9ub2RlX21vZHVsZXMvYmFiZWwtbG9hZGVyP2N3ZD0vVXNlcnMva29hbGEvRGVza3RvcC/wn5CoL+W/q+W6lOeUqC9teS1tZW51LS9rb2FsYUNhaXB1L2NvbS5tZW51LnF1aWNrJmNhY2hlRGlyZWN0b3J5JnBsdWdpbnNbXT0vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2JhYmVsLXBsdWdpbi1qc3guanMmY29tbWVudHM9ZmFsc2UhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2FjY2Vzcy1sb2FkZXIuanMhLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vQXBwbGljYXRpb25zL+W/q+W6lOeUqOW8gOWPkeW3peWFty5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2FwcC9leHRlbnNpb25zL2hhcC1kZWJ1Z2dlci9ub2RlX21vZHVsZXMuYXNhci9AaGFwLXRvb2xraXQvZHNsLXh2bS9saWIvbG9hZGVyL2ZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c2NyaXB0IS4vaW5kZXgudXg/dXhUeXBlPXBhZ2VcIilcblxuJGFwcF9kZWZpbmUkKCdAYXBwLWNvbXBvbmVudC9pbmRleCcsIFtdLCBmdW5jdGlvbigkYXBwX3JlcXVpcmUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX21vZHVsZSQpe1xuICAgICAkYXBwX3NjcmlwdCQoJGFwcF9tb2R1bGUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX3JlcXVpcmUkKVxuICAgICBpZiAoJGFwcF9leHBvcnRzJC5fX2VzTW9kdWxlICYmICRhcHBfZXhwb3J0cyQuZGVmYXVsdCkge1xuICAgICAgICAgICAgJGFwcF9tb2R1bGUkLmV4cG9ydHMgPSAkYXBwX2V4cG9ydHMkLmRlZmF1bHRcbiAgICAgICAgfVxuICAgICAkYXBwX21vZHVsZSQuZXhwb3J0cy50ZW1wbGF0ZSA9ICRhcHBfdGVtcGxhdGUkXG4gICAgICRhcHBfbW9kdWxlJC5leHBvcnRzLnN0eWxlID0gJGFwcF9zdHlsZSRcbn0pXG5cbiRhcHBfYm9vdHN0cmFwJCgnQGFwcC1jb21wb25lbnQvaW5kZXgnLHsgcGFja2FnZXJWZXJzaW9uOiAnMC42LjYnfSlcbiJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/Page_Catalogue/index.ux?uxType=page\n");
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYnVpbGRcXFBhZ2VfQ2F0YWxvZ3VlXFxpbmRleC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy93ZWJwYWNrL2Jvb3RzdHJhcCIsIndlYnBhY2s6Ly8vLi9zcmMvUGFnZV9DYXRhbG9ndWUvaW5kZXgudXgiLCJ3ZWJwYWNrOi8vLy4vc3JjL1BhZ2VfQ2F0YWxvZ3VlL2NvbXBvbmVudC9jX2NhdGFsb2d1ZV9saXN0LnV4Iiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD84NzZjIiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD8wZjRhIiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9jb21wb25lbnQvY19jYXRhbG9ndWVfbGlzdC51eD8xMzI3Iiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9pbmRleC51eD8yOWM3Iiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9pbmRleC51eD81YTEzIiwid2VicGFjazovLy8uL3NyYy9QYWdlX0NhdGFsb2d1ZS9pbmRleC51eD84MzNmIl0sInNvdXJjZXNDb250ZW50IjpbIiBcdC8vIFRoZSBtb2R1bGUgY2FjaGVcbiBcdHZhciBpbnN0YWxsZWRNb2R1bGVzID0ge307XG5cbiBcdC8vIFRoZSByZXF1aXJlIGZ1bmN0aW9uXG4gXHRmdW5jdGlvbiBfX3dlYnBhY2tfcmVxdWlyZV9fKG1vZHVsZUlkKSB7XG5cbiBcdFx0Ly8gQ2hlY2sgaWYgbW9kdWxlIGlzIGluIGNhY2hlXG4gXHRcdGlmKGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdKSB7XG4gXHRcdFx0cmV0dXJuIGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdLmV4cG9ydHM7XG4gXHRcdH1cbiBcdFx0Ly8gQ3JlYXRlIGEgbmV3IG1vZHVsZSAoYW5kIHB1dCBpdCBpbnRvIHRoZSBjYWNoZSlcbiBcdFx0dmFyIG1vZHVsZSA9IGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdID0ge1xuIFx0XHRcdGk6IG1vZHVsZUlkLFxuIFx0XHRcdGw6IGZhbHNlLFxuIFx0XHRcdGV4cG9ydHM6IHt9XG4gXHRcdH07XG5cbiBcdFx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG4gXHRcdG1vZHVsZXNbbW9kdWxlSWRdLmNhbGwobW9kdWxlLmV4cG9ydHMsIG1vZHVsZSwgbW9kdWxlLmV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pO1xuXG4gXHRcdC8vIEZsYWcgdGhlIG1vZHVsZSBhcyBsb2FkZWRcbiBcdFx0bW9kdWxlLmwgPSB0cnVlO1xuXG4gXHRcdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG4gXHRcdHJldHVybiBtb2R1bGUuZXhwb3J0cztcbiBcdH1cblxuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZXMgb2JqZWN0IChfX3dlYnBhY2tfbW9kdWxlc19fKVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5tID0gbW9kdWxlcztcblxuIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGUgY2FjaGVcbiBcdF9fd2VicGFja19yZXF1aXJlX18uYyA9IGluc3RhbGxlZE1vZHVsZXM7XG5cbiBcdC8vIGRlZmluZSBnZXR0ZXIgZnVuY3Rpb24gZm9yIGhhcm1vbnkgZXhwb3J0c1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5kID0gZnVuY3Rpb24oZXhwb3J0cywgbmFtZSwgZ2V0dGVyKSB7XG4gXHRcdGlmKCFfX3dlYnBhY2tfcmVxdWlyZV9fLm8oZXhwb3J0cywgbmFtZSkpIHtcbiBcdFx0XHRPYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgbmFtZSwgeyBlbnVtZXJhYmxlOiB0cnVlLCBnZXQ6IGdldHRlciB9KTtcbiBcdFx0fVxuIFx0fTtcblxuIFx0Ly8gZGVmaW5lIF9fZXNNb2R1bGUgb24gZXhwb3J0c1xuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5yID0gZnVuY3Rpb24oZXhwb3J0cykge1xuIFx0XHRpZih0eXBlb2YgU3ltYm9sICE9PSAndW5kZWZpbmVkJyAmJiBTeW1ib2wudG9TdHJpbmdUYWcpIHtcbiBcdFx0XHRPYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgU3ltYm9sLnRvU3RyaW5nVGFnLCB7IHZhbHVlOiAnTW9kdWxlJyB9KTtcbiBcdFx0fVxuIFx0XHRPYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgJ19fZXNNb2R1bGUnLCB7IHZhbHVlOiB0cnVlIH0pO1xuIFx0fTtcblxuIFx0Ly8gY3JlYXRlIGEgZmFrZSBuYW1lc3BhY2Ugb2JqZWN0XG4gXHQvLyBtb2RlICYgMTogdmFsdWUgaXMgYSBtb2R1bGUgaWQsIHJlcXVpcmUgaXRcbiBcdC8vIG1vZGUgJiAyOiBtZXJnZSBhbGwgcHJvcGVydGllcyBvZiB2YWx1ZSBpbnRvIHRoZSBuc1xuIFx0Ly8gbW9kZSAmIDQ6IHJldHVybiB2YWx1ZSB3aGVuIGFscmVhZHkgbnMgb2JqZWN0XG4gXHQvLyBtb2RlICYgOHwxOiBiZWhhdmUgbGlrZSByZXF1aXJlXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnQgPSBmdW5jdGlvbih2YWx1ZSwgbW9kZSkge1xuIFx0XHRpZihtb2RlICYgMSkgdmFsdWUgPSBfX3dlYnBhY2tfcmVxdWlyZV9fKHZhbHVlKTtcbiBcdFx0aWYobW9kZSAmIDgpIHJldHVybiB2YWx1ZTtcbiBcdFx0aWYoKG1vZGUgJiA0KSAmJiB0eXBlb2YgdmFsdWUgPT09ICdvYmplY3QnICYmIHZhbHVlICYmIHZhbHVlLl9fZXNNb2R1bGUpIHJldHVybiB2YWx1ZTtcbiBcdFx0dmFyIG5zID0gT2JqZWN0LmNyZWF0ZShudWxsKTtcbiBcdFx0X193ZWJwYWNrX3JlcXVpcmVfXy5yKG5zKTtcbiBcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KG5zLCAnZGVmYXVsdCcsIHsgZW51bWVyYWJsZTogdHJ1ZSwgdmFsdWU6IHZhbHVlIH0pO1xuIFx0XHRpZihtb2RlICYgMiAmJiB0eXBlb2YgdmFsdWUgIT0gJ3N0cmluZycpIGZvcih2YXIga2V5IGluIHZhbHVlKSBfX3dlYnBhY2tfcmVxdWlyZV9fLmQobnMsIGtleSwgZnVuY3Rpb24oa2V5KSB7IHJldHVybiB2YWx1ZVtrZXldOyB9LmJpbmQobnVsbCwga2V5KSk7XG4gXHRcdHJldHVybiBucztcbiBcdH07XG5cbiBcdC8vIGdldERlZmF1bHRFeHBvcnQgZnVuY3Rpb24gZm9yIGNvbXBhdGliaWxpdHkgd2l0aCBub24taGFybW9ueSBtb2R1bGVzXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLm4gPSBmdW5jdGlvbihtb2R1bGUpIHtcbiBcdFx0dmFyIGdldHRlciA9IG1vZHVsZSAmJiBtb2R1bGUuX19lc01vZHVsZSA/XG4gXHRcdFx0ZnVuY3Rpb24gZ2V0RGVmYXVsdCgpIHsgcmV0dXJuIG1vZHVsZVsnZGVmYXVsdCddOyB9IDpcbiBcdFx0XHRmdW5jdGlvbiBnZXRNb2R1bGVFeHBvcnRzKCkgeyByZXR1cm4gbW9kdWxlOyB9O1xuIFx0XHRfX3dlYnBhY2tfcmVxdWlyZV9fLmQoZ2V0dGVyLCAnYScsIGdldHRlcik7XG4gXHRcdHJldHVybiBnZXR0ZXI7XG4gXHR9O1xuXG4gXHQvLyBPYmplY3QucHJvdG90eXBlLmhhc093blByb3BlcnR5LmNhbGxcbiBcdF9fd2VicGFja19yZXF1aXJlX18ubyA9IGZ1bmN0aW9uKG9iamVjdCwgcHJvcGVydHkpIHsgcmV0dXJuIE9iamVjdC5wcm90b3R5cGUuaGFzT3duUHJvcGVydHkuY2FsbChvYmplY3QsIHByb3BlcnR5KTsgfTtcblxuIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbiBcdF9fd2VicGFja19yZXF1aXJlX18ucCA9IFwiXCI7XG5cblxuIFx0Ly8gTG9hZCBlbnRyeSBtb2R1bGUgYW5kIHJldHVybiBleHBvcnRzXG4gXHRyZXR1cm4gX193ZWJwYWNrX3JlcXVpcmVfXyhfX3dlYnBhY2tfcmVxdWlyZV9fLnMgPSAzOSk7XG4iLCJyZXF1aXJlKFwiISEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvbG9hZGVyLmpzP3R5cGU9Y29tcG9uZW50IS4vY29tcG9uZW50L2NfY2F0YWxvZ3VlX2xpc3QudXg/bmFtZT1jYXRhbG9ndWVcIilcbnZhciAkYXBwX3RlbXBsYXRlJCA9IHJlcXVpcmUoXCIhIS4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1qc29uLWxvYWRlci5qcyEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtdGVtcGxhdGUtbG9hZGVyLmpzIS4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXRlbXBsYXRlcyEuL2luZGV4LnV4XCIpXG52YXIgJGFwcF9zdHlsZSQgPSByZXF1aXJlKFwiISEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtanNvbi1sb2FkZXIuanMhLi4vLi4vbm9kZV9tb2R1bGVzL2ZhLXRvb2xraXQvbGliL2ZhLXN0eWxlLWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c3R5bGVzJnJlc291cmNlUGF0aD1lOlxcXFxxdWlja2FwcFxcXFxrb2FsYUNhaXB1XFxcXGNvbS5tZW51LnF1aWNrXFxcXHNyY1xcXFxQYWdlX0NhdGFsb2d1ZVxcXFxpbmRleC51eCEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtZnJhZ21lbnQtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT1zdHlsZXMmcmVzb3VyY2VQYXRoPWU6XFxcXHF1aWNrYXBwXFxcXGtvYWxhQ2FpcHVcXFxcY29tLm1lbnUucXVpY2tcXFxcc3JjXFxcXFBhZ2VfQ2F0YWxvZ3VlXFxcXGluZGV4LnV4IS4vaW5kZXgudXhcIilcbnZhciAkYXBwX3NjcmlwdCQgPSByZXF1aXJlKFwiISEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtc2NyaXB0LWxvYWRlci5qcyEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtYWNjZXNzLWxvYWRlci5qcyEuLi8uLi9ub2RlX21vZHVsZXMvYmFiZWwtbG9hZGVyP3ByZXNldHNbXT1lOlxcXFxxdWlja2FwcFxcXFxrb2FsYUNhaXB1XFxcXGNvbS5tZW51LnF1aWNrXFxcXG5vZGVfbW9kdWxlc1xcXFxAYmFiZWxcXFxccHJlc2V0LWVudiZwbHVnaW5zW109ZTpcXFxccXVpY2thcHBcXFxca29hbGFDYWlwdVxcXFxjb20ubWVudS5xdWlja1xcXFxub2RlX21vZHVsZXNcXFxcQGJhYmVsXFxcXHBsdWdpbi10cmFuc2Zvcm0tbW9kdWxlcy1jb21tb25qcyZwbHVnaW5zW109ZTpcXFxccXVpY2thcHBcXFxca29hbGFDYWlwdVxcXFxjb20ubWVudS5xdWlja1xcXFxub2RlX21vZHVsZXNcXFxcZmEtdG9vbGtpdFxcXFxsaWJcXFxcanN4LWxvYWRlci5qcyZjb21tZW50cz1mYWxzZSEuLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtZnJhZ21lbnQtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT1zY3JpcHRzIS4vaW5kZXgudXhcIilcblxuJGFwcF9kZWZpbmUkKCdAYXBwLWNvbXBvbmVudC9pbmRleCcsIFtdLCBmdW5jdGlvbigkYXBwX3JlcXVpcmUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX21vZHVsZSQpe1xuICAgICAkYXBwX3NjcmlwdCQoJGFwcF9tb2R1bGUkLCAkYXBwX2V4cG9ydHMkLCAkYXBwX3JlcXVpcmUkKVxuICAgICBpZiAoJGFwcF9leHBvcnRzJC5fX2VzTW9kdWxlICYmICRhcHBfZXhwb3J0cyQuZGVmYXVsdCkge1xuICAgICAgICAgICAgJGFwcF9tb2R1bGUkLmV4cG9ydHMgPSAkYXBwX2V4cG9ydHMkLmRlZmF1bHRcbiAgICAgICAgfVxuICAgICAkYXBwX21vZHVsZSQuZXhwb3J0cy50ZW1wbGF0ZSA9ICRhcHBfdGVtcGxhdGUkXG4gICAgICRhcHBfbW9kdWxlJC5leHBvcnRzLnN0eWxlID0gJGFwcF9zdHlsZSRcbn0pXG5cbiRhcHBfYm9vdHN0cmFwJCgnQGFwcC1jb21wb25lbnQvaW5kZXgnLHsgcGFja2FnZXJOYW1lOidmYS10b29sa2l0JywgcGFja2FnZXJWZXJzaW9uOiAnMi4xLjAtU3RhYmxlLjMwMCd9KSIsInZhciAkYXBwX3RlbXBsYXRlJCA9IHJlcXVpcmUoXCIhIS4uLy4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1qc29uLWxvYWRlci5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtdGVtcGxhdGUtbG9hZGVyLmpzIS4uLy4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXRlbXBsYXRlcyEuL2NfY2F0YWxvZ3VlX2xpc3QudXhcIilcbnZhciAkYXBwX3N0eWxlJCA9IHJlcXVpcmUoXCIhIS4uLy4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1qc29uLWxvYWRlci5qcyEuLi8uLi8uLi9ub2RlX21vZHVsZXMvZmEtdG9vbGtpdC9saWIvZmEtc3R5bGUtbG9hZGVyLmpzP2luZGV4PTAmdHlwZT1zdHlsZXMmcmVzb3VyY2VQYXRoPWU6XFxcXHF1aWNrYXBwXFxcXGtvYWxhQ2FpcHVcXFxcY29tLm1lbnUucXVpY2tcXFxcc3JjXFxcXFBhZ2VfQ2F0YWxvZ3VlXFxcXGNvbXBvbmVudFxcXFxjX2NhdGFsb2d1ZV9saXN0LnV4IS4uLy4uLy4uL25vZGVfbW9kdWxlcy9mYS10b29sa2l0L2xpYi9mYS1mcmFnbWVudC1sb2FkZXIuanM/aW5kZXg9MCZ0eXBlPXN0eWxlcyZyZXNvdXJjZVBhdGg9ZTpcXFxccXVpY2thcHBcXFxca29hbGFDYWlwdVxcXFxjb20ubWVudS5xdWlja1xcXFxzcmNcXFxcUGFnZV9DYXRhbG9ndWVcXFxcY29tcG9uZW50XFxcXGNfY2F0YWxvZ3VlX2xpc3QudXghLi9jX2NhdGFsb2d1ZV9saXN0LnV4XCIpXG52YXIgJGFwcF9zY3JpcHQkID0gcmVxdWlyZShcIiEhLi4vLi4vLi4vbm9kZV9tb2R1bGVzL2ZhLXRvb2xraXQvbGliL2ZhLXNjcmlwdC1sb2FkZXIuanMhLi4vLi4vLi4vbm9kZV9tb2R1bGVzL2ZhLXRvb2xraXQvbGliL2ZhLWFjY2Vzcy1sb2FkZXIuanMhLi4vLi4vLi4vbm9kZV9tb2R1bGVzL2JhYmVsLWxvYWRlcj9wcmVzZXRzW109ZTpcXFxccXVpY2thcHBcXFxca29hbGFDYWlwdVxcXFxjb20ubWVudS5xdWlja1xcXFxub2RlX21vZHVsZXNcXFxcQGJhYmVsXFxcXHByZXNldC1lbnYmcGx1Z2luc1tdPWU6XFxcXHF1aWNrYXBwXFxcXGtvYWxhQ2FpcHVcXFxcY29tLm1lbnUucXVpY2tcXFxcbm9kZV9tb2R1bGVzXFxcXEBiYWJlbFxcXFxwbHVnaW4tdHJhbnNmb3JtLW1vZHVsZXMtY29tbW9uanMmcGx1Z2luc1tdPWU6XFxcXHF1aWNrYXBwXFxcXGtvYWxhQ2FpcHVcXFxcY29tLm1lbnUucXVpY2tcXFxcbm9kZV9tb2R1bGVzXFxcXGZhLXRvb2xraXRcXFxcbGliXFxcXGpzeC1sb2FkZXIuanMmY29tbWVudHM9ZmFsc2UhLi4vLi4vLi4vbm9kZV9tb2R1bGVzL2ZhLXRvb2xraXQvbGliL2ZhLWZyYWdtZW50LWxvYWRlci5qcz9pbmRleD0wJnR5cGU9c2NyaXB0cyEuL2NfY2F0YWxvZ3VlX2xpc3QudXhcIilcblxuJGFwcF9kZWZpbmUkKCdAYXBwLWNvbXBvbmVudC9jYXRhbG9ndWUnLCBbXSwgZnVuY3Rpb24oJGFwcF9yZXF1aXJlJCwgJGFwcF9leHBvcnRzJCwgJGFwcF9tb2R1bGUkKXtcbiAgICAgJGFwcF9zY3JpcHQkKCRhcHBfbW9kdWxlJCwgJGFwcF9leHBvcnRzJCwgJGFwcF9yZXF1aXJlJClcbiAgICAgaWYgKCRhcHBfZXhwb3J0cyQuX19lc01vZHVsZSAmJiAkYXBwX2V4cG9ydHMkLmRlZmF1bHQpIHtcbiAgICAgICAgICAgICRhcHBfbW9kdWxlJC5leHBvcnRzID0gJGFwcF9leHBvcnRzJC5kZWZhdWx0XG4gICAgICAgIH1cbiAgICAgJGFwcF9tb2R1bGUkLmV4cG9ydHMudGVtcGxhdGUgPSAkYXBwX3RlbXBsYXRlJFxuICAgICAkYXBwX21vZHVsZSQuZXhwb3J0cy5zdHlsZSA9ICRhcHBfc3R5bGUkXG59KVxuIiwibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwidHlwZVwiOiBcImRpdlwiLFxuICBcImF0dHJcIjoge30sXG4gIFwiY2xhc3NMaXN0XCI6IFtcbiAgICBcImNhdGFsb2d1ZV9saXN0X2NvbnRhaW5lclwiXG4gIF0sXG4gIFwiY2hpbGRyZW5cIjogW1xuICAgIHtcbiAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgXCJhdHRyXCI6IHt9LFxuICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICBcImNhdGFsb2d1ZV9oZWFkZXJcIlxuICAgICAgXSxcbiAgICAgIFwiY2hpbGRyZW5cIjogW1xuICAgICAgICB7XG4gICAgICAgICAgXCJ0eXBlXCI6IFwidGV4dFwiLFxuICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICBcInZhbHVlXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gJ+WFsScrKHRoaXMuY2F0YWxvZ3VlLnRvdGFsKSsn56ugJ31cbiAgICAgICAgICB9LFxuICAgICAgICAgIFwiY2xhc3NMaXN0XCI6IFtcbiAgICAgICAgICAgIFwiY2F0YWxvZ3VlX3RvdGFsXCJcbiAgICAgICAgICBdXG4gICAgICAgIH0sXG4gICAgICAgIHtcbiAgICAgICAgICBcInR5cGVcIjogXCJzZWxlY3RcIixcbiAgICAgICAgICBcImF0dHJcIjoge1xuICAgICAgICAgICAgXCJpZFwiOiBcInNlbGVjdFwiXG4gICAgICAgICAgfSxcbiAgICAgICAgICBcImlkXCI6IFwic2VsZWN0XCIsXG4gICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgXCJzZWxlY3RcIlxuICAgICAgICAgIF0sXG4gICAgICAgICAgXCJldmVudHNcIjoge1xuICAgICAgICAgICAgXCJjaGFuZ2VcIjogXCJjaGFuZ2VWYWx1ZVwiXG4gICAgICAgICAgfSxcbiAgICAgICAgICBcImNoaWxkcmVuXCI6IFtcbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgXCJ0eXBlXCI6IFwib3B0aW9uXCIsXG4gICAgICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICAgICAgXCJ2YWx1ZVwiOiBmdW5jdGlvbiAoKSB7cmV0dXJuIHRoaXMuaXRlbS5ldnJ5fSxcbiAgICAgICAgICAgICAgICBcImNvbnRlbnRcIjogZnVuY3Rpb24gKCkge3JldHVybiAodGhpcy5pdGVtLmV2cnkpKycg56ugJ31cbiAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgICAgIFwib3B0aW9uXCJcbiAgICAgICAgICAgICAgXSxcbiAgICAgICAgICAgICAgXCJyZXBlYXRcIjoge1xuICAgICAgICAgICAgICAgIFwiZXhwXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5vcHRpb25zfSxcbiAgICAgICAgICAgICAgICBcInZhbHVlXCI6IFwiaXRlbVwiXG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICBdXG4gICAgICAgIH1cbiAgICAgIF1cbiAgICB9LFxuICAgIHtcbiAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgXCJhdHRyXCI6IHt9LFxuICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICBcImNhdGFsb2d1ZV9saXN0XCJcbiAgICAgIF0sXG4gICAgICBcInJlcGVhdFwiOiB7XG4gICAgICAgIFwiZXhwXCI6IGZ1bmN0aW9uICgpIHtyZXR1cm4gdGhpcy5uZXdMaXN0fSxcbiAgICAgICAgXCJ2YWx1ZVwiOiBcIml0ZW1cIlxuICAgICAgfSxcbiAgICAgIFwiZXZlbnRzXCI6IHtcbiAgICAgICAgXCJjbGlja1wiOiBmdW5jdGlvbihldnQpe3RoaXMuZ29Ub1JlYWQodGhpcy5pdGVtLGV2dCl9XG4gICAgICB9LFxuICAgICAgXCJjaGlsZHJlblwiOiBbXG4gICAgICAgIHtcbiAgICAgICAgICBcInR5cGVcIjogXCJkaXZcIixcbiAgICAgICAgICBcImF0dHJcIjoge30sXG4gICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgXCJjYXRhbG9ndWVfbGVmdFwiXG4gICAgICAgICAgXSxcbiAgICAgICAgICBcImNoaWxkcmVuXCI6IFtcbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgXCJ0eXBlXCI6IFwidGV4dFwiLFxuICAgICAgICAgICAgICBcImF0dHJcIjoge1xuICAgICAgICAgICAgICAgIFwidmFsdWVcIjogZnVuY3Rpb24gKCkge3JldHVybiAn56ysJysodGhpcy5pdGVtLmNhdGFsb2d1ZU51bWJlcikrJ+eroCd9XG4gICAgICAgICAgICAgIH0sXG4gICAgICAgICAgICAgIFwiY2xhc3NMaXN0XCI6IFtcbiAgICAgICAgICAgICAgICBcImNhdGFsb2d1ZV9jYXRhbG9ndWVOdW1iZXJcIlxuICAgICAgICAgICAgICBdXG4gICAgICAgICAgICB9LFxuICAgICAgICAgICAge1xuICAgICAgICAgICAgICBcInR5cGVcIjogXCJ0ZXh0XCIsXG4gICAgICAgICAgICAgIFwiYXR0clwiOiB7XG4gICAgICAgICAgICAgICAgXCJ2YWx1ZVwiOiBmdW5jdGlvbiAoKSB7cmV0dXJuIHRoaXMuaXRlbS5jYXRhbG9ndWVUaXRsZX1cbiAgICAgICAgICAgICAgfSxcbiAgICAgICAgICAgICAgXCJjbGFzc0xpc3RcIjogW1xuICAgICAgICAgICAgICAgIFwiY2F0YWxvZ3VlX2NhdGFsb2d1ZVRpdGxlXCJcbiAgICAgICAgICAgICAgXVxuICAgICAgICAgICAgfVxuICAgICAgICAgIF1cbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIFwidHlwZVwiOiBcImRpdlwiLFxuICAgICAgICAgIFwiYXR0clwiOiB7fSxcbiAgICAgICAgICBcImNsYXNzTGlzdFwiOiBbXG4gICAgICAgICAgICBcImNhdGFsb2d1ZV9yaWdodFwiXG4gICAgICAgICAgXSxcbiAgICAgICAgICBcImNoaWxkcmVuXCI6IFtcbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgXCJ0eXBlXCI6IFwidGV4dFwiLFxuICAgICAgICAgICAgICBcImF0dHJcIjoge1xuICAgICAgICAgICAgICAgIFwidmFsdWVcIjogXCLlhY3otLlcIlxuICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgICBcImNsYXNzTGlzdFwiOiBbXG4gICAgICAgICAgICAgICAgXCJjYXRhbG9ndWVfZnJlZVwiXG4gICAgICAgICAgICAgIF1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICBdXG4gICAgICAgIH1cbiAgICAgIF1cbiAgICB9XG4gIF1cbn0iLCJtb2R1bGUuZXhwb3J0cyA9IHtcbiAgXCIuY2F0YWxvZ3VlX2xpc3RfY29udGFpbmVyXCI6IHtcbiAgICBcIm1hcmdpblRvcFwiOiBcIjBweFwiLFxuICAgIFwibWFyZ2luUmlnaHRcIjogXCIzM3B4XCIsXG4gICAgXCJtYXJnaW5Cb3R0b21cIjogXCIwcHhcIixcbiAgICBcIm1hcmdpbkxlZnRcIjogXCIzM3B4XCIsXG4gICAgXCJmbGV4RGlyZWN0aW9uXCI6IFwiY29sdW1uXCJcbiAgfSxcbiAgXCIuY2F0YWxvZ3VlX2hlYWRlclwiOiB7XG4gICAgXCJtYXJnaW5Ub3BcIjogXCI0NnB4XCIsXG4gICAgXCJqdXN0aWZ5Q29udGVudFwiOiBcInNwYWNlLWJldHdlZW5cIlxuICB9LFxuICBcIi5zZWxlY3RcIjoge1xuICAgIFwid2lkdGhcIjogXCIyMDBweFwiLFxuICAgIFwiaGVpZ2h0XCI6IFwiNjdweFwiLFxuICAgIFwiY29sb3JcIjogXCIjMWExYTFhXCIsXG4gICAgXCJmb250U2l6ZVwiOiBcIjMxLjNweFwiXG4gIH0sXG4gIFwiLm9wdGlvblwiOiB7XG4gICAgXCJmb250U2l6ZVwiOiBcIjMxLjNweFwiLFxuICAgIFwiY29sb3JcIjogXCIjMUExQTFBXCIsXG4gICAgXCJoZWlnaHRcIjogXCIyMDBweFwiXG4gIH0sXG4gIFwiLmNhdGFsb2d1ZV90b3RhbFwiOiB7XG4gICAgXCJmb250U2l6ZVwiOiBcIjI3LjFweFwiLFxuICAgIFwiY29sb3JcIjogXCJyZ2JhKDAsMCwwLDAuNSlcIlxuICB9LFxuICBcIi5jYXRhbG9ndWVfbGlzdFwiOiB7XG4gICAgXCJqdXN0aWZ5Q29udGVudFwiOiBcInNwYWNlLWJldHdlZW5cIixcbiAgICBcImhlaWdodFwiOiBcIjEwMHB4XCJcbiAgfSxcbiAgXCIuY2F0YWxvZ3VlX2NhdGFsb2d1ZVRpdGxlXCI6IHtcbiAgICBcImNvbG9yXCI6IFwiIzAwMDAwMFwiLFxuICAgIFwiZm9udFNpemVcIjogXCIzMS4zcHhcIlxuICB9LFxuICBcIi5jYXRhbG9ndWVfY2F0YWxvZ3VlTnVtYmVyXCI6IHtcbiAgICBcIm1hcmdpblJpZ2h0XCI6IFwiMTVweFwiLFxuICAgIFwiY29sb3JcIjogXCIjMDAwMDAwXCIsXG4gICAgXCJmb250U2l6ZVwiOiBcIjMxLjNweFwiXG4gIH0sXG4gIFwiLmNhdGFsb2d1ZV9mcmVlXCI6IHtcbiAgICBcImZvbnRTaXplXCI6IFwiMjcuMXB4XCIsXG4gICAgXCJjb2xvclwiOiBcInJnYmEoMCwwLDAsMC41KVwiXG4gIH0sXG4gIFwiLmNhdGFsb2d1ZV9yaWdodFwiOiB7XG4gICAgXCJ3aWR0aFwiOiBcIjE2N3B4XCIsXG4gICAgXCJib3JkZXJCb3R0b21Db2xvclwiOiBcInJnYmEoMjQsMzQsNTEsMC4yKVwiLFxuICAgIFwiYm9yZGVyQm90dG9tV2lkdGhcIjogXCIwLjVweFwiLFxuICAgIFwianVzdGlmeUNvbnRlbnRcIjogXCJmbGV4LWVuZFwiXG4gIH1cbn0iLCJtb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uKG1vZHVsZSwgZXhwb3J0cywgJGFwcF9yZXF1aXJlJCl7XCJ1c2Ugc3RyaWN0XCI7XG5cbk9iamVjdC5kZWZpbmVQcm9wZXJ0eShleHBvcnRzLCBcIl9fZXNNb2R1bGVcIiwge1xuICB2YWx1ZTogdHJ1ZVxufSk7XG5leHBvcnRzW1wiZGVmYXVsdFwiXSA9IHZvaWQgMDtcblxudmFyIF9zeXN0ZW0gPSBfaW50ZXJvcFJlcXVpcmVEZWZhdWx0KCRhcHBfcmVxdWlyZSQoXCJAYXBwLW1vZHVsZS9zeXN0ZW0ucm91dGVyXCIpKTtcblxuZnVuY3Rpb24gX2ludGVyb3BSZXF1aXJlRGVmYXVsdChvYmopIHsgcmV0dXJuIG9iaiAmJiBvYmouX19lc01vZHVsZSA/IG9iaiA6IHsgXCJkZWZhdWx0XCI6IG9iaiB9OyB9XG5cbnZhciBfZGVmYXVsdCA9IHtcbiAgcHJvcHM6IFsnY2F0YWxvZ3VlJ10sXG4gIGRhdGE6IHtcbiAgICBpdGVtTGlzdDogW10sXG4gICAgb3B0aW9uczogW10sXG4gICAgbmV3TGlzdDogW11cbiAgfSxcbiAgb25Jbml0OiBmdW5jdGlvbiBvbkluaXQoKSB7XG4gICAgdGhpcy5zZXBhcmF0ZVRvdGFsUGFnZSgpO1xuICB9LFxuICBzZXBhcmF0ZVRvdGFsUGFnZTogZnVuY3Rpb24gc2VwYXJhdGVUb3RhbFBhZ2UoKSB7XG4gICAgdmFyIGl0ZW1MaXN0ID0gW107XG4gICAgdmFyIHRvdGFsUGFnZSA9IHRoaXMuY2F0YWxvZ3VlLnRvdGFsO1xuICAgIHZhciBpdGVtcyA9IDIwO1xuICAgIHZhciBzZXBlcmF0ZVBhZ2VNYXRoQ2VpbCA9IE1hdGguY2VpbCh0b3RhbFBhZ2UgLyBpdGVtcyk7XG4gICAgdmFyIGJlZ2luTnVtYmVyID0gMCxcbiAgICAgICAgZW5kTnVtYmVyID0gMDtcblxuICAgIGZvciAodmFyIGkgPSAwOyBpIDwgc2VwZXJhdGVQYWdlTWF0aENlaWw7IGkrKykge1xuICAgICAgdmFyIGl0ZW0gPSB7fTtcblxuICAgICAgaWYgKGkgPT09IDApIHtcbiAgICAgICAgYmVnaW5OdW1iZXIgPSAxO1xuICAgICAgICBpdGVtLmV2cnkgPSAxICsgXCItXCIgKyBpdGVtcztcbiAgICAgICAgaXRlbUxpc3QucHVzaChpdGVtKTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIGJlZ2luTnVtYmVyICs9IGl0ZW1zO1xuICAgICAgICBlbmROdW1iZXIgPSBiZWdpbk51bWJlciArIGl0ZW1zIC0gMTtcblxuICAgICAgICBpZiAoaSA9PT0gc2VwZXJhdGVQYWdlTWF0aENlaWwgLSAxKSB7XG4gICAgICAgICAgaXRlbS5ldnJ5ID0gYmVnaW5OdW1iZXIgKyBcIi1cIiArIHRvdGFsUGFnZTtcbiAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICBpdGVtLmV2cnkgPSBiZWdpbk51bWJlciArIFwiLVwiICsgZW5kTnVtYmVyO1xuICAgICAgICB9XG5cbiAgICAgICAgaXRlbUxpc3QucHVzaChpdGVtKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICB0aGlzLm9wdGlvbnMgPSBpdGVtTGlzdDtcbiAgICB0aGlzLm5ld0xpc3QgPSB0aGlzLmNhdGFsb2d1ZS5saXN0O1xuICB9LFxuICBjaGFuZ2VWYWx1ZTogZnVuY3Rpb24gY2hhbmdlVmFsdWUodmFsdWUpIHtcbiAgICB2YXIgc2VsZWN0ZWRBcnIgPSB2YWx1ZS5uZXdWYWx1ZS5zcGxpdCgnLScpO1xuICAgIHZhciBuZXdMaXN0ID0gdGhpcy5jYXRhbG9ndWUubGlzdC5zbGljZShzZWxlY3RlZEFyclswXSAtIDEsIHNlbGVjdGVkQXJyWzFdKTtcbiAgICB0aGlzLm5ld0xpc3QgPSBuZXdMaXN0O1xuICB9LFxuICBnb1RvUmVhZDogZnVuY3Rpb24gZ29Ub1JlYWQoaXRlbSkge1xuICAgIF9zeXN0ZW1bXCJkZWZhdWx0XCJdLnB1c2goe1xuICAgICAgdXJpOiAnL1BhZ2VfUmVhZCcsXG4gICAgICBwYXJhbXM6IHtcbiAgICAgICAgaXRlbTogaXRlbVxuICAgICAgfVxuICAgIH0pO1xuICB9XG59O1xuZXhwb3J0c1tcImRlZmF1bHRcIl0gPSBfZGVmYXVsdDtcbnZhciBtb2R1bGVPd24gPSBleHBvcnRzLmRlZmF1bHQgfHwgbW9kdWxlLmV4cG9ydHM7XG52YXIgYWNjZXNzb3JzID0gWydwdWJsaWMnLCAncHJvdGVjdGVkJywgJ3ByaXZhdGUnXTtcbmlmIChtb2R1bGVPd24uZGF0YSAmJiBhY2Nlc3NvcnMuc29tZShmdW5jdGlvbiAoYWNjKSB7XG4gICAgcmV0dXJuIG1vZHVsZU93blthY2NdO1xuICB9KSkge1xuICB0aHJvdyBuZXcgRXJyb3IoJ0ZvciBWTSBvYmplY3RzLCBhdHRyaWJ1dGUgZGF0YSBtdXN0IG5vdCBjb2V4aXN0IHdpdGggcHVibGljLCBwcm90ZWN0ZWQsIG9yIHByaXZhdGUuIFBsZWFzZSByZXBsYWNlIGRhdGEgd2l0aCBwdWJsaWMuJyk7XG59IGVsc2UgaWYgKCFtb2R1bGVPd24uZGF0YSkge1xuICBtb2R1bGVPd24uZGF0YSA9IHt9O1xuICBtb2R1bGVPd24uX2Rlc2NyaXB0b3IgPSB7fTtcbiAgYWNjZXNzb3JzLmZvckVhY2goZnVuY3Rpb24oYWNjKSB7XG4gICAgdmFyIGFjY1R5cGUgPSB0eXBlb2YgbW9kdWxlT3duW2FjY107XG4gICAgaWYgKGFjY1R5cGUgPT09ICdvYmplY3QnKSB7XG4gICAgICBtb2R1bGVPd24uZGF0YSA9IE9iamVjdC5hc3NpZ24obW9kdWxlT3duLmRhdGEsIG1vZHVsZU93blthY2NdKTtcbiAgICAgIGZvciAodmFyIG5hbWUgaW4gbW9kdWxlT3duW2FjY10pIHtcbiAgICAgICAgbW9kdWxlT3duLl9kZXNjcmlwdG9yW25hbWVdID0ge2FjY2VzcyA6IGFjY307XG4gICAgICB9XG4gICAgfSBlbHNlIGlmIChhY2NUeXBlID09PSAnZnVuY3Rpb24nKSB7XG4gICAgICBjb25zb2xlLndhcm4oJ0ZvciBWTSBvYmplY3RzLCBhdHRyaWJ1dGUgJyArIGFjYyArICcgdmFsdWUgbXVzdCBub3QgYmUgYSBmdW5jdGlvbi4gQ2hhbmdlIHRoZSB2YWx1ZSB0byBhbiBvYmplY3QuJyk7XG4gICAgfVxuICB9KTtcbn19IiwibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwidHlwZVwiOiBcImRpdlwiLFxuICBcImF0dHJcIjoge30sXG4gIFwiY2xhc3NMaXN0XCI6IFtcbiAgICBcImNvbnRhaW5lclwiXG4gIF0sXG4gIFwiY2hpbGRyZW5cIjogW1xuICAgIHtcbiAgICAgIFwidHlwZVwiOiBcImNhdGFsb2d1ZVwiLFxuICAgICAgXCJhdHRyXCI6IHtcbiAgICAgICAgXCJjYXRhbG9ndWVcIjogZnVuY3Rpb24gKCkge3JldHVybiB0aGlzLmNhdGFsb2d1ZUxpc3R9XG4gICAgICB9XG4gICAgfVxuICBdXG59IiwibW9kdWxlLmV4cG9ydHMgPSB7XG4gIFwiLmNvbnRhaW5lclwiOiB7XG4gICAgXCJmbGV4RGlyZWN0aW9uXCI6IFwiY29sdW1uXCJcbiAgfVxufSIsIm1vZHVsZS5leHBvcnRzID0gZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzLCAkYXBwX3JlcXVpcmUkKXtcInVzZSBzdHJpY3RcIjtcblxubW9kdWxlLmV4cG9ydHMgPSB7XG4gIGRhdGE6IHtcbiAgICBjYXRhbG9ndWVMaXN0OiB7XG4gICAgICB0b3RhbDogMjYsXG4gICAgICBsaXN0OiBbe1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDEsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5py65LyaJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDIsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5aSn5oiYJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDMsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5Zue5a62JyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDQsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5pi+54G1JyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDUsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5p2A5Lq654Gt5Y+jJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDYsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn6KKr6L+95p2AJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDcsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5Lqy5oOFJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDgsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn54ix5oOFJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDksXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn6YCG6KKtJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDEwLFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WujOe+jicsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxMSxcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfokL3luZUnLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICB9LCB7XG4gICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTIsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5peF6YCUJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDEzLFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WBtumBhycsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxNCxcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICflpJzluZUnLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICB9LCB7XG4gICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTUsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5YG35ZCsJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDE2LFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+W9ouWKvycsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAxNyxcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfpo47otbfkupHmtownLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICB9LCB7XG4gICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMTgsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5Y235Zyf6YeN5p2lJyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDE5LFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+Wli+S4jemhvui6qycsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDBcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAyMCxcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfkuovkuI7mhL/ov50nLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAwXG4gICAgICB9LCB7XG4gICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMjEsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5aSx5Y67JyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMFxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDIyLFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+aCsuWjricsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDFcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAyMyxcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICfkuI3pob7kuIDliIcnLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAxXG4gICAgICB9LCB7XG4gICAgICAgIGNhdGFsb2d1ZU51bWJlcjogMjQsXG4gICAgICAgIGNhdGFsb2d1ZVRpdGxlOiAn5rKh5q27JyxcbiAgICAgICAgY2F0YWxvZ3VlRnJlZTogMVxuICAgICAgfSwge1xuICAgICAgICBjYXRhbG9ndWVOdW1iZXI6IDI1LFxuICAgICAgICBjYXRhbG9ndWVUaXRsZTogJ+WFu+S8pCcsXG4gICAgICAgIGNhdGFsb2d1ZUZyZWU6IDFcbiAgICAgIH0sIHtcbiAgICAgICAgY2F0YWxvZ3VlTnVtYmVyOiAyNixcbiAgICAgICAgY2F0YWxvZ3VlVGl0bGU6ICflr7vmib7ngbXmupAnLFxuICAgICAgICBjYXRhbG9ndWVGcmVlOiAxXG4gICAgICB9XVxuICAgIH1cbiAgfSxcbiAgb25Jbml0OiBmdW5jdGlvbiBvbkluaXQoKSB7XG4gICAgdGhpcy4kcGFnZS5zZXRUaXRsZUJhcih7XG4gICAgICB0ZXh0OiAn55uu5b2VJyxcbiAgICAgIHRleHRDb2xvcjogJyMjMUExQTFBJyxcbiAgICAgIGJhY2tncm91bmRDb2xvcjogJ3JnYmEoMjQyLDI0MiwyNDIsMC45NSknLFxuICAgICAgbWVudTogZmFsc2VcbiAgICB9KTtcbiAgfVxufTtcbnZhciBtb2R1bGVPd24gPSBleHBvcnRzLmRlZmF1bHQgfHwgbW9kdWxlLmV4cG9ydHM7XG52YXIgYWNjZXNzb3JzID0gWydwdWJsaWMnLCAncHJvdGVjdGVkJywgJ3ByaXZhdGUnXTtcbmlmIChtb2R1bGVPd24uZGF0YSAmJiBhY2Nlc3NvcnMuc29tZShmdW5jdGlvbiAoYWNjKSB7XG4gICAgcmV0dXJuIG1vZHVsZU93blthY2NdO1xuICB9KSkge1xuICB0aHJvdyBuZXcgRXJyb3IoJ0ZvciBWTSBvYmplY3RzLCBhdHRyaWJ1dGUgZGF0YSBtdXN0IG5vdCBjb2V4aXN0IHdpdGggcHVibGljLCBwcm90ZWN0ZWQsIG9yIHByaXZhdGUuIFBsZWFzZSByZXBsYWNlIGRhdGEgd2l0aCBwdWJsaWMuJyk7XG59IGVsc2UgaWYgKCFtb2R1bGVPd24uZGF0YSkge1xuICBtb2R1bGVPd24uZGF0YSA9IHt9O1xuICBtb2R1bGVPd24uX2Rlc2NyaXB0b3IgPSB7fTtcbiAgYWNjZXNzb3JzLmZvckVhY2goZnVuY3Rpb24oYWNjKSB7XG4gICAgdmFyIGFjY1R5cGUgPSB0eXBlb2YgbW9kdWxlT3duW2FjY107XG4gICAgaWYgKGFjY1R5cGUgPT09ICdvYmplY3QnKSB7XG4gICAgICBtb2R1bGVPd24uZGF0YSA9IE9iamVjdC5hc3NpZ24obW9kdWxlT3duLmRhdGEsIG1vZHVsZU93blthY2NdKTtcbiAgICAgIGZvciAodmFyIG5hbWUgaW4gbW9kdWxlT3duW2FjY10pIHtcbiAgICAgICAgbW9kdWxlT3duLl9kZXNjcmlwdG9yW25hbWVdID0ge2FjY2VzcyA6IGFjY307XG4gICAgICB9XG4gICAgfSBlbHNlIGlmIChhY2NUeXBlID09PSAnZnVuY3Rpb24nKSB7XG4gICAgICBjb25zb2xlLndhcm4oJ0ZvciBWTSBvYmplY3RzLCBhdHRyaWJ1dGUgJyArIGFjYyArICcgdmFsdWUgbXVzdCBub3QgYmUgYSBmdW5jdGlvbi4gQ2hhbmdlIHRoZSB2YWx1ZSB0byBhbiBvYmplY3QuJyk7XG4gICAgfVxuICB9KTtcbn19Il0sIm1hcHBpbmdzIjoiO0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7Ozs7QUNsRkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7O0FDZEE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7OztBQ1hBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7OztBQ3BIQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7QUNsREE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7Ozs7OztBQ3hGQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Ozs7Ozs7QUNkQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7Ozs7O0FDSkE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7OztBIiwic291cmNlUm9vdCI6IiJ9
+  };
+  if (typeof window === "undefined") {
+    return createPageHandler();
+  }
+  else {
+    window.createPageHandler = createPageHandler
+  }
+})();

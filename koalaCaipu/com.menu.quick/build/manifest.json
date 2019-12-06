@@ -27,7 +27,9 @@
       "origin": "*"
     }
   ],
-  "config": {},
+  "config": {
+    "debug": true
+  },
   "router": {
     "entry": "Page_Main",
     "pages": {
@@ -104,6 +106,5 @@
         "titleBar": false
       }
     }
-  },
-  "debugable": true
+  }
 }
