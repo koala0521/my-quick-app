@@ -1,14 +1,5 @@
 <template>
 	<div class="single-container">
-		<!-- <div class="swiper-head">
-			<div>
-				<text class="swiper-main-title">{{list.title}}</text>
-			</div>
-			<div>
-				<text class="swiper-link">{{list.subtitle}}</text>
-				<image class="swiper-arrow" src={{list.arrow}}></image>
-			</div>
-		</div> -->
 		<div class="single-list">
 			<div for="{{list.list}}" class="single-product" onclick="routePage()">
 				<div class="single-left">
@@ -35,212 +26,211 @@
 </template>
 
 <style>
-	.single-container {
-		margin: 0px 34px 0px 34px;
-		flex-direction: column;
-	}
+.single-container {
+  margin: 0px 34px 0px 34px;
+  flex-direction: column;
+}
 
-	.swiper-head {
-		justify-content: space-between;
-		margin-bottom: 30px;
-	}
+.swiper-head {
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
 
-	.swiper-main-title {
-		font-size: 31px;
-		color: #1A1A1A;
-		font-weight: bold;
-		align-self: center;
-	}
+.swiper-main-title {
+  font-size: 31px;
+  color: #1a1a1a;
+  font-weight: bold;
+  align-self: center;
+}
 
-	.swiper-link {
-		font-size: 27px;
-		color: #8D8D8D;
-		align-self: center;
-		margin-right: 14px;
-	}
+.swiper-link {
+  font-size: 27px;
+  color: #8d8d8d;
+  align-self: center;
+  margin-right: 14px;
+}
 
-	.swiper-arrow {
-		width: 16px;
-		height: 28px;
-		align-self: center;
-	}
+.swiper-arrow {
+  width: 16px;
+  height: 28px;
+  align-self: center;
+}
 
-	.single-list {
-		border-color: #0000ff;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
+.single-list {
+  border-color: #0000ff;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
-	.single-product {
-		height:300px;
-		margin:5px 0 15px 0px;;
-	}
+.single-product {
+  height: 300px;
+  margin: 5px 0 15px 0px;
+}
 
-	.single-left {
-		/* margin: 15px 0px; */
-	}
+.single-left {
+  /* margin: 15px 0px; */
+}
 
-	.single-description {
-		flex-direction: column;
-		width: 434px;
-		height: 100%;
-		border-bottom-width: 1px;
-		border-bottom-color: #f2f2f2;
-		align-self: center;
-	}
+.single-description {
+  flex-direction: column;
+  width: 434px;
+  height: 100%;
+  border-bottom-width: 1px;
+  border-bottom-color: #f2f2f2;
+  align-self: center;
+}
 
-	.single-image {
-		width: 217px;
-		height: 290px;
-		margin-right: 33px;
-		border-radius: 8px;
-	}
+.single-image {
+  width: 217px;
+  height: 290px;
+  margin-right: 33px;
+  border-radius: 8px;
+}
 
-	.single-headphone {
-		width: 42px;
-		height: 42px;
-		margin-left: 17px;
-		margin-top: 235px;
-	}
+.single-headphone {
+  width: 42px;
+  height: 42px;
+  margin-left: 17px;
+  margin-top: 235px;
+}
 
-	.single-title {
-		color: #000000;
-		font-size: 31.3px;
-		line-height: 40.6px;
-		margin-bottom: 16px;
-	}
+.single-title {
+  color: #000000;
+  font-size: 31.3px;
+  line-height: 40.6px;
+  margin-bottom: 16px;
+}
 
-	.single-brief {
-		color: #1A1A1A;
-		opacity: 0.5;
-		font-size: 27.1px;
-		line-height: 34.9px;
-		margin-bottom: 49px;
-		lines: 3;
-		text-overflow: ellipsis;
-	}
+.single-brief {
+  color: #1a1a1a;
+  opacity: 0.5;
+  font-size: 27.1px;
+  line-height: 34.9px;
+  margin-bottom: 49px;
+  lines: 3;
+  text-overflow: ellipsis;
+}
 
-	.single-bottom {
-		justify-content: space-between;
-	}
+.single-bottom {
+  justify-content: space-between;
+}
 
-	.single-author {
-		color: #1A1A1A;
-		opacity: 0.5;
-		font-size: 27.1px;
-		align-self: center;
-	}
+.single-author {
+  color: #1a1a1a;
+  opacity: 0.5;
+  font-size: 27.1px;
+  align-self: center;
+}
 
-	.single-div-clazz {
-		justify-content: flex-end;
-	}
+.single-div-clazz {
+  justify-content: flex-end;
+}
 
-	.single-clazz {
-		color: #000000;
-		opacity: 0.5;
-		font-size: 16.7px;
-		line-height: 24px;
-		background-color: rgba(0, 0, 0, 0.1);
-		border-radius: 8.3px;
-		align-self: center;
-		margin-left: 10px;
-		text-align: center;
-		padding: 10px 20px;
-	}
+.single-clazz {
+  color: #000000;
+  opacity: 0.5;
+  font-size: 16.7px;
+  line-height: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8.3px;
+  align-self: center;
+  margin-left: 10px;
+  text-align: center;
+  padding: 10px 20px;
+}
 </style>
 
 <script>
-	import router from '@system.router';
+import router from '@system.router';
 
-	export default {
-		data: {
-			// props: [
-			// 	'list',
-            // ]
-			//玄幻精品
-			list:{
-				title: "玄幻精品",
-				subtitle: "更多",
-				arrow: "./img/arrow.png",
-				list: [
-					{
+export default {
+	data: {
+		// props: [
+		// 	'list',
+		// ]
+		//玄幻精品
+		list: {
+			title: "玄幻精品",
+			subtitle: "更多",
+			arrow: "./img/arrow.png",
+			list: [
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '神墓',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '辰东',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '诛仙',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '萧鼎',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '斗破苍穹',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '天蚕土豆',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '斗破苍穹',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '天蚕土豆',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '斗破苍穹',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '天蚕土豆',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '斗破苍穹',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '天蚕土豆',
 					clazz: ['网文', '小说']
-					},
-					{
+				},
+				{
 					uri: './TO_DELETE/44.png',
 					headphone: './img/headphone.png',
 					title: '斗破苍穹',
 					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
 					author: '天蚕土豆',
 					clazz: ['网文', '小说']
-					}
-				]
-			}            
-		},
-		press(item) {
-			console.error("on press event param : " + item);
-		},
+				}
+			]
+		}
+	},
+	press(item) {
+		console.error("on press event param : " + item);
+	},
+	routePage(url) {
+		//跳转到应用内的某个页面
+		router.push({
+			uri: "/Page_Hearingdetail"
+		})
+	},
 
-		routePage(url) {
-			//跳转到应用内的某个页面
-			router.push({
-				uri: "/Page_Hearingdetail"
-			})
-        },
-        
-        onInit() {
-            this.$page.setTitleBar({
-                //titlebar的状态，在manifest.json中display设置的
-                text: this.list.title,
-                textColor: '#1A1A1A',
-                backgroundColor: 'rgba(255,255,255,0.3)',
-                menu: false
-            });
-        }
+	onInit() {
+		this.$page.setTitleBar({
+			//titlebar的状态，在manifest.json中display设置的
+			text: this.list.title,
+			textColor: '#1A1A1A',
+			backgroundColor: 'rgba(255,255,255,0.3)',
+			menu: false
+		});
 	}
+}
 </script>

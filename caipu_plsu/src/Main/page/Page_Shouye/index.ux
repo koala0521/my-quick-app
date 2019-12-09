@@ -83,7 +83,9 @@
 </style>
 
 <script>
-let baidu = 'https://www.baidu.com';
+let baidu = 'https://www.baidu.com'
+import api from '../../../api/api.js'
+
 export default {
 	props: [],
 	data: {
@@ -92,9 +94,9 @@ export default {
 		//轮播图
 		swiperdata:
 			[
-				{ src: './page/Page_Shouye/TO_DELETE/banner/banner1.png' },
-				{ src: './page/Page_Shouye/TO_DELETE/banner/banner1.png' },
-				{ src: './page/Page_Shouye/TO_DELETE/banner/banner1.png' }
+				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_31411.jpg' },
+				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_60504.jpg' },
+				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_73972.jpg' }
 			],
 
 		//快捷入口数据 
@@ -299,6 +301,37 @@ export default {
 			//titlebar的状态在manifest.json中display设置的
 			menu: false
 		});
+	},
+	onReady() {
+
+		api.getMenusByType({
+			classid: 55,
+			start: 0,
+			num: 10
+		}).then(data => {
+			console.log(`data===getMenusByType=======>`, JSON.parse(data))
+			let menuData = JSON.parse(data);
+			if (menuData.result) {
+
+				this.swiperdata = menuData.result.list.map(el => {
+					return el.pic
+				}).slice(0, 3);
+
+				console.log(`this.swiperdata ==========>`, this.swiperdata);
+			}
+		})
+
+		// api.getMenusByStr({
+		// 	keyword:'白菜',
+		// 	num:10
+		// }).then(data=>{
+		// 	console.log(`data=====getMenusByStr=====>` , JSON.parse(data))
+		// })
+		// api.getMenuDetail({
+		// 	id:5
+		// }).then(data=>{
+		// 	console.log(`data=====getMenuDetail=====>` , JSON.parse(data))
+		// })
 	},
 }
 </script>
