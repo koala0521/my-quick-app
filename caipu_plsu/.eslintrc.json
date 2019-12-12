@@ -1,6 +1,6 @@
 {
   "env": {
-    "commonjs": true
+    "commonjs": false
   },
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
@@ -16,10 +16,11 @@
     "saveData": false,
     "history": false,
     "console": false,
-    "setTimeout": false,
-    "clearTimeout": false,
-    "setInterval": false,
-    "clearInterval": false
+    "setTimeout": true,
+    "clearTimeout": true,
+    "setInterval": true,
+    "clearInterval": true,
+    "Promise": true
   },
   "plugins": [
     "hybrid"
@@ -27,10 +28,10 @@
   "rules": {
     "indent": [
       "warn",
-      "tab"
+      4
     ],
     "no-console": [
-      "warn",
+      "0",
       {
         "allow": [
           "info",
@@ -46,7 +47,7 @@
       }
     ],
     "quotes": [
-      "warn",
+      "0",
       "single",
       {
         "avoidEscape": true,
