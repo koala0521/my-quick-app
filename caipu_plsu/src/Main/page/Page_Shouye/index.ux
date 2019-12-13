@@ -9,10 +9,7 @@
 <template>
 	<!-- template里只能有一个根节点 -->
 	<div class="shucheng-box">
-		<!-- 搜索框 -->
-		<!-- <div class="shucheng-box-one">
-			<reader_main_shucheng_component_searchbar searchbar={{searchbar}}></reader_main_shucheng_component_searchbar>
-		</div> -->
+
 		<!-- 轮播图 -->
 		<div class="shucheng-box-two">
 			<caipu_swiper swiperdata={{swiperdata}}></caipu_swiper>
@@ -21,26 +18,34 @@
 		<div class="shucheng-box-three">
 			<fastentry list="{{fastentrylist}}"></fastentry>
 		</div>
-		<!-- 最新食谱 -->
+
+		<!-- 当季食谱 -->
 		<div class="shucheng-box-four">
-			<single_every list="{{everydayonebook}}"></single_every>
+			<single_every list="{{curSeasonMenu}}"></single_every>
 		</div>
+		
+		<!-- 广告位 -->
+		<div class="wanka-ad">
+			<a href="https://support.qq.com/product/108547">
+				吐槽一下
+				<image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image>
+			</a>
+		</div>
+
 		<!-- 为你推荐 -->
 		<div class="shucheng-box-five">
-			<multi banner="{{banner2}}" list="{{data2}}" num="{{3}}"></multi>
+			<multi banner="{{ recommend }}" list="{{ recommend.list }}" num="{{3}}"></multi>
 		</div>
-		<!-- 根据你读过的书推荐 -->
-		<!-- <div class="shucheng-box-six">
-			<single_every list="{{listbyyouread}}"></single_every>
-		</div> -->
+
 		<!-- 专题推荐 -->
 		<div class="shucheng-box-seven">
 			<shucheng_swi list="{{subjectlist}}" banner="{{banner}}"></shucheng_swi>
 		</div>
 		<!-- 榜单推荐 -->
-		<div class="shucheng-box-eight">
+		<!-- <div class="shucheng-box-eight">
 			<recommandlist recommandlist="{{recommendlist.list}}" arrow="{{recommendlist.arrowimage}}" title="{{recommendlist.title}}" morelink="{{recommendlist.morelink}}"></recommandlist>
-		</div>
+		</div> -->
+
 		<!-- 限时特价 -->
 		<!-- <div class="shucheng-box-nine">
 			<multi banner="{{banner3}}" list="{{data3}}" num="{{4}}"></multi>
@@ -59,6 +64,18 @@
 .shucheng-box-one {
   width: 683px;
   margin: 17px 34px 36px 34px;
+}
+.shucheng-box-two{
+	width: 100%;
+}
+.wanka-ad{
+	width: 100%;
+  	margin-top: 50px;
+	height: 400px;
+	justify-content: center;
+}
+.wanka-ad-img{
+	border-radius: 16px;
 }
 
 .shucheng-box-four {
@@ -120,63 +137,37 @@ export default {
 				'isNew': false
 			}
 			],
-
-		//每日一书
-		everydayonebook:
+		
+		//当季食谱
+		curSeasonMenu:
 			{
-				title: '最新食谱',
+				title: '当季食谱',
 				subtitle: '更多',
 				arrow: './page/Page_Shouye/img/arrow.png',
 				list: [
 					{
-						uri: './page/Page_Shouye/TO_DELETE/everydayBook/everybook.png',
-						title: '寄余生任我江海',
-						brief: '结婚仿佛金漆的笼子，笼子外面的鸟想住进去，笼内的鸟想飞出来',
+						pic: './page/Page_Shouye/TO_DELETE/everydayBook/everybook.png',
+						name: '寄余生任我江海',
+						content: '结婚仿佛金漆的笼子，笼子外面的鸟想住进去，笼内的鸟想飞出来',
 						author: '孟康',
 						clazz: ['古典爱情', '文学']
 					}
 				]
 			},
 		//为你推荐
-		banner2:
-			{
+
+		recommend:{
 				title: '为你推荐',
 				link: '更多',
-				arrow_uri: './page/Page_Shouye/img/arrow.png'
-			},
-		data2:
-			[
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '设计艺术史',
-					subtitle: '周锐',
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '背影',
-					subtitle: '朱自清',
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '用设计解决问题',
-					subtitle: '设计',
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '活得有趣',
-					subtitle: '周国平',
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '孤独是一生的礼物',
-					subtitle: '余光中',
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '岛山',
-					subtitle: '安东尼',
-				}
-			],
+				arrow_uri: './page/Page_Shouye/img/arrow.png',
+				list:[
+					// {
+					// 	uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+					// 	title: '设计艺术史',
+					// 	subtitle: '周锐',
+					// }
+				]
+		},
 
 		//根据你读过的书推荐
 		listbyyouread:
@@ -314,10 +305,13 @@ export default {
 			if (menuData.result) {
 
 				this.swiperdata = menuData.result.list.map(el => {
-					return el.pic
-				}).slice(0, 3);
+					return el
+				}).slice(0, 3)
 
-				console.log(`this.swiperdata ==========>`, this.swiperdata);
+				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
+				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
+				this.recommend.list = this.computedRecommendList( menuData.result.list );
+				console.log(`this.recommend ==========>`, this.recommend.list);
 			}
 		})
 
@@ -333,5 +327,17 @@ export default {
 		// 	console.log(`data=====getMenuDetail=====>` , JSON.parse(data))
 		// })
 	},
+	// 格式化当季食谱数据
+	computedSeasonData(list=[]){
+		if(list.length == 0) return []
+		let data = list[0];
+		let menuClazz = data.tag.split(',').slice(0,2);
+		let computedData = Object.assign({},data,{ menuClazz });
+		return [ computedData ]
+	},
+	computedRecommendList(list=[]){
+
+		return list.reverse().slice(0,3)
+	}
 }
 </script>

@@ -12,14 +12,14 @@
 		</div>
 		<div class="multi-list">
 			<div for="{{list}}" class="multi-product3" onclick="routePage()">
-				<image class="multi-image3" src="{{$item.uri}}"></image>
+				<image class="multi-image3" src="{{$item.pic}}"></image>
 				<div class="multi-description">
-					<text class="multi-title">{{$item.title}}</text>
-					<text class="multi-subtitle">{{$item.subtitle}}</text>
-					<div>
+					<text class="multi-title">{{$item.name}}</text>
+					<!-- <text class="multi-subtitle">{{$item.content}}</text> -->
+					<!-- <div>
 						<text class="multi-specialprice">{{$item.specialprice}}</text>
 						<text class="multi-originprice">{{$item.originprice}}</text>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -127,6 +127,7 @@
 		font-size: 27.1px;
 		line-height: 34.9px;
 		margin-left: 8px;
+		text-align: center;
 	}
 
 	.multi-subtitle {

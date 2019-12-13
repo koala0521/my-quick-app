@@ -15,8 +15,9 @@
 				<list-item type="prod" class="swiper-list-item">
 					<stack class="swiper-stack">
 						<image class="swiper-image" src="{{$item.img}}"></image>
-						<div class="swiper-image">
+						<div class="swiper-desc-wrap">
 							<image class="swiper-icon" src="{{$item.icon}}"></image>
+							<text class="swiper-catgoary-title">分类标题</text>
 						</div>
 					</stack>
 					<text class="swiper-title">{{$item.title}}</text>
@@ -73,6 +74,11 @@
 		width: 330px;
 		height: 183px;
 		border-radius: 8px;
+		/* background-color: #000; */
+	}
+	.swiper-desc-wrap{
+		flex-direction: column;
+		justify-content: flex-end;
 	}
 
 	.swiper-list {

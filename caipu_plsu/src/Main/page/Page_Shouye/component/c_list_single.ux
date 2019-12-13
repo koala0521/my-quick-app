@@ -12,17 +12,18 @@
 		<div class="single-list">
 			<div for="{{list.list}}" class="single-product" onclick="routePage()">
 				<div>
-					<image class="single-image" src="{{$item.uri}}"></image>
+					<image class="single-image" src="{{$item.pic}}"></image>
 				</div>
 				<div class="single-description">
-					<text class="single-title">{{$item.title}}</text>
-					<text class="single-brief">{{$item.brief}}</text>
+					<text class="single-title">{{$item.name}}</text>
+					<text class="single-brief">{{$item.content}}</text>
 					<div class="single-bottom">
 						<div>
 							<text class="single-author">{{$item.author}}</text>
 						</div>
 						<div class="single-div-clazz">
-							<text for="{{$item.clazz}}" class="single-clazz">{{$item}}</text>
+							<!-- <text class="single-clazz">{{$item.tag }}</text> -->
+							<text for="{{$item.menuClazz}}" class="single-clazz">{{$item }}</text>
 						</div>
 					</div>
 				</div>
@@ -75,13 +76,13 @@
 	.single-description {
 		flex-direction: column;
 		width: 434px;
-		align-self: center;
+		align-self: flex-start;
 	}
 
 	.single-image {
-		width: 217px;
-		height: 290px;
-		margin-right: 33px;
+		width: 260px;
+		height: 260px;
+		margin-right: 16px;
 		border-radius: 8px;
 	}
 
@@ -94,10 +95,14 @@
 
 	.single-brief {
 		color: #1A1A1A;
-		opacity: 0.5;
-		font-size: 27.1px;
-		line-height: 34.9px;
-		margin-bottom: 49px;
+		/* opacity: 0.5; */
+		font-size: 27px;
+		/* line-height: 34.9px; */
+		margin-bottom: 16px;
+		/* height: 230px; */
+		lines: 4;
+		text-overflow: ellipsis;
+		justify-content:flex-start;
 	}
 
 	.single-bottom {
