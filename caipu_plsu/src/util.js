@@ -6,11 +6,11 @@ function showMenu () {
   const router = require('@system.router')
   const appInfo = require('@system.app').getInfo()
   prompt.showContextMenu({
-    itemList: ['保存桌面', '关于', '取消'],
+    itemList: ['创建图标', '关于', '取消'],
     success: function (ret) {
       switch (ret.index) {
       case 0:
-        // 保存桌面
+        // 创建图标
         createShortcut()
         break
       case 1:

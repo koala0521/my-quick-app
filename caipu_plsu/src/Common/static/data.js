@@ -3,6 +3,7 @@ export default [
         classid: 1,
         name: '功效',
         parentid: 0,
+        pic: 'http://site.meishij.net/r/216/79/3769966/a3769966_148518055028376.jpg',
         list: [
             {
                 classid: 2,
@@ -565,6 +566,7 @@ export default [
         classid: 113,
         name: '人群',
         parentid: 0,
+        pic: 'http://site.meishij.net/r/02/165/666252/a666252_148656444062965.jpg',
         list: [
             {
                 classid: 114,
@@ -720,8 +722,9 @@ export default [
     },
     {
         classid: 144,
-        name: '疾病',
+        name: '疾病调理',
         parentid: 0,
+        pic: 'http://site.meishij.net/r/70/21/880320/a880320_146406727240079.jpg',  
         list: [
             {
                 classid: 145,
@@ -1069,6 +1072,7 @@ export default [
         classid: 213,
         name: '体质',
         parentid: 0,
+        pic:'http://site.meishij.net/r/247/150/2975247/a2975247_148638445153445.jpg',
         list: [
             {
                 classid: 214,
@@ -1120,6 +1124,7 @@ export default [
     {
         classid: 223,
         name: '菜系',
+        pic:'http://s1.ig.meishij.net/p/20101009/d981e1b26949c86cc73f6656b180dd07_150x150.jpg',
         parentid: 0,
         list: [
             {
@@ -1352,6 +1357,7 @@ export default [
     {
         classid: 269,
         name: '小吃',
+        pic:'http://s1.ig.meishij.net/p/20150114/392f144a231f32ef8159ac24e5b4d80d_150x150.jpg',
         parentid: 0,
         list: [
             {
@@ -1514,6 +1520,7 @@ export default [
     {
         classid: 301,
         name: '菜品',
+        pic:'http://s1.ig.meishij.net/p/20100207/1555620f84f3cbc5a42aac05881d5884_150x150.jpg',
         parentid: 0,
         list: [
             {
@@ -1961,6 +1968,7 @@ export default [
     {
         classid: 390,
         name: '口味',
+        pic:'http://s1.ig.meishij.net/p/20131010/44738b4a68a787e0a9f9835e3ea5416b_150x150.jpg',
         parentid: 0,
         list: [
             {
@@ -2278,6 +2286,7 @@ export default [
     {
         classid: 453,
         name: '加工工艺',
+        pic:'http://s1.st.meishij.net/r/04/164/4791004/a4791004_145458243527874.jpg',
         parentid: 0,
         list: [
             {
@@ -2635,6 +2644,7 @@ export default [
     {
         classid: 524,
         name: '厨房用具',
+        pic:'http://s1.ig.meishij.net/p/20100925/a8af5f1d9d7eb596a1704526b8aad8e1_150x150.jpg',
         parentid: 0,
         list: [
             {
@@ -2822,6 +2832,7 @@ export default [
     {
         classid: 561,
         name: '场景',
+        pic:'http://s1.st.meishij.net/r/233/173/6293483/a6293483_150044668920567.jpg',
         parentid: 0,
         list: [
             {

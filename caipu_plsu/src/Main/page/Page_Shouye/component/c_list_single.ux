@@ -150,7 +150,7 @@
 		routePage(url) {
 			//跳转到应用内的某个页面
 			router.push({
-				uri: "/Page_Bookdetails"
+				uri: "/Page_menuDetail"
 			})
 		},
 		toList(){
@@ -160,12 +160,10 @@
 			// 	uri: '/Page_Activity'
 			// })
 
-			// 读书
+			// 列表页
 			router.push({
 				uri: '/Page_List'
-			})
-					
-
+			})					
 		}
 	}
 </script>

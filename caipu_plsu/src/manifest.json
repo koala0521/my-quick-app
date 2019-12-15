@@ -37,13 +37,19 @@
 			"DemoDetail": {
 				"component": "index"
 			},
-			"Page_Activity":{
-				"component": "index"
-			},
 			"Page_List":{
 				"component": "index"
 			},
+			"Page_menuDetail":{
+				"component": "index"
+			},
 			"About": {
+				"component": "index"
+			},
+			"Page_Activity":{
+				"component": "index"
+			},			
+			"Page_Hearingdetail":{
 				"component": "index"
 			}
 		},
@@ -62,7 +68,7 @@
 		}
 	},
 	"display": {
-		"titleBarBackgroundColor": "#fff",
+		"titleBarBackgroundColor": "#ffffff",
 		"titleBarTextColor": "#414141",
 		"menu": false,
 		"pages": {
@@ -72,6 +78,11 @@
 			},
 			"Page_Search": {
 				"titleBar": false
+			},
+			"Page_menuDetail":{
+				"titleBar": true,
+				"titleBarText": "菜谱页面",
+				"menu":true
 			},
 			"Demo": {
 				"titleBarText": "示例页",

@@ -718,6 +718,10 @@
   version "12.12.14"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.12.14.tgz?cache=0&sync_timestamp=1574723520942&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.12.14.tgz#1c1d6e3c75dba466e0326948d56e8bd72a1903d2"
 
+"@types/quickapp@git+https://github.com/vivoquickapp/quickapp-types.git":
+  version "1.0.1"
+  resolved "git+https://github.com/vivoquickapp/quickapp-types.git#e799096c0f1343c333bca1d820a45730186a1b36"
+
 "@vue/component-compiler-utils@^3.0.0":
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/@vue/component-compiler-utils/download/@vue/component-compiler-utils-3.1.0.tgz?cache=0&sync_timestamp=1575849903561&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fcomponent-compiler-utils%2Fdownload%2F%40vue%2Fcomponent-compiler-utils-3.1.0.tgz#64cd394925f5af1f9c3228c66e954536f5311857"

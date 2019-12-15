@@ -1,7 +1,7 @@
 
-<import name='Shouye' src='../page/Page_Shouye/index'></import>
-<import name='fenlei' src='../page/Page_Fenlei/index'></import>
-<import name='shujia' src='../page/Page_Shujia/index'></import>
+<import name='Shouye' src='../page/Page_Shouye/index.ux'></import>
+<import name='fenlei' src='../page/Page_Fenlei/index.ux'></import>
+<import name='shoucang' src='../page/Page_Shujia/index.ux'></import>
 <!-- <import name='tingshu' src='../page/Page_Tingshu/index'></import> -->
 <import name='reader_main_shucheng_component_searchbar' src='./Component_SearchBar.ux'></import>
 
@@ -9,15 +9,14 @@
 	<!-- template里只能有一个根节点 -->
 	<div class="container">
 		<!-- 搜索框 -->
-		<div class="searchbar-box">
+		<div class="searchbar-box" if="showSearchBar" >
 			<reader_main_shucheng_component_searchbar placeholder={{placeholder}} searchbar={{searchbar}}></reader_main_shucheng_component_searchbar>
 		</div>
 		<tabs onchange="switchContent">
-			<tab-content>
+			<tab-content  class="tab-content"  >
 				<Shouye></Shouye>
-				<fenlei></fenlei>
-				<fenlei></fenlei>
-				<shujia foo={{foo}}></shujia>
+				<fenlei type="category" ></fenlei>
+				<shoucang foo={{foo}}></shoucang>
 			</tab-content>
 			<tab-bar>
 				<block for="datas.list">
@@ -53,7 +52,10 @@
 }
 
 .tab-content {
-  margin-bottom: 100px;
+
+	/* margin-bottom: 100px; */
+	/* border-bottom-width: 2px;
+	border-bottom-color:  #000; */
 }
 
 .tab-item {
@@ -112,38 +114,19 @@ export default {
 		searchbar: './img/c_search_search.png',
 		placeholder: '搜索菜名/食材',
 		foo: true,
-		array: {
-			color_normal: '#1A1A1A',
-			color_active: '#CD2325',
-			list: [
-				{ title: '推荐', show_line: false, color: '#1A1A1A' },
-				{ title: '玄幻', show_line: false, color: '#1A1A1A' },
-				{ title: '武侠', show_line: false, color: '#1A1A1A' },
-				{ title: '言情', show_line: false, color: '#1A1A1A' },
-				{ title: '历史', show_line: false, color: '#1A1A1A' },
-				{ title: '宫廷', show_line: false, color: '#1A1A1A' },
-				{ title: '科幻', show_line: false, color: '#1A1A1A' },
-				{ title: '悬疑', show_line: false, color: '#1A1A1A' },
-				{ title: '儿童', show_line: false, color: '#1A1A1A' },
-				{ title: '励志', show_line: false, color: '#1A1A1A' }
-			]
-		}
+		showSearchBar: true
 	},
 
-	switchContent: function (e) {
+	switchContent(e) {
 		let index = e.index;
+
+		this.showSearchBar = (index != 2);
+		
 		for (let i = 0; i < this.datas.list.length; i++) {
 			let element = this.datas.list[i];
 			element.show = false;
 			if (i === index) {
 				element.show = true;
-				
-				// this.$page.setTitleBar({
-				// 	textColor: '#1a1a1a',
-				// 	backgroundColor: '#f2f2f2',
-				// 	text: '阅读',
-				// 	menu: true,
-				// });
 			}
 		}
 	},

@@ -1,7 +1,9 @@
+<import name="no_content" src="../Main/component/no_centent.ux"></import>
+ 
 <template>
   <!-- template里只能有一个根节点 -->
   <div class="demo-page">
-    <text class="title">{{text}}</text>
+    <no_content></no_content>
   </div>
 </template>
 

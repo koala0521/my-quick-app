@@ -17,7 +17,7 @@ export default {
 				list: [
 					{ i: 1, color: '#878787', pic: './img/shucheng.png', pic_choice: './img/clicked-shucheng.png', show: false, title: '首页' },
 					{ i: 3, color: '#878787', pic: './img/fenlei.png', pic_choice: './img/clicked-fenlei.png', show: false, title: '分类' },
-					{ i: 2, color: '#878787', pic: './img/tingshu.png', pic_choice: './img/clicked-tingshu.png', show: false, title: '食材' },
+					// { i: 2, color: '#878787', pic: './img/tingshu.png', pic_choice: './img/clicked-tingshu.png', show: false, title: '食材' },
 					{ i: 4, color: '#878787', pic: './img/wode.png', pic_choice: './img/clicked-wode.png', show: false, title: '收藏' }
 				]
 			}

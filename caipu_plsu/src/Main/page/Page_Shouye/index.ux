@@ -1,10 +1,12 @@
 <import name="reader_main_shucheng_component_searchbar" src="./component/Component_SearchBar.ux"></import>
 <import name="caipu_swiper" src="./component/component_swiper.ux"></import>
-<import name="fastentry" src="./component/c_fastEntry"></import>
-<import name="multi" src="./component/c_list_multi"></import>
-<import name="shucheng_swi" src="./component/c_item_container_swiper"></import>
-<import name="single_every" src="./component/c_list_single"></import>
-<import name="recommandlist" src="./component/c_recommandList"></import>
+<import name="fastentry" src="./component/c_fastEntry.ux"></import>
+<import name="multi" src="./component/c_list_multi.ux"></import>
+<import name="theme_recommend" src="./component/c_item_container_swiper.ux"></import>
+<import name="single_every" src="./component/c_list_single.ux"></import>
+<import name="recommandlist" src="./component/c_recommandList.ux"></import>
+<import name="end_line" src="../../component/end_line.ux"></import>
+ 
 
 <template>
 	<!-- template里只能有一个根节点 -->
@@ -19,28 +21,27 @@
 			<fastentry list="{{fastentrylist}}"></fastentry>
 		</div>
 
-		<!-- 当季食谱 -->
-		<div class="shucheng-box-four">
-			<single_every list="{{curSeasonMenu}}"></single_every>
-		</div>
-		
-		<!-- 广告位 -->
-		<div class="wanka-ad">
-			<a href="https://support.qq.com/product/108547">
-				吐槽一下
-				<image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image>
-			</a>
-		</div>
 
 		<!-- 为你推荐 -->
 		<div class="shucheng-box-five">
 			<multi banner="{{ recommend }}" list="{{ recommend.list }}" num="{{3}}"></multi>
 		</div>
 
+		<!-- 广告位 -->
+		<div class="wanka-ad">
+			<image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image>
+		</div>
+
+		<!-- 当季食谱 -->
+		<div class="shucheng-box-four">
+			<single_every list="{{curSeasonMenu}}"></single_every>
+		</div>
+
 		<!-- 专题推荐 -->
 		<div class="shucheng-box-seven">
-			<shucheng_swi list="{{subjectlist}}" banner="{{banner}}"></shucheng_swi>
+			<theme_recommend list="{{themeRecommendData.subjectlist}}" banner="{{themeRecommendData.banner}}"></theme_recommend>
 		</div>
+
 		<!-- 榜单推荐 -->
 		<!-- <div class="shucheng-box-eight">
 			<recommandlist recommandlist="{{recommendlist.list}}" arrow="{{recommendlist.arrowimage}}" title="{{recommendlist.title}}" morelink="{{recommendlist.morelink}}"></recommandlist>
@@ -50,6 +51,9 @@
 		<!-- <div class="shucheng-box-nine">
 			<multi banner="{{banner3}}" list="{{data3}}" num="{{4}}"></multi>
 		</div> -->
+
+		<end_line></end_line>
+
 	</div>
 </template>
 
@@ -59,6 +63,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  padding-bottom: 64px;
 }
 
 .shucheng-box-one {
@@ -97,11 +102,18 @@
 .shucheng-box-eight {
   margin: 50px 0px;
 }
+.boittom-line{
+	margin-top: 50px;
+}
+.boittom-line-text{
+	color: #ccc;
+}
 </style>
 
 <script>
 let baidu = 'https://www.baidu.com'
 import api from '../../../api/api.js'
+import category from '../../../Common/static/data.js'
 
 export default {
 	props: [],
@@ -146,11 +158,11 @@ export default {
 				arrow: './page/Page_Shouye/img/arrow.png',
 				list: [
 					{
-						pic: './page/Page_Shouye/TO_DELETE/everydayBook/everybook.png',
-						name: '寄余生任我江海',
-						content: '结婚仿佛金漆的笼子，笼子外面的鸟想住进去，笼内的鸟想飞出来',
-						author: '孟康',
-						clazz: ['古典爱情', '文学']
+						pic: '',
+						name: '',
+						content: '',
+						author: '',
+						clazz: []
 					}
 				]
 			},
@@ -160,63 +172,28 @@ export default {
 				title: '为你推荐',
 				link: '更多',
 				arrow_uri: './page/Page_Shouye/img/arrow.png',
-				list:[
-					// {
-					// 	uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					// 	title: '设计艺术史',
-					// 	subtitle: '周锐',
-					// }
-				]
+				list:[]
 		},
 
-		//根据你读过的书推荐
-		listbyyouread:
-			{
-				title: '根据你读过的书推荐',
-				subtitle: '更多',
-				arrow: './page/Page_Shouye/img/arrow.png',
-				list: [
-					{
-						uri: './page/Page_Shouye/TO_DELETE/recommendByRead/read1.png',
-						title: '情人',
-						brief: '讲述一个不依附于男人、有经济实力按自己意愿去尽享爱情之美的现代女性修子的故事。',
-						author: '渡边淳一',
-						clazz: ['古典爱情', '文学', '外国']
-					},
-					{
-						uri: './page/Page_Shouye/TO_DELETE/recommendByRead/read1.png',
-						title: '欢乐颂',
-						brief: '海归的高管，初入职场的乖乖女，犯傻的小职员，胡同里不能低下头的公主加上富二代的小奸商。',
-						author: '孟康',
-						clazz: ['古典爱情']
-					},
-					{
-						uri: './page/Page_Shouye/TO_DELETE/recommendByRead/read1.png',
-						title: '象牙塔',
-						brief: '活动的主体是人，即拥有可预测行为且容易犯错的个体。泰勒讲述了他将将继续饿从“象牙塔”中带回现实之旅。',
-						author: '孟康',
-						clazz: ['文学', '外国']
-					}
-				]
-			},
 		//专题推荐
-		banner:
-			{
+		themeRecommendData:{   
+			banner:{
 				title: '专题推荐',
-				link: '更多',
-				uri: './page/Page_Shouye/img/arrow.png'
+				// link: '更多',
+				// uri: './page/Page_Shouye/img/arrow.png'
 			},
-		subjectlist:
-			[{
-				img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-			},
-			{
-				img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-			},
-			{
-				img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-			}
+			subjectlist:[
+					{
+						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
+					},
+					{
+						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
+					},
+					{
+						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
+					}
 			],
+		},
 		//榜单推荐
 		recommendlist:
 			{
@@ -292,6 +269,9 @@ export default {
 			//titlebar的状态在manifest.json中display设置的
 			menu: false
 		});
+		let startIndex = Math.floor((Math.random()*9));  // 起始位置
+		this.themeRecommendData.subjectlist = category.slice(startIndex , startIndex+3 );
+	
 	},
 	onReady() {
 
@@ -311,7 +291,7 @@ export default {
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
 				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
 				this.recommend.list = this.computedRecommendList( menuData.result.list );
-				console.log(`this.recommend ==========>`, this.recommend.list);
+				// console.log(`this.recommend ==========>`, this.recommend.list);
 			}
 		})
 

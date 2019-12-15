@@ -5,7 +5,7 @@
 				<text class="multi-topic">{{banner.title}}</text>
 				<image class="multi-time" src="{{banner.time_uri}}"></image>
 			</div>
-			<div class="multi-head-right">
+			<div class="multi-head-right" @click="toList" >
 				<text class="multi-link">{{banner.link}}</text>
 				<image class="multi-arrow" src="{{banner.arrow_uri}}"></image>
 			</div>
@@ -169,8 +169,14 @@
 		routePage(url) {
 			//跳转到应用内的某个页面
 			router.push({
-				uri: "/Page_Bookdetails"
+				uri: "/Page_menuDetail"
 			})
 		},
+		toList(){
+			// 列表页
+			router.push({
+				uri: '/Page_List'
+			})					
+		}
 	}
 </script>

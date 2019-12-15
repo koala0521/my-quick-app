@@ -72,7 +72,7 @@ export default {
 			})
 		} else if (type === "午餐") {
 			router.push({
-				uri: 'Page_In_Build',
+				uri: 'Page_Hearingdetail',
 				params: { type: type }
 			})
 		} else if (type === "晚餐") {

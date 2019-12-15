@@ -5,22 +5,26 @@
 			<div class="swiper-left">
 				<text class="swiper-main-title">{{banner.title}}</text>
 			</div>
-			<div class="swiper-right">
+			<div class="swiper-right" >
 				<text class="swiper-link">{{banner.link}}</text>
 				<image class="swiper-arrow" src="{{banner.uri}}"></image>
 			</div>
 		</div>
 		<list class="swiper-list">
 			<block for="{{list}}">
-				<list-item type="prod" class="swiper-list-item">
+				<list-item type="prod" class="swiper-list-item" @click="toList" >
 					<stack class="swiper-stack">
-						<image class="swiper-image" src="{{$item.img}}"></image>
-						<div class="swiper-desc-wrap">
+						<image class="swiper-image" src="{{$item.pic}}"></image>
+						<!-- <div class="swiper-desc-wrap">
 							<image class="swiper-icon" src="{{$item.icon}}"></image>
-							<text class="swiper-catgoary-title">分类标题</text>
-						</div>
+							<text class="swiper-catgoary-title">{{$item.name}}</text>
+						</div> -->
 					</stack>
-					<text class="swiper-title">{{$item.title}}</text>
+					<div class="swiper-desc-wrap">
+						<!-- <image class="swiper-icon" src="{{$item.icon}}"></image> -->
+						<text class="swiper-catgoary-title">{{$item.name}}</text>
+					</div>
+					<!-- <text class="swiper-title">{{$item.title}}</text> -->
 				</list-item>
 			</block>
 		</list>
@@ -68,11 +72,12 @@
 
 	.swiper-stack {
 		margin: 21px 8px 23px 8px;
+		height: 100%;
 	}
 
 	.swiper-image {
 		width: 330px;
-		height: 183px;
+		height: 100%;
 		border-radius: 8px;
 		/* background-color: #000; */
 	}
@@ -83,14 +88,18 @@
 
 	.swiper-list {
 		flex-direction: row;
-		height: 269px;
+		height: 369px;
 		margin: 0px 16px 0px 16px;
 	}
 
 	.swiper-list-item {
 		flex-direction: column;
+		height: 100%;
 	}
-
+	.swiper-catgoary-title{
+		color: #1A1A1A;
+		text-align: center;
+	}
 	.swiper-icon {
 		width: 33px;
 		height: 33px;
@@ -107,9 +116,23 @@
 </style>
 
 <script>
-	module.exports = {
+	import router from '@system.router';
+
+	export default {
 		onInit() {
 
+		},
+		toList(){
+
+			// 活动页面
+			// router.push({
+			// 	uri: '/Page_Activity'
+			// })
+
+			// 列表页
+			router.push({
+				uri: '/Page_List'
+			})					
 		}
 	}
 </script>

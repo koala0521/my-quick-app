@@ -1,0 +1,193 @@
+<import name="no_content" src="../Main/component/no_centent.ux"></import>
+<import name="end_line" src="../Main/component/end_line.ux"></import>
+ 
+<template>
+	<div class="menu-detail-page">
+		<div class="menu-detail-info">
+			<div class="menu-img-wrap">
+				<image class="menu-img" src="{{ detailInfo && detailInfo.pic  }}"></image>
+			</div>
+
+			<div class="menu-content-wrap">
+				<text class="menu-title">{{ detailInfo && detailInfo.name }}</text>
+				<text class="menu-desc">{{ detailInfo && detailInfo.content }}</text>
+
+				<div class="menu-material">
+					<div class="menu-material-title-wrap">
+						<text class="menu-material-title">用料</text>
+					</div>
+					<div for="detailInfo.material" class="menu-material-item">
+						<text class="menu-material-name">{{ $item.mname }}</text>
+						<text class="menu-material-count">{{ $item.amount }}</text>
+					</div>
+				</div>
+			</div>
+
+			<div class="menu-step">
+				<div class="menu-step-list" for="detailInfo.process">
+					<text class="menu-step-title">步骤{{ $idx + 1 }}</text>
+					<div class="menu-step-content">
+						<text class="menu-step-desc">{{ $item.pcontent }}</text>
+						<image class="menu-step-img" src="{{ $item.pic }}"></image>
+					</div>
+				</div>
+			</div>
+			<end_line></end_line>
+		</div>
+		<div class="fixed-bottom-tab">
+			<div class="fixed-tab-item" >
+				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
+				<text>收藏</text>
+			</div>
+			<div class="fixed-tab-item" >
+				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
+				<text>保存桌面</text>
+			</div>
+		</div>
+		<div class="menu-detail-no-content" if="!detailInfo.id">
+			<no_content></no_content>
+		</div>
+	</div>
+</template>
+
+<style>
+.menu-detail-page {
+  flex-direction: column;
+  background-color: #dfdfdf;
+  padding-bottom: 132px;
+}
+.menu-detail-info {
+  flex-direction: column;
+  width: 100%;
+}
+.menu-img-wrap {
+  width: 100%;
+  height: 420px;
+}
+.menu-img {
+  width: 100%;
+}
+.menu-content-wrap {
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: -80px;
+  margin: -80px 32px 0 32px;
+  /* height: 800px; */
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 0 32px 32px 32px;
+}
+.menu-title {
+  font-size: 36px;
+  line-height: 72px;
+  font-weight: bold;
+  border-bottom: 1px solid #f0ecec;
+}
+.menu-desc {
+  margin-top: 32px;
+  line-height: 36px;
+}
+.menu-material {
+  flex-direction: column;
+  margin-top: 32px;
+}
+.menu-material-title {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.menu-material-item {
+  border-bottom: 1px solid #f0ecec;
+  padding: 16px 0;
+}
+.menu-material-count,
+.menu-material-name {
+  flex: 1;
+}
+
+.menu-step {
+  margin: 32px 32px 0 32px;
+  flex-direction: column;
+  padding: 0 32px;
+}
+.menu-step-list,
+.menu-step-content {
+  flex-direction: column;
+}
+.menu-step-list {
+  padding: 16px 0;
+}
+.menu-step-title {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.menu-step-img {
+  border-radius: 16px;
+}
+.menu-step-desc {
+  font-size: 28px;
+  line-height: 36px;
+  padding-bottom: 16px;
+}
+
+.fixed-bottom-tab {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100px;
+	background-color: #dfdfdf;
+}
+
+.fixed-tab-item{
+	flex: 1;	
+	justify-content: center;
+	align-items: center;
+}
+.fixed-tab-item-icon{
+	width: 40px;
+	height: 40px;
+	margin-right: 16px;
+}
+
+.menu-detail-no-content {
+  width: 100%;
+}
+</style>
+
+
+<script>
+
+import api from '../api/api.js'
+export default {
+	public: {
+		detailInfo: {
+			id: 0,
+			content: '',
+			material: [],
+			name: '',
+			process: [],
+			pic: ''
+		}
+	},
+	/**
+	 * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+	 * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+	 */
+	onMenuPress() {
+		this.$app.$def.showMenu()
+	},
+	onInit() {
+		api.getMenuDetail({
+			id: 5
+		}).then(data => {
+			console.log(`data=====getMenuDetail=====>`, JSON.parse(data))
+			let menuData = JSON.parse(data);
+			this.detailInfo = menuData.result;
+		})
+	},
+}
+</script>

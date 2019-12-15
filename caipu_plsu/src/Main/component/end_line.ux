@@ -1,0 +1,18 @@
+<template>
+    <div class="boittom-line">
+        <text class="boittom-line-text" >-- 我是有底线的 --</text>
+    </div> 
+</template>
+<style>
+.boittom-line{
+	margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.boittom-line-text{
+	color: #ccc;
+}
+</style>
+

@@ -1,23 +1,21 @@
 <import name='reader_main_component_searchbar' src='./component/Component_SearchBar.ux'></import>
-<import name="novel_list" src="./component/p_novel_list"></import>
+<import name="novel_list" src="./component/p_novel_list.ux"></import>
 
 <template>
   <div class="mallClassification-content" style="height:{{screenHeight}}px">
-    <!-- <div class="mallClassification-wrap">
-      <reader_main_component_searchbar url="Page_RecentSearch" placeholder={{placeholder}} searchbar="{{searchbar}}"></reader_main_component_searchbar>
-    </div> -->
+
     <div>
       <div class="mallClassification-left">
         <div class="verticaltab-content">
-          <list>
+          <list id="list" >
             <list-item for="{{tabArray}}" type="title-item">
-              <text onclick="detail($idx)" class="{{clickIndex===$idx?'verticaltab-active':'verticaltab-text'}}">{{$item.title}}</text>
+              <text onclick="detail($idx)" class="{{clickIndex===$idx?'verticaltab-active':'verticaltab-text'}}"> {{$item.name}} </text>
             </list-item>
           </list>
         </div>
       </div>
       <div else class="mallClassification-right">
-        <novel_list list="{{novelArray[clickIndex].list}}"></novel_list>
+        <novel_list list="{{ tabArray[clickIndex].list }}"></novel_list>
       </div>
     </div>
   </div>
@@ -83,37 +81,38 @@
 
 <script>
   import device from '@system.device';
+  import category from '../../../Common/static/data.js'
   module.exports = {
+    props: {
+        type: String
+    },
     data: {
-      //搜索框数据
-      searchbar: "./page/Page_Fenlei/img/c_search_search.png",
-      arrow: "./page/Page_Fenlei/img/arrow.png",
-      placeholder: '设计中的设计',
       screenHeight: 0,
-      tabArray: [{
-        'title': '历史',
-        'select': true
-      },
-      {
-        'title': '心理',
-        'select': false
-      },
-      {
-        'title': '社科',
-        'select': false
-      },
-      {
-        'title': '励志',
-        'select': false
-      },
-      {
-        'title': '玄幻',
-        'select': false
-      },
-      {
-        'title': '言情',
-        'select': false
-      }
+      tabArray: [        
+        {
+          'title': '历史',
+          'select': true
+        },
+        {
+          'title': '心理',
+          'select': false
+        },
+        {
+          'title': '社科',
+          'select': false
+        },
+        {
+          'title': '励志',
+          'select': false
+        },
+        {
+          'title': '玄幻',
+          'select': false
+        },
+        {
+          'title': '言情',
+          'select': false
+        }
       ],
       clickIndex: 0,
       novelArray: [
@@ -195,10 +194,15 @@
       let that = this;
       device.getInfo({
         success: function (ret) {
+          
           let height = ret.screenHeight / (ret.screenWidth / 750);
-          that.screenHeight = height;
         }
       })
+      if( this.type === 'category' ){
+        // 分类列表
+        this.tabArray = category;
+      }
+
 
     },
 

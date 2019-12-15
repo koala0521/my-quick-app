@@ -1,25 +1,10 @@
 <template>
 	<div class="single-container">
-		<list class="single-list">
-			<list-item type="item" for="{{list}}" class="single-product">
-				<div onclick="goToPage($item)">
-					<div>
-						<image class="single-image" src="{{$item.image}}"></image>
-					</div>
-					<div class="single-description">
-						<text class="single-title">{{$item.title}}</text>
-						<text class="single-brief">{{$item.presentation}}</text>
-						<div class="single-bottom">
-							<div>
-								<text class="single-author">{{$item.author}}</text>
-							</div>
-							<div class="single-div-clazz">
-								<text class="single-clazz">{{$item.novelType}}</text>
-								<text class="single-clazz">{{$item.evaluation}}</text>
-							</div>
-						</div>
-						<text class="line"></text>
-					</div>
+		<list class="single-list" id="list">
+			<list-item type="item" class="liet-item" >
+				<div onclick="toList($item)" for="{{ computedData }}"  class="single-product" >
+					<text class="single-title">{{$item.name}}</text>
+					<text class="line"></text>
 				</div>
 			</list-item>
 		</list>
@@ -28,8 +13,8 @@
 
 <style>
 	.single-container {
-		margin: 20px 33px 0px 33px;
-		flex-direction: column;
+		margin: 20px 16px 0px 16px;
+		flex-direction: row;
 	}
 
 	.single-list {
@@ -37,13 +22,16 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
-
-	.single-product {
+	.liet-item{
+		flex: 1;
+		flex-wrap: wrap;
+		flex-direction: row;
 	}
 
-	.single-description {
+	.single-product {
 		flex-direction: column;
-		width: 434px;
+		flex-wrap: wrap;
+		width: 30%;
 		align-self: center;
 	}
 
@@ -59,6 +47,7 @@
 		font-size: 31.3px;
 		line-height: 40.6px;
 		margin: 24px 0px;
+		padding-right: 6px;
 	}
 
 	.single-brief {
@@ -114,18 +103,30 @@
 		data: {
 			props: [
 				'list',
-			]
+			],
+			computedData:[]
 		},
 
-		onInit() {
+		onInit() {	
 
+			this.computedData = this.list && this.list.slice(0 , 21);
+			// 监听数据变化
+      		this.$watch('list', 'watchListChange')
+			
 		},
-		goToPage(item) {
-			//跳转至书籍详情页面
+		toList(item) {
+			//跳转列表页
 			router.push({
-				uri: '/Page_Bookdetails',
-				params: { item: item }
+				uri: '/Page_List',
+				params: { classid: item.classid,title: item.name }
 			})
+			console.warn(`跳转列表页`);
+			
+		},
+		watchListChange(newval,oldval){
+			this.computedData = newval.slice(0 , 21)
+			console.log(`this.computedData>>>>>>>>>>` , this.computedData);
+			
 		}
 	}
 </script>

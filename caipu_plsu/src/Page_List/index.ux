@@ -1,27 +1,26 @@
 <template>
 	<div class="single-container">
-		<div class="single-list">
-			<div for="{{list.list}}" class="single-product" onclick="routePage()">
-				<div class="single-left">
-					<stack>
-						<image class="single-image" src="{{$item.uri}}"></image>
-						<image class="single-headphone" src="{{$item.headphone}}"></image>
-					</stack>
+
+		<list class="single-list">
+			<list-item for="{{list.list}}" type="items" class="single-product" onclick="routePage()">
+				<div>
+					<image class="single-image" src="{{$item.pic}}"></image>
 				</div>
 				<div class="single-description">
-					<text class="single-title">{{$item.title}}</text>
-					<text class="single-brief">{{$item.brief}}</text>
+					<text class="single-title">{{$item.name}}</text>
+					<text class="single-brief">{{$item.content}}</text>
 					<div class="single-bottom">
 						<div>
 							<text class="single-author">{{$item.author}}</text>
 						</div>
 						<div class="single-div-clazz">
-							<text for="{{$item.clazz}}" class="single-clazz">{{$item}}</text>
+							<text for="{{$item.menuClazz}}" class="single-clazz">{{$item }}</text>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</list-item>
+		</list>
+
 	</div>
 </template>
 
@@ -57,91 +56,78 @@
 }
 
 .single-list {
-  border-color: #0000ff;
-  justify-content: space-between;
-  flex-wrap: wrap;
+	border-color: #0000ff;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .single-product {
-  height: 300px;
-  margin: 5px 0 15px 0px;
-}
-
-.single-left {
-  /* margin: 15px 0px; */
+	margin: 0px 0px 27.6px 0px;
 }
 
 .single-description {
-  flex-direction: column;
-  width: 434px;
-  height: 100%;
-  border-bottom-width: 1px;
-  border-bottom-color: #f2f2f2;
-  align-self: center;
+	flex-direction: column;
+	flex: 1;
+	align-self: flex-start;
 }
 
 .single-image {
-  width: 217px;
-  height: 290px;
-  margin-right: 33px;
-  border-radius: 8px;
-}
-
-.single-headphone {
-  width: 42px;
-  height: 42px;
-  margin-left: 17px;
-  margin-top: 235px;
+	width: 290px;
+	height: 290px;
+	margin-right: 16px;
+	border-radius: 8px;
 }
 
 .single-title {
-  color: #000000;
-  font-size: 31.3px;
-  line-height: 40.6px;
-  margin-bottom: 16px;
+	color: #000000;
+	font-size: 31.3px;
+	line-height: 40.6px;
+	margin-bottom: 16px;
 }
 
 .single-brief {
-  color: #1a1a1a;
-  opacity: 0.5;
-  font-size: 27.1px;
-  line-height: 34.9px;
-  margin-bottom: 49px;
-  lines: 3;
-  text-overflow: ellipsis;
+	color: #1A1A1A;
+	font-size: 27px;
+	width: 100%;
+	margin-bottom: 16px;
+	lines: 4;
+	text-overflow: ellipsis;
+	justify-content:flex-start;
 }
 
 .single-bottom {
-  justify-content: space-between;
+	justify-content: space-between;
 }
 
 .single-author {
-  color: #1a1a1a;
-  opacity: 0.5;
-  font-size: 27.1px;
-  align-self: center;
+	color: #1A1A1A;
+	opacity: 0.5;
+	font-size: 27.1px;
+	align-self: center;
 }
 
 .single-div-clazz {
-  justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .single-clazz {
-  color: #000000;
-  opacity: 0.5;
-  font-size: 16.7px;
-  line-height: 24px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 8.3px;
-  align-self: center;
-  margin-left: 10px;
-  text-align: center;
-  padding: 10px 20px;
+	color: #000000;
+	opacity: 0.5;
+	font-size: 16.7px;
+	line-height: 24px;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 8.3px;
+	align-self: center;
+	margin-left: 10px;
+	text-align: center;
+	padding: 10px 20px;
 }
+	
 </style>
 
 <script>
 import router from '@system.router';
+import api from '../api/api.js';
 
 export default {
 	data: {
@@ -153,64 +139,7 @@ export default {
 			title: "玄幻精品",
 			subtitle: "更多",
 			arrow: "./img/arrow.png",
-			list: [
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '神墓',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '辰东',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '诛仙',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '萧鼎',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '斗破苍穹',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '天蚕土豆',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '斗破苍穹',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '天蚕土豆',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '斗破苍穹',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '天蚕土豆',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '斗破苍穹',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '天蚕土豆',
-					clazz: ['网文', '小说']
-				},
-				{
-					uri: './TO_DELETE/44.png',
-					headphone: './img/headphone.png',
-					title: '斗破苍穹',
-					brief: '该书以主角辰南寻找万年前爱人雨馨、追索神魔灭亡遗秘的行迹为线索，引出浩茫六道、天地棋局，演绎出一部充满热血、壮烈、凄美的传奇,可谓网络小说中优良之品。',
-					author: '天蚕土豆',
-					clazz: ['网文', '小说']
-				}
-			]
+		 	list:[]
 		}
 	},
 	press(item) {
@@ -231,6 +160,31 @@ export default {
 			backgroundColor: 'rgba(255,255,255,0.3)',
 			menu: false
 		});
-	}
+
+		api.getMenusByType({
+			classid: 55,
+			start: 0,
+			num: 10
+		}).then(data => {
+			console.log(`data===getMenusByType=======>`, JSON.parse(data))
+			let menuData = JSON.parse(data);
+			if (menuData.result) {
+
+				this.list.list = this.computedListData(menuData.result.list);
+				console.log(`this.list.list ==========>`, this.list.list);
+			}
+		})
+
+	},
+
+	computedListData(list=[]){
+		if(list.length == 0) return []
+		return list.map(el =>{
+			let menuClazz = el.tag.split(',').slice(0,2);
+			return Object.assign({},el,{ menuClazz });
+			 
+		})
+
+	},
 }
 </script>

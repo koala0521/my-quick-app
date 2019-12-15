@@ -12,6 +12,7 @@
     "watch": "hap watch"
   },
   "devDependencies": {
+    "@types/quickapp": "git+https://github.com/vivoquickapp/quickapp-types.git",
     "hap-toolkit": "0.6.6"
   }
 }
