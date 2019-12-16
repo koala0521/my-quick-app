@@ -15,7 +15,7 @@
 <style>
   .shujia-box {
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
   }
@@ -66,70 +66,7 @@
           "selectImage": false,
           "bookType1": "no",
           "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/1.png",
-          "name": "five",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "tingshu"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/2.png",
-          "name": "six",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/1.png",
-          "name": "seven",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/2.png",
-          "name": "eight",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/1.png",
-          "name": "nine",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/2.png",
-          "name": "ten",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/2.png",
-          "name": "eight",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/1.png",
-          "name": "nine",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
-        {
-          "image": "./page/Page_Shujia/TO_DELETE/2.png",
-          "name": "ten",
-          "selectImage": false,
-          "bookType1": "no",
-          "bookType2": "novel"
-        },
+        }
       ],
       checkedList: [
         { i: 0, color: '#878787', image: './page/Page_Shujia/img/delete.png', title: '删除' },
