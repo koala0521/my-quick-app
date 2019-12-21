@@ -4,14 +4,16 @@
 <import name="multi" src="./component/c_list_multi.ux"></import>
 <import name="theme_recommend" src="./component/c_item_container_swiper.ux"></import>
 <import name="single_every" src="./component/c_list_single.ux"></import>
-<import name="recommandlist" src="./component/c_recommandList.ux"></import>
+<!-- <import name="recommandlist" src="./component/c_recommandList.ux"></import> -->
 <import name="end_line" src="../../component/end_line.ux"></import>
- 
-
+<import name="wanka_ad_view" src="../../../WankaAdSDK/dist/Ad-component/view.ux"></import>
+<import name="loading" src="../../component/loading.ux"></import>
+  
 <template>
 	<!-- template里只能有一个根节点 -->
 	<div class="shucheng-box">
-
+		<!-- loading 组件 -->
+		<loading if="showLoading" ></loading>
 		<!-- 轮播图 -->
 		<div class="shucheng-box-two">
 			<caipu_swiper swiperdata={{swiperdata}}></caipu_swiper>
@@ -29,7 +31,14 @@
 
 		<!-- 广告位 -->
 		<div class="wanka-ad">
-			<image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image>
+			<!-- <image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image> -->
+			<wanka_ad_view
+				type="native"
+				adslot_id="{{ nativeId }}"
+				width="{{700}}"
+				height="{{320}}"
+				@ad-error="onadError"
+			></wanka_ad_view>
 		</div>
 
 		<!-- 当季食谱 -->
@@ -74,10 +83,10 @@
 	width: 100%;
 }
 .wanka-ad{
-	width: 100%;
-  	margin-top: 50px;
-	height: 400px;
+  	width: 683px;
+	height: 450px;
 	justify-content: center;
+	/* margin: 50px 34px 0 34px; */
 }
 .wanka-ad-img{
 	border-radius: 16px;
@@ -118,6 +127,7 @@ import category from '../../../Common/static/data.js'
 export default {
 	props: [],
 	data: {
+		showLoading: true,
 		//搜索框数据
 		searchbar: './page/Page_Shouye/img/c_search_search.png',
 		//轮播图
@@ -241,27 +251,27 @@ export default {
 				link: '更多',
 				arrow_uri: './page/Page_Shouye/img/arrow.png'
 			},
-		data3:
-			[
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '草本植物知识',
-					specialprice: '免费',
-					originprice: '2000阅饼'
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '设计中的设计',
-					specialprice: '免费',
-					originprice: '2000阅饼'
-				},
-				{
-					uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-					title: '设计艺术史',
-					specialprice: '免费',
-					originprice: '2000阅饼'
-				}
-			]
+		data3:[
+			{
+				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+				title: '草本植物知识',
+				specialprice: '免费',
+				originprice: '2000阅饼'
+			},
+			{
+				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+				title: '设计中的设计',
+				specialprice: '免费',
+				originprice: '2000阅饼'
+			},
+			{
+				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+				title: '设计艺术史',
+				specialprice: '免费',
+				originprice: '2000阅饼'
+			}
+		],
+		nativeId:'4374'
 	},
 
 	onInit() {
@@ -292,6 +302,8 @@ export default {
 				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
 				this.recommend.list = this.computedRecommendList( menuData.result.list );
 				// console.log(`this.recommend ==========>`, this.recommend.list);
+
+				this.showLoading = false;
 			}
 		})
 
@@ -318,6 +330,9 @@ export default {
 	computedRecommendList(list=[]){
 
 		return list.reverse().slice(0,3)
+	},
+	onadError( args ){
+		console.log(`⼴告加载失败` , args.detail );
 	}
 }
 </script>

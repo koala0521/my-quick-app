@@ -66,7 +66,15 @@ function createShortcut () {
   })
 }
 
+// 4，判断字段是否是中文字符串
+
+function isChinese(str) {
+  let reg = /^[\u4e00-\u9fa5]+$/
+  return reg.test(str)
+}
+
 export default {
   showMenu,
-  createShortcut
+  createShortcut,
+  isChinese
 }

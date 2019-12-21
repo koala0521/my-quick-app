@@ -3,9 +3,17 @@
 * 应用级别的配置，供所有页面公用
 */
 import util from './util'
+import WANKA_AD_SDK from './WankaAdSDK/dist/wanka_ad_sdk.min.js'
 
 export default {
 	showMenu: util.showMenu,
-	createShortcut: util.createShortcut
+	createShortcut: util.createShortcut,
+	wanka_ssp_sdk: {}, // 声明 SDK 组件对象
+	onCreate(){
+		// 初始化组件 
+		try {
+			this.$def.wanka_ssp_sdk = new WANKA_AD_SDK( this , '/Main' );
+		} catch (error) {}
+	}
 }
 </script>

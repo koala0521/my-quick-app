@@ -18,7 +18,12 @@
 		}
 	],
 	"config": {
-		"logLevel": "debug"
+		"logLevel": "debug",
+		"data":{
+			"wanka_ad":{
+				"app_id":"1289"
+			}
+		}
 	},
 	"router": {
 		"entry": "Main",
@@ -51,7 +56,10 @@
 			},			
 			"Page_Hearingdetail":{
 				"component": "index"
-			}
+			},
+			"WankaAdSDK/dist/Ad-detail":{
+				"component": "index"
+		  	}
 		},
 		"widgets": {
 			"CardDemo": {
@@ -78,6 +86,9 @@
 			},
 			"Page_Search": {
 				"titleBar": false
+			},
+			"Page_List":{
+				"menu":true
 			},
 			"Page_menuDetail":{
 				"titleBar": true,

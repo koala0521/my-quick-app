@@ -1,11 +1,13 @@
 <import name="no_content" src="../Main/component/no_centent.ux"></import>
 <import name="end_line" src="../Main/component/end_line.ux"></import>
+<import name="loading" src="../Main/component/loading.ux"></import>
  
 <template>
 	<div class="menu-detail-page">
+		<loading if="showLoading" ></loading>
 		<div class="menu-detail-info" if="detailInfo && detailInfo.id" >
 			<div class="menu-img-wrap">
-				<image class="menu-img" src="{{ detailInfo.pic  }}"></image>
+				<image class="menu-img" src="{{ detailInfo.pic }}"></image>
 			</div>
 
 			<div class="menu-content-wrap">
@@ -32,16 +34,16 @@
 					</div>
 				</div>
 			</div>
-			<end_line></end_line>
+			<end_line text="到底啦~~" ></end_line>
 		</div>
 		<div class="fixed-bottom-tab" if="detailInfo && detailInfo.id" >
 			<div class="fixed-tab-item" >
 				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
-				<text>收藏</text>
+				<text class="fixed-tab-item-text" >收藏</text>
 			</div>
 			<div class="fixed-tab-item" >
 				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
-				<text>保存桌面</text>
+				<text class="fixed-tab-item-text" >保存桌面</text>
 			</div>
 		</div>
 		<div class="menu-detail-no-content" if="!detailInfo.id">
@@ -62,7 +64,7 @@
 }
 .menu-img-wrap {
   width: 100%;
-  height: 420px;
+  height: 500px;
 }
 .menu-img {
   width: 100%;
@@ -139,7 +141,7 @@
 	right: 0;
 	bottom: 0;
 	height: 100px;
-	background-color: #dfdfdf;
+	background-color: #f1f1f1;
 }
 
 .fixed-tab-item{
@@ -151,6 +153,9 @@
 	width: 40px;
 	height: 40px;
 	margin-right: 16px;
+}
+.fixed-tab-item-text{
+	font-weight: bold;
 }
 
 .menu-detail-no-content {
@@ -170,8 +175,13 @@ export default {
 			material: [],
 			name: '',
 			process: [],
-			pic: ''
-		}
+			pic: '',
+		},
+		showLoading: true,
+	},
+	protected: {
+		infos: '',
+		id: 0
 	},
 	/**
 	 * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
@@ -181,13 +191,30 @@ export default {
 		this.$app.$def.showMenu()
 	},
 	onInit() {
+		try {	
+			this.detailInfo = JSON.parse(this.infos);
+		} catch (error) {}
+
+		// 路由传参，不需要请求
+		if(this.detailInfo.id) {
+			this.showLoading = false;
+			return
+		}
+
 		api.getMenuDetail({
 			id: 5
 		}).then(data => {
-			console.log(`data=====getMenuDetail=====>`, JSON.parse(data))
 			let menuData = JSON.parse(data);
 			this.detailInfo = menuData.result;
+
+			this.showLoading = false;
 		})
+	},
+	onReady() {
+		// console.log(`infos >>>>>>>>>`, this.infos)
+	},
+	onShow() {
+		console.log(`this.infos >>>>>>>>>onShow`, this.infos)
 	},
 }
 </script>

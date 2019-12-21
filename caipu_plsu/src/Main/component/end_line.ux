@@ -1,6 +1,6 @@
 <template>
     <div class="boittom-line">
-        <text class="boittom-line-text" >-- 我是有底线的 --</text>
+        <text class="boittom-line-text" >{{ text }}</text>
     </div> 
 </template>
 <style>
@@ -15,4 +15,15 @@
 	color: #ccc;
 }
 </style>
+<script>
+export default {
+    props: {
+        text:{
+            type:String,
+            default: '-- 我是有底线的 --'
+        }         
+    },
+}
+</script>
+
 
