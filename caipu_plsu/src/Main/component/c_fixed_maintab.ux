@@ -50,12 +50,13 @@
   bottom: 0px;
 }
 
-.tab-content {
+/* .tab-content {
 
-	/* margin-bottom: 100px; */
-	/* border-bottom-width: 2px;
-	border-bottom-color:  #000; */
-}
+	margin-bottom: 100px; 
+	border-bottom-width: 2px;
+	border-bottom-color:  #000; 
+} 
+*/
 
 .tab-item {
   flex-direction: column;
