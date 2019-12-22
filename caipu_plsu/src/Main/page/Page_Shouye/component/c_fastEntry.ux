@@ -67,25 +67,26 @@ export default {
 		
 		if (type === "早餐") {
 			router.push({
-				uri: 'Page_Fenlei',
+				uri: 'Page_List',
 				params: { testId: 'testId' }
 			})
 		} else if (type === "午餐") {
 			router.push({
-				uri: 'Page_Hearingdetail',
+				uri: 'Page_List',
 				params: { type: type }
 			})
 		} else if (type === "晚餐") {
 			router.push({
-				uri: 'Page_In_Build',
+				uri: 'Page_List',
 				params: { type: type }
 			})
-		} else if (type === "免费") {
-			router.push({
-				uri: 'Page_In_Build',
-				params: { type: type }
-			})
-		}
+		} 
+		// else if (type === "免费") {
+		// 	router.push({
+		// 		uri: 'Page_In_Build',
+		// 		params: { type: type }
+		// 	})
+		// }
 
 	}
 }

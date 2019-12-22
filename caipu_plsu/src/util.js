@@ -1,3 +1,5 @@
+import storage from '@system.storage';
+
 /**
  * 显示菜单
  */
@@ -67,14 +69,46 @@ function createShortcut () {
 }
 
 // 4，判断字段是否是中文字符串
-
 function isChinese(str) {
   let reg = /^[\u4e00-\u9fa5]+$/
   return reg.test(str)
 }
 
+// 存 storage
+function setStorage(key , value){
+  let val = value;
+
+  if( typeof value !== 'string' ){
+    val = JSON.stringify( value )
+  }  
+  return storage.set({
+    key,
+    value
+  })
+}
+
+
+// 读取 storage
+function getStorage(key){
+  return storage.get({
+    key: key
+  })
+}
+
+// 删除存储
+function delStorage( key ){
+  return storage.delete({
+    key: key
+  })  
+}
+
+
+
 export default {
   showMenu,
   createShortcut,
-  isChinese
+  isChinese,
+  getStorage,
+  setStorage,
+  delStorage
 }

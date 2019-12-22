@@ -9,32 +9,45 @@
 
 本页面引用了高亮组件，c_hight_light
  -->
-<import name="page10_1" src="./component/c_hight_light"></import>
+<!-- <import name="page10_1" src="./component/c_hight_light"></import> -->
+<import name="menu_list" src="../Main/component/c_menu_list.ux"></import>
+ 
 <import name='swi' src='./component/c_item_container_swiper'></import>
+<import name="loading" src="../Main/component/loading.ux"></import>
+<import name="no_content" src="../Main/component/no_content.ux"></import>
+ 
+ 
 <template>
 	<div class="container">
 
+		<loading show="{{ showLoading }}" ></loading>
+		<!-- 搜索bar -->
 		<div class="search_bar_container">
 			<div class="image_search_back_div_search" onclick="back">
 				<image class="image_search_back" src="./img/search_back.png"></image>
 			</div>
 			<div class="search_close">
-				<div class="image_search_back_div" onclick="search">
+				<div class="image_search_back_div" onclick="searchMenu">
 					<image class="image_search_result " src="./img/search.png"></image>
 				</div>
-				<input class="search" id="search" @change="updateValue()" @enterkeyclick="searchMenu" name="search" value="{{inputValue}}" placeholder="搜索书籍、作者" enterkeytype="search"></input>
+				<input class="search" id="search" @change="updateValue()" @enterkeyclick="searchMenu" name="search" value="{{inputValue}}" placeholder="搜索菜名/食材" enterkeytype="search"></input>
 				<div show="{{inputValue!=''}}" class="image_search_back_div" onclick="resetSearchValue">
 					<image class="image_search_result close_size" src="./img/search_close.png"></image>
 				</div>
 			</div>
+			<div class="search_btn" @click="searchMenu" >
+				<text class="search_text" >搜索</text>
+			</div>
 		</div>
+
 		<div class="panel">
 			<!-- 搜素热词、历史显示区域 -->
 			<block if="{{showPageType === 'searchBar'}}">
-				<!-- 大家都在看 -->
-				<div class="div_allsearch">
+				
+				<!-- 热门搜索 -->
+				<!-- <div class="div_allsearch">
 					<div class="change_search">
-						<text class="all_find">大家都在看</text>
+						<text class="all_find">热门搜索</text>
 						<a class="a_change_search" onclick="changeSearchWord">换一换</a>
 					</div>
 					<div class="spare_bar"></div>
@@ -43,8 +56,9 @@
 							<a class="a_item" onclick="setInputValue($item.name)">{{$item.name}}</a>
 						</block>
 					</div>
-				</div>
-				<div class="div_allsearch">
+				</div> -->
+
+				<!-- <div class="div_allsearch">
 					<div class="change_search">
 						<text class="all_find">书籍热搜榜</text>
 					</div>
@@ -52,14 +66,15 @@
 					<div class="shucheng-box-seven">
 						<swi list="{{subjectlist}}" banner="{{banner}}"></swi>
 					</div>
-				</div>
+				</div> -->
+				
 				<div class="div_allsearch">
-					<div class="change_search">
+					<div class="change_search" show="{{ hisList.length }}" >
 						<text class="all_find">搜索历史</text>
 						<a class="a_change_search" onclick="clearHis">清空</a>
 					</div>
 					<div class="spare_bar"></div>
-					<div class="change_content">
+					<div class="change_content search_hist">
 						<block for="{{hisList}}">
 							<a class="a_item" onclick="setInputValue($item)">{{$item}}</a>
 						</block>
@@ -70,11 +85,14 @@
 			<!-- 搜索结果页面展示区域 -->
 			<block if="{{showPageType ==='result'}}">
 				<div class="result_number">
-					<text if="{{searchResults.length>0}}">找到{{searchResults.length}}本相关书籍</text>
-					<text else="{{searchResults.length<=0}}">没有找到相关书籍</text>
+					<text if="{{ searchResults.length }}">找到 {{ searchResults.length }} 条相关数据</text>
+					
+					<div else="{{searchResults.length<=0}}"  >
+						<no_content text="暂无相关菜谱"  ></no_content>
+					</div>
 				</div>
 				<div class="single-list">
-					<block for="{{searchResults}}">
+					<!-- <block for="{{searchResults}}">
 						<div class="single-item" onclick="clickToBookDetail()">
 							<div>
 								<image class="single-image" src="{{$item.src}}"></image>
@@ -91,12 +109,13 @@
 						<div class="single-line">
 							<text></text>
 						</div>
-					</block>
+					</block> -->
+					<menu_list menu-list="{{ searchResults }}" ></menu_list>
 				</div>
 			</block>
 
 			<!-- 动态联想此条展示区域 -->
-			<block if="{{showPageType ==='auto'}}">
+			<!-- <block if="{{showPageType ==='auto'}}">
 				<div class="search-shujia">
 					<text>书架上找到2本书籍</text>
 					<div class="search-shujia-book">
@@ -124,7 +143,7 @@
 						</div>
 					</block>
 				</div>
-			</block>
+			</block> -->
 		</div>
 	</div>
 </template>
@@ -154,7 +173,7 @@
   width: 696px;
   height: 100px;
   margin-left: 17px;
-  margin-right: 33px;
+  margin-right: 17px;
 }
 
 .search_close {
@@ -194,8 +213,13 @@
 }
 
 .search_text {
-  color: #cd853f;
-  font-size: 30px;
+	color: #1a1a1a;
+  	font-size: 30px;
+}
+.search_btn{
+	width: 100px;
+	justify-content: center;
+	margin-left: 16px;
 }
 
 .div_image {
@@ -214,8 +238,13 @@
   width: 684px;
   height: 30px;
   margin-top: 41px;
+  margin-right: 17px;
   align-items: center;
   justify-content: space-between;
+}
+.search_hist{
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
 .spare_bar {
@@ -245,16 +274,19 @@
 }
 
 .a_item {
-  background-color: rgba(0, 0, 0, 0.05);
-  text-align: center;
-  height: 50px;
-  border-radius: 8.3px;
-  line-height: 50px;
-  padding: 10px 20px;
+  text-align: left;
+  /* height: 50px; */
+  /* line-height: 50px; */
+  padding: 16px 0;
   margin: 17px 17px 0 0;
   font-size: 25px;
   color: #000000;
   lines: 1;
+  border-bottom: 1px solid #f8f5f5;
+  /* 
+  	background-color: rgba(0, 0, 0, 0.05);   
+  	border-radius: 8.3px;
+  */
 }
 
 .image_search_result {
@@ -348,6 +380,7 @@
   width: 700px;
   font-size: 20px;
   margin-bottom: 17px;
+	margin: 0 34px 17px 34px;
 }
 
 .search_item_div {
@@ -540,54 +573,68 @@
 <script>
 import router from '@system.router';
 import utils from '../util.js';
+import prompt from '@system.prompt';
+import api from '../api/api.js';
 
 export default {
 	data: {
-		//
-		key: "",
+
 		inputValue: "",
 		showPageType: "searchBar",
 		isAutoClick: false,
-		list: [],
+		showLoading: false,
+
+		// 热门搜索
+		// list: [
+		// ],
+
+		// 历史搜索
 		hisList: [],
-		autoList: [],
-		searchResults: [],
-		subjectlist:
-			[{
-				img: './TO_DELETE/banner1.png',
-				title: "活着活着就"
-			},
-			{
-				img: './TO_DELETE/banner2.png',
-				title: "森林的秘密"
-			},
-			{
-				img: './TO_DELETE/banner1.png',
-				title: "你就是我的"
-			},
-			{
-				img: './TO_DELETE/banner2.png',
-				title: "皮囊"
-			},
-			{
-				img: './TO_DELETE/banner1.png',
-				title: "小王子"
-			}
-			]
+
+		// 存储 key
+		hisStorageKey:'__KOALA_MENU_USRE_SEARCH_HIS__',
+
+		// 搜索推荐
+		// autoList: [
+		// 	{ name: "三生三", src: './TO_DELETE/banner1.png', }, 
+		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', }, 
+		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner1.png', }, 
+		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', }
+		// ],
+
+		// 搜索结果
+		searchResults: [
+		],
+		
 	},
 	onInit: function () {
 		//titlebar的状态，在manifest.json中display设置的
-		this.$page.setTitleBar({
-			menu: false
-		});
+		// this.$page.setTitleBar({
+		// 	menu: false
+		// });
 		// TODO 数据接口说明：
 		// 搜索热词设置接口：
-		this.list.push({ name: "悟空传" }, { name: "微微一笑很倾城" }, { name: "大明那些事儿" }, { name: "三生三世十里桃花" }, { name: "斗破苍穹" });
+		// this.list.push();
+
 		// 搜索提示词，当用户输入时，根据服务器返回搜索关键词提示。没有可以不设置。
-		this.autoList.push({ name: "三生三", src: './TO_DELETE/banner1.png', }, { name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', }, { name: "三生三世十里桃花", src: './TO_DELETE/banner1.png', }, { name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', });
+		// this.autoList.push();
+
 		// 搜索结果类型，需要说明数据结构和参数含义。
 		//搜索结果为：由name、图片路径组成的对象；name为搜索的词条名称，src为对应的图片
-		this.searchResults.push({ name: "三生三世十里菊花", src: './TO_DELETE/banner1.png', }, { name: "三生三世十里杏花", src: './TO_DELETE/banner2.png', }, { name: "三生三世十里荷花", src: './TO_DELETE/banner1.png', });
+
+		// this.searchResults.push(
+		// 	{ name: "三生三世十里菊花", src: './TO_DELETE/banner1.png', }, 
+		// 	{ name: "三生三世十里杏花", src: './TO_DELETE/banner2.png', }, 
+		// 	{ name: "三生三世十里荷花", src: './TO_DELETE/banner1.png', }
+		// 	);
+
+		utils.getStorage( this.hisStorageKey ).then(res =>{
+			console.log(`读取成功` ,res );
+			this.hisList = res.data ? JSON.parse( res.data ) : [];
+			
+		}).catch( err =>{
+			console.log(`读取失败`, err);	
+		}) 
 	},
 	//增加搜索结果记录
 	addHistory() {
@@ -599,60 +646,91 @@ export default {
 			}
 		}
 		if (!isContain) {
-			this.hisList.push(this.inputValue);
+			this.hisList.unshift(this.inputValue);
 		}
-		//TODO 本地或云端存储搜索记录
+
+		//本地存储搜索记录
+		utils.setStorage( this.hisStorageKey , this.hisList ).then( res =>{
+			console.log(`存储成功`, res);			
+		}).catch( err =>{
+			console.log(`存储失败`, err );		
+			
+		})
 	},
-	find() {
+	find( val) {
 		if (this.inputValue === null || this.inputValue === undefined || this.inputValue === "") {
 			return;
 		}
+
+		// 查询数据
+		this.getMenuList();
+
 		//增加历史搜索记录
 		this.addHistory();
 	},
-	searchMenu(ev){
-		let value = ev.value.replace(/[^\u4e00-\u9fa5]+/g,'');
+	getMenuList( key='' ){
 
-		console.log(`value >>>>>>>` , value);
-		
-		
-		// if( utils.isChinese( value ) ){
-		// 	console.log(`是中文啊>>>>>>>>>>>` , value);
-			
-		// }else{
-		// 	console.log(`不是中文啊 >>>>>>>>`, value );
-		// }
+		api.getMenusByStr({
+			keyword:'白菜',
+			num:10
+		}).then(data=>{
+
+			let menuData = JSON.parse(data);
+						
+			if (menuData.result) {
+
+				this.searchResults = menuData.result.list || [];				
+				this.showLoading = false;
+			}
+		}).catch( err =>{
+			this.showLoading = false;
+		})
 
 	},
-	search() {
-		if (this.inputValue === null || this.inputValue === undefined || this.inputValue === "") {
-			return;
+	searchMenu(){
+		console.log(`searchMenu >>>>>>>>>>111`);
+		
+		let value = this.inputValue.replace(/[^\u4e00-\u9fa5]+/g,'');
+
+		if( !value ){
+			prompt.showToast({
+				message: '请输入菜名或食材'
+			});
+			return
 		}
+		this.showLoading = true;
 		this.showPageType = "result";
 		this.isAutoClick = false;
-		this.find();
+		this.find( value );
+		this.$element('search').focus( {focus:false} );
+		
 	},
+
 	updateValue(e) {
 		this.inputValue = e.text;
-		if (this.inputValue !== "" && this.inputValue !== undefined && this.inputValue !== null) {
-			if (this.isAutoClick) {
-				this.showPageType = "result";
-				this.find();
-			} else {
-				this.showPageType = "auto";
-			}
 
-			this.isAutoClick = false;
-		}
+		// if (this.inputValue !== "" && this.inputValue !== undefined && this.inputValue !== null) {
+		// 	if (this.isAutoClick) {
+		// 		this.showPageType = "result";
+		// 		this.find();
+		// 	} else {
+		// 		this.showPageType = "auto";
+		// 	}
+
+		// 	this.isAutoClick = false;
+		// }
 	},
 	setInputValue(text) {
-		this.inputValue = text || "请输入搜索词汇";
+		this.inputValue = text || "请输入菜名/食材";
+		
+		this.searchMenu();
 	},
 	changeSearchWord() {
-		this.list = [{ name: "无问西东" }, { name: "厉害了，我的国" }];
+		// this.list = [{ name: "无问西东" }, { name: "厉害了，我的国" }];
 	},
 	clearHis() {
 		this.hisList = [];
+		utils.delStorage( this.hisStorageKey );
 	},
 	back() {
 		router.back();
@@ -668,18 +746,12 @@ export default {
 		this.find();
 	},
 
-	//点击搜索结果跳转至书籍详情页
-	clickToBookDetail() {
-		router.push({
-			uri: '/Page_Bookdetails',
-			params: { testId: 'testId' }
-		})
-	},
-	clickToRead() {
-		router.push({
-			uri: '/Page_Read',
-			params: { testId: 'testId' }
-		})
-	}
+	//点击搜索结果跳转
+	// clickToBookDetail() {
+	// 	router.push({
+	// 		uri: '/Page_Bookdetails',
+	// 		params: { testId: 'testId' }
+	// 	})
+	// },
 }
 </script>

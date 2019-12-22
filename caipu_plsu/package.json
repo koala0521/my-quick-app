@@ -14,5 +14,8 @@
   "devDependencies": {
     "@types/quickapp": "git+https://github.com/vivoquickapp/quickapp-types.git",
     "hap-toolkit": "0.6.6"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
   }
 }

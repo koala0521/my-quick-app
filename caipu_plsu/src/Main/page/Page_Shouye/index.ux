@@ -305,6 +305,8 @@ export default {
 
 				this.showLoading = false;
 			}
+		}).catch( err =>{
+			this.showLoading = false;
 		})
 
 		// api.getMenusByStr({

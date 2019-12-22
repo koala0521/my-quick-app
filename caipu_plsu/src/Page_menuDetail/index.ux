@@ -1,4 +1,4 @@
-<import name="no_content" src="../Main/component/no_centent.ux"></import>
+<import name="no_content" src="../Main/component/no_content.ux"></import>
 <import name="end_line" src="../Main/component/end_line.ux"></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
  

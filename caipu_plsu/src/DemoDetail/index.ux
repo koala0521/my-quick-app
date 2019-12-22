@@ -1,4 +1,4 @@
-<import name="no_content" src="../Main/component/no_centent.ux"></import>
+<import name="no_content" src="../Main/component/no_content.ux"></import>
  
 <template>
   <!-- template里只能有一个根节点 -->

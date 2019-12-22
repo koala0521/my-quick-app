@@ -2,7 +2,7 @@
   <!-- template里只能有一个根节点 -->
   <div class="container">
     <image class="goods_image" src="../img/nothing.png"></image>
-    <text class="title">没有数据啦~</text>
+    <text class="title">{{ text }}</text>
   </div>
 </template>
 
@@ -28,18 +28,25 @@
 
 <script>
   module.exports = {
-    protected: {
+    data: {
       type: ''     //item 为将接收的路由参数
     },
+    props: {
+        text: {
+          type: String,
+          default: '找不到相关数据 ~'
+        }
+    },
     onInit() {
-      if(this.type){
-      this.$page.setTitleBar({
-        text: this.type,
-        textColor: '#1a1a1a',
-        backgroundColor: '#f2f2f2',
-        menu: true
-      })
-      }
+
+      // if(this.type){
+      // this.$page.setTitleBar({
+      //   text: this.type,
+      //   textColor: '#1a1a1a',
+      //   backgroundColor: '#f2f2f2',
+      //   menu: true
+      // })
+      // }
 
     }
   }

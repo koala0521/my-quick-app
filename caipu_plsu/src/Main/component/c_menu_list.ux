@@ -1,0 +1,191 @@
+<!-- 列表组件 -->
+<import name="wanka_ad_view" src="../../WankaAdSDK/dist/Ad-component/view.ux"></import>
+<import name="loading" src="./loading.ux"></import>
+ 
+<template>
+	<div class="single-container">
+
+		<list class="single-list">
+			<block for="{{list.list}}"  >
+				<list-item type="items" class="single-product" onclick="toDetail( $item )">
+					<div>
+						<image class="single-image" src="{{$item.pic}}"></image>
+					</div>
+					<div class="single-description">
+						<text class="single-title">{{$item.name}}</text>
+						<text class="single-brief">{{$item.content}}</text>
+						<div class="single-bottom">
+							<div>
+								<text class="single-author">{{$item.author}}</text>
+							</div>
+							<div class="single-div-clazz">
+								<text for="{{$item.menuClazz}}" class="single-clazz">{{$item }}</text>
+							</div>
+						</div>
+					</div>
+				</list-item>
+				<list-item if="{{ $idx == 2 && adState.showAd }}" type="{{ $idx }}" class="ad-wrap single-product" >
+					<wanka_ad_view
+						type="native"
+						adslot_id="{{ adState.adId }}"
+						width="{{700}}"
+						height="{{320}}"
+						@ad-error="onadError"
+					></wanka_ad_view>
+				</list-item>	
+			</block>		
+		</list>
+		<!-- <loading if="showLoading" ></loading> -->
+	</div>
+</template>
+
+<style>
+.single-container {
+  /* margin: 0px 34px 0px 34px; */
+  flex-direction: column;
+height: 100%;
+   
+}
+
+.single-list {
+	border-color: #0000ff;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.single-product {
+	margin: 0px 0px 27.6px 0px;
+}
+
+.ad-wrap{
+	/* width: 600px; */
+	height: 400px;
+	border-radius: 16px; 
+}
+
+.single-description {
+	flex-direction: column;
+	flex: 1;
+	align-self: flex-start;
+}
+
+.single-image {
+	width: 290px;
+	height: 290px;
+	margin-right: 16px;
+	border-radius: 8px;
+}
+
+.single-title {
+	color: #000000;
+	font-size: 32px;
+	line-height: 40.6px;
+	margin-bottom: 16px;
+	font-weight: bold;
+}
+
+.single-brief {
+	color: #1A1A1A;
+	font-size: 27px;
+	width: 100%;
+	margin-bottom: 16px;
+	lines: 4;
+	text-overflow: ellipsis;
+	justify-content:flex-start;
+}
+
+.single-bottom {
+	justify-content: space-between;
+}
+
+.single-author {
+	color: #1A1A1A;
+	opacity: 0.5;
+	font-size: 27.1px;
+	align-self: center;
+}
+
+.single-div-clazz {
+	justify-content: flex-end;
+}
+
+.single-clazz {
+	color: #000000;
+	opacity: 0.9;
+	font-size: 22px;
+	line-height: 24px;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 8.3px;
+	align-self: center;
+	margin-left: 10px;
+	text-align: center;
+	padding: 10px 20px;
+}
+	
+</style>
+
+<script>
+import router from '@system.router';
+
+export default {
+	data: {
+		list: {
+			// title: "菜谱列表",
+			// subtitle: "更多",
+			// arrow: "./img/arrow.png",
+		 	list:[]
+		},
+		adState:{
+			showAd: true,
+			adId: '4374'
+		},
+		showLoading: true,		
+	},
+	props: {
+		menuList : {
+			type: Array,
+			default: []
+		},
+		showWankaAd: false
+	},
+	press(item) {
+		console.error("on press event param : " + item);
+	},
+	toDetail(item) {
+
+		//跳转到应用内的某个页面
+		router.push({
+			uri: "/Page_menuDetail",
+			params:{
+				infos: JSON.stringify(item),
+				id: 100
+			}
+		})
+	},
+
+	onInit() {
+		
+		// 监听数据变化
+      	this.$watch('menuList', 'computedListData')
+
+	},
+
+	computedListData(newVal,oldVal){
+
+		if(newVal.length == 0) return []
+		this.list.list = newVal.map(el =>{
+			let menuClazz = el.tag.split(',').slice(0,3);
+			return Object.assign({},el,{ menuClazz });
+			 
+		})
+		console.log(`this.list.list ============== >` , this.list.list);
+		
+
+	},
+	onadError(args){
+		console.log(`onadError >>>` , args);
+		
+	}
+}
+</script>

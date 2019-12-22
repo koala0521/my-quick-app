@@ -10,7 +10,8 @@
 		{"name": "system.router"},
 		{"name": "system.shortcut"},
 		{ "name": "system.device" },
-		{ "name": "system.fetch" } 
+		{ "name": "system.fetch" },
+		{ "name": "system.storage" } 
 	],
 	"permissions": [
 		{
