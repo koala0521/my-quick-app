@@ -2,7 +2,7 @@
     <div class="container">
         <div class="item-container">
             <swiper class="swiper" autoplay=true>
-                <image for={{swiperdata}} class="bg-image" src={{$item.pic}}></image>
+                <image for={{swiperdata}} class="bg-image" src={{$item.pic}} @click="clickSwiper($item)" ></image>
             </swiper>
         </div>
     </div>
@@ -14,8 +14,8 @@
     }
     .item-container {
         margin-bottom: 50px;
-        margin-right: 60px;
-        margin-left: 60px;
+        margin-right: 34px;
+        margin-left: 34px;
         flex: 1;
         flex-direction: column;
     }
@@ -37,11 +37,24 @@
 
 <script>
 
+    import router from '@system.router';
+
     export default {
         props: [
             'swiperdata'
         ],
         data: {
+        },
+        clickSwiper(item){
+            console.log(`clickSwiper >>>>>>` , item);
+            //跳转到应用内的某个页面
+            router.push({
+                uri: "/Page_menuDetail",
+                params:{
+                    infos: JSON.stringify(item),
+                    id: item.id
+                }
+            })
         }
     }
 </script>

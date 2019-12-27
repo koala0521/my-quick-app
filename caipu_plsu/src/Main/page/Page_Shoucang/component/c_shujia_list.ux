@@ -11,20 +11,12 @@
 			<div class="{{ $idx==shujiarows.length-1?'last-list-row':'list-row' }}">
 				<div class="shujia-books">
 					<stack class="shujia-stack" >
-						<div class="image_div" style=" background-image: {{value.image}}" id="btnclick" onclick="clickToRead(value)" onlongpress="longPress(value)">
+						<div class="image_div" style=" background-image: {{ value.pic }}" id="btnclick" onclick="clickToRead(value)" onlongpress="longPress(value)">
 							<div class="select_box" onclick="select(value)" if="showCheckBox">
 								<image class="select_box_image" src={{img.noSelect}} if="!value.selectImage"></image>
 								<image class="select_box_image" src={{img.select}} if="value.selectImage"></image>
 							</div>
 						</div>
-						<!-- 
-            <div if="value.bookType1!=='no'" class="book_type_1" style="background-image: {{img.type1}}">
-              <text if="value.bookType1==='shidu'">试读</text>
-              <text if="value.bookType1==='update'">更新</text>
-            </div>
-            <div if="value.bookType2==='tingshu'" class="book_type_2" style="background-image: {{img.type2}}">
-            </div>
-              -->
 					</stack>
 				</div>
 				<div class="shujia-line" style="background-image:{{img.shujiaLine}}"></div>
@@ -35,7 +27,7 @@
 			<tab-bar>
 				<block for="item in checkedlist">
 					<div class="tab-item" onclick="tabClickEvent(item)">
-						<image class="image-active" src="{{item.image}}" />
+						<image class="image-active" src="{{ item.pic }}" />
 						<text style="color: {{item.color}}" class="title">{{item.title}}</text>
 					</div>
 				</block>
@@ -96,8 +88,9 @@
   	justify-content: center;	
 }
 .image_div {
-  width: 188px;
-  height: 250px;
+	width: 700px;
+  height: 400px;
+	background-position: center;
   justify-content: flex-end;
   align-items: flex-end;
 }
@@ -206,6 +199,13 @@ module.exports = {
 		});
 		// this.shujiarows = this.sliceArray(this.list);
 		this.shujiarows = this.list;
+		this.$watch('list','updateList');
+	},
+
+
+	updateList(newVal){
+		console.log(`newVal >>>>>>>>>>>`, newVal);
+		this.shujiarows = newVal;
 	},
 
 	sliceArray(array) {
@@ -222,6 +222,7 @@ module.exports = {
 			this.foo = true;           //切换下方tabBar
 			this.hideSelectImage();    //清空选择的书籍
 		} else {
+
 			if (value.bookType2 === 'tingshu') {
 				router.push({
 					uri: "/Page_Hearingdetail"

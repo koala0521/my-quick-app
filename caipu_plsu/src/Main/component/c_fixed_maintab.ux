@@ -1,7 +1,8 @@
 
 <import name='Shouye' src='../page/Page_Shouye/index.ux'></import>
+<import name='Shouye' src='../page/Page_Shouye/index.ux'></import>
 <import name='fenlei' src='../page/Page_Fenlei/index.ux'></import>
-<import name='shoucang' src='../page/Page_Shujia/index.ux'></import>
+<import name='shoucang' src='../page/Page_Shoucang/index.ux'></import>
 <import name='reader_main_shucheng_component_searchbar' src='./Component_SearchBar.ux'></import>
 
 <template>
@@ -55,6 +56,7 @@
 	margin-bottom: 100px; 
 	border-bottom-width: 2px;
 	border-bottom-color:  #000; 
+
 } 
 */
 
@@ -120,7 +122,7 @@ export default {
 	switchContent(e) {
 		let index = e.index;
 
-		this.showSearchBar = (index != 2);
+		// this.showSearchBar = (index != 2);
 		
 		for (let i = 0; i < this.datas.list.length; i++) {
 			let element = this.datas.list[i];

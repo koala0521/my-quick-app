@@ -155,7 +155,7 @@ export default {
 	public: {
 		//玄幻精品
 		list: {
-			title: "菜谱列表",
+			// title: "菜谱列表",
 			subtitle: "更多",
 			arrow: "./img/arrow.png",
 		 	list:[]
@@ -164,7 +164,11 @@ export default {
 			showAd: true,
 			adId: '4374'
 		},
-		showLoading: true,		
+		showLoading: true,
+				
+	},
+	protected: {
+		title: '菜谱列表'
 	},
 	press(item) {
 		console.error("on press event param : " + item);
@@ -176,7 +180,7 @@ export default {
 			uri: "/Page_menuDetail",
 			params:{
 				infos: JSON.stringify(item),
-				id: 100
+				id: item.id
 			}
 		})
 	},
@@ -184,7 +188,7 @@ export default {
 	onInit() {
 		this.$page.setTitleBar({
 			//titlebar的状态，在manifest.json中display设置的
-			text: this.list.title,
+			text: this.title,
 			textColor: '#1A1A1A',
 			backgroundColor: 'rgba(255,255,255,0.3)'
 		});
@@ -208,6 +212,7 @@ export default {
 	computedListData(list=[]){
 		if(list.length == 0) return []
 		return list.map(el =>{
+			el.content = el.content.replace(/<br \/>/g , '\r\n');
 			let menuClazz = el.tag.split(',').slice(0,2);
 			return Object.assign({},el,{ menuClazz });
 			 

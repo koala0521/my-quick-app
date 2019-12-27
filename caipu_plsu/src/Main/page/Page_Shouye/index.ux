@@ -131,16 +131,15 @@ export default {
 		//搜索框数据
 		searchbar: './page/Page_Shouye/img/c_search_search.png',
 		//轮播图
-		swiperdata:
-			[
-				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_31411.jpg' },
-				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_60504.jpg' },
-				{ src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_73972.jpg' }
-			],
+		swiperdata:[
+			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_31411.jpg' },
+			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_60504.jpg' },
+			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_73972.jpg' }
+		],
 
 		//快捷入口数据 
-		fastentrylist:
-			[{
+		fastentrylist:[
+			{
 				'icon': './page/Page_Shouye/img/dushi.png',
 				'title': '早餐',
 				'src': 'city',
@@ -158,7 +157,7 @@ export default {
 				'src': 'tejia',
 				'isNew': false
 			}
-			],
+		],
 		
 		//当季食谱
 		curSeasonMenu:
@@ -176,8 +175,8 @@ export default {
 					}
 				]
 			},
-		//为你推荐
 
+		//为你推荐
 		recommend:{
 				title: '为你推荐',
 				link: '更多',
@@ -205,42 +204,28 @@ export default {
 			],
 		},
 		//榜单推荐
-		recommendlist:
-			{
+		recommendlist: {
 				// 榜单排行recommandList入参：
 				title: '榜单推荐',
 				more: '更多',
 				arrowimage: './page/Page_Shouye/img/arrow.png',
 				morelink: baidu,
-				list: [{
-					recommandType: '新书榜',
-					typeUrl: baidu,
-					backgroundimage: './page/Page_Shouye/img/image1.png',
-					listItems: [{
-						name: '我的前半生',
-						url: baidu
-					}, {
-						name: '花间集',
-						url: baidu
-					}, {
-						name: '如何学习',
-						url: baidu
-					}]
-				}, {
-					recommandType: '畅销榜',
-					typeUrl: baidu,
-					backgroundimage: './page/Page_Shouye/img/image2.png',
-					listItems: [{
-						name: '我的前半生',
-						url: baidu
-					}, {
-						name: '花间集',
-						url: baidu
-					}, {
-						name: '如何学习',
-						url: baidu
-					}]
-				}
+				list: [
+					// {
+					// 	recommandType: '新书榜',
+					// 	typeUrl: baidu,
+					// 	backgroundimage: './page/Page_Shouye/img/image1.png',
+					// 	listItems: [{
+					// 		name: '我的前半生',
+					// 		url: baidu
+					// 	}, {
+					// 		name: '花间集',
+					// 		url: baidu
+					// 	}, {
+					// 		name: '如何学习',
+					// 		url: baidu
+					// 	}]
+					// }
 				]
 			},
 		//限时特价
@@ -252,24 +237,12 @@ export default {
 				arrow_uri: './page/Page_Shouye/img/arrow.png'
 			},
 		data3:[
-			{
-				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-				title: '草本植物知识',
-				specialprice: '免费',
-				originprice: '2000阅饼'
-			},
-			{
-				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-				title: '设计中的设计',
-				specialprice: '免费',
-				originprice: '2000阅饼'
-			},
-			{
-				uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-				title: '设计艺术史',
-				specialprice: '免费',
-				originprice: '2000阅饼'
-			}
+			// {
+			// 	uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+			// 	title: '草本植物知识',
+			// 	specialprice: '免费',
+			// 	originprice: '2000阅饼'
+			// }
 		],
 		nativeId:'4374'
 	},
@@ -292,14 +265,20 @@ export default {
 		}).then(data => {
 			console.log(`data===getMenusByType=======>`, JSON.parse(data))
 			let menuData = JSON.parse(data);
+
 			if (menuData.result) {
 
+				// 轮播图
+				let startIndex = Math.floor((Math.random()*9));  // 起始位置
 				this.swiperdata = menuData.result.list.map(el => {
 					return el
-				}).slice(0, 3)
+				}).slice(startIndex , startIndex+3 )
 
+				// 当季食谱
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
 				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
+
+				// 为你推荐
 				this.recommend.list = this.computedRecommendList( menuData.result.list );
 				// console.log(`this.recommend ==========>`, this.recommend.list);
 

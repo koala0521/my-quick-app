@@ -4,8 +4,8 @@
  
 <template>
 	<div class="menu-detail-page">
-		<loading if="showLoading" ></loading>
-		<div class="menu-detail-info" if="detailInfo && detailInfo.id" >
+		<loading if="showLoading"></loading>
+		<div class="menu-detail-info" if="detailInfo && detailInfo.id">
 			<div class="menu-img-wrap">
 				<image class="menu-img" src="{{ detailInfo.pic }}"></image>
 			</div>
@@ -34,16 +34,16 @@
 					</div>
 				</div>
 			</div>
-			<end_line text="到底啦~~" ></end_line>
+			<end_line text="到底啦~~"></end_line>
 		</div>
-		<div class="fixed-bottom-tab" if="detailInfo && detailInfo.id" >
-			<div class="fixed-tab-item" >
+		<div class="fixed-bottom-tab" if="detailInfo && detailInfo.id">
+			<div class="fixed-tab-item">
 				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
-				<text class="fixed-tab-item-text" >收藏</text>
+				<text class="fixed-tab-item-text">收藏</text>
 			</div>
-			<div class="fixed-tab-item" >
+			<div class="fixed-tab-item">
 				<image class="fixed-tab-item-icon" src="./img/start_grey.png"></image>
-				<text class="fixed-tab-item-text" >保存桌面</text>
+				<text class="fixed-tab-item-text">保存桌面</text>
 			</div>
 		</div>
 		<div class="menu-detail-no-content" if="!detailInfo.id">
@@ -136,26 +136,26 @@
 }
 
 .fixed-bottom-tab {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 100px;
-	background-color: #f1f1f1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  background-color: #f1f1f1;
 }
 
-.fixed-tab-item{
-	flex: 1;	
-	justify-content: center;
-	align-items: center;
+.fixed-tab-item {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
-.fixed-tab-item-icon{
-	width: 40px;
-	height: 40px;
-	margin-right: 16px;
+.fixed-tab-item-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
 }
-.fixed-tab-item-text{
-	font-weight: bold;
+.fixed-tab-item-text {
+  font-weight: bold;
 }
 
 .menu-detail-no-content {
@@ -191,13 +191,15 @@ export default {
 		this.$app.$def.showMenu()
 	},
 	onInit() {
-		try {	
+		try {
 			this.detailInfo = JSON.parse(this.infos);
-		} catch (error) {}
+		} catch (error) { }
 
 		// 路由传参，不需要请求
-		if(this.detailInfo.id) {
+		if (this.detailInfo.id) {
 			this.showLoading = false;
+			this.updateTitle(this.detailInfo.name);
+
 			return
 		}
 
@@ -206,9 +208,11 @@ export default {
 		}).then(data => {
 			let menuData = JSON.parse(data);
 			this.detailInfo = menuData.result;
-
+			this.detailInfo.content = this.detailInfo.content.replace(/<br \/>/g, '\r\n');
 			this.showLoading = false;
+			this.updateTitle(this.detailInfo.name);
 		})
+
 	},
 	onReady() {
 		// console.log(`infos >>>>>>>>>`, this.infos)
@@ -216,5 +220,13 @@ export default {
 	onShow() {
 		console.log(`this.infos >>>>>>>>>onShow`, this.infos)
 	},
+	updateTitle(title) {
+		this.$page.setTitleBar({
+			//titlebar的状态，在manifest.json中display设置的
+			text: title || '详情页',
+			textColor: '#1A1A1A',
+			backgroundColor: 'rgba(255,255,255,0.3)'
+		});
+	}
 }
 </script>
