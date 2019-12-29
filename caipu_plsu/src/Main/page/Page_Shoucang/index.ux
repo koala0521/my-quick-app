@@ -1,4 +1,4 @@
-<import name='shoucang_list' src='./component/c_shujia_list.ux'></import>
+<!-- <import name='shoucang_list' src='./component/c_shujia_list.ux'></import> -->
 
 <import name="menu_list" src="../../../Main/component/c_menu_list.ux"></import>
  
@@ -8,7 +8,7 @@
 		
 		<div class="shujia-box-bottom">
 			<text class="shujia-title" >我的收藏</text>
-			<menu_list menu-list="{{ list }}" ></menu_list>
+			<menu_list menu-list="{{ favorite_data }}" show-wanka-ad="{{ false }}" ></menu_list>
 		</div>
 	</div>
 </template>
@@ -45,47 +45,27 @@
 
 <script>
 import api from '../../../api/api.js';
+import util from '../../../util.js';
 
 module.exports = {
 	props: [
-		'foo',
+		'favorite_data',
 	],
 	data: {
 		// 书架列表数据
 		list: [
-			{
-				"image": "./page/Page_Shoucang/TO_DELETE/1.png",
-				"name": "one",
-				"selectImage": false,
-				"bookType1": "no",
-				"bookType2": "novel"
-			},
-			{
-				"image": "./page/Page_Shoucang/TO_DELETE/2.png",
-				"name": "two",
-				"selectImage": false,
-				"bookType1": "shidu",
-				"bookType2": "novel"
-			},
-			{
-				"image": "./page/Page_Shoucang/TO_DELETE/1.png",
-				"name": "three",
-				"selectImage": false,
-				"bookType1": "update",
-				"bookType2": "tingshu"
-			},
-			{
-				"image": "./page/Page_Shoucang/TO_DELETE/2.png",
-				"name": "four",
-				"selectImage": false,
-				"bookType1": "no",
-				"bookType2": "novel"
-			}
+			// {
+			// 	"image": "./page/Page_Shoucang/TO_DELETE/1.png",
+			// 	"name": "one",
+			// 	"selectImage": false,
+			// 	"bookType1": "no",
+			// 	"bookType2": "novel"
+			// }
 		],
 		checkedList: [
-			{ i: 0, color: '#878787', image: './page/Page_Shoucang/img/delete.png', title: '删除' },
-			{ i: 2, color: '#878787', image: './page/Page_Shoucang/img/share.png', title: '分享' },
-			{ i: 3, color: '#878787', image: './page/Page_Shoucang/img/all.png', title: '全选' }
+			// { i: 0, color: '#878787', image: './page/Page_Shoucang/img/delete.png', title: '删除' },
+			// { i: 2, color: '#878787', image: './page/Page_Shoucang/img/share.png', title: '分享' },
+			// { i: 3, color: '#878787', image: './page/Page_Shoucang/img/all.png', title: '全选' }
 		],
 		img: {
 			closeImage: "./page/Page_Shoucang/img/icon_close.png",
@@ -105,21 +85,22 @@ module.exports = {
 			//titlebar的状态在manifest.json中display设置的
 			menu: false
 		});
+		this.$watch('favorite_data','updateFoo');
 
-		api.getMenusByStr({
-			keyword:'白菜',
-			num:10
-		}).then(data=>{
-			console.log(`data=====getMenusByStr=====>` , JSON.parse(data))
-			let menuData = JSON.parse(data).result;
-
-			this.list = menuData.list && menuData.list.map(el =>{
-				let item = {};
-				return Object.assign( item , el , {"selectImage": false} );
-			});
-			console.log(`data=====this.list=====>` , this.list);
-			
-		})
+		console.log(`favorite_data >>>>>>>>>>>>` ,  this.favorite_data );
+		
+		// util.readFile( util.filePath ).then( res =>{
+		// 	let text = res.data.text;
+		// 	if(!text) return
+		// 	console.log(`text >>>>>>>>` , JSON.parse( text ) );
+		// 	this.list = JSON.parse( text ) || [];						
+		// }).catch( err =>{
+		// 	console.log(` read fail >>>>>>>>>` , err);			
+		// })
 	},
+	updateFoo(newVal){
+		console.log(`newVal >>>>>>>>>>>`, newVal);
+		
+	}
 }
 </script>

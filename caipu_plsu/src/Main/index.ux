@@ -25,15 +25,10 @@ export default {
 	},
 
 	onInit() {
-
-		// this.$page.setTitleBar({
-		// 	//titlebar的状态在manifest.json中display设置的
-		// 	textColor: '#1a1a1a',
-		// 	backgroundColor: '#f2f2f2',
-		// 	text: '考拉菜谱',
-		// 	menu: true
-		// })
 		
+	},
+	onShow() {
+		this.$broadcast('page_show');		
 	},
 }
 </script>

@@ -191,17 +191,7 @@ export default {
 				// link: '更多',
 				// uri: './page/Page_Shouye/img/arrow.png'
 			},
-			subjectlist:[
-					{
-						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-					},
-					{
-						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-					},
-					{
-						img: './page/Page_Shouye/TO_DELETE/banner/banner1.png'
-					}
-			],
+			subjectlist:[],
 		},
 		//榜单推荐
 		recommendlist: {
@@ -254,6 +244,13 @@ export default {
 		});
 		let startIndex = Math.floor((Math.random()*9));  // 起始位置
 		this.themeRecommendData.subjectlist = category.slice(startIndex , startIndex+3 );
+
+		// // 轮播图
+		// let start = Math.floor((Math.random()*9));  // 起始位置
+		// this.swiperdata = category.slice(startIndex , startIndex+3 );
+
+		// console.log(`this.swiperdata >>>>>>>>>>` , this.swiperdata);
+		
 	
 	},
 	onReady() {
@@ -272,7 +269,7 @@ export default {
 				let startIndex = Math.floor((Math.random()*9));  // 起始位置
 				this.swiperdata = menuData.result.list.map(el => {
 					return el
-				}).slice(startIndex , startIndex+3 )
+				}).slice(startIndex , startIndex+3 );
 
 				// 当季食谱
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
