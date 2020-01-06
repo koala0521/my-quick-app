@@ -1,18 +1,4 @@
-<!-- 搜索页面为全屏页面，需要关闭titleBar，请在manifest.json中配置dispaly.pages设置以下信息：
-"pages": {
-  "页面目录": { 
-    "titleBar": false,
-    "menu":false,
-    "titleBarBackgroundColor": "#ffffff"
-  }
-} 
-
-本页面引用了高亮组件，c_hight_light
- -->
-<!-- <import name="page10_1" src="./component/c_hight_light"></import> -->
 <import name="menu_list" src="../Main/component/c_menu_list.ux"></import>
- 
-<import name='swi' src='./component/c_item_container_swiper'></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
 <import name="no_content" src="../Main/component/no_content.ux"></import>
  

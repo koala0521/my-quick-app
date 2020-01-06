@@ -1,4 +1,3 @@
-<import name="reader_main_shucheng_component_searchbar" src="./component/Component_SearchBar.ux"></import>
 <import name="caipu_swiper" src="./component/component_swiper.ux"></import>
 <import name="fastentry" src="./component/c_fastEntry.ux"></import>
 <import name="multi" src="./component/c_list_multi.ux"></import>
