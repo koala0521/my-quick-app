@@ -33,9 +33,9 @@
 		margin: 17px 34px 36px 34px;
 	}
 
-	.mallClassification-left {
+	/* .mallClassification-left {
 		background-color: rgba(0, 0, 0, 0.03);
-	}
+	} */
 
 	.verticaltab-content {
 		width: 151px;
@@ -51,6 +51,7 @@
 		font-size: 27.1px;
 		width: 100%;
 		text-align: center;
+		background-color: rgba(0, 0, 0, 0.03);
 	}
 
 	.verticaltab-active {
