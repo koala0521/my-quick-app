@@ -12,7 +12,11 @@
 		{ "name": "system.device" },
 		{ "name": "system.fetch" },
 		{ "name": "system.storage" },
-		{ "name": "system.file" } 
+		{ "name": "system.file" },
+		{ "name": "system.package" },
+		{ "name": "service.account" },
+		{ "name": "system.network" },
+		{ "name": "system.wifi" }
 	],
 	"permissions": [
 		{
@@ -41,9 +45,6 @@
 				"component": "index",
 				"path": "/Page_Search"
 			  },
-			"DemoDetail": {
-				"component": "index"
-			},
 			"Page_List":{
 				"component": "index"
 			},
@@ -52,29 +53,10 @@
 			},
 			"About": {
 				"component": "index"
-			},
-			"Page_Activity":{
-				"component": "index"
 			},			
-			"Page_Hearingdetail":{
-				"component": "index"
-			},
 			"WankaAdSDK/dist/Ad-detail":{
 				"component": "index"
 		  	}
-		},
-		"widgets": {
-			"CardDemo": {
-				"name": "CardDemo",
-				"description": "快应用卡片展示",
-				"component": "index",
-				"path": "/CardDemo",
-				"minPlatformVersion": 1032,
-				"targetManufactorys": [
-					"vivo"
-				],
-				"features": []
-			}
 		}
 	},
 	"display": {
@@ -100,9 +82,6 @@
 			"Demo": {
 				"titleBarText": "示例页",
 				"menu": false
-			},
-			"DemoDetail": {
-				"titleBarText": "详情页"
 			},
 			"About": {
 				"menu": false

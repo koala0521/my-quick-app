@@ -1,6 +1,5 @@
 
 <import name='Shouye' src='../page/Page_Shouye/index.ux'></import>
-<import name='Shouye' src='../page/Page_Shouye/index.ux'></import>
 <import name='fenlei' src='../page/Page_Fenlei/index.ux'></import>
 <import name='shoucang' src='../page/Page_Shoucang/index.ux'></import>
 <import name='reader_main_shucheng_component_searchbar' src='./Component_SearchBar.ux'></import>
