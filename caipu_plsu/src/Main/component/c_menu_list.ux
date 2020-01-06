@@ -1,10 +1,12 @@
 <!-- 列表组件 -->
 <import name="wanka_ad_view" src="../../WankaAdSDK/dist/Ad-component/view.ux"></import>
+<import name="no_content" src="./no_content.ux"></import>
+ 
  
 <template>
 	<div class="single-container">
 
-		<list class="single-list">
+		<list class="single-list" if="list.list.length">
 			<block for="{{list.list}}"  >
 				<list-item type="items" class="single-product" onclick="toDetail( $item )">
 					<div>
@@ -37,6 +39,9 @@
 				</list-item>	
 			</block>		
 		</list>
+		<div else >
+			<no_content text="空空如也 ~" ></no_content>
+		</div>
 	</div>
 </template>
 
@@ -68,7 +73,8 @@ height: 100%;
 .single-description {
 	flex-direction: column;
 	flex: 1;
-	align-self: flex-start;
+	/* align-self: flex-start; */
+	justify-content: space-between;
 }
 
 .single-image {
@@ -168,7 +174,8 @@ export default {
 	onInit() {
 		
 		// 监听数据变化
-      	this.$watch('menuList', 'computedListData')
+		  this.$watch('menuList', 'computedListData');
+		  this.adState.showAd = this.showWankaAd;
 
 	},
 

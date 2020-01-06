@@ -186,6 +186,8 @@ export default {
 	},
 
 	onInit() {
+		console.log(`list title >>>>>>>>>>>>` , this.title);
+		
 		this.$page.setTitleBar({
 			//titlebar的状态，在manifest.json中display设置的
 			text: this.title,
@@ -202,7 +204,7 @@ export default {
 			if (menuData.result) {
 
 				this.list.list = this.computedListData(menuData.result.list);
-				console.log(`this.list.list ==========>`, this.list.list);
+				// console.log(`this.list.list ==========>`, this.list.list);
 				this.showLoading = false;
 			}
 		})

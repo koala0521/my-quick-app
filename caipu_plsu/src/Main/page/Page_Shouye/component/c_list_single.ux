@@ -162,7 +162,10 @@
 
 			// 列表页
 			router.push({
-				uri: '/Page_List'
+				uri: '/Page_List',
+				params: {
+					title: this.list.title
+				}
 			})					
 		}
 	}

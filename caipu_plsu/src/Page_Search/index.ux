@@ -110,7 +110,7 @@
 							<text></text>
 						</div>
 					</block> -->
-					<menu_list menu-list="{{ searchResults }}" ></menu_list>
+					<menu_list menu-list="{{ searchResults }}" show-wanka-ad="{{ true }}"  ></menu_list>
 				</div>
 			</block>
 

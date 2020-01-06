@@ -9,14 +9,14 @@
 	<!-- template里只能有一个根节点 -->
 	<div class="container">
 		<!-- 搜索框 -->
-		<div class="searchbar-box" if="showSearchBar" >
+		<div class="searchbar-box" if="showSearchBar">
 			<reader_main_shucheng_component_searchbar placeholder={{placeholder}} searchbar={{searchbar}}></reader_main_shucheng_component_searchbar>
 		</div>
 		<tabs onchange="switchContent">
-			<tab-content  class="tab-content"  >
+			<tab-content class="tab-content">
 				<Shouye></Shouye>
-				<fenlei type="category" ></fenlei>
-				<shoucang foo={{foo}}></shoucang>
+				<fenlei type="category"></fenlei>
+				<shoucang favorite_data="{{ favorite_data }}"></shoucang>
 			</tab-content>
 			<tab-bar>
 				<block for="datas.list">
@@ -38,9 +38,9 @@
   justify-content: space-between;
 }
 
-.searchbar-box{
-	height: 120px;
-	justify-content: center;
+.searchbar-box {
+  height: 120px;
+  justify-content: center;
   flex-direction: column;
 }
 .tabs {
@@ -104,6 +104,7 @@
 </style>
 
 <script>
+import util from '../../util.js';
 
 export default {
 
@@ -115,15 +116,23 @@ export default {
 		//搜索框数据
 		searchbar: './img/c_search_search.png',
 		placeholder: '搜索菜名/食材',
-		foo: true,
+		favorite_data: [],
 		showSearchBar: true
+	},
+	onInit() {
+
+		// 监听页面show
+		this.$on('page_show',this.pageShow);
 	},
 
 	switchContent(e) {
 		let index = e.index;
 
-		// this.showSearchBar = (index != 2);
-		
+		if (index == 2) {
+
+			this.readMenu()
+		}
+
 		for (let i = 0; i < this.datas.list.length; i++) {
 			let element = this.datas.list[i];
 			element.show = false;
@@ -131,15 +140,26 @@ export default {
 				element.show = true;
 			}
 		}
+
+
 	},
-	longpress(longpress) {
-		this.showTabs = false;
-		this.showCeckbox = true;
-		longpress.stopPropagation();
+	pageShow(){
+		this.readMenu();		
 	},
-	unCecked() {
-		this.showCeckbox = false;
-		this.showTabs = true;
+
+	readMenu(){
+
+		// 读取收藏菜谱
+		util.readFile(util.filePath).then(res => {
+
+			let text = res.data.text;
+			if (!text) return
+
+			this.favorite_data = JSON.parse(text) || [];
+
+		}).catch(err => {
+			console.log(` read fail >>>>>>>>>`, err);
+		})
 	}
 }
 </script>
