@@ -42,6 +42,7 @@
   margin-bottom: 30px;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .verticaltab-text {
@@ -52,7 +53,6 @@
   width: 100%;
   text-align: center;
   background-color: transparent;
-  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .verticaltab-active {

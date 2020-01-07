@@ -20,9 +20,9 @@
 			<tab-bar>
 				<block for="datas.list">
 					<div class="tab-item">
-						<image if="{{$item.show}}" class="image-active" src="{{$item.show?$item.pic_choice:$item.pic}}" />
-						<image else class="image-normal" src="{{$item.show?$item.pic_choice:$item.pic}}" />
-						<text style="color: {{$item.color}}" class="title">{{$item.title}}</text>
+						<image class="image-active" src="{{$item.show?$item.pic_choice:$item.pic}}" />
+						<!-- <image else class="image-normal" src="{{$item.show?$item.pic_choice:$item.pic}}" /> -->
+						<text class="title {{ $idx == textActive ? 'text-active' : '' }}">{{$item.title}}</text>
 					</div>
 				</block>
 			</tab-bar>
@@ -95,6 +95,12 @@
   margin-top: 6px;
   text-align: center;
 }
+.tab-item .text-active {
+  font-size: 21px;
+  color: #cd2325;
+  margin-top: 6px;
+  text-align: center;
+}
 
 .maintab-shadow-bottom {
   width: 100%;
@@ -116,19 +122,22 @@ export default {
 		searchbar: './img/c_search_search.png',
 		placeholder: '搜索菜名/食材',
 		favorite_data: [],
-		showSearchBar: true
+		showSearchBar: true,
+		textActive: 0
 	},
 	onInit() {
 
 		// 监听页面show
-		this.$on('page_show',this.pageShow);
+		this.$on('page_show', this.pageShow);
 	},
 
 	switchContent(e) {
 		let index = e.index;
 
-		if (index == 2) {
+		this.textActive = index;
 
+		// 读取收藏
+		if (index == 2) {
 			this.readMenu()
 		}
 
@@ -142,11 +151,11 @@ export default {
 
 
 	},
-	pageShow(){
-		this.readMenu();		
+	pageShow() {
+		this.readMenu();
 	},
 
-	readMenu(){
+	readMenu() {
 
 		// 读取收藏菜谱
 		util.readFile(util.filePath).then(res => {

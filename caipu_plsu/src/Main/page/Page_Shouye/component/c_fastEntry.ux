@@ -42,8 +42,10 @@
 }
 
 .fastentry-img {
-  width: 83px;
+  width: 100px;
   height: 83px;
+	resize-mode: contain;
+	object-fit:contain;
 }
 
 .fastentry-tips {

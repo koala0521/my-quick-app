@@ -139,19 +139,19 @@ export default {
 		//快捷入口数据 
 		fastentrylist:[
 			{
-				'icon': './page/Page_Shouye/img/dushi.png',
+				'icon': './page/Page_Shouye/img/zaocan.png',
 				'title': '早餐',
 				'src': 'city',
 				'isNew': false
 			},
 			{
-				'icon': './page/Page_Shouye/img/paihang.png',
+				'icon': './page/Page_Shouye/img/wucan.png',
 				'title': '午餐',
 				'src': 'paihang',
 				'isNew': false
 			},
 			{
-				'icon': './page/Page_Shouye/img/tejia.png',
+				'icon': './page/Page_Shouye/img/wancan.png',
 				'title': '晚餐',
 				'src': 'tejia',
 				'isNew': false
