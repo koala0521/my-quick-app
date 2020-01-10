@@ -29,14 +29,14 @@
 		</div>
 
 		<!-- 广告位 -->
-		<div class="wanka-ad">
-			<!-- <image class="wanka-ad-img" src="https://pic4.zhimg.com/80/v2-66f7088cd560308a51f1b59ebb2428b6_hd.jpg"></image> -->
+		<div class="wanka-ad" if="{{ showAd }}" >			
 			<wanka_ad_view
 				type="native"
 				adslot_id="{{ nativeId }}"
 				width="{{700}}"
 				height="{{320}}"
 				@ad-error="onadError"
+                @ad-closed="onadClosed"
 			></wanka_ad_view>
 		</div>
 
@@ -233,31 +233,25 @@ export default {
 			// 	originprice: '2000阅饼'
 			// }
 		],
-		nativeId:'4374'
+		showAd: true,
+		nativeId:'4693'
 	},
 
 	onInit() {
+
 		this.$page.setTitleBar({
 			//titlebar的状态在manifest.json中display设置的
 			menu: false
 		});
-		let startIndex = Math.floor((Math.random()*9));  // 起始位置
-		this.themeRecommendData.subjectlist = category.slice(startIndex , startIndex+3 );
 
-		// // 轮播图
-		// let start = Math.floor((Math.random()*9));  // 起始位置
-		// this.swiperdata = category.slice(startIndex , startIndex+3 );
-
-		// console.log(`this.swiperdata >>>>>>>>>>` , this.swiperdata);
-		
-	
+		this.themeRecommendData.subjectlist = this.randomFirstMenuClass( category , 3 );	
 	},
 	onReady() {
 
 		api.getMenusByType({
 			classid: 55,
 			start: 0,
-			num: 10
+			num: 20
 		}).then(data => {
 			console.log(`data===getMenusByType=======>`, JSON.parse(data))
 			let menuData = JSON.parse(data);
@@ -276,25 +270,16 @@ export default {
 
 				// 为你推荐
 				this.recommend.list = this.computedRecommendList( menuData.result.list );
-				// console.log(`this.recommend ==========>`, this.recommend.list);
-
-				this.showLoading = false;
+				// console.log(`this.recommend ==========>`, this.recommend.list);				
 			}
+
+			this.showLoading = false;
+
 		}).catch( err =>{
+			console.log(`err===getMenusByType=======>`, err )
 			this.showLoading = false;
 		})
-
-		// api.getMenusByStr({
-		// 	keyword:'白菜',
-		// 	num:10
-		// }).then(data=>{
-		// 	console.log(`data=====getMenusByStr=====>` , JSON.parse(data))
-		// })
-		// api.getMenuDetail({
-		// 	id:5
-		// }).then(data=>{
-		// 	console.log(`data=====getMenuDetail=====>` , JSON.parse(data))
-		// })
+		
 	},
 	// 格式化当季食谱数据
 	computedSeasonData(list=[]){
@@ -304,12 +289,37 @@ export default {
 		let computedData = Object.assign({},data,{ menuClazz });
 		return [ computedData ]
 	},
+
+	// 随机菜谱推荐
 	computedRecommendList(list=[]){
 
 		return list.reverse().slice(0,3)
 	},
+
+	// 随机一级分类推荐
+	randomFirstMenuClass( menuCategory , len=0 ){
+		let MaxStart = menuCategory.length - len + 1;
+		let startIndex = Math.floor( (Math.random() * MaxStart) );  // 随机起始位置
+		return menuCategory.slice(startIndex , startIndex + len );					 
+	},
+	// 随机二级分类推荐
+	randomSecondMenuClass( menuCategory ){
+		let firstClassList = this.randomFirstMenuClass( menuCategory , 1 )[0].list;
+
+		let len = firstClassList.length;
+		let idx = Math.floor((Math.random()*len));
+
+		return firstClassList[ idx ]
+	},
+	
 	onadError( args ){
 		console.log(`⼴告加载失败` , args.detail );
+		this.showAd = false;
+	},
+
+	onadClosed(){
+		this.showAd = false;
 	}
+
 }
 </script>

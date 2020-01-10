@@ -1,5 +1,5 @@
 {
-	"package": "com.caipu.koala.menu",
+	"package": "com.jiachang.caipu.menu",
 	"name": "菜谱+",
 	"versionName": "1.0.0",
 	"versionCode": "1",
@@ -27,7 +27,7 @@
 		"logLevel": "debug",
 		"data":{
 			"wanka_ad":{
-				"app_id":"1289"
+				"app_id":"1386"
 			}
 		}
 	},

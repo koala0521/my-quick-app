@@ -78,7 +78,7 @@ export default {
     width: 134px;
     height: 134px;
     border-radius: 10px;
-    border: 1px solid #8d8d8d;
+    /* border: 1px solid #8d8d8d; */
   }
 
   /* 应用名 */

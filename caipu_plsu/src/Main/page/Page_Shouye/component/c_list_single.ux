@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="single-list">
-			<div for="{{list.list}}" class="single-product" onclick="routePage()">
+			<div for="{{list.list}}" class="single-product" onclick="routePage($item)">
 				<div>
 					<image class="single-image" src="{{$item.pic}}"></image>
 				</div>
@@ -147,19 +147,17 @@
 			console.error("on press event param : " + item);
 		},
 
-		routePage(url) {
+		routePage(item) {
 			//跳转到应用内的某个页面
 			router.push({
-				uri: "/Page_menuDetail"
+				uri: "/Page_menuDetail",
+				params:{
+                    infos: JSON.stringify(item),
+                    id: item.id
+                }
 			})
 		},
 		toList(){
-
-			// 活动页面
-			// router.push({
-			// 	uri: '/Page_Activity'
-			// })
-
 			// 列表页
 			router.push({
 				uri: '/Page_List',

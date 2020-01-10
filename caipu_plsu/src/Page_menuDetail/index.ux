@@ -273,8 +273,8 @@ export default {
 	computedCount() {
 		let min = Math.min(this.detailInfo.id, this.detailInfo.classid) / 100 / this.detailInfo.tag.length;
 		let max = Math.max(this.detailInfo.id, this.detailInfo.classid) / 100 / this.detailInfo.tag.length;
-		this.detailInfo.viewsCount = Math.round(max * 10) / 10;
-		this.detailInfo.favoritesCount = Math.round(min * 10) / 10;
+		this.detailInfo.viewsCount = Math.max( Math.round(max * 10) / 10 , 1 );
+		this.detailInfo.favoritesCount = Math.max( Math.round(min * 10) / 10 , 0.2);
 	},
 	creatIcon() {
 

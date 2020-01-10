@@ -22,7 +22,10 @@ export default function requestFn(args = {}) {
 		let parmas = Object.assign({}, args, {
 			url: config.baseUrl + url,
 			method,
-			data,
+			data:{
+				// appkey: "87b02e76865221f2",
+				...data
+			},
 			// header: {
 			// 	'Content-Type': 'application/x-www-form-urlencoded'
 			// },

@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="multi-list">
-			<div for="{{list}}" class="multi-product3" onclick="routePage()">
+			<div for="{{list}}" class="multi-product3" onclick="routePage( $item )">
 				<image class="multi-image3" src="{{$item.pic}}"></image>
 				<div class="multi-description">
 					<text class="multi-title">{{$item.name}}</text>
@@ -166,10 +166,14 @@
 				'num'
 			],
 		},
-		routePage(url) {
+		routePage(item) {
 			//跳转到应用内的某个页面
 			router.push({
-				uri: "/Page_menuDetail"
+				uri: "/Page_menuDetail",
+				params:{
+                    infos: JSON.stringify(item),
+                    id: item.id
+                }
 			})
 		},
 		toList(){
