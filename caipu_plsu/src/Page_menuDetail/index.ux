@@ -193,6 +193,10 @@
 
 import api from '../api/api.js'
 import util from '../util.js'
+import device from '@system.device'
+import prompt from '@system.prompt'
+
+
 export default {
 	public: {
 		detailInfo: {
@@ -283,12 +287,18 @@ export default {
 
 	favoriteMenu() {
 
+		device.getDeviceId({
+			success: (data)=> {				
+			},
+			fail: (data, code)=> {
+			}
+		})	
+
 		if( this.favoritesState ){
 			this.unfavorite();
 		}else{
 			this.favorite();
-		}
-		
+		}			
 	},
 	// 检测是否收藏
 	hasFavorite() {
@@ -297,8 +307,6 @@ export default {
 
 			let text = res.data.text;
 			if (!text) return
-
-			console.log(`text >>>>>>>>`, JSON.parse(text));
 
 			this.favoritesList = JSON.parse(text) || [];
 			this.favoritesState = this.favoritesList.some(el => {

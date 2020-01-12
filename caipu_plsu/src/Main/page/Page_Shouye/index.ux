@@ -40,7 +40,7 @@
 			></wanka_ad_view>
 		</div>
 
-		<!-- 当季食谱 -->
+		<!-- 今日热门 -->
 		<div class="shucheng-box-four">
 			<single_every list="{{curSeasonMenu}}"></single_every>
 		</div>
@@ -158,10 +158,10 @@ export default {
 			}
 		],
 		
-		//当季食谱
+		//今日热门
 		curSeasonMenu:
 			{
-				title: '当季食谱',
+				title: '今日热门',
 				subtitle: '更多',
 				arrow: './page/Page_Shouye/img/arrow.png',
 				list: [
@@ -264,7 +264,7 @@ export default {
 					return el
 				}).slice(startIndex , startIndex+3 );
 
-				// 当季食谱
+				// 今日热门
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
 				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
 

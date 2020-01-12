@@ -31,6 +31,7 @@
 						width="{{700}}"
 						height="{{320}}"
 						@ad-error="onadError"
+						@ad-closed="onadClosed"
 					></wanka_ad_view>
 				</list-item>	
 			</block>		
@@ -225,7 +226,10 @@ export default {
 	},
 	onadError(args){
 		console.log(`onadError >>>` , args);
-		
-	}
+		this.adState.showAd = false;
+	},
+	onadClosed(){
+        this.adState.showAd = false;
+    }
 }
 </script>
