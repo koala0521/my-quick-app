@@ -1,6 +1,7 @@
 <import name="no_content" src="../Main/component/no_content.ux"></import>
 <import name="end_line" src="../Main/component/end_line.ux"></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
+<import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
  
 <template>
 	<div class="menu-detail-page">
@@ -44,13 +45,31 @@
 				<!-- <image class="fixed-tab-item-icon" src="./img/start_grey.png"></image> -->
 				<text class="fixed-tab-item-text">{{ favoritesState == false ? '收藏' : '已收藏' }}</text>
 			</div>
-			<div class="fixed-tab-item" @click="creatIcon" show="{{!iconState}}" >
+			<div class="fixed-tab-item" @click="creatIcon" show="{{!iconState}}">
 				<!-- <image class="fixed-tab-item-icon" src="./img/start_grey.png"></image> -->
 				<text class="fixed-tab-item-text">保存桌面</text>
 			</div>
 		</div>
 		<div class="menu-detail-no-content" if="!detailInfo.id">
 			<no_content></no_content>
+		</div>
+		<div class="ad-icon" @click="showWanKaAd" if="{{ !!showHongBao }}"  >
+			<image src="./img/hongbao.png"></image>
+		</div>
+		<div class="wanka-ad-wrap" show="{{ showAd }}" >
+			
+			<div class="wanka-ad-contain" >
+				<wanka_ad_view
+					type="native"
+					adslot_id="{{ adslotId }}"
+					width="{{700}}"
+					height="{{450}}"
+					title_style="{{ txtStyle }}"
+					@ad-error="onadError"
+					@ad-closed="onadClosed"
+					@ad-load="onadLoad"
+				></wanka_ad_view>
+			</div>
 		</div>
 	</div>
 </template>
@@ -186,8 +205,48 @@
 .menu-detail-no-content {
   width: 100%;
 }
-</style>
+.ad-icon{
+	position: fixed;
+	width: 100px;	
+	height: 100px;
+	top: 700px;
+	right: 10px;
+	animation-name: rotate;
+	transform-origin: 50px 50px;
+    animation-name: rotate;
+	animation-duration: 1000ms;
+	animation-iteration-count: infinite;
+}
+@keyframes rotate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+	}
+	100% {
+      transform: scale(1);
+    }
+}
 
+.wanka-ad-wrap{
+	position: fixed;
+	width: 100%;	
+	height: 100%;
+	background-color: rgba(141, 138, 138, 0.8);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: -50px;
+}
+.wanka-ad-contain{
+	width: 680px;
+	height: 480px;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+</style>
 
 <script>
 
@@ -212,7 +271,14 @@ export default {
 		showLoading: true,
 		favoritesState: false,
 		favoritesList: [],	// 收藏列表
-		iconState: false
+		iconState: false,	// 图标状态
+		showHongBao: true, // 红包图标状态
+		adslotId: '4693',  //  正式 4693  测试 4708
+		showAd: false,		// 广告状态
+		txtStyle: {
+			'color': '#ffffff',
+			'font-weight': 'bold'
+		}
 	},
 	protected: {
 		infos: '',
@@ -230,11 +296,9 @@ export default {
 			this.detailInfo = JSON.parse(this.infos);
 		} catch (error) { }
 
-		// util.delFile( util.filePath )
-
 		// 
-		util.hasIcon().then(res =>{
-			console.log(`hasIcon >>>>>>>>` , res);
+		util.hasIcon().then(res => {
+			console.log(`hasIcon >>>>>>>>`, res);
 			this.iconState = res.data;
 		})
 
@@ -242,6 +306,7 @@ export default {
 		if (this.detailInfo.id) {
 			this.showLoading = false;
 			this.updateTitle(this.detailInfo.name);
+			this.detailInfo.content = this.detailInfo.content.replace(/[<br \/>|<br\/>]+/g, '\r\n');
 			this.computedCount();
 			this.hasFavorite();
 			return
@@ -252,19 +317,25 @@ export default {
 		}).then(data => {
 			let menuData = JSON.parse(data);
 			this.detailInfo = menuData.result;
-			this.detailInfo.content = this.detailInfo.content.replace(/<br \/>/g, '\r\n');
+			this.detailInfo.content = this.detailInfo.content.replace(/[<br \/>|<br\/>]/g, '\r\n');
 			this.showLoading = false;
 			this.updateTitle(this.detailInfo.name);
 			this.computedCount();
 			this.hasFavorite();
+			
 		})
 
 	},
 	onReady() {
-		// console.log(`infos >>>>>>>>>`, this.infos)
+		try {
+			
+			this.showHongBao = !!this.$app.$def.hongBaoState;
+		} catch (error) {
+			this.showHongBao = 0;	
+		}
 	},
 	onShow() {
-		// console.log(`this.infos >>>>>>>>>onShow`, this.infos)
+
 	},
 	updateTitle(title) {
 		this.$page.setTitleBar({
@@ -277,8 +348,8 @@ export default {
 	computedCount() {
 		let min = Math.min(this.detailInfo.id, this.detailInfo.classid) / 100 / this.detailInfo.tag.length;
 		let max = Math.max(this.detailInfo.id, this.detailInfo.classid) / 100 / this.detailInfo.tag.length;
-		this.detailInfo.viewsCount = Math.max( Math.round(max * 10) / 10 , 1 );
-		this.detailInfo.favoritesCount = Math.max( Math.round(min * 10) / 10 , 0.2);
+		this.detailInfo.viewsCount = Math.max(Math.round(max * 10) / 10, 1);
+		this.detailInfo.favoritesCount = Math.max(Math.round(min * 10) / 10, 0.2);
 	},
 	creatIcon() {
 
@@ -288,17 +359,17 @@ export default {
 	favoriteMenu() {
 
 		device.getDeviceId({
-			success: (data)=> {				
+			success: (data) => {
 			},
-			fail: (data, code)=> {
+			fail: (data, code) => {
 			}
-		})	
+		})
 
-		if( this.favoritesState ){
+		if (this.favoritesState) {
 			this.unfavorite();
-		}else{
+		} else {
 			this.favorite();
-		}			
+		}
 	},
 	// 检测是否收藏
 	hasFavorite() {
@@ -321,11 +392,10 @@ export default {
 	},
 
 	// 收藏
-	favorite(){
+	favorite() {
 
 		this.favoritesList.unshift(this.detailInfo);
 		util.writeFile(util.filePath, JSON.stringify(this.favoritesList)).then(res => {
-			console.log(`success >>>>>>>>>>>>>>>>>>`, res);
 			this.favoritesState = true;
 		}).catch(err => {
 			console.log(`fail >>>>>>>>>>>>`, err);
@@ -333,20 +403,34 @@ export default {
 	},
 
 	// 取消收藏
-	unfavorite(){
-		
-		util.delFile( util.filePath );
+	unfavorite() {
 
-		let arr = this.favoritesList.filter( el =>{
+		util.delFile(util.filePath);
+
+		let arr = this.favoritesList.filter(el => {
 			return el.id != this.detailInfo.id
 		})
 		this.favoritesState = false;
 
-		util.writeFile( util.filePath, JSON.stringify(arr) ).then(res => {
-			console.log(`unfavorite >>>>>>>>>>>>>>>>>>`, res);
-		}).catch(err => {
-			console.log(`fail >>>>>>>>>>>>`, err);
+		util.writeFile(util.filePath, JSON.stringify(arr)).then(res => {
 		})
-	}
+		// .catch(err => {
+		// 	console.log(`fail >>>>>>>>>>>>`, err);
+		// })
+	},
+	showWanKaAd(){
+		this.showAd = true;
+		this.showHongBao = 0;
+		this.$app.$def.hongBaoState = 0;
+	},
+	onadError(args){		
+		this.showAd = false;
+	},
+	onadClosed(args){
+		this.showAd = false;
+	},
+	onadLoad(args){
+		this.showHongBao = 1;
+	}	
 }
 </script>

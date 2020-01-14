@@ -1,6 +1,6 @@
 {
 	"package": "com.jiachang.caipu.menu",
-	"name": "菜谱+",
+	"name": "家常菜谱大全",
 	"versionName": "1.0.0",
 	"versionCode": "1",
 	"minPlatformVersion": "1030",
@@ -37,10 +37,6 @@
 			"Main": {
 				"component": "index"
 			},
-			"Page_Fenlei": {
-				"component": "index",
-				"path": "/Page_Fenlei"
-			},
 			"Page_Search": {
 				"component": "index",
 				"path": "/Page_Search"
@@ -51,7 +47,7 @@
 			"Page_menuDetail":{
 				"component": "index"
 			},
-			"About": {
+			"Yinsi": {
 				"component": "index"
 			},			
 			"WankaAdSDK/dist/Ad-detail":{
@@ -79,11 +75,8 @@
 				"titleBarText": "",
 				"menu":true
 			},
-			"Demo": {
-				"titleBarText": "示例页",
-				"menu": false
-			},
-			"About": {
+			"Yinsi": {
+				"titleBarText": "隐私政策",
 				"menu": false
 			}
 		}

@@ -10,21 +10,21 @@
   
 <template>
 	<!-- template里只能有一个根节点 -->
-	<div class="shucheng-box">
+	<div class="menu-main">
 		<!-- loading 组件 -->
 		<loading if="showLoading" ></loading>
 		<!-- 轮播图 -->
-		<div class="shucheng-box-two">
+		<div class="menu-main-two">
 			<caipu_swiper swiperdata={{swiperdata}}></caipu_swiper>
 		</div>
 		<!-- 快捷方式入口 -->
-		<div class="shucheng-box-three">
+		<div class="menu-main-three">
 			<fastentry list="{{fastentrylist}}"></fastentry>
 		</div>
 
 
 		<!-- 为你推荐 -->
-		<div class="shucheng-box-five">
+		<div class="menu-main-five">
 			<multi banner="{{ recommend }}" list="{{ recommend.list }}" num="{{3}}"></multi>
 		</div>
 
@@ -41,24 +41,14 @@
 		</div>
 
 		<!-- 今日热门 -->
-		<div class="shucheng-box-four">
+		<div class="menu-main-four">
 			<single_every list="{{curSeasonMenu}}"></single_every>
 		</div>
 
 		<!-- 专题推荐 -->
-		<div class="shucheng-box-seven">
+		<div class="menu-main-seven">
 			<theme_recommend list="{{themeRecommendData.subjectlist}}" banner="{{themeRecommendData.banner}}"></theme_recommend>
 		</div>
-
-		<!-- 榜单推荐 -->
-		<!-- <div class="shucheng-box-eight">
-			<recommandlist recommandlist="{{recommendlist.list}}" arrow="{{recommendlist.arrowimage}}" title="{{recommendlist.title}}" morelink="{{recommendlist.morelink}}"></recommandlist>
-		</div> -->
-
-		<!-- 限时特价 -->
-		<!-- <div class="shucheng-box-nine">
-			<multi banner="{{banner3}}" list="{{data3}}" num="{{4}}"></multi>
-		</div> -->
 
 		<end_line></end_line>
 
@@ -66,7 +56,7 @@
 </template>
 
 <style>
-.shucheng-box {
+.menu-main {
   flex-direction: column;
   justify-content: center;
   align-content: center;
@@ -74,11 +64,11 @@
   padding-bottom: 64px;
 }
 
-.shucheng-box-one {
+.menu-main-one {
   width: 683px;
   margin: 17px 34px 36px 34px;
 }
-.shucheng-box-two{
+.menu-main-two{
 	width: 100%;
 }
 .wanka-ad{
@@ -91,23 +81,23 @@
 	border-radius: 16px;
 }
 
-.shucheng-box-four {
+.menu-main-four {
   margin-top: 50px;
 }
 
-.shucheng-box-five {
+.menu-main-five {
   margin-top: 50px;
 }
 
-.shucheng-box-six {
+.menu-main-six {
   margin-top: 50px;
 }
 
-.shucheng-box-seven {
+.menu-main-seven {
   margin-top: 50px;
 }
 
-.shucheng-box-eight {
+.menu-main-eight {
   margin: 50px 0px;
 }
 .boittom-line{
@@ -233,8 +223,8 @@ export default {
 			// 	originprice: '2000阅饼'
 			// }
 		],
-		showAd: true,
-		nativeId:'4693'
+		showAd: false,
+		nativeId:'4693'  // 正式 4693    测试 4708
 	},
 
 	onInit() {
@@ -253,7 +243,7 @@ export default {
 			start: 0,
 			num: 20
 		}).then(data => {
-			console.log(`data===getMenusByType=======>`, JSON.parse(data))
+		
 			let menuData = JSON.parse(data);
 
 			if (menuData.result) {
@@ -263,20 +253,17 @@ export default {
 				this.swiperdata = menuData.result.list.map(el => {
 					return el
 				}).slice(startIndex , startIndex+3 );
-
 				// 今日热门
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
-				// console.log(`this.curSeasonMenu ==========>`, this.curSeasonMenu);
-
 				// 为你推荐
-				this.recommend.list = this.computedRecommendList( menuData.result.list );
-				// console.log(`this.recommend ==========>`, this.recommend.list);				
+				this.recommend.list = this.computedRecommendList( menuData.result.list );	
+				// 广告状态
+				this.showAd = true; 
 			}
 
 			this.showLoading = false;
 
 		}).catch( err =>{
-			console.log(`err===getMenusByType=======>`, err )
 			this.showLoading = false;
 		})
 		

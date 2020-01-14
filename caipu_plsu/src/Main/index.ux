@@ -1,7 +1,7 @@
 <import name='fixedmaintab' src='./component/c_fixed_maintab.ux'></import>
 <template>
 	<!-- template里只能有一个根节点 -->
-	<fixedmaintab datas="{{datas}}"></fixedmaintab>
+	<fixedmaintab datas="{{datas}}" ></fixedmaintab>
 </template>
 
 <style>
@@ -9,22 +9,24 @@
 
 <script>
 export default {
-	data() {
-		return {
-			datas: {
-				color_normal: '#878787',
-				color_active: '#FF7500',
-				list: [
-					{ i: 1, color: '#878787', pic: './img/shouye.png', pic_choice: './img/shouye.png', show: false, title: '首页' },
-					{ i: 3, color: '#878787', pic: './img/fenlei.png', pic_choice: './img/fenlei.png', show: false, title: '分类' },
-					// { i: 2, color: '#878787', pic: './img/tingshu.png', pic_choice: './img/clicked-tingshu.png', show: false, title: '食材' },
-					{ i: 4, color: '#878787', pic: './img/shoucang.png', pic_choice: './img/shoucang.png', show: false, title: '收藏' }
-				]
-			}
+	public: {		
+		datas: {
+			color_normal: '#878787',
+			color_active: '#FF7500',
+			list: [
+				{ i: 1, color: '#878787', pic: './img/shouye.png', pic_choice: './img/shouye.png', show: false, title: '首页' },
+				{ i: 3, color: '#878787', pic: './img/fenlei.png', pic_choice: './img/fenlei.png', show: false, title: '分类' },
+				// { i: 2, color: '#878787', pic: './img/tingshu.png', pic_choice: './img/clicked-tingshu.png', show: false, title: '食材' },
+				{ i: 4, color: '#878787', pic: './img/shoucang.png', pic_choice: './img/shoucang.png', show: false, title: '收藏' }
+			]
 		}
+	},
+	protected:{
+		// show_ad: true
 	},
 
 	onInit() {
+		// console.log( `this.show_ad >>>>>>>>>` , this.show_ad );
 		
 	},
 	onShow() {

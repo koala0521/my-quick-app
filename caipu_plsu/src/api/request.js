@@ -23,7 +23,7 @@ export default function requestFn(args = {}) {
 			url: config.baseUrl + url,
 			method,
 			data:{
-				// appkey: "87b02e76865221f2",
+				appkey: "87b02e76865221f2",
 				...data
 			},
 			// header: {

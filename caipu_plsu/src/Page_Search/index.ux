@@ -78,58 +78,9 @@
 					</div>
 				</div>
 				<div class="single-list">
-					<!-- <block for="{{searchResults}}">
-						<div class="single-item" onclick="clickToBookDetail()">
-							<div>
-								<image class="single-image" src="{{$item.src}}"></image>
-							</div>
-							<div class="single-description">
-								<text class="single-title">{{$item.name}}</text>
-								<text class="single-brief">现代学生穿越三生三世十里桃花的世界，成为白浅的妹妹，保护白浅不吃苦，不经历伤情，成全墨渊与白浅</text>
-								<div class="single-bottom">
-									<text class="single-bottom-left">秋风雨</text>
-									<text class="single-bottom-right">今日16520在读</text>
-								</div>
-							</div>
-						</div>
-						<div class="single-line">
-							<text></text>
-						</div>
-					</block> -->
 					<menu_list menu-list="{{ searchResults }}" show-wanka-ad="{{ true }}"  ></menu_list>
 				</div>
 			</block>
-
-			<!-- 动态联想此条展示区域 -->
-			<!-- <block if="{{showPageType ==='auto'}}">
-				<div class="search-shujia">
-					<text>书架上找到2本书籍</text>
-					<div class="search-shujia-book">
-						<div class="shujia_hight_light_item">
-							<image class="shujia-book-image" src='./TO_DELETE/author.png'></image>
-							<div class="shujia_search_text margin_left">
-								<page10_1 prop1="三生三世十里桃花" prop2="{{inputValue}}"></page10_1>
-							</div>
-						</div>
-						<text class="read-shujia" onclick="clickToRead()">阅读</text>
-					</div>
-					<div class="search-shujia-more">
-						<text>更多</text>
-						<image src="./img/down_arrow.png"></image>
-					</div>
-				</div>
-				<text class="high-light-line"></text>
-				<div class="auto_div">
-					<block for="{{autoList}}">
-						<div class="hight_light_item" onclick="directResultPage($item.name)">
-							<image class="rs_item_image" src="{{$item.src}}"></image>
-							<div class="search_image_text margin_left">
-								<page10_1 prop1="{{$item.name}}" prop2="{{inputValue}}"></page10_1>
-							</div>
-						</div>
-					</block>
-				</div>
-			</block> -->
 		</div>
 	</div>
 </template>
@@ -594,26 +545,7 @@ export default {
 		
 	},
 	onInit: function () {
-		//titlebar的状态，在manifest.json中display设置的
-		// this.$page.setTitleBar({
-		// 	menu: false
-		// });
-		// TODO 数据接口说明：
-		// 搜索热词设置接口：
-		// this.list.push();
-
-		// 搜索提示词，当用户输入时，根据服务器返回搜索关键词提示。没有可以不设置。
-		// this.autoList.push();
-
-		// 搜索结果类型，需要说明数据结构和参数含义。
-		//搜索结果为：由name、图片路径组成的对象；name为搜索的词条名称，src为对应的图片
-
-		// this.searchResults.push(
-		// 	{ name: "三生三世十里菊花", src: './TO_DELETE/banner1.png', }, 
-		// 	{ name: "三生三世十里杏花", src: './TO_DELETE/banner2.png', }, 
-		// 	{ name: "三生三世十里荷花", src: './TO_DELETE/banner1.png', }
-		// 	);
-
+		
 		utils.getStorage( this.hisStorageKey ).then(res =>{
 			console.log(`读取成功` ,res );
 			this.hisList = res.data ? JSON.parse( res.data ) : [];
@@ -657,8 +589,8 @@ export default {
 	getMenuList( key='' ){
 
 		api.getMenusByStr({
-			keyword:'白菜',
-			num:10
+			keyword: this.inputValue,
+			num:20
 		}).then(data=>{
 
 			let menuData = JSON.parse(data);

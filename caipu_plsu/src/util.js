@@ -1,6 +1,6 @@
 import storage from "@system.storage";
 import file from "@system.file";
-import shortcut from '@system.shortcut';
+import shortcut from "@system.shortcut";
 
 // 文件存储路劲
 const filePath = "internal://files/favorite_menu/list.txt";
@@ -13,24 +13,32 @@ function showMenu() {
   const router = require("@system.router");
   const appInfo = require("@system.app").getInfo();
   prompt.showContextMenu({
-    itemList: ["保存桌面", "关于", "取消"],
+    itemList: ["保存桌面", "返回首页", "隐私政策", "取消"],
     success: function(ret) {
       switch (ret.index) {
         case 0:
           // 创建图标
           createShortcut();
           break;
-        case 1:
-          // 关于
-          router.push({
-            uri: "/About",
-            params: {
-              name: appInfo.name,
-              icon: appInfo.icon
-            }
-          });
-          break;
-        case 2:
+		case 1:
+			// 关于
+			router.push({
+				uri: "/Main",
+				params: {
+				// show_ad: false
+				}
+			});
+		break;
+		case 2:
+			// 隐私
+			router.push({
+				uri: "/Yinsi",
+				params: {
+				// show_ad: false
+				}
+			});
+		break;			  
+        case 3:
           // 取消
           break;
         default:
@@ -64,7 +72,8 @@ function createShortcut() {
           },
           fail: function(errmsg, errcode) {
             prompt.showToast({
-              message: `${errcode}: ${errmsg}`
+              message: `创建图标失败，请检查是否开启权限。`,
+              duration: 1
             });
           }
         });

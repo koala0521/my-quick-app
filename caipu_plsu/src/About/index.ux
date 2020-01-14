@@ -50,7 +50,7 @@ export default {
     icon: null
   },
   private: {
-    desc: '即点即用，让你省去下载安装的步骤，立即使用各类服务',
+    desc: '无需下载，即点即用，你想吃的，这里都有！',
     serviceType: '工具类',
     subjectInfo: 'xxx有限公司',
     copyright: ''

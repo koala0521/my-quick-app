@@ -163,7 +163,7 @@ export default {
 		},
 		adState:{
 			showAd: true,
-			adId: '4374'
+			adId: '4693'
 		},
 		showLoading: true,
 				
