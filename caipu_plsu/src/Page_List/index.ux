@@ -1,11 +1,14 @@
 
 <import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
+<import name="no_content" src="../Main/component/no_content.ux"></import>
+<import name="end_line" src="../Main/component/end_line.ux"></import>
+ 
  
 <template>
 	<div class="single-container">
 
-		<list class="single-list">
+		<list class="single-list" if="list.list.length" >
 			<block for="{{list.list}}"  >
 				<list-item type="items" class="single-product" onclick="toDetail( $item )">
 					<div>
@@ -34,9 +37,13 @@
 						@ad-closed="onadClosed"
 					></wanka_ad_view>
 				</list-item>	
-			</block>		
+			</block>
+			<list-item type="endLine" class="end-line" >
+				<end_line text="已经到底啦~~" ></end_line>	
+			</list-item>		
 		</list>
 		<loading if="showLoading" ></loading>
+		<no_content if="!list.list.length" ></no_content>
 	</div>
 </template>
 
@@ -44,6 +51,7 @@
 .single-container {
   margin: 0px 34px 0px 34px;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .swiper-head {
@@ -145,6 +153,10 @@
 	text-align: center;
 	padding: 10px 20px;
 }
+.end-line{
+	margin-bottom: 32px;
+	margin-top: -32px;;
+}
 	
 </style>
 
@@ -154,7 +166,6 @@ import api from '../api/api.js';
 
 export default {
 	public: {
-		//玄幻精品
 		list: {
 			// title: "菜谱列表",
 			subtitle: "更多",
@@ -169,7 +180,8 @@ export default {
 				
 	},
 	protected: {
-		title: '菜谱列表'
+		title: '菜谱列表',
+		classid: ''
 	},
 	press(item) {
 		console.error("on press event param : " + item);
@@ -187,8 +199,7 @@ export default {
 	},
 
 	onInit() {
-		console.log(`list title >>>>>>>>>>>>` , this.title);
-		
+
 		this.$page.setTitleBar({
 			//titlebar的状态，在manifest.json中display设置的
 			text: this.title,
@@ -197,7 +208,8 @@ export default {
 		});
 
 		api.getMenusByType({
-			classid: 55,
+			classid: this.classid,
+			// classid: 55, // 测试
 			start: 0,
 			num: 20
 		}).then(data => {			
@@ -205,11 +217,11 @@ export default {
 			if (menuData.result) {
 
 				this.list.list = this.computedListData(menuData.result.list);
-				// console.log(`this.list.list ==========>`, this.list.list);
 				this.showLoading = false;
 			}
 		}).catch(err=>{
 			this.showLoading = false;
+			this.list.list = [];
 		})
 
 	},
@@ -225,7 +237,7 @@ export default {
 
 	},
 	onadError(args){
-		console.log(`onadError >>>` , args);
+
 		this.adState.showAd = false;
 	},
 	onadClosed(){

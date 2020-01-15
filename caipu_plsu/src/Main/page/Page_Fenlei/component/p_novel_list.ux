@@ -118,10 +118,11 @@
 			//跳转列表页
 			router.push({
 				uri: '/Page_List',
-				params: { classid: item.classid,title: item.name }
+				params: { 
+					classid: item.classid,
+					title: item.name 
+				}
 			})
-			console.warn(`跳转列表页`);
-			
 		},
 		watchListChange(newval,oldval){
 			this.computedData = newval.slice(0 , 50)

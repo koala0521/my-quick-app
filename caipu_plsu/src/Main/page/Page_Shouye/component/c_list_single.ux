@@ -4,13 +4,13 @@
 			<div>
 				<text class="swiper-main-title">{{list.title}}</text>
 			</div>
-			<div @click="toList" >
+			<div if="{{list.subtitle}}" @click="toList" >
 				<text class="swiper-link">{{list.subtitle}}</text>
 				<image class="swiper-arrow" src={{list.arrow}}></image>
 			</div>
 		</div>
 		<div class="single-list">
-			<div for="{{list.list}}" class="single-product" onclick="routePage($item)">
+			<div for="{{list.list}}" class="single-product" @click="routePage($item)">
 				<div>
 					<image class="single-image" src="{{$item.pic}}"></image>
 				</div>

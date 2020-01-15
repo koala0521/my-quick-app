@@ -142,16 +142,27 @@ function hasIcon() {
   return shortcut.hasInstalled({});
 }
 
+/** 
+ * 
+ * @param { number } 数字
+ * @returns { number } 返回 0 到 n 之间的随机数，不含 n
+*/
+function randomNum(n){
+	return Math.floor(Math.random()*n);
+}
+
+
 export default {
-  showMenu,
-  createShortcut,
-  isChinese,
-  getStorage,
-  setStorage,
-  delStorage,
-  writeFile,
-  readFile,
-  filePath,
-  delFile,
-  hasIcon
+	showMenu,
+	createShortcut,
+	isChinese,
+	getStorage,
+	setStorage,
+	delStorage,
+	writeFile,
+	readFile,
+	filePath,
+	delFile,
+	hasIcon,
+	randomNum
 };

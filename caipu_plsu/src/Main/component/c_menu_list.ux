@@ -184,7 +184,6 @@ export default {
 		if(newVal.length == 0) return []
 		this.list.list = newVal.map(el =>{
 
-			// console.log(`el ============== >` , el.content);
 			el.content = el.content.replace(/<br \/>/g , '\r\n');
 
 			let menuClazz = el.tag.split(',').slice(0,3);

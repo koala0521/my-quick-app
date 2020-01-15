@@ -298,7 +298,7 @@ export default {
 
 		// 
 		util.hasIcon().then(res => {
-			console.log(`hasIcon >>>>>>>>`, res);
+		
 			this.iconState = res.data;
 		})
 
@@ -313,7 +313,7 @@ export default {
 		}
 
 		api.getMenuDetail({
-			id: 5
+			id: this.id
 		}).then(data => {
 			let menuData = JSON.parse(data);
 			this.detailInfo = menuData.result;

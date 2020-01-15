@@ -117,23 +117,21 @@
 
 <script>
 	import router from '@system.router';
+	import util from '../../../../util.js'
 
 	export default {
 		onInit() {
 
 		},
 		toList(item){
-
-			// 活动页面
-			// router.push({
-			// 	uri: '/Page_Activity'
-			// })
-
+			let list = item.list || [];
+			let cartgory = list[ util.randomNum(list.length) ];		
 			// 列表页
 			router.push({
 				uri: '/Page_List',
 				params: {
-					title: item.name
+					title: item.name,
+					classid: cartgory.classid
 				}
 			})					
 		}

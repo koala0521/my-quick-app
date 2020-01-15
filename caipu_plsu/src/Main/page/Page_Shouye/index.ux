@@ -110,8 +110,9 @@
 
 <script>
 let baidu = 'https://www.baidu.com'
-import api from '../../../api/api.js'
-import category from '../../../Common/static/data.js'
+import api from '../../../api/api.js';
+import category from '../../../Common/static/data.js';
+import utli from '../../../util.js';
 
 export default {
 	props: [],
@@ -132,19 +133,22 @@ export default {
 				'icon': './page/Page_Shouye/img/zaocan.png',
 				'title': '早餐',
 				'src': 'city',
-				'isNew': false
+				'isNew': false,
+				classid: 562
 			},
 			{
 				'icon': './page/Page_Shouye/img/wucan.png',
 				'title': '午餐',
 				'src': 'paihang',
-				'isNew': false
+				'isNew': false,
+				classid: 563
 			},
 			{
 				'icon': './page/Page_Shouye/img/wancan.png',
 				'title': '晚餐',
 				'src': 'tejia',
-				'isNew': false
+				'isNew': false,
+				classid: 565
 			}
 		],
 		
@@ -152,7 +156,7 @@ export default {
 		curSeasonMenu:
 			{
 				title: '今日热门',
-				subtitle: '更多',
+				subtitle: '', // 更多
 				arrow: './page/Page_Shouye/img/arrow.png',
 				list: [
 					{
@@ -170,6 +174,7 @@ export default {
 				title: '为你推荐',
 				link: '更多',
 				arrow_uri: './page/Page_Shouye/img/arrow.png',
+				classid: '597', // 年夜饭
 				list:[]
 		},
 
@@ -183,46 +188,31 @@ export default {
 			subjectlist:[],
 		},
 		//榜单推荐
-		recommendlist: {
-				// 榜单排行recommandList入参：
-				title: '榜单推荐',
-				more: '更多',
-				arrowimage: './page/Page_Shouye/img/arrow.png',
-				morelink: baidu,
-				list: [
-					// {
-					// 	recommandType: '新书榜',
-					// 	typeUrl: baidu,
-					// 	backgroundimage: './page/Page_Shouye/img/image1.png',
-					// 	listItems: [{
-					// 		name: '我的前半生',
-					// 		url: baidu
-					// 	}, {
-					// 		name: '花间集',
-					// 		url: baidu
-					// 	}, {
-					// 		name: '如何学习',
-					// 		url: baidu
-					// 	}]
-					// }
-				]
-			},
+		// recommendlist: {
+		// 		// 榜单排行recommandList入参：
+		// 		title: '榜单推荐',
+		// 		more: '更多',
+		// 		arrowimage: './page/Page_Shouye/img/arrow.png',
+		// 		morelink: baidu,
+		// 		list: [
+		// 		]
+		// },
 		//限时特价
-		banner3:
-			{
-				title: '限时特价',
-				time_uri: './page/Page_Shouye/img/time.png',
-				link: '更多',
-				arrow_uri: './page/Page_Shouye/img/arrow.png'
-			},
-		data3:[
-			// {
-			// 	uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-			// 	title: '草本植物知识',
-			// 	specialprice: '免费',
-			// 	originprice: '2000阅饼'
-			// }
-		],
+		// banner3:
+		// 	{
+		// 		title: '限时特价',
+		// 		time_uri: './page/Page_Shouye/img/time.png',
+		// 		link: '更多',
+		// 		arrow_uri: './page/Page_Shouye/img/arrow.png'
+		// 	},
+		// data3:[
+		// 	{
+		// 		uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
+		// 		title: '草本植物知识',
+		// 		specialprice: '免费',
+		// 		originprice: '2000阅饼'
+		// 	}
+		// ],
 		showAd: false,
 		nativeId:'4693'  // 正式 4693    测试 4708
 	},
@@ -237,10 +227,22 @@ export default {
 		this.themeRecommendData.subjectlist = this.randomFirstMenuClass( category , 3 );	
 	},
 	onReady() {
+		
+		let hour = new Date().getHours();
+		let comClassid;
+		let start = utli.randomNum(5);
+
+		if( hour > 6 && hour < 10 ){
+			comClassid = this.fastentrylist[0].classid;
+		}else if( hour >= 10 && hour < 16 ){
+			comClassid = this.fastentrylist[1].classid;
+		}else{
+			comClassid = this.fastentrylist[2].classid;
+		}
 
 		api.getMenusByType({
-			classid: 55,
-			start: 0,
+			classid: comClassid,
+			start: start*20,
 			num: 20
 		}).then(data => {
 		
@@ -300,7 +302,7 @@ export default {
 	},
 	
 	onadError( args ){
-		console.log(`⼴告加载失败` , args.detail );
+		
 		this.showAd = false;
 	},
 

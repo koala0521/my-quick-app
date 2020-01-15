@@ -181,7 +181,8 @@
 			router.push({
 				uri: '/Page_List',
 				params:{
-					title: this.banner.title
+					title: this.banner.title,
+					classid: this.banner.classid
 				}
 			})					
 		}
