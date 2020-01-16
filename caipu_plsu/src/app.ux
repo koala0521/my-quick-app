@@ -4,7 +4,7 @@
 */
 import util from './util'
 import WANKA_AD_SDK from './WankaAdSDK/dist/wanka_ad_sdk.min.js'
-// import "./qlz/appStatistics.min.js"
+import "./qlz/appStatistics.min.js"
 
 export default {
 	showMenu: util.showMenu,

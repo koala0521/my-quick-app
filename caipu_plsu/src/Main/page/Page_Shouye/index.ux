@@ -7,6 +7,8 @@
 <import name="end_line" src="../../component/end_line.ux"></import>
 <import name="wanka_ad_view" src="../../../WankaAdSDK/dist/Ad-component/view.ux"></import>
 <import name="loading" src="../../component/loading.ux"></import>
+<import name="t_link_ad" src="../../component/t_link_ad.ux"></import>
+ 
   
 <template>
 	<!-- template里只能有一个根节点 -->
@@ -29,6 +31,7 @@
 
 		<!-- 广告位 -->
 		<div class="wanka-ad" if="{{ showAd }}" >			
+			
 			<wanka_ad_view
 				type="native"
 				adslot_id="{{ nativeId }}"
@@ -37,6 +40,8 @@
 				@ad-error="onadError"
                 @ad-closed="onadClosed"
 			></wanka_ad_view>
+
+			<t_link_ad else ></t_link_ad>
 		</div>
 
 		<!-- 今日热门 -->
@@ -185,7 +190,7 @@ export default {
 			subjectlist:[],
 		},	
 		showAd: false,
-		nativeId:''  // 正式 4693    测试 4708
+		nativeId:'',  // 正式 4693    测试 4708
 	},
 
 	onInit() {
@@ -194,7 +199,6 @@ export default {
 		this.$page.setTitleBar({
 			menu: false
 		});
-
 		this.themeRecommendData.subjectlist = this.randomFirstMenuClass( category , 3 );	
 	},
 	onReady() {
@@ -245,6 +249,17 @@ export default {
 				this.showAd = result.show || false;	
 			}, 0);			
 		})		
+
+		// // 口令广告
+		// api.getTaobaoAd({}).then(res=>{
+
+		// 	let data = JSON.parse(res);
+		// 	let result = data.result || {};
+		// 	this.tbAd = result;
+			
+		// }).catch(err=>{
+		// 	this.showAd = false;	
+		// })
 	},
 	// 格式化今日推荐数据
 	computedSeasonData(list=[]){

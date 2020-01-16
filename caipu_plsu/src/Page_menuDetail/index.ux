@@ -55,29 +55,16 @@
 		<div class="menu-detail-no-content" if="!detailInfo.id">
 			<no_content></no_content>
 		</div>
-		<div class="ad-icon" @click="showWanKaAd" if="{{ showAdIcon }}"  >
+		<div class="ad-icon" @click="showWanKaAd" if="{{ showAdIcon }}">
 			<image src="./img/hongbao.png"></image>
 		</div>
-		<div class="wanka-ad-wrap" if="{{ showAdWrap }}" >
-			
-			<div class="wanka-ad-contain"  if="{{ showAd }}" >
-				<wanka_ad_view
-					type="native"
-					adslot_id="{{ nativeId }}"
-					width="{{700}}"
-					height="{{450}}"
-					title_style="{{ txtStyle }}"
-					@ad-error="onadError"
-					@ad-closed="onadClosed"
-					@ad-load="onadLoad"
-				></wanka_ad_view>
+		<div class="wanka-ad-wrap" if="{{ showAdWrap }}">
+
+			<div class="wanka-ad-contain" if="{{ showAd }}">
+				<wanka_ad_view type="native" adslot_id="{{ nativeId }}" width="{{700}}" height="{{450}}" title_style="{{ txtStyle }}" @ad-error="onadError" @ad-closed="onadClosed" @ad-load="onadLoad"></wanka_ad_view>
 			</div>
-			<div else  >
-				<t_link_ad 
-					ad_info="{{ tbAd }}"
-					@ad-error="onadError"
-					@ad-closed="onadClosed"
-				>
+			<div else>
+				<t_link_ad ad_info="{{ tbAd }}" @ad-error="onadError" @ad-closed="onadClosed">
 				</t_link_ad>
 			</div>
 		</div>
@@ -100,10 +87,10 @@
 }
 .menu-img {
   width: 100%;
-	background-image: url(../Common/img/imgerr2.png);
-	background-size: 80%;
-	background-position: center;
-	background-repeat:no-repeat;	
+  background-image: url(../Common/img/imgerr2.png);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .menu-content-wrap {
   justify-content: flex-start;
@@ -219,52 +206,51 @@
 .menu-detail-no-content {
   width: 100%;
 }
-.ad-icon{
-	position: fixed;
-	width: 100px;	
-	height: 100px;
-	top: 700px;
-	right: 10px;
-	animation-name: rotate;
-	transform-origin: 50px 50px;
-    animation-name: rotate;
-	animation-duration: 1000ms;
-	animation-iteration-count: infinite;
+.ad-icon {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 700px;
+  right: 10px;
+  animation-name: rotate;
+  transform-origin: 50px 50px;
+  animation-name: rotate;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
 }
 @keyframes rotate {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-	}
-	100% {
-      transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.wanka-ad-wrap{
-	position: fixed;
-	width: 100%;	
-	height: 100%;
-	background-color: rgba(141, 138, 138, 0.8);
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin-top: -50px;
+.wanka-ad-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(141, 138, 138, 0.8);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
 }
-.wanka-ad-contain{
-	width: 680px;
-	height: 480px;
-	padding: 16px;
-	border-radius: 16px;
-	flex-direction: column;
-}
-
-.tb-ad-img{
-	width: 100%;
+.wanka-ad-contain {
+  width: 680px;
+  height: 480px;
+  padding: 16px;
+  border-radius: 16px;
+  flex-direction: column;
 }
 
+.tb-ad-img {
+  width: 100%;
+}
 </style>
 
 <script>
@@ -300,7 +286,7 @@ export default {
 			'color': '#ffffff',
 			'font-weight': 'bold'
 		},
-		tbAd:{
+		tbAd: {
 
 		} // 淘宝口令广告
 	},
@@ -315,21 +301,19 @@ export default {
 	onMenuPress() {
 		this.$app.$def.showMenu()
 	},
-	onBackPress () {
+	onBackPress() {
 		return this.showAdWrap
 		// true：表示自己处理；否则默认返回上一页
 	},
 	onInit() {
 
-		this.nativeId = this.$app.$def.adInfo.nativeId; 
+		this.nativeId = this.$app.$def.adInfo.nativeId;
 
 		try {
 			this.detailInfo = JSON.parse(this.infos);
 		} catch (error) { }
-
-
 		// 获取广告状态
-		api.getWankaAdState({}).then(res=>{
+		api.getWankaAdState({}).then(res => {
 			try {
 				let data = JSON.parse(res);
 				let result = data.result || {};
@@ -337,24 +321,24 @@ export default {
 
 			} catch (error) {
 
-				this.showAdIcon = false;	
-			}					
+				this.showAdIcon = false;
+			}
 		})
 
 		// 淘口令广告
-		api.getTaobaoAd({}).then(res=>{
+		api.getTaobaoAd({}).then(res => {
 
 			// console.log(`this.tbAd >>>>>>>`, res  );
 
 			let data = JSON.parse(res);
 			let result = data.result || {};
 			this.tbAd = result;
-			
+
 		})
 
 		// 图标
 		util.hasIcon().then(res => {
-		
+
 			this.iconState = res.data;
 		})
 
@@ -377,14 +361,18 @@ export default {
 			this.showLoading = false;
 			this.updateTitle(this.detailInfo.name);
 			this.computedCount();
-			this.hasFavorite();			
+			this.hasFavorite();
 		})
 	},
 	onReady() {
 
 	},
 	onShow() {
-
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+	},
+	onHide() {
+		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
+		//...业务代码
 	},
 	updateTitle(title) {
 		this.$page.setTitleBar({
@@ -467,21 +455,21 @@ export default {
 		// 	console.log(`fail >>>>>>>>>>>>`, err);
 		// })
 	},
-	showWanKaAd(){
+	showWanKaAd() {
 		this.showAdWrap = true;
 		this.showAdIcon = 0;
 		this.$app.$def.hongBaoState = this.$app.$def.hongBaoState + 1;
 	},
-	onadError(args){		
+	onadError(args) {
 		this.showAd = false;
 	},
-	onadClosed(args){
-		console.log(`关闭广告 >>>>>>>>>>>>>` , args);
-		
+	onadClosed(args) {
+		console.log(`关闭广告 >>>>>>>>>>>>>`, args);
+
 		this.showAdWrap = false;
 	},
-	onadLoad(args){
+	onadLoad(args) {
 		// this.showAdIcon = 1;
-	}	
+	}
 }
 </script>
