@@ -2,6 +2,8 @@
 <import name="end_line" src="../Main/component/end_line.ux"></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
 <import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
+<import name="t_link_ad" src="../Main/component/t_link_ad.ux"></import>
+ 
  
 <template>
 	<div class="menu-detail-page">
@@ -53,15 +55,15 @@
 		<div class="menu-detail-no-content" if="!detailInfo.id">
 			<no_content></no_content>
 		</div>
-		<div class="ad-icon" @click="showWanKaAd" if="{{ !!showHongBao }}"  >
+		<div class="ad-icon" @click="showWanKaAd" if="{{ showAdIcon }}"  >
 			<image src="./img/hongbao.png"></image>
 		</div>
-		<div class="wanka-ad-wrap" show="{{ showAd }}" >
+		<div class="wanka-ad-wrap" if="{{ showAdWrap }}" >
 			
-			<div class="wanka-ad-contain" >
+			<div class="wanka-ad-contain"  if="{{ showAd }}" >
 				<wanka_ad_view
 					type="native"
-					adslot_id="{{ adslotId }}"
+					adslot_id="{{ nativeId }}"
 					width="{{700}}"
 					height="{{450}}"
 					title_style="{{ txtStyle }}"
@@ -69,6 +71,14 @@
 					@ad-closed="onadClosed"
 					@ad-load="onadLoad"
 				></wanka_ad_view>
+			</div>
+			<div else  >
+				<t_link_ad 
+					ad_info="{{ tbAd }}"
+					@ad-error="onadError"
+					@ad-closed="onadClosed"
+				>
+				</t_link_ad>
 			</div>
 		</div>
 	</div>
@@ -90,6 +100,10 @@
 }
 .menu-img {
   width: 100%;
+	background-image: url(../Common/img/imgerr2.png);
+	background-size: 80%;
+	background-position: center;
+	background-repeat:no-repeat;	
 }
 .menu-content-wrap {
   justify-content: flex-start;
@@ -244,6 +258,11 @@
 	height: 480px;
 	padding: 16px;
 	border-radius: 16px;
+	flex-direction: column;
+}
+
+.tb-ad-img{
+	width: 100%;
 }
 
 </style>
@@ -272,13 +291,18 @@ export default {
 		favoritesState: false,
 		favoritesList: [],	// 收藏列表
 		iconState: false,	// 图标状态
-		showHongBao: true, // 红包图标状态
-		adslotId: '4693',  //  正式 4693  测试 4708
-		showAd: false,		// 广告状态
+		showAdIcon: false, // 红包图标展示/隐藏状态  true 展示 ，false 隐藏
+		hongBaoCount: 5,   // 红包次数控制 
+		showAdWrap: false,
+		nativeId: '',  //  正式 4693  测试 4708
+		showAd: true,		// 广告状态
 		txtStyle: {
 			'color': '#ffffff',
 			'font-weight': 'bold'
-		}
+		},
+		tbAd:{
+
+		} // 淘宝口令广告
 	},
 	protected: {
 		infos: '',
@@ -291,12 +315,44 @@ export default {
 	onMenuPress() {
 		this.$app.$def.showMenu()
 	},
+	onBackPress () {
+		return this.showAdWrap
+		// true：表示自己处理；否则默认返回上一页
+	},
 	onInit() {
+
+		this.nativeId = this.$app.$def.adInfo.nativeId; 
+
 		try {
 			this.detailInfo = JSON.parse(this.infos);
 		} catch (error) { }
 
-		// 
+
+		// 获取广告状态
+		api.getWankaAdState({}).then(res=>{
+			try {
+				let data = JSON.parse(res);
+				let result = data.result || {};
+				this.showAdIcon = result.show && this.$app.$def.hongBaoState < this.hongBaoCount;
+
+			} catch (error) {
+
+				this.showAdIcon = false;	
+			}					
+		})
+
+		// 淘口令广告
+		api.getTaobaoAd({}).then(res=>{
+
+			// console.log(`this.tbAd >>>>>>>`, res  );
+
+			let data = JSON.parse(res);
+			let result = data.result || {};
+			this.tbAd = result;
+			
+		})
+
+		// 图标
 		util.hasIcon().then(res => {
 		
 			this.iconState = res.data;
@@ -321,18 +377,11 @@ export default {
 			this.showLoading = false;
 			this.updateTitle(this.detailInfo.name);
 			this.computedCount();
-			this.hasFavorite();
-			
+			this.hasFavorite();			
 		})
-
 	},
 	onReady() {
-		try {
-			
-			this.showHongBao = !!this.$app.$def.hongBaoState;
-		} catch (error) {
-			this.showHongBao = 0;	
-		}
+
 	},
 	onShow() {
 
@@ -419,18 +468,20 @@ export default {
 		// })
 	},
 	showWanKaAd(){
-		this.showAd = true;
-		this.showHongBao = 0;
-		this.$app.$def.hongBaoState = 0;
+		this.showAdWrap = true;
+		this.showAdIcon = 0;
+		this.$app.$def.hongBaoState = this.$app.$def.hongBaoState + 1;
 	},
 	onadError(args){		
 		this.showAd = false;
 	},
 	onadClosed(args){
-		this.showAd = false;
+		console.log(`关闭广告 >>>>>>>>>>>>>` , args);
+		
+		this.showAdWrap = false;
 	},
 	onadLoad(args){
-		this.showHongBao = 1;
+		// this.showAdIcon = 1;
 	}	
 }
 </script>

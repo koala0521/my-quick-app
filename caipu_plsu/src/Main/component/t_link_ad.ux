@@ -1,0 +1,70 @@
+<template>
+    <div class="wrap" >
+        <div class="ad-info" >
+            <text class="ad-title" >{{ ad_info.title }}</text>
+            <image class="ad-img" src="{{ ad_info.adImg }}" @click="clickAd" ></image>
+            <div class="ad-closed" @click="closeAd" ></div>
+        </div>
+    </div>
+</template>
+<style>
+    .wrap{
+        width: 650px;
+        flex-direction: column;
+    }
+    .ad-info{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ad-title{
+        width: 100%;
+        color: #ffffff;
+        padding: 16px 0;
+        font-size: 34px;
+        text-align: center;
+        lines: 1;
+        text-overflow: ellipsis;
+    }
+    .ad-img{
+        width: 100%;
+        resize-mode: contain;
+        object-fit:contain;
+        border-radius: 8px;
+    }
+    .ad-closed{
+        width: 100px;
+        height: 100px;
+        background-image: url(../img/closed.png);
+        background-size: 80%;
+        background-position: center;
+        background-repeat:no-repeat;	
+    }
+</style>
+
+<script>
+    import router from '@system.router';
+    import clipboard from '@system.clipboard';
+export default {
+    data: {
+        dataVar: ''
+    },
+    props: {
+        ad_info: Object
+    },
+    clickAd(){
+        clipboard.set({
+            text: this.ad_info.tLink
+        })
+        router.push({
+            uri: this.ad_info.clkurl
+        })
+    },
+    closeAd(){
+        this.$emit('adClosed', {data: 'data'});
+    }
+}
+</script>
+
+
+

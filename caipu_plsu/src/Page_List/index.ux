@@ -10,9 +10,9 @@
 
 		<list class="single-list" if="list.list.length" >
 			<block for="{{list.list}}"  >
-				<list-item type="items" class="single-product" onclick="toDetail( $item )">
+				<list-item type="items" class="single-product" onclick="toDetail( $item )" if="{{ !$item.imgErr }}" >
 					<div>
-						<image class="single-image" src="{{$item.pic}}"></image>
+						<image class="single-image" src="{{$item.pic}}" @error="imgError($item)"  ></image>
 					</div>
 					<div class="single-description">
 						<text class="single-title">{{$item.name}}</text>
@@ -106,6 +106,10 @@
 	height: 290px;
 	margin-right: 16px;
 	border-radius: 8px;
+	background-image: url(../Common/img/imgerr2.png);
+	background-size: 80%;
+	background-position: center;
+	background-repeat:no-repeat;
 }
 
 .single-title {
@@ -231,10 +235,16 @@ export default {
 		return list.map(el =>{
 			el.content = el.content.replace(/<br \/>/g , '\r\n');
 			let menuClazz = el.tag.split(',').slice(0,2);
-			return Object.assign({},el,{ menuClazz });
+			return Object.assign({},el,{ 
+				menuClazz,
+				imgErr: false
+			});
 			 
 		})
 
+	},
+	imgError(item){
+		item.imgErr = true;
 	},
 	onadError(args){
 

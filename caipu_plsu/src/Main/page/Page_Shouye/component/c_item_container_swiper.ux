@@ -79,7 +79,10 @@
 		width: 330px;
 		height: 100%;
 		border-radius: 8px;
-		/* background-color: #000; */
+		background-image: url(../img/imgerr2.png);
+		background-size: 80%;
+    	background-position: center;
+		background-repeat:no-repeat;		
 	}
 	.swiper-desc-wrap{
 		flex-direction: column;

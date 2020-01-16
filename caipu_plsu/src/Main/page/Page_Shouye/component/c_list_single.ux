@@ -1,18 +1,18 @@
 <template>
-	<div class="single-container">
+	<div class="single-container" show="{{ showState }}" >
 		<div class="swiper-head">
 			<div>
 				<text class="swiper-main-title">{{list.title}}</text>
 			</div>
 			<div if="{{list.subtitle}}" @click="toList" >
 				<text class="swiper-link">{{list.subtitle}}</text>
-				<image class="swiper-arrow" src={{list.arrow}}></image>
+				<image class="swiper-arrow" src={{list.arrow}} ></image>
 			</div>
 		</div>
 		<div class="single-list">
 			<div for="{{list.list}}" class="single-product" @click="routePage($item)">
 				<div>
-					<image class="single-image" src="{{$item.pic}}"></image>
+					<image class="single-image" src="{{ $item.pic }}" @error="imgError($item)"  ></image>
 				</div>
 				<div class="single-description">
 					<text class="single-title">{{$item.name}}</text>
@@ -84,6 +84,10 @@
 		height: 260px;
 		margin-right: 16px;
 		border-radius: 8px;
+		background-image: url(../img/imgerr2.png);
+		background-size: 80%;
+    	background-position: center;
+		background-repeat:no-repeat;  
 	}
 
 	.single-title {
@@ -141,7 +145,8 @@
 		data: {
 			props: [
 				'list',
-			]			
+			],
+			showState: true			
 		},
 		press(item) {
 			console.error("on press event param : " + item);
@@ -165,6 +170,11 @@
 					title: this.list.title
 				}
 			})					
+		},
+		imgError(item){
+			console.warn(`*****************错误展示了*****************`);
+			
+			this.showState = false;
 		}
 	}
 </script>

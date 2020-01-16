@@ -22,7 +22,6 @@
 			<fastentry list="{{fastentrylist}}"></fastentry>
 		</div>
 
-
 		<!-- 为你推荐 -->
 		<div class="menu-main-five">
 			<multi banner="{{ recommend }}" list="{{ recommend.list }}" num="{{3}}"></multi>
@@ -123,8 +122,6 @@ export default {
 		//轮播图
 		swiperdata:[
 			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_31411.jpg' },
-			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_60504.jpg' },
-			// { src: 'http://api.jisuapi.com/recipe/upload/20160720/113939_73972.jpg' }
 		],
 
 		//快捷入口数据 
@@ -186,41 +183,15 @@ export default {
 				// uri: './page/Page_Shouye/img/arrow.png'
 			},
 			subjectlist:[],
-		},
-		//榜单推荐
-		// recommendlist: {
-		// 		// 榜单排行recommandList入参：
-		// 		title: '榜单推荐',
-		// 		more: '更多',
-		// 		arrowimage: './page/Page_Shouye/img/arrow.png',
-		// 		morelink: baidu,
-		// 		list: [
-		// 		]
-		// },
-		//限时特价
-		// banner3:
-		// 	{
-		// 		title: '限时特价',
-		// 		time_uri: './page/Page_Shouye/img/time.png',
-		// 		link: '更多',
-		// 		arrow_uri: './page/Page_Shouye/img/arrow.png'
-		// 	},
-		// data3:[
-		// 	{
-		// 		uri: './page/Page_Shouye/TO_DELETE/recommendForYou/1.png',
-		// 		title: '草本植物知识',
-		// 		specialprice: '免费',
-		// 		originprice: '2000阅饼'
-		// 	}
-		// ],
+		},	
 		showAd: false,
-		nativeId:'4693'  // 正式 4693    测试 4708
+		nativeId:''  // 正式 4693    测试 4708
 	},
 
 	onInit() {
 
+		this.nativeId = this.$app.$def.adInfo.nativeId;
 		this.$page.setTitleBar({
-			//titlebar的状态在manifest.json中display设置的
 			menu: false
 		});
 
@@ -229,8 +200,8 @@ export default {
 	onReady() {
 		
 		let hour = new Date().getHours();
+		let start = utli.randomNum(3);
 		let comClassid;
-		let start = utli.randomNum(5);
 
 		if( hour > 6 && hour < 10 ){
 			comClassid = this.fastentrylist[0].classid;
@@ -238,11 +209,11 @@ export default {
 			comClassid = this.fastentrylist[1].classid;
 		}else{
 			comClassid = this.fastentrylist[2].classid;
-		}
+		}	
 
 		api.getMenusByType({
 			classid: comClassid,
-			start: start*20,
+			start: start*20, 
 			num: 20
 		}).then(data => {
 		
@@ -259,18 +230,23 @@ export default {
 				this.curSeasonMenu.list = this.computedSeasonData( menuData.result.list );
 				// 为你推荐
 				this.recommend.list = this.computedRecommendList( menuData.result.list );	
-				// 广告状态
-				this.showAd = true; 
 			}
-
 			this.showLoading = false;
-
+	
 		}).catch( err =>{
 			this.showLoading = false;
 		})
-		
+
+		api.getWankaAdState({}).then(res=>{
+			let data = JSON.parse(res);
+			let result = data.result || {};
+			setTimeout(() => {
+				// 广告状态
+				this.showAd = result.show || false;	
+			}, 0);			
+		})		
 	},
-	// 格式化当季食谱数据
+	// 格式化今日推荐数据
 	computedSeasonData(list=[]){
 		if(list.length == 0) return []
 		let data = list[0];
@@ -302,6 +278,7 @@ export default {
 	},
 	
 	onadError( args ){
+		console.log(`onadError >>>>>` , args);
 		
 		this.showAd = false;
 	},

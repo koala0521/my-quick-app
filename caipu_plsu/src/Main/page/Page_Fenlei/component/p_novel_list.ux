@@ -126,8 +126,6 @@
 		},
 		watchListChange(newval,oldval){
 			this.computedData = newval.slice(0 , 50)
-			console.log(`this.computedData>>>>>>>>>>` , this.computedData);
-			
 		}
 	}
 </script>

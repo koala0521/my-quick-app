@@ -11,6 +11,10 @@ export default {
 	createShortcut: util.createShortcut,
 	wanka_ssp_sdk: {}, // 声明 SDK 组件对象
 	hongBaoState: 0,
+	adInfo:{
+		openId: '4707',		// 正式 4692    测试 4707
+		nativeId: '4708'	// 正式 4693    测试 4708
+	},
 	onCreate(){
 		// 初始化组件 
 		try {

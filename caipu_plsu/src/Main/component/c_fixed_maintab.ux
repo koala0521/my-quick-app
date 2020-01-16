@@ -134,8 +134,10 @@
 </style>
 
 <script>
+
 import util from '../../util.js';
 import router from '@system.router';
+import api from '../../api/api.js';
 
 export default {
 
@@ -150,12 +152,21 @@ export default {
 		favorite_data: [],
 		showSearchBar: true,
 		textActive: 0,
-		openId: '4692',  // 正式 4692    测试 4707
-		showOpenAd: true
+		openId: '',  // 正式 4692    测试 4707
+		showOpenAd: false
 	},
 	onInit() {
+		this.openId = this.$app.$def.adInfo.openId;
+
 		// 监听页面show
 		this.$on('page_show', this.pageShow);
+		api.getWankaAdState({}).then(res => {
+			let data = JSON.parse(res);
+			let result = data.result || {};
+			
+			this.showOpenAd = result.show;
+			console.log(`this.showOpenAd >>>>>>>` , this.showOpenAd);
+		})
 	},
 
 	switchContent(e) {
@@ -206,7 +217,7 @@ export default {
 		}
 	},
 
-	onadError( args ) {
+	onadError(args) {
 		this.showOpenAd = false;
 	},
 	onadClosed() {

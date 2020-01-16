@@ -10,6 +10,7 @@ import config from './config'
 export default function requestFn(args = {}) {
 
 	let {
+		baseurl='',
 		url = '',
 		data = {},
 		timeout = 10000,
@@ -20,15 +21,15 @@ export default function requestFn(args = {}) {
 
 	try {
 		let parmas = Object.assign({}, args, {
-			url: config.baseUrl + url,
+			url: baseurl || (config.baseUrl + url),
 			method,
 			data:{
 				appkey: "87b02e76865221f2",
 				...data
 			},
-			// header: {
-			// 	'Content-Type': 'application/x-www-form-urlencoded'
-			// },
+			header: {
+				'Content-Type': 'application/json'
+			},
 			success: function (data) {
 
 				resolve(data.data)

@@ -72,10 +72,6 @@
 			<block if="{{showPageType ==='result'}}">
 				<div class="result_number">
 					<text if="{{ searchResults.length }}">找到 {{ searchResults.length }} 条相关数据</text>
-					
-					<div else="{{searchResults.length<=0}}"  >
-						<no_content text="暂无相关菜谱"  ></no_content>
-					</div>
 				</div>
 				<div class="single-list">
 					<menu_list menu-list="{{ searchResults }}" show-wanka-ad="{{ true }}"  ></menu_list>

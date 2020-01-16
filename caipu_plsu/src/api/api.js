@@ -36,8 +36,35 @@ function getMenuDetail(data) {
 	})
 }
 
+/**
+ * @description 广告状态
+ * @host /showAd/wanka
+ * 
+ **/
+function getWankaAdState(data={}){
+	return requestFn({
+		baseurl: 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka',
+		data
+	})
+}
+
+/**
+ * @description 广告状态
+ * @host /ad/tbAdInfo
+ * 
+ **/
+function getTaobaoAd(data={}){
+	
+	return requestFn({
+		baseurl: 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/ad/tbAdInfo',
+		data
+	})
+}
+
 export default {
 	getMenusByType,
 	getMenusByStr,
-	getMenuDetail
+	getMenuDetail,
+	getWankaAdState,
+	getTaobaoAd
 }
