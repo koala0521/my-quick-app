@@ -1,85 +1,109 @@
 {
-	"package": "com.jiachang.caipu.menu",
-	"name": "家常菜谱大全",
-	"versionName": "1.0.0.2",
-	"versionCode": "3",
-	"minPlatformVersion": "1030",
-	"icon": "/Common/logo.png",
-	"features": [
-		{"name": "system.prompt"},
-		{"name": "system.router"},
-		{"name": "system.shortcut"},
-		{ "name": "system.device" },
-		{ "name": "system.fetch" },
-		{ "name": "system.storage" },
-		{ "name": "system.file" },
-		{ "name": "system.package" },
-		{ "name": "service.account" },
-		{ "name": "system.network" },
-		{ "name": "system.wifi" },
-		{ "name": "system.clipboard" }
-	],
-	"permissions": [
-		{
-			"origin": "*"
-		}
-	],
-	"config": {
-		"logLevel": "debug",
-		"data":{
-			"wanka_ad":{
-				"app_id":"1392"
-			}
-		}
-	},
-	"router": {
-		"entry": "Main",
-		"pages": {
-			"Main": {
-				"component": "index"
-			},
-			"Page_Search": {
-				"component": "index",
-				"path": "/Page_Search"
-			  },
-			"Page_List":{
-				"component": "index"
-			},
-			"Page_menuDetail":{
-				"component": "index"
-			},
-			"Yinsi": {
-				"component": "index"
-			},			
-			"WankaAdSDK/dist/Ad-detail":{
-				"component": "index"
-		  	}
-		}
-	},
-	"display": {
-		"titleBarBackgroundColor": "#ffffff",
-		"titleBarTextColor": "#414141",
-		"menu": false,
-		"pages": {
-			"Main":{
-				"titleBarText": "首页",
-				"titleBar": false
-			},
-			"Page_Search": {
-				"titleBar": false
-			},
-			"Page_List":{
-				"menu":true
-			},
-			"Page_menuDetail":{
-				"titleBar": true,
-				"titleBarText": "",
-				"menu":true
-			},
-			"Yinsi": {
-				"titleBarText": "隐私政策",
-				"menu": false
-			}
-		}
-	}
+    "package": "com.jiachang.caipu.menu",
+    "name": "家常菜谱大全",
+    "versionName": "1.0.1.0",
+    "versionCode": 4,
+    "minPlatformVersion": "1040",
+    "icon": "/Common/logo.png",
+    "features": [
+        {
+            "name": "system.prompt"
+        },
+        {
+            "name": "system.router"
+        },
+        {
+            "name": "system.shortcut"
+        },
+        {
+            "name": "system.device"
+        },
+        {
+            "name": "system.fetch"
+        },
+        {
+            "name": "system.storage"
+        },
+        {
+            "name": "system.file"
+        },
+        {
+            "name": "system.package"
+        },
+        {
+            "name": "service.account"
+        },
+        {
+            "name": "system.network"
+        },
+        {
+            "name": "system.wifi"
+        },
+        {
+            "name": "system.clipboard"
+        }
+    ],
+    "permissions": [
+        {
+            "origin": "*"
+        }
+    ],
+    "config": {
+        "logLevel": "debug",
+        "data": {
+            "wanka_ad": {
+                "app_id": "1386"
+            }
+        }
+    },
+    "router": {
+        "entry": "Main",
+        "pages": {
+            "Main": {
+                "component": "index"
+            },
+            "Page_Search": {
+                "component": "index",
+                "path": "/Page_Search"
+            },
+            "Page_List": {
+                "component": "index"
+            },
+            "Page_menuDetail": {
+                "component": "index"
+            },
+            "Yinsi": {
+                "component": "index"
+            },
+            "WankaAdSDK/dist/Ad-detail": {
+                "component": "index"
+            }
+        }
+    },
+    "display": {
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBarTextColor": "#414141",
+        "menu": false,
+        "pages": {
+            "Main": {
+                "titleBarText": "首页",
+                "titleBar": false
+            },
+            "Page_Search": {
+                "titleBar": false
+            },
+            "Page_List": {
+                "menu": true
+            },
+            "Page_menuDetail": {
+                "titleBar": true,
+                "titleBarText": "",
+                "menu": true
+            },
+            "Yinsi": {
+                "titleBarText": "隐私政策",
+                "menu": false
+            }
+        }
+    }
 }

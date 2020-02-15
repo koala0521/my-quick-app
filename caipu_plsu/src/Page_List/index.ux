@@ -226,9 +226,9 @@ export default {
 			let menuData = JSON.parse(data);
 			if (menuData.result) {
 
-				this.list.list = this.computedListData(menuData.result.list);
-				this.showLoading = false;
+				this.list.list = this.computedListData(menuData.result.list);				
 			}
+			this.showLoading = false;
 		}).catch(err=>{
 			this.showLoading = false;
 			this.list.list = [];

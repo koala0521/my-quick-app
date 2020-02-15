@@ -2,20 +2,31 @@
   "name": "caipu_plsu",
   "version": "1.0.0",
   "subversion": {
-    "toolkit": "0.6.6"
+    "toolkit": "0.2.2"
   },
   "description": "",
   "scripts": {
     "build": "hap build",
     "release": "hap release",
     "server": "hap server",
-    "watch": "hap watch"
+    "watch": "hap watch",
+    "postinstall": "hap postinstall",
+    "debug": "hap debug",
+    "hap-update": "hap update",
+    "fa-build": "node node_modules/webpack/bin/webpack.js --config ./node_modules/fa-toolkit/webpack.config.js",
+    "fa-watch": "node node_modules/webpack/bin/webpack.js --watch --config ./node_modules/fa-toolkit/webpack.config.js"
   },
   "devDependencies": {
     "@types/quickapp": "git+https://github.com/vivoquickapp/quickapp-types.git",
-    "hap-toolkit": "0.6.6"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-plugin-hybrid": "0.0.5",
+    "hap-toolkit": "0.6.8"
   },
   "dependencies": {
-    "crypto-js": "^3.1.9-1"
-  }
+    "crypto-js": "^3.2.0"
+  },
+  "browserslist": [
+    "chrome 65"
+  ]
 }

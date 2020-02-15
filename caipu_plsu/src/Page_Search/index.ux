@@ -540,7 +540,7 @@ export default {
 		],
 		
 	},
-	onInit: function () {
+	onInit() {
 		
 		utils.getStorage( this.hisStorageKey ).then(res =>{
 			console.log(`读取成功` ,res );
@@ -593,17 +593,17 @@ export default {
 						
 			if (menuData.result) {
 
-				this.searchResults = menuData.result.list || [];				
-				this.showLoading = false;
-			}
+				this.searchResults = menuData.result.list || [];		
+			}		
+      this.showLoading = false;
 		}).catch( err =>{
+      console.log(`搜索失败了 >>>>>>>>>>>>>>>>`);
+      
 			this.showLoading = false;
 		})
 
 	},
 	searchMenu(){
-		console.log(`searchMenu >>>>>>>>>>111`);
-		
 		let value = this.inputValue.replace(/[^\u4e00-\u9fa5]+/g,'');
 
 		if( !value ){
@@ -616,23 +616,15 @@ export default {
 		this.showPageType = "result";
 		this.isAutoClick = false;
 		this.find( value );
-		this.$element('search').focus( {focus:false} );
+    this.$element('search').focus( {focus:false} );
+    setTimeout(() => {
+		  this.showLoading = false;      
+    }, 5000);
 		
 	},
 
 	updateValue(e) {
 		this.inputValue = e.text;
-
-		// if (this.inputValue !== "" && this.inputValue !== undefined && this.inputValue !== null) {
-		// 	if (this.isAutoClick) {
-		// 		this.showPageType = "result";
-		// 		this.find();
-		// 	} else {
-		// 		this.showPageType = "auto";
-		// 	}
-
-		// 	this.isAutoClick = false;
-		// }
 	},
 	setInputValue(text) {
 		this.inputValue = text || "请输入菜名/食材";
@@ -658,14 +650,6 @@ export default {
 		this.showPageType = "result";
 		this.inputValue = text;
 		this.find();
-	},
-
-	//点击搜索结果跳转
-	// clickToBookDetail() {
-	// 	router.push({
-	// 		uri: '/Page_Bookdetails',
-	// 		params: { testId: 'testId' }
-	// 	})
-	// },
+	}
 }
 </script>

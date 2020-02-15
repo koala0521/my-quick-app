@@ -52,6 +52,10 @@ export default {
     props: {
         ad_info: Object
     },
+    onInit() {
+        console.log(`ad_info >>>>>>>>>>>>>>>>` , this.ad_info );
+        
+    },
     clickAd(){
         clipboard.set({
             text: this.ad_info.tLink

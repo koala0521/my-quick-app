@@ -59,7 +59,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: rgba(143, 189, 196, 0.6);
+  background-color: rgba(252, 250, 250, 0.6);
 }
 
 .searchbar-box {
@@ -152,11 +152,11 @@ export default {
 		favorite_data: [],
 		showSearchBar: true,
 		textActive: 0,
-		openId: '',  // 正式 4692    测试 4707
+		openId: '4692', 
 		showOpenAd: false
 	},
 	onInit() {
-		this.openId = this.$app.$def.adInfo.openId;
+		// this.openId = this.$app.$def.adInfo.openId;
 
 		// 监听页面show
 		this.$on('page_show', this.pageShow);
@@ -166,6 +166,7 @@ export default {
 			
 			this.showOpenAd = result.show;
 			console.log(`this.showOpenAd >>>>>>>` , this.showOpenAd);
+			
 		})
 	},
 
@@ -219,6 +220,8 @@ export default {
 
 	onadError(args) {
 		this.showOpenAd = false;
+		console.log(`广告失败  >>>>>>>>>>>>>>>>` ,  args);
+		
 	},
 	onadClosed() {
 		this.showOpenAd = false;

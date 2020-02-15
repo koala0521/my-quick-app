@@ -13,7 +13,7 @@ export default function requestFn(args = {}) {
 		baseurl='',
 		url = '',
 		data = {},
-		timeout = 10000,
+		timeout = 5000,
 		method = 'get'
 	} = args;
 

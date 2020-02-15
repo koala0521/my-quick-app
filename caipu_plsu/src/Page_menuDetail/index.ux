@@ -328,8 +328,6 @@ export default {
 		// 淘口令广告
 		api.getTaobaoAd({}).then(res => {
 
-			// console.log(`this.tbAd >>>>>>>`, res  );
-
 			let data = JSON.parse(res);
 			let result = data.result || {};
 			this.tbAd = result;
@@ -362,6 +360,9 @@ export default {
 			this.updateTitle(this.detailInfo.name);
 			this.computedCount();
 			this.hasFavorite();
+
+		}).catch(err=>{
+			this.showLoading = false;
 		})
 	},
 	onReady() {
