@@ -58,16 +58,45 @@
 		<div class="ad-icon" @click="showWanKaAd" if="{{ showAdIcon }}">
 			<image src="./img/hongbao.png"></image>
 		</div>
+		
 		<div class="wanka-ad-wrap" if="{{ showAdWrap }}">
 
-			<div class="wanka-ad-contain" if="{{ showAd }}">
-				<wanka_ad_view type="native" adslot_id="{{ nativeId }}" width="{{700}}" height="{{450}}" title_style="{{ txtStyle }}" @ad-error="onadError" @ad-closed="onadClosed" @ad-load="onadLoad"></wanka_ad_view>
+			<div class="wanka-ad-contain" if="{{ showNativeAd }}">
+				<wanka_ad_view 
+					type="native" 
+					adslot_id="{{ nativeId }}" 
+					width="{{700}}" 
+					height="{{450}}" 
+					title_style="{{ txtStyle }}" 
+					@ad-error="onadError" 
+					@ad-closed="onadClosed" 
+					@ad-load="onadLoad" 
+					@ad-click="onAdClk" 
+        	@ad-show="onAdShow" 
+				>
+				</wanka_ad_view>
 			</div>
 			<div else>
 				<t_link_ad ad_info="{{ tbAd }}" @ad-error="onadError" @ad-closed="onadClosed">
 				</t_link_ad>
 			</div>
 		</div>
+		
+		<div class="ad-wrap" if="{{ showOpenAd && adState.showAd }}">
+			<wanka_ad_view 
+				type="openning" 
+				adslot_id="{{ openId }}" 
+				enter_app="{{false}}" 
+				delay="{{ 4 }}" 
+				@ad-error="onadError" 
+				@ad-closed="onadClosed" 
+				@ad-click="onAdClk" 
+        @ad-show="onAdShow" 	
+			>
+
+			</wanka_ad_view>
+		</div>
+
 	</div>
 </template>
 
@@ -281,14 +310,23 @@ export default {
 		hongBaoCount: 5,   // 红包次数控制 
 		showAdWrap: false,
 		nativeId: '',  //  正式 4693  测试 4708
-		showAd: true,		// 广告状态
+		showNativeAd: true,		// 广告状态
 		txtStyle: {
 			'color': '#ffffff',
 			'font-weight': 'bold'
 		},
-		tbAd: {
 
-		} // 淘宝口令广告
+		adState: {
+      showAd: false 
+		},
+		
+		tbAd: { // 淘宝口令广告
+
+		}, 
+		openId: '', 	// 4692
+		showOpenAd: false,
+		clkAd: false,		// 是否点击了广告
+		adShowCount: 0	// 广告展示次数
 	},
 	protected: {
 		infos: '',
@@ -307,18 +345,22 @@ export default {
 	},
 	onInit() {
 
+		this.openId = this.$app.$def.adInfo.openId;
 		this.nativeId = this.$app.$def.adInfo.nativeId;
 
 		try {
+
 			this.detailInfo = JSON.parse(this.infos);
+
 		} catch (error) { }
+
 		// 获取广告状态
 		api.getWankaAdState({}).then(res => {
 			try {
 				let data = JSON.parse(res);
 				let result = data.result || {};
 				this.showAdIcon = result.show && this.$app.$def.hongBaoState < this.hongBaoCount;
-
+				this.adState.showAd = result.show;
 			} catch (error) {
 
 				this.showAdIcon = false;
@@ -365,23 +407,30 @@ export default {
 			this.showLoading = false;
 		})
 	},
-	onReady() {
-
-	},
 	onShow() {
 		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
+		let isFromBackstage = util.fromBackstage( this.$app.$def.pagesInfo );
+
+		if( isFromBackstage && this.clkAd === false && this.adShowCount < 2 ){
+			this.showOpenAd = true;
+		}
+
 	},
 	onHide() {
 		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
+  	this.$app.$def.pagesInfo.hideTime = util.curTimestamp();
 		//...业务代码
 	},
 	updateTitle(title) {
-		this.$page.setTitleBar({
+
 			//titlebar的状态，在manifest.json中display设置的
-			text: title || '详情页',
-			textColor: '#1A1A1A',
-			backgroundColor: 'rgba(255,255,255,0.3)'
-		});
+		// this.$page.setTitleBar({
+		// 	text: title || '详情页',
+		// 	textColor: '#1A1A1A',
+		// 	backgroundColor: 'rgba(255,255,255,0.3)'
+		// });
+
 	},
 	computedCount() {
 		let min = Math.min(this.detailInfo.id, this.detailInfo.classid) / 100 / this.detailInfo.tag.length;
@@ -462,15 +511,23 @@ export default {
 		this.$app.$def.hongBaoState = this.$app.$def.hongBaoState + 1;
 	},
 	onadError(args) {
-		this.showAd = false;
+		this.showNativeAd = false;
+		this.showOpenAd = false;
 	},
 	onadClosed(args) {
 		console.log(`关闭广告 >>>>>>>>>>>>>`, args);
 
 		this.showAdWrap = false;
+		this.showOpenAd = false;
 	},
 	onadLoad(args) {
 		// this.showAdIcon = 1;
-	}
+	},
+	onAdClk(){
+		this.clkAd = true;
+	},
+	onAdShow(){
+    this.adShowCount += 1;
+  }
 }
 </script>

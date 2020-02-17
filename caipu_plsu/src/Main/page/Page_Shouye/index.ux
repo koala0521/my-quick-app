@@ -224,7 +224,7 @@ export default {
 	onReady() {
 		
 		let hour = new Date().getHours();
-		let start = utli.randomNum(3);
+		let start = utli.randomNum(6);
 		let comClassid;
 
 		if( hour > 6 && hour < 10 ){

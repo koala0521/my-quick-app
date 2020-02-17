@@ -1,11 +1,11 @@
 <!-- 列表组件 -->
 <import name="wanka_ad_view" src="../../WankaAdSDK/dist/Ad-component/view.ux"></import>
 <import name="no_content" src="./no_content.ux"></import>
+<import name="end_line" src="./end_line.ux"></import>
  
  
 <template>
 	<div class="single-container">
-
 		<list class="single-list" if="list.list.length">
 			<block for="{{list.list}}"  >
 				<list-item type="items" if="{{ !$item.imgErr }}" class="single-product" onclick="toDetail( $item )" >
@@ -42,7 +42,10 @@
 						@ad-error="onadError"
 					></wanka_ad_view>
 				</list-item>	
-			</block>		
+			</block>	
+			<list-item type="endLine" class="end-line" >
+				<end_line text="已经到底啦~~" ></end_line>	
+			</list-item>	
 		</list>
 		<div else >
 			<no_content text="空空如也 ~" ></no_content>
@@ -138,7 +141,11 @@ height: 100%;
 	text-align: center;
 	padding: 10px 20px;
 }
-	
+.end-line{
+	margin-bottom: 32px;
+	margin-top: -32px;;
+}	
+
 </style>
 
 <script>
@@ -154,7 +161,7 @@ export default {
 		},
 		adState:{
 			showAd: true,
-			adId: '4374'
+			adId: ''
 		},
 		showLoading: true,		
 	},
@@ -183,8 +190,9 @@ export default {
 	onInit() {
 		
 		// 监听数据变化
-		  this.$watch('menuList', 'computedListData');
-		  this.adState.showAd = this.showWankaAd;
+		this.$watch('menuList', 'computedListData');
+		this.adState.showAd = this.showWankaAd;
+		this.adState.adId = this.$app.$def.adInfo.nativeId;
 
 	},
 

@@ -12,10 +12,14 @@ export default {
 	wanka_ssp_sdk: {}, // 声明 SDK 组件对象
 	hongBaoState: 0,
 	adInfo:{
-		// openId: '4707',		// 测试 
+		// openId: '4707',		// 测试     appid = 1392
 		// nativeId: '4708',	// 测试 
-		openId: '4692',		// 正式 
+		openId: '4692',		// 正式    appid = 1386
 		nativeId: '4693'	// 正式 
+	},
+	pagesInfo:{
+		showTime: 0,
+		hideTime: 0
 	},
 	onCreate(){
 		// 初始化组件 

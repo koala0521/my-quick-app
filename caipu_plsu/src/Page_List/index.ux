@@ -167,6 +167,7 @@
 <script>
 import router from '@system.router';
 import api from '../api/api.js';
+import util from '../util.js';
 
 export default {
 	public: {
@@ -177,8 +178,8 @@ export default {
 		 	list:[]
 		},
 		adState:{
-			showAd: true,
-			adId: '4693'
+			showAd: false,
+			adId: ''
 		},
 		showLoading: true,
 				
@@ -187,36 +188,22 @@ export default {
 		title: '菜谱列表',
 		classid: ''
 	},
-	onShow() {
-		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
-	},
-	onHide() {
-		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
-		//...业务代码
-	}, 
-	press(item) {
-		console.error("on press event param : " + item);
-	},
-	toDetail(item) {
-
-		//跳转到应用内的某个页面
-		router.push({
-			uri: "/Page_menuDetail",
-			params:{
-				infos: JSON.stringify(item),
-				id: item.id
-			}
-		})
-	},
 
 	onInit() {
 
+		this.adState.adId = this.$app.$def.adInfo.nativeId;
 		this.$page.setTitleBar({
 			//titlebar的状态，在manifest.json中display设置的
 			text: this.title,
 			textColor: '#1A1A1A',
 			backgroundColor: 'rgba(255,255,255,0.3)'
 		});
+		
+		api.getWankaAdState({}).then(res => {
+			let data = JSON.parse(res);
+			let result = data.result || {};			
+			this.adState.showAd = result.show;	
+		})
 
 		api.getMenusByType({
 			classid: this.classid,
@@ -234,8 +221,34 @@ export default {
 			this.list.list = [];
 		})
 
+	},	
+	onShow() {
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
+	},
+	onHide() {
+		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
+  		this.$app.$def.pagesInfo.hideTime = util.curTimestamp();
+		//...业务代码
+	}, 
+	onMenuPress() {
+		this.$app.$def.showMenu()
 	},
 
+	press(item) {
+		console.error("on press event param : " + item);
+	},
+	toDetail(item) {
+
+		//跳转到应用内的某个页面
+		router.push({
+			uri: "/Page_menuDetail",
+			params:{
+				infos: JSON.stringify(item),
+				id: item.id
+			}
+		})
+	},
 	computedListData(list=[]){
 		if(list.length == 0) return []
 		return list.map(el =>{
@@ -253,7 +266,7 @@ export default {
 		item.imgErr = true;
 	},
 	onadError(args){
-
+		console.log(`广告失败了 (⊙︿⊙ )`,args );
 		this.adState.showAd = false;
 	},
 	onadClosed(){

@@ -38,12 +38,12 @@ function getMenuDetail(data) {
 
 /**
  * @description 广告状态
- * @host /showAd/wanka
- * 
+ * @host /showAd/wanka 	https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka
+ * @host /showAd/wanka/v2   https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2
  **/
 function getWankaAdState(data={}){
 	return requestFn({
-		baseurl: 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka',
+		baseurl: 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2',
 		data
 	})
 }

@@ -1,12 +1,14 @@
 <import name="menu_list" src="../Main/component/c_menu_list.ux"></import>
 <import name="loading" src="../Main/component/loading.ux"></import>
 <import name="no_content" src="../Main/component/no_content.ux"></import>
+<import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
+ 
  
  
 <template>
 	<div class="container">
 
-		<loading show="{{ showLoading }}" ></loading>
+		<loading if="{{ showLoading }}" ></loading>
 		<!-- 搜索bar -->
 		<div class="search_bar_container">
 			<div class="image_search_back_div_search" onclick="back">
@@ -28,32 +30,7 @@
 
 		<div class="panel">
 			<!-- 搜素热词、历史显示区域 -->
-			<block if="{{showPageType === 'searchBar'}}">
-				
-				<!-- 热门搜索 -->
-				<!-- <div class="div_allsearch">
-					<div class="change_search">
-						<text class="all_find">热门搜索</text>
-						<a class="a_change_search" onclick="changeSearchWord">换一换</a>
-					</div>
-					<div class="spare_bar"></div>
-					<div class="change_content">
-						<block for="{{list}}">
-							<a class="a_item" onclick="setInputValue($item.name)">{{$item.name}}</a>
-						</block>
-					</div>
-				</div> -->
-
-				<!-- <div class="div_allsearch">
-					<div class="change_search">
-						<text class="all_find">书籍热搜榜</text>
-					</div>
-					<div class="spare_bar"></div>
-					<div class="shucheng-box-seven">
-						<swi list="{{subjectlist}}" banner="{{banner}}"></swi>
-					</div>
-				</div> -->
-				
+			<block if="{{showPageType === 'searchBar'}}">				
 				<div class="div_allsearch">
 					<div class="change_search" show="{{ hisList.length }}" >
 						<text class="all_find">搜索历史</text>
@@ -74,10 +51,25 @@
 					<text if="{{ searchResults.length }}">找到 {{ searchResults.length }} 条相关数据</text>
 				</div>
 				<div class="single-list">
-					<menu_list menu-list="{{ searchResults }}" show-wanka-ad="{{ true }}"  ></menu_list>
+					<menu_list menu-list="{{ searchResults }}" show-wanka-ad="{{ adState.showAd }}"  ></menu_list>
 				</div>
 			</block>
 		</div>
+
+    <div class="ad-wrap" if="{{ showOpenAd && adState.showAd }}">
+			<wanka_ad_view 
+        type="openning" 
+        adslot_id="{{ openId }}" 
+        enter_app="{{false}}" 
+        delay="{{ 4 }}" 
+        @ad-error="onadError" 
+        @ad-closed="onadClosed" 
+        @ad-click="onAdClk"
+        @ad-show="onAdShow" 
+      >
+      </wanka_ad_view>
+		</div>
+
 	</div>
 </template>
 
@@ -505,7 +497,7 @@
 
 <script>
 import router from '@system.router';
-import utils from '../util.js';
+import util from '../util.js';
 import prompt from '@system.prompt';
 import api from '../api/api.js';
 
@@ -517,39 +509,57 @@ export default {
 		isAutoClick: false,
 		showLoading: false,
 
-		// 热门搜索
-		// list: [
-		// ],
-
-		// 历史搜索
+// 历史搜索
 		hisList: [],
 
 		// 存储 key
 		hisStorageKey:'__KOALA_MENU_USRE_SEARCH_HIS__',
 
-		// 搜索推荐
-		// autoList: [
-		// 	{ name: "三生三", src: './TO_DELETE/banner1.png', }, 
-		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', }, 
-		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner1.png', }, 
-		// 	{ name: "三生三世十里桃花", src: './TO_DELETE/banner2.png', }
-		// ],
-
 		// 搜索结果
 		searchResults: [
-		],
-		
+    ],
+    
+		adState: {
+      showAd: false 
+    },
+		showOpenAd: false,   // 开屏广告
+    clkAd: false,	// 是否点击了广告
+    adShowCount: 0
 	},
 	onInit() {
 		
-		utils.getStorage( this.hisStorageKey ).then(res =>{
-			console.log(`读取成功` ,res );
-			this.hisList = res.data ? JSON.parse( res.data ) : [];
-			
+    this.openId = this.$app.$def.adInfo.openId;
+
+    api.getWankaAdState({}).then(res => {
+			let data = JSON.parse(res);
+			let result = data.result || {};			
+      this.adState.showAd = result.show;	      
+		}).catch(err=>{
+      
+      console.log(`错误啦`);  
+    })
+    
+		util.getStorage( this.hisStorageKey ).then(res =>{
+      this.hisList = res.data ? JSON.parse( res.data ) : [];
 		}).catch( err =>{
-			console.log(`读取失败`, err);	
-		}) 
+      console.log(`获取本地错误啦`);
+    }) 
+    
+  },
+	onShow() {
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+    this.$app.$def.pagesInfo.showTime = util.curTimestamp();    
+    let isFromBackstage = util.fromBackstage( this.$app.$def.pagesInfo );
+
+		if( isFromBackstage && this.clkAd === false && this.adShowCount < 2 ){
+			this.showOpenAd = true;
+		}    
 	},
+	onHide() {
+		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
+  	this.$app.$def.pagesInfo.hideTime = util.curTimestamp();
+		//...业务代码
+	},  
 	//增加搜索结果记录
 	addHistory() {
 		var isContain = false;
@@ -564,11 +574,10 @@ export default {
 		}
 
 		//本地存储搜索记录
-		utils.setStorage( this.hisStorageKey , this.hisList ).then( res =>{
+		util.setStorage( this.hisStorageKey , this.hisList ).then( res =>{
 			console.log(`存储成功`, res);			
 		}).catch( err =>{
-			console.log(`存储失败`, err );		
-			
+			console.log(`存储失败`, err );			
 		})
 	},
 	find( val) {
@@ -584,6 +593,12 @@ export default {
 	},
 	getMenuList( key='' ){
 
+    this.showLoading = true;
+    
+    setTimeout(() => {
+		  this.showLoading = false;      
+    }, 3000);
+
 		api.getMenusByStr({
 			keyword: this.inputValue,
 			num:20
@@ -597,8 +612,6 @@ export default {
 			}		
       this.showLoading = false;
 		}).catch( err =>{
-      console.log(`搜索失败了 >>>>>>>>>>>>>>>>`);
-      
 			this.showLoading = false;
 		})
 
@@ -612,15 +625,10 @@ export default {
 			});
 			return
 		}
-		this.showLoading = true;
 		this.showPageType = "result";
 		this.isAutoClick = false;
 		this.find( value );
-    this.$element('search').focus( {focus:false} );
-    setTimeout(() => {
-		  this.showLoading = false;      
-    }, 5000);
-		
+    this.$element('search').focus( {focus:false} );		
 	},
 
 	updateValue(e) {
@@ -631,12 +639,9 @@ export default {
 		
 		this.searchMenu();
 	},
-	changeSearchWord() {
-		// this.list = [{ name: "无问西东" }, { name: "厉害了，我的国" }];
-	},
 	clearHis() {
 		this.hisList = [];
-		utils.delStorage( this.hisStorageKey );
+		util.delStorage( this.hisStorageKey );
 	},
 	back() {
 		router.back();
@@ -645,11 +650,23 @@ export default {
 		this.showPageType = "searchBar";
 		this.inputValue = "";
 	},
-	directResultPage(text) {
-		this.isAutoClick = true;
-		this.showPageType = "result";
-		this.inputValue = text;
-		this.find();
-	}
+
+
+  onadError(args) {
+		this.showOpenAd = false;
+	},
+	onadClosed(args) {
+		console.log(`关闭广告 >>>>>>>>>>>>>`, args);
+		this.showOpenAd = false;
+	},
+	onadLoad(args) {
+	
+	},  
+  onAdClk(){
+		this.clkAd = true;
+  },
+  onAdShow(){
+    this.adShowCount += 1;
+  }
 }
 </script>

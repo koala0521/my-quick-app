@@ -31,9 +31,10 @@ export default {
 	},
 	onShow() {
 		this.$broadcast('page_show');	
-            APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
 	},
 	onHide() {
+		this.$broadcast('page_hide');
 		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
 		//...业务代码
 	} 

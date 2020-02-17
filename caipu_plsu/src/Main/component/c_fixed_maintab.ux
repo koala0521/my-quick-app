@@ -3,14 +3,14 @@
 <import name='fenlei' src='../page/Page_Fenlei/index.ux'></import>
 <import name='shoucang' src='../page/Page_Shoucang/index.ux'></import>
 <import name='reader_main_shucheng_component_searchbar' src='./Component_SearchBar.ux'></import>
-<import name="wanka-ad_view" src="../../WankaAdSDK/dist/Ad-component/view.ux"></import>
+<import name="wanka_ad_view" src="../../WankaAdSDK/dist/Ad-component/view.ux"></import>
  
 
 <template>
 	<!-- template里只能有一个根节点 -->
 	<div class="container">
 		<div class="ad-wrap" if="showOpenAd">
-			<wanka_ad_view type="openning" adslot_id="{{ openId }}" enter_app="{{false}}" delay="{{ 4 }}" @ad-error="onadError" @ad-closed="onadClosed"></wanka_ad_view>
+			<wanka_ad_view type="openning" adslot_id="{{ openId }}" enter_app="{{false}}" delay="{{ 4 }}" @ad-error="onadError" @ad-closed="onadClosed" @ad-click="onAdClk" ></wanka_ad_view>
 		</div>
 		<div class="home-cont {{ !showOpenAd ? 'home-cont-show' : '' }}">
 			<!-- 搜索框 -->
@@ -152,21 +152,21 @@ export default {
 		favorite_data: [],
 		showSearchBar: true,
 		textActive: 0,
-		openId: '4692', 
-		showOpenAd: false
+		openId: '', 	// 4692
+		showOpenAd: false,
+		clkAd: false	 // 是否点击了广告
 	},
 	onInit() {
-		// this.openId = this.$app.$def.adInfo.openId;
+		this.openId = this.$app.$def.adInfo.openId;
 
 		// 监听页面show
 		this.$on('page_show', this.pageShow);
+		this.$on('page_hide', this.pageHide);
 		api.getWankaAdState({}).then(res => {
 			let data = JSON.parse(res);
 			let result = data.result || {};
 			
-			this.showOpenAd = result.show;
-			console.log(`this.showOpenAd >>>>>>>` , this.showOpenAd);
-			
+			this.showOpenAd = result.show;	
 		})
 	},
 
@@ -188,12 +188,16 @@ export default {
 			}
 		}
 
-
 	},
 	// 页面 show
 	pageShow() {
 		this.computedAdState();
 		this.readMenu();
+		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
+	},
+	pageHide(){
+		
+  	this.$app.$def.pagesInfo.hideTime = util.curTimestamp();		
 	},
 
 	// 读取收藏菜谱
@@ -225,6 +229,9 @@ export default {
 	},
 	onadClosed() {
 		this.showOpenAd = false;
+	},
+	onAdClk(){
+		this.clkAd = true
 	}
 }
 </script>

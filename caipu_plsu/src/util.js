@@ -151,6 +151,22 @@ function randomNum(n){
 	return Math.floor(Math.random()*n);
 }
 
+/** 
+ * @description 获取当前时间戳
+ * @returns { number } 数字 ：时间戳
+*/
+function curTimestamp(){
+  return (new Date).getTime()
+}
+
+/** 
+ * @description 计算是否从后台切入前台
+ * @returns { boolean }  boolean
+*/
+function fromBackstage(pagesInfo={}){
+  return (pagesInfo.showTime - pagesInfo.hideTime)  > 5000
+}
+
 
 export default {
 	showMenu,
@@ -164,5 +180,7 @@ export default {
 	filePath,
 	delFile,
 	hasIcon,
-	randomNum
+  randomNum,
+  curTimestamp,
+  fromBackstage
 };

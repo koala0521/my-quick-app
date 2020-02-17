@@ -1,8 +1,8 @@
 {
     "package": "com.jiachang.caipu.menu",
     "name": "家常菜谱大全",
-    "versionName": "1.0.1.0",
-    "versionCode": 4,
+    "versionName": "1.0.2.0",
+    "versionCode": 5,
     "minPlatformVersion": "1040",
     "icon": "/Common/logo.png",
     "features": [
@@ -49,7 +49,7 @@
         }
     ],
     "config": {
-        "logLevel": "debug",
+        "logLevel": "off",
         "data": {
             "wanka_ad": {
                 "app_id": "1386"
@@ -96,7 +96,7 @@
                 "menu": true
             },
             "Page_menuDetail": {
-                "titleBar": true,
+                "titleBar": false,
                 "titleBarText": "",
                 "menu": true
             },
