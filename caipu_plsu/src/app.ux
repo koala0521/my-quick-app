@@ -19,8 +19,16 @@ export default {
 	},
 	pagesInfo:{
 		showTime: 0,
-		hideTime: 0
+		hideTime: 0,
+		name: ''
 	},
+	// last 页面信息
+	lastpagesInfo:{
+		showTime: 0,
+		hideTime: 0,
+		name: ''
+	},
+
 	onCreate(){
 		// 初始化组件 
 		try {

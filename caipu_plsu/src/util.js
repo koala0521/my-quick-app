@@ -1,6 +1,7 @@
 import storage from "@system.storage";
 import file from "@system.file";
 import shortcut from "@system.shortcut";
+import prompt from '@system.prompt';
 
 // 文件存储路劲
 const filePath = "internal://files/favorite_menu/list.txt";
@@ -13,7 +14,7 @@ function showMenu() {
   const router = require("@system.router");
   const appInfo = require("@system.app").getInfo();
   prompt.showContextMenu({
-    itemList: ["保存桌面", "返回首页", "隐私政策", "取消"],
+    itemList: ["添加至桌面", "返回首页", "隐私政策", "取消"],
     success: function(ret) {
       switch (ret.index) {
         case 0:
@@ -163,8 +164,11 @@ function curTimestamp(){
  * @description 计算是否从后台切入前台
  * @returns { boolean }  boolean
 */
-function fromBackstage(pagesInfo={}){
-  return (pagesInfo.showTime - pagesInfo.hideTime)  > 5000
+function fromBackstage(pagesInfo={} , lastpagesInfo ){
+ 
+  return (pagesInfo.showTime - lastpagesInfo.hideTime)  > 5000 &&
+          lastpagesInfo.name && 
+          lastpagesInfo.name === pagesInfo.name
 }
 
 

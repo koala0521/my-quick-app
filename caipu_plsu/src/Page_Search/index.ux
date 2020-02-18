@@ -548,17 +548,21 @@ export default {
   },
 	onShow() {
 		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
-    this.$app.$def.pagesInfo.showTime = util.curTimestamp();    
-    let isFromBackstage = util.fromBackstage( this.$app.$def.pagesInfo );
+		this.$app.$def.pagesInfo.name = router.getState().name;
+		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
 
+		let isFromBackstage = util.fromBackstage( this.$app.$def.pagesInfo , this.$app.$def.lastpagesInfo );
+				
 		if( isFromBackstage && this.clkAd === false && this.adShowCount < 2 ){
 			this.showOpenAd = true;
-		}    
+		}
+
+	  this.$app.$def.lastpagesInfo.name = router.getState().name;
 	},
 	onHide() {
 		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
-  	this.$app.$def.pagesInfo.hideTime = util.curTimestamp();
-		//...业务代码
+		this.$app.$def.lastpagesInfo.hideTime = util.curTimestamp();	
+		
 	},  
 	//增加搜索结果记录
 	addHistory() {

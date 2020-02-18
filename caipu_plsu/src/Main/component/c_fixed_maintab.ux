@@ -193,11 +193,9 @@ export default {
 	pageShow() {
 		this.computedAdState();
 		this.readMenu();
-		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
 	},
 	pageHide(){
-		
-  	this.$app.$def.pagesInfo.hideTime = util.curTimestamp();		
+				
 	},
 
 	// 读取收藏菜谱

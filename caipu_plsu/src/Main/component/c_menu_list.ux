@@ -37,13 +37,13 @@
 					<wanka_ad_view
 						type="native"
 						adslot_id="{{ adState.adId }}"
-						width="{{700}}"
-						height="{{320}}"
+						width="{{600}}"
+						height="{{400}}"
 						@ad-error="onadError"
 					></wanka_ad_view>
 				</list-item>	
 			</block>	
-			<list-item type="endLine" class="end-line" >
+			<list-item type="endLine" class="end-line" if="{{ list.list.length > 4 }}" >
 				<end_line text="已经到底啦~~" ></end_line>	
 			</list-item>	
 		</list>

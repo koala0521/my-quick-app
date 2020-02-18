@@ -8,6 +8,9 @@
 </style>
 
 <script>
+import util from '../util.js';
+import router from '@system.router';
+import prompt from '@system.prompt';
 export default {
 	public: {		
 		datas: {
@@ -19,6 +22,11 @@ export default {
 				// { i: 2, color: '#878787', pic: './img/tingshu.png', pic_choice: './img/clicked-tingshu.png', show: false, title: '食材' },
 				{ i: 4, color: '#878787', pic: './img/shoucang.png', pic_choice: './img/shoucang.png', show: false, title: '收藏' }
 			]
+		},
+		route:{
+			name: '',
+			path: '',
+			index: 0
 		}
 	},
 	protected:{
@@ -26,17 +34,18 @@ export default {
 	},
 
 	onInit() {
-		// console.log( `this.show_ad >>>>>>>>>` , this.show_ad );
-		
+
+		this.route = router.getState();
 	},
 	onShow() {
 		this.$broadcast('page_show');	
-		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码
+		this.$app.$def.lastpagesInfo.name = this.route.name;	
 	},
 	onHide() {
 		this.$broadcast('page_hide');
 		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
-		//...业务代码
+		this.$app.$def.lastpagesInfo.hideTime = util.curTimestamp();		  
 	} 
 }
 </script>

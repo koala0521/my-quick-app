@@ -27,11 +27,11 @@
 						</div>
 					</div>
 				</list-item>
-				<list-item if="{{ $idx == 2 && adState.showAd }}" type="{{ $idx }}" class="ad-wrap single-product" >
+				<list-item if="{{ ($idx == 3 || $idx == 7 ) && adState.showAd }}" type="{{ $idx }}" class="ad-wrap single-product" >
 					<wanka_ad_view
 						type="native"
 						adslot_id="{{ adState.adId }}"
-						width="{{700}}"
+						width="{{640}}"
 						height="{{320}}"
 						@ad-error="onadError"
 						@ad-closed="onadClosed"
@@ -224,11 +224,11 @@ export default {
 	},	
 	onShow() {
 		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
-		this.$app.$def.pagesInfo.showTime = util.curTimestamp();
+		this.$app.$def.lastpagesInfo.name = router.getState().name;	
 	},
 	onHide() {
 		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
-  		this.$app.$def.pagesInfo.hideTime = util.curTimestamp();
+		this.$app.$def.lastpagesInfo.hideTime = util.curTimestamp();	
 		//...业务代码
 	}, 
 	onMenuPress() {
