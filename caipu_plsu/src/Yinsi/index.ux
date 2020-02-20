@@ -43,10 +43,11 @@
 </style>
 <script>
     import util from '../util.js';
+    import router from '@system.router';
     export default {
         onShow() {
             APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码	
-		    this.$app.$def.lastpagesInfo.name = this.route.name;	
+		    this.$app.$def.lastpagesInfo.name = router.getState().name;	
         },
         onHide() {
             APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码
