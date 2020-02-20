@@ -1,8 +1,8 @@
 {
     "package": "com.jiachang.caipu.menu",
     "name": "家常菜谱大全",
-    "versionName": "1.0.4.0",
-    "versionCode": 7,
+    "versionName": "1.0.5.0",
+    "versionCode": 8,
     "minPlatformVersion": "1040",
     "icon": "/Common/logo.png",
     "features": [

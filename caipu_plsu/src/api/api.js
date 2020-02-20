@@ -36,14 +36,23 @@ function getMenuDetail(data) {
 	})
 }
 
+// api 说明： 1.0.3.0 和 1.0.4.0 使用 /wanka  接口
+
+//api 说明：  1.0.5.0 使用 /wanka/v2 接口
+
 /**
  * @description 广告状态
  * @host /showAd/wanka 	https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka
  * @host /showAd/wanka/v2   https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2
  **/
+const adurl = {
+	'v1': 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka',
+	'v2': 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2',
+}
+
 function getWankaAdState(data={}){
 	return requestFn({
-		baseurl: 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka',
+		baseurl: adurl.v2,
 		data
 	})
 }
