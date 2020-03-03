@@ -1,0 +1,101 @@
+<template>
+	<div class="wrap" >
+
+		<text class="title">这是标题哦</text>
+
+		<text class="item">{{ list[0] }}</text>
+		<div class="btn-wrap" >
+			<text class="turn-other btn" @click="turnOther" >换一首</text>
+			<text class="copy btn" @click="copy" >复制</text>
+		</div>
+	</div>
+</template>
+
+<script>
+import clipboard from '@system.clipboard';
+import prompt from '@system.prompt';
+export default {
+	protected: {
+		num: 5,
+		type: 1,
+		yayuntype: 1,
+		key: '',
+		list:[
+			'    我后元符从此得，爱汝玉山草堂静。小隐山人十洲客，肥马轻车欺杀客。猪儿狗儿争相来，还念中人罢百金。',
+			'    我昔初在昭阳时，爱客满堂尽豪翰。小鱼脱漏不可记，肥羊甘醴心闷闷。猪儿狗儿争相来，洛阳芳树映天津。',
+			' 我独七十而孤栖，爱子临风吹玉笛。小腰丽女夺人奇，肥肉大酒徒相要。猪儿狗儿争相来，门扃幽院只来禽。',
+			'    我家帝子传王业，爱听松风且高卧。小隐山人十洲客，肥马轻车欺杀客。猪儿狗儿争相来，不然烦恼万涂侵。',
+			' 我闻忽如负芒刺，爱汝玉山草堂静。小垂手后柳无力，肥马轻裘还且有。猪儿狗儿争相来，夕鸟喧喧入上林。',
+			' 我见楼船壮心目，爱此芳香朝暮看。小书楼下千竿竹，肥马王孙定相笑。猪儿狗儿争相来，门扃幽院只来禽。',
+			'    我欲弯弓向天射，君爱龙城征战功。强识小妇七香车，胡马秋肥宜白草。水镇应多养鸭栏。',
+			'    我见楼船壮心目，解爱鲈鱼能几人。新昌小院松当户，宛马总肥春苜蓿。水镇应多养鸭栏。',
+			' 我看明岁更沦涟，却爱桃花两耳红。南头小凤纳三千，青骢马肥金鞍光。坐久烟消宝鸭香。',
+			'    我皇膺运太平年，翻爱南河浊水流。苏家小女名简简，胡马秋肥宜白草。当处教开卧鸭池。',
+			' 我皇盛德苞六宇，不爱仙家登真诀。秃衿小袖调鹦鹉，鸟雀苦肥秋粟菽。沉水香消金鸭冷。',
+			' 我念过去微尘劫，泛爱不救沟壑辱。巫山小女隔云别，紫蟹霜肥秋纵好。花鸟争开斗鸭栏。'			
+		],
+		activeIndex: 0
+	},
+	onInit() {
+		// 设置标题栏
+		this.$page.setTitleBar({ text: this.key })
+		this.list = this.list.map(el => {
+			return el.replace(/(，)|(。)/g, '\r\n').trim();
+		});
+		console.log(this.list );
+		
+	},
+	turnOther(){
+
+	},
+	copy(){
+		clipboard.set({
+			text: this.list[ this.activeIndex ],
+			success:()=>{
+				prompt.showToast({
+					message: '已复制到剪贴板~~'
+				})
+			}
+		})
+	}
+}
+</script>
+
+<style>
+	.wrap{
+		padding: 0 16px;
+		flex-direction: column;
+		align-items: center;
+	}
+	.title{
+		margin-top: 64px;
+		font-size: 40px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.item{
+		padding: 32px;
+		line-height: 74px;
+		text-align: center;
+		text-indent: 0px;
+		font-size: 40px;
+		width: 100%;
+		margin-top: 48px;
+		border: 1px solid #bcbcbc;
+	}
+	.btn-wrap{
+		justify-content: space-around;
+		margin-top: 64px;
+		width: 100%;
+	}
+	.btn{
+  		font-size: 28px;
+		font-weight: bold;
+		color: #ffffff;
+		background-color: #ec4d4d;
+		text-align: center;
+		width: 240px;
+		border-radius: 16px;
+		padding: 16px;
+	}
+</style>

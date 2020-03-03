@@ -1,0 +1,143 @@
+{
+  "package": "com.jock.demo",
+  "name": "笑话大全",
+  "versionName": "1.0.1",
+  "versionCode": 1,
+  "icon": "/Common/logo.png",
+  "minPlatformVersion": 1040,
+  "features": [
+    {"name": "system.prompt"},
+    {"name": "system.router"},
+    {"name": "system.webview"},
+    {"name": "system.wifi"},
+    {"name": "system.device"},
+    {"name": "system.notification"},
+    {"name": "system.fetch"},
+    {"name":"system.storage"},
+    {"name":"system.network"},
+    {"name":"service.account"},
+    { "name": "system.request" },
+    { "name": "system.file" },
+    { "name": "system.package" },
+    {"name": "system.shortcut"},
+    { "name": "system.clipboard" }
+  ],
+  "permissions": [
+    {
+      "origin": "*"
+    }
+  ],
+  "config": {
+    
+    "data": {
+      "wanka_ad": {
+          "app_id": "1386"
+      }
+    }    
+  },
+  "router": {
+    "entry": "Page_QustionAnswer",
+    "pages": {
+      "Page_Home": {
+        "component": "index",
+        "path": "/Page_Home"
+      },
+      "Page_Detail": {
+        "component": "index",
+        "path": "/Page_Detail"
+      },
+      "Page_Composite": {
+        "component": "index",
+        "path": "/Page_Composite"
+      },
+      "Page_Hot": {
+        "component": "index",
+        "path": "/Page_Hot"
+      },
+      "Page_tools":{
+        "component": "index",
+        "path": "/Page_tools"
+      },
+      "Page_TibetanPoem":{
+        "component": "index",
+        "path":"/Page_TibetanPoem"
+      },
+      "Page_TibetanPoemDetail":{
+        "component": "index",
+        "path":"/Page_TibetanPoemDetail"
+      },
+      "Page_historyData":{
+        "component": "index",
+        "path":"/Page_historyData"
+      },
+      "Page_QustionAnswer":{
+        "component": "index",
+        "path":"/Page_QustionAnswer"
+      },      
+      "About":{
+        "component": "index",
+        "path": "/About"
+      },
+      "Yinsi":{
+        "component": "index",
+        "path": "/Yinsi"
+      }
+    }
+  },
+  "display": {
+    "titleBar": true,
+    "pages": {
+      "Page_Home": {
+        "titleBar": false,
+        "titleBarBackgroundColor": "#ffffff",
+        "menu": false
+      },
+      "Page_QustionAnswer":{
+        "titleBar": false,
+        "titleBarBackgroundColor": "#ffffff",
+        "menu": false
+      },       
+      "Page_tools":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarText": "常用工具",
+        "titleBarTextColor": "#000",
+        "menu": true           
+      },
+      "About":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarText": "关于",
+        "titleBarTextColor": "#000",
+        "menu": true      
+      },
+      "Page_TibetanPoem":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarText": "藏头诗制作",
+        "titleBarTextColor": "#000",
+        "menu": false   
+      },
+      "Page_TibetanPoemDetail":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarText": "藏头诗",
+        "titleBarTextColor": "#000",
+        "menu": true   
+      },     
+      "Page_historyData":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarTextColor": "#000",
+        "menu": true  
+      },      
+      "Yinsi":{
+        "titleBarBackgroundColor": "#ffffff",
+        "titleBar": true,
+        "titleBarText": "隐私政策",
+        "titleBarTextColor": "#000",
+        "menu": true      
+      }
+    }
+  }
+}

@@ -1,0 +1,229 @@
+
+<import name="single" src="./component/c_news_single"></import>
+<import name="three" src="./component/c_news_items"></import>
+<!-- 
+    依赖组件Component_News_Single
+           Component_News_Items
+ -->
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="container">
+
+    <!-- 头部图片区域 -->
+    <div class="head_image">
+      <image class="head_image" src="./to_delete/p_news_two_banner.png"></image>
+    </div>
+
+    <!-- 文字区域 -->
+    <div class="head_text common_middle">
+      <div class="head_content">
+        <text class="head_font">{{title}}</text>
+      </div>
+      <div class="middle_content">
+        <text class="middle_content_text">{{content}}</text>
+      </div>
+      <div class="head_text_lable">
+        <label class="foot_lable">{{lableOne}}</label>
+        <label class="foot_lable">{{labelTwo}}</label>
+      </div>
+    </div>
+
+    <!-- 单叶草区域 -->
+    <div class="single_regin common_middle">
+      <div class="single_regin_title">
+        <text class="common_font">{{hot}}</text>
+      </div>
+      <block for="{{singleOnes}}">
+        <single url="{{$item.url}}" title="{{$item.title}}" imgsrc="{{$item.imgsrc}}" footword="{{$item.footword}}"></single>
+      </block>
+      
+      <div class="single_regin_title">
+        <text class="common_font">{{head}}</text>
+      </div>
+       <block for="{{singleTwos}}">
+        <single url="{{$item.url}}" title="{{$item.title}}" imgsrc="{{$item.imgsrc}}" footword="{{$item.footword}}"></single>
+      </block>
+      <block for="{{singleThrees}}">
+         <stack class="stack">
+        <single url="{{$item.url}}" title="{{$item.title}}" imgsrc="{{$item.imgsrc}}" footword="{{$item.footword}}"></single>
+        <div class="auto_time">
+        </div>
+        <text class="auto_time_text">{{$item.time}}</text>
+      </stack>
+      </block>
+    </div>
+
+    <!-- 底部区域 -->
+    <div class="foot">
+    </div>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+  }
+
+  .title {
+    font-size: 100px;
+  }
+
+  .head_image {
+    width: 750px;
+    height: 250px;
+  }
+
+  .head_text {
+    height: 320px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .single_regin {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .common_middle {
+    width: 100%;
+    margin-left: 33px;
+    margin-right: 33px;
+  }
+
+  .foot {
+    width: 750px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .head_content {
+    width: 100%;
+    margin-top: 33.3px;
+  }
+
+  .head_font {
+    font-weight: bold;
+    color: #1A1A1A;
+    font-size: 37.5px;
+  }
+
+  .middle_content {
+    width: 100%;
+    margin-top: 12.8px;
+  }
+
+  .middle_content_text {
+    line-height: 46px;
+    font-size: 27px;
+  }
+
+  .common_font {
+    color: #8c8c8c;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .head_text_lable {
+    width: 100%;
+    margin-top: 16.9px;
+  }
+
+  .foot_lable {
+    background-color: #f3f3f3;
+    color: #1a1a1a;
+    text-align: center;
+    margin-right: 16px;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 8px;
+  }
+
+  .single_regin_title {
+    width: 100%;
+    margin-top: 46px;
+    margin-bottom: 16px;
+  }
+
+  .single_item_1 {
+    width: 100%;
+    height: 198px;
+  }
+
+  .foot_div {
+    width: 240px;
+    height: 80px;
+    justify-content: space-around;
+  }
+
+  .foot_img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .auto_time {
+    width: 69px;
+    height: 33px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    background-color: #000000;
+    opacity: 0.3;
+    border-radius: 4px;
+  }
+
+  .auto_time_text {
+    width: 69px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 35px;
+  }
+
+  .stack {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+</style>
+<script>
+  export default {
+    data: {
+      title: "一朵金丝皇菊的故事",
+      content: "据中央广电总台国际在线报道，央广国际在线6月6日刊发评论文章指出，路透社5日援引知情人士报道，美国GDP增长大约3%。",
+      lableOne: "特朗普",
+      labelTwo: "美朝关系",
+      hot: "热点话题",
+      head: "台风山竹",
+      singleOnes: [{
+        url: "/Page_Detail",
+        title: "违规做转基因实验的专家，被开除党籍",
+        imgsrc: "./to_delete/p_news_two_p1.png",
+        footword: "知乎"
+      }],
+      singleTwos: [{
+        url: "/Page_Detail",
+        title: "日本网民吐槽：台风将平等地袭击日本全境",
+        imgsrc: "./to_delete/p_news_two_p2.png",
+        footword: "证券时报"
+      }],
+      singleThrees: [{
+        url: "/Page_Detail",
+        title: "台风登陆广东，局部风力达17级，红色预警生效中",
+        imgsrc: "./to_delete/p_news_two_p3.png",
+        time: "05:20",
+        footword: "太平洋电脑"
+      }]
+    },
+    onInit: function () {
+      //TODO初始化 data中的数据
+    }
+
+  }
+
+</script>

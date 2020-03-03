@@ -1,0 +1,83 @@
+<template>
+	<div class="add-icon-wrap" show="{{ show }}" >
+		<text class="text" @click="createshortcut">添加到桌面，秒开应用</text>
+	</div>
+</template>
+<style>
+.add-icon-wrap {
+  position: fixed;
+  left: 175px;
+  bottom: 148px;
+  width: 400px;
+  padding: 16px 32px;
+  background-color: rgba(231, 73, 73, 0.8);
+  border-radius: 32px;
+}
+.text {
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
+<script>
+import util from '../../util.js';
+const prompt = require("@system.prompt");
+const shortcut = require("@system.shortcut");
+
+export default {
+	data: {
+		show: true
+	},
+	createshortcut() {
+		this.createShortcut((state)=>{
+			if(state === 1){
+				this.show = false;
+			}
+		});
+	},
+	onInit() {
+		shortcut.hasInstalled({
+			success: (ret)=> {
+				if (ret) {
+					this.show = false;
+				}
+			}
+		});		
+	},
+	/**
+	 * 创建桌面图标
+	 * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+	 */
+	createShortcut(cb) {
+		shortcut.hasInstalled({
+			success: function (ret) {
+				if (ret) {
+					prompt.showToast({
+						message: "已创建桌面图标"
+					});
+				} else {
+					shortcut.install({
+						success: function () {
+							prompt.showToast({
+								message: "成功创建桌面图标"
+							});
+							cb && cb(1);
+						},
+						fail: function (errmsg, errcode) {
+							prompt.showToast({
+								message: `创建图标失败，请检查是否开启权限并手动创建。`,
+								duration: 1
+							});
+							cb && cb(0);
+						}
+					});
+				}
+			}
+		});
+}
+
+}
+</script>
+
+

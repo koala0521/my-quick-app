@@ -1,0 +1,63 @@
+{
+  "env": {
+    "commonjs": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+  "globals": {
+    "loadData": false,
+    "saveData": false,
+    "history": false,
+    "console": true,
+    "setTimeout": true,
+    "clearTimeout": true,
+    "setInterval": true,
+    "clearInterval": true,
+    "APP_STATISTICS": true
+  },
+  "plugins": [
+    "hybrid"
+  ],
+  "rules": {
+    "indent": [
+      "warn",
+      "tab"
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "info",
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "prompt"
+      }
+    ],
+    "quotes": [
+      "warn",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "linebreak-style": [
+      "off",
+      "window"
+    ],
+    "semi": 0
+  }
+}

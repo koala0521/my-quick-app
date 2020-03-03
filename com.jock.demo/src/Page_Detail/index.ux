@@ -1,0 +1,325 @@
+
+<import name="single" src="./component/c_news_single"></import>
+
+<!-- 
+     本页面依赖组件 ：Component_News_Single     
+ -->
+<template>
+  <!-- template里只能有一个根节点 -->
+  <div class="container">
+    <div class="main_content">
+      <!--  标题区域 -->
+      <div class="title">
+        <text class="title_text">{{headTitle}}</text>
+      </div>
+      <!-- 副标题 -->
+      <div class="sencond_title">
+        <text class="sencond_title_text">{{secondTitle}}</text>
+        <text class="sencond_title_text">{{secondTitleLast}}</text>
+      </div>
+      <!-- 第一段文字 -->
+      <div class="first_paragram">
+        <text class="first_paragram_text">{{paragramFirst}}</text>
+      </div>
+      <!-- 中间图片 -->
+      <image class="img" src="{{middleImage}}"></image>
+
+      <!-- 第二段文字 -->
+      <div class="second_paragram">
+        <text class="first_paragram_text">{{paragramMiddle}}</text>
+      </div>
+      <!-- 内容来源区域 -->
+      <div class="source">
+        <text class="source_text">{{source}}</text>
+      </div>
+      <!-- 单叶草区域 -->
+      <div class="single_items">
+        <!-- 推荐阅读 -->
+        <div class="single_item_recommend">
+          <text class="single_item_recommend_text">{{recommend}}</text>
+        </div>
+        <block for="{{singles}}">
+          <single url="{{$item.url}}" title="{{$item.title}}" imgsrc="{{$item.imgsrc}}" footword="{{$item.footword}}" nounderline="{{$idx!=singles.length-1 ? '0' : '1'}}"></single>
+        </block>
+      </div>
+
+      <!-- 评论区域 -->
+      <div class="recommend">
+        <text class="recommend_text">{{recommendTitle}}</text>
+        <!-- 评论div开始区域 -->
+        <div class="recommend_div">
+          <block for="{{recommendors}}">
+            <div class="recommend1">
+              <div class="re_head">
+                <image class="re_head_img" src="{{$item.touxiang}}"></image>
+                <div class="name_time">
+                  <text class="name">{{$item.name}}</text>
+                  <text class="time">{{$item.time}}</text>
+                </div>
+                <div class="zan" onclick="zanClick($idx)">
+                  <image if="{{!$item.isPrased}}" class="zan_img" src="{{unZanImage}}"></image>
+                  <image if="{{$item.isPrased}}" class="zan_img" src="{{zanImage}}"></image>
+                  <text class="zan_num">{{$item.total}}</text>
+                </div>
+              </div>
+              <div class="re_foot">
+                <div class="zan_text_div">
+                  <text class="zan_text">{{$item.text}}</text>
+                </div>
+              </div>
+            </div>
+          </block>
+        </div>
+        <!-- 评论div结束 -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .container {
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+  }
+
+  .main_content {
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 33px;
+    margin-right: 33px;
+    background-color: #FFFFFF;
+
+  }
+
+  .title {
+    width: 100%;
+    margin-top: 33.3px;
+  }
+
+  .title_text {
+    color: #1a1a1a;
+    font-size: 50px;
+  }
+
+  .sencond_title {
+    width: 100%;
+    margin-top: 16.7px;
+  }
+
+  .sencond_title_text {
+    font-size: 27.1px;
+    color: #8c8c8c;
+    margin-right: 20px;
+  }
+
+  .first_paragram {
+    width: 100%;
+    margin-top: 33.3px;
+    margin-bottom: 33.3px;
+  }
+
+  .first_paragram_text {
+    color: #000000;
+    font-size: 35.4px;
+    line-height: 60.4px;
+  }
+
+  .img {
+    width: 100%;
+    height: 385px;
+    margin-bottom: 33.3px;
+  }
+
+  .second_paragram {
+    width: 100%;
+    margin-bottom: 16.7px;
+  }
+
+  .source {
+    width: 100%;
+    margin-bottom: 62.7px;
+  }
+
+  .source_text {
+    font-size: 27px;
+    color: #BABABA;
+  }
+
+  .single_items {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .recommend {
+    width: 100%;
+    margin-top: 21.2px;
+    flex-direction: column;
+  }
+
+  .single_item_recommend {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .single_item_recommend_text {
+    color: #8c8c8c;
+    font-size: 27.1px;
+  }
+
+  .recommend_text {
+    font-size: 31.3px;
+    color: #1A1A1A;
+    font-weight: bold;
+    margin-bottom: 32.7px;
+  }
+
+  .recommend_div {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .recommend1 {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .re_head {
+    width: 100%;
+    height: 84px;
+    align-items: flex-end;
+
+  }
+
+  .re_foot {
+    width: 100%;
+    margin-top: 20.8px;
+  }
+
+  .re_head_img {
+    width: 84px;
+    height: 84px;
+    border-radius: 42px;
+    background-color: rgb(229, 234, 234);
+  }
+
+  .name_time {
+    width: 387px;
+    margin-left: 33px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name {
+    color: #1A1A1A;
+    font-size: 31.3px;
+  }
+
+  .time {
+    color: #BCBCBC;
+    font-size: 20.8px;
+  }
+
+  .zan {
+    width: 104px;
+    height: 54px;
+    border: 2px solid #BCBCBC;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 72px;
+    border-radius: 8px;
+  }
+
+  .zan_img {
+    width: 33px;
+    height: 33px;
+    margin-left: 14px;
+  }
+
+  .zan_num {
+    color: #BCBCBC;
+    font-size: 20px;
+    margin-right: 17px;
+  }
+
+  .zan_text_div {
+    width: 100%;
+    padding-left: 114px;
+  }
+
+  .zan_text {
+    width: 570px;
+    line-height: 35px;
+    font-size: 30px;
+    color: #000000;
+    padding-bottom: 16.7px;
+    border-bottom-color: #BCBCBC;
+    border-bottom-width: 0.5px;
+    margin-bottom: 20px;
+  }
+</style>
+
+
+<script>
+
+  export default {
+    props: [
+
+    ],
+    data: {
+      headTitle: "华为PC的光荣与梦想--MateBook X Pro",
+      secondTitle: "极客公园",
+      secondTitleLast: "2018/7/11 10:23",
+      paragramFirst: "“之前是拼命给渠道推货，现在是渠道拼命找我要货。”负责华为 PC 产品销售的老姜虽然比以前忙了不少，但心里却乐开了花。他说，“市场对 MateBook X Pro 的反应，有点像当年华为全面打开智能手机市场的功臣 Mate 7 了。”初代产品问世两年后的2018 年 2 月底，同样是在巴塞罗那，华为用一台四边超窄边框的全面屏 MateBook X Pro 惊艳了世人。",
+      middleImage: "./to_delete/p_news_four_p1.png",
+      paragramMiddle: "MateBook X Pro 毫不意外地成了当下最好的笔记本电脑之一，自发布以来持续收割着用户和媒体的好评，最好的屏幕，最好的外放音效，一气呵成的指纹解锁，便携小巧的电源。Windows PC 阵营里除了微软的 Surface，其他老牌大厂无一堪战。",
+      source: "内容来自网易科技",
+      recommend: "推荐阅读",
+      recommendTitle: "热门评论",
+      unZanImage: "./img/p_news_four_icon1.png",
+      zanImage: "./img/p_news_four_icon2.png",
+      singles: [{
+        url: "/Page_Image",
+        title: "全面屏笔电首款 5G商用芯片，华为MWC秀「肌肉」",
+        imgsrc: "./to_delete/p_news_four_p2.png",
+        footword: "一点咨询"
+      }, {
+        url: "/Page_Composite",
+        title: "Mate 10 系列抢先上手：全面屏、AI、保时捷设计",
+        imgsrc: "./to_delete/p_news_four_p3.png",
+        footword: "网易"
+      }, {
+        url: "/Page_Image",
+        title: "二季度中国智能手机市场华为领跑，市场份额领先",
+        imgsrc: "./to_delete/p_news_four_p4.png",
+        footword: "新浪网"
+      }],
+      recommendors: [
+        { name: "马克.扎克伯克", time: "2017/12/8 18:38", isPrased: false, total: "20", touxiang: "./to_delete/p_news_four_touxiang1.png", text: "现在的情景是 ， 你已经在本地创建了一个Git仓库后 ， 又想在 Github 创建一个Git 仓库并且让这两个仓库进行远程同步 ， 这样Github 上的仓库既可以作为备份 ，有可以让其他人通过仓库来写作 ， 真是一举多得。现在的情景是 ， 你已经在本地创建了一个Git仓库后" },
+        { name: "桑德尔.皮才", time: "2017/12/8 18:38", isPrased: true, total: "20", touxiang: "./to_delete/p_news_four_touxiang2.png", text: "千万注意，把上面的自己的名字 改成自己的Github 账户名 ， 否则 ， 你在本地关联的就是我的远程库 ， 关联没有问题 ， 但是你以后推送不上去 ， 因为你的SSH key公钥不在我的账户列表中 。 添加后远程库的名字就是 origin 这就是 Git的默认叫法 ， 也可以改成别的 。" },
+        { name: "提姆.库克", time: "2017/12/8 18:38", isPrased: false, total: "20", touxiang: "./to_delete/p_news_four_touxiang1.png", text: "埋头做了三年多，华为PC业务终于迎来了它的Meta7时刻。" },
+        { name: "埃隆.马斯克", time: "2017/12/8 18:38", isPrased: false, total: "20", touxiang: "./to_delete/p_news_four_touxiang2.png", text: "从1991年到2000年间，PC业务高速发展，它代表的是高新技术，别的跟它比只是小儿科，如今它成了最冰冷的一个，与人的关系也越来越疏远，如非工作需要很少被人想起。" },
+      ]
+    },
+    onInit: function () {
+      //TODO初始化 data中的数据
+    },
+    zanClick(index) {
+      var items = this.recommendors[index];
+      var tempTotal;
+      if (!items.isPrased) {
+        tempTotal = parseInt(items.total) + 1;
+      } else {
+        tempTotal = parseInt(items.total) - 1;
+      }
+      items.total = tempTotal.toString();
+      items.isPrased = !items.isPrased;
+    }
+
+  }
+
+</script>

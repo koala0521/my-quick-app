@@ -1,0 +1,178 @@
+  <!-- 文字笑话组件 -->
+  <!-- template里只能有一个根节点 -->
+
+<template>
+	<div class='news_single' onclick='rediect'>
+		<div class='news_single_content'>
+			<div class='news_single_title'>
+				<div class='head'>
+					<image class="head-img" src="{{ content.icon }}"></image>
+					<text class='font'>{{ content.title }} </text>
+				</div>
+				<div>
+					<text class='content'>{{ content.text }}</text>
+				</div>
+				<div class='foot'>
+					<div class="foot-item" >
+						<div class="zan-wrap" >
+							<image class="zan-img" src="/Common/02.png"></image>
+							<text class='zan-count font_color'>1123</text>
+						</div>
+						<div class="zan-wrap">
+							<image class="zan-img"  src="/Common/01.png"></image>
+							<text class='zan-count font_color'>22</text>
+						</div>
+					</div>
+					<div class="foot-item-btns">
+							<image class="copy-img" src="/Common/copy.png" @click="copyText" ></image>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* 页面总宽度750px,左右还有33px的margin，所以组件宽度未100%; */
+
+.news_single {
+  width: 100%;
+  /* height: 199px; */
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 24.5px;
+  padding-bottom: 24px;
+  background-color: #fff;
+	border-bottom: 6px solid #ececec;
+}
+
+.news_single_content {
+  width: 100%;
+}
+
+.news_single_title {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.head {
+  width: 100%;
+  align-items: center;
+}
+.head-img{
+	width: 64px;
+	margin-right: 16px;
+	resize-mode: contain;
+	object-fit: contain;
+}
+
+.foot {
+  margin-top: 16.7px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-item{
+	flex: 1;
+	justify-content: flex-start;
+	align-items: center;
+}
+.foot-item-btns{
+	flex: 1;
+	justify-content: flex-end;
+	align-items: center;	
+}
+.zan-wrap{
+	margin-right: 16px;
+}
+.zan-img,.copy-img{
+	width: 48px;
+	resize-mode:contain;
+	object-fit: contain;
+}
+.zan-count{
+	margin-left: 16px;
+	font-size: 24px;
+}
+
+.news_single_img {
+  width: 222px;
+  height: 148px;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot_font {
+  font-size: 25px;
+  color: #555454;
+}
+
+
+.font_color {
+  color: #a2a2a2;
+}
+
+.three_imgs {
+  width: 222px;
+  height: 148px;
+}
+
+.font {
+  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: bold;
+}
+.content{
+  color: #1a1a1a;
+  font-size: 32px;	
+  line-height: 46px;
+}
+</style>
+
+<script>
+import router from '@system.router';
+import clipboard from '@system.clipboard';
+import prompt from '@system.prompt';
+/*
+  参数说明：
+  url：新闻单叶草点击之后，跳转的页面url
+  title：单叶草新闻title
+  imgsrc：单叶草图片路径对象，要注意图拍的路径，示例： {src:'xxx/xxxx.png'}
+  footword:单叶草底部文字1
+  footsource:单叶草底部文字2
+ */
+export default {
+	props: [
+		'url',
+		'content'
+	],
+	initData() {
+		// this.url = '/Page_Search';
+	},
+	onInit: function () {
+	},
+	rediect() {
+
+	},
+	copyText(){
+		clipboard.set({
+			text: this.content.text,
+			success:()=>{
+				prompt.showToast({
+					message: '已复制到剪贴板~~'
+				})
+			}
+		})
+	}
+
+}
+</script>

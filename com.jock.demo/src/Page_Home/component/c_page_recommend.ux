@@ -1,0 +1,198 @@
+
+<import name="items" src="./c_news_imgs"></import>
+<import name="single" src="./c_news_single"></import>
+ 
+<template>
+	<!-- template里只能有一个根节点 -->
+	<div class="recommend_container">
+
+		<refresh refreshing="{{ isRefreshing }}" type="pulldown" @refresh="refreshData">
+			<list onscrollbottom="scrollbottom">
+				<block for="{{singles}}">
+					<list-item type="jock">
+						<single url="{{ $item.url }}" content="{{ $item }}"></single>
+					</list-item>
+				</block>
+				<list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
+					<progress type="circular"></progress>
+					<text show="{{ hasMoreData }}">加载更多</text>
+					<text show="{{ !hasMoreData }}">没有更多了~</text>
+				</list-item>
+			</list>
+		</refresh>
+	</div>
+</template>
+
+<style>
+.recommend_container {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6px;
+  /* background-color: #ececec; */
+}
+
+.head {
+  color: #1a1a1a;
+  font-size: 35.4px;
+}
+
+.swiper {
+  width: 683px;
+  height: 385px;
+  margin-bottom: 28px;
+  margin-top: 8.9px;
+}
+
+.recommend_stack {
+  width: 683px;
+  height: 385px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.zx_head {
+  color: #ffffff;
+  font-size: 35.4px;
+  margin-bottom: 8.3px;
+}
+
+.zx_foot {
+  width: 649px;
+  height: 30px;
+  margin-bottom: 9px;
+  justify-content: space-between;
+}
+
+.zx_foot_text {
+  font-size: 21px;
+  color: #e6e6e6;
+}
+
+.image_text_div {
+  width: 683px;
+  height: 200px;
+  padding-left: 16.7px;
+  padding-right: 16.7px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.image {
+  width: 683px;
+  height: 385px;
+}
+
+/* .line {
+  width: 100%;
+  height: 6px;
+  background-color: #bcbcbc;
+} */
+
+.load-status {
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+</style>
+
+<script>
+// import router from '@system.router';
+import prompt from '@system.prompt';
+export default {
+	data: {
+		singles: [
+			{
+				"id": "5cef716c6e363ef2c6ded935",
+				"text": "三八节到了，祝男性哈友节日快乐！虽然您不是女性，但属于女性用品；虽然您不是母亲，却让很多女士做了母亲；虽然您不是妇女，却让太多女孩变成了妇女；您辛苦了！",
+				"title": "三八节到了，祝男性哈...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.405",
+				"icon": "/Common/21.png"
+			},
+			{
+				"id": "5cef716c6e363ef2c6ded934",
+				"text": "老婆见我一直坐在电脑跟前就问我：“老公你干嘛呢？”\r\n我说：“准备网购件衬衫。”\r\n“什么颜色的？”\r\n“格纹（滚）。”\r\n老婆一巴掌甩了过来：“嘿！涨脾气了哈！你有种再说一遍！”",
+				"title": "老婆见我一直坐在电脑...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.402",
+				"icon": "/Common/22.png"
+			},
+			{
+				"id": "5cef6a636e363ef2c6ded7a6",
+				"text": "父亲带小儿参加一场婚礼，\r\n儿问：“举行结婚仪式，为什么新郎和新娘要手挽着手呢？”\r\n父亲略沉思，回答：“那是一种习俗礼节，就象两个拳击手在开打之前，要握握手一样。”\r\n经典，精辟",
+				"title": "父亲带小儿参加一场婚...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.399",
+				"icon": "/Common/23.png"
+			},
+			{
+				"id": "5cef716c6e363ef2c6ded935",
+				"text": "三八节到了，祝男性哈友节日快乐！虽然您不是女性，但属于女性用品；虽然您不是母亲，却让很多女士做了母亲；虽然您不是妇女，却让太多女孩变成了妇女；您辛苦了！",
+				"title": "三八节到了，祝男性哈...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.405",
+				"icon": "/Common/24.png"
+			},
+			{
+				"id": "5cef716c6e363ef2c6ded934",
+				"text": "老婆见我一直坐在电脑跟前就问我：“老公你干嘛呢？”\r\n我说：“准备网购件衬衫。”\r\n“什么颜色的？”\r\n“格纹（滚）。”\r\n老婆一巴掌甩了过来：“嘿！涨脾气了哈！你有种再说一遍！”",
+				"title": "老婆见我一直坐在电脑...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.402",
+				"icon": "/Common/25.png"
+			},
+			{
+				"id": "5cef6a636e363ef2c6ded7a6",
+				"text": "父亲带小儿参加一场婚礼，\r\n儿问：“举行结婚仪式，为什么新郎和新娘要手挽着手呢？”\r\n父亲略沉思，回答：“那是一种习俗礼节，就象两个拳击手在开打之前，要握握手一样。”\r\n经典，精辟",
+				"title": "父亲带小儿参加一场婚...",
+				"type": 1,
+				"ct": "2020-02-20 19:00:44.399",
+				"icon": "/Common/26.png"
+			}
+		],
+		isRefreshing: false,
+		isLoadingData: false,
+		page: 0,
+		hasMoreData: true 	// 是否还有数据
+	},
+
+	// 下拉刷新
+	refreshData(ev) {
+
+		const self = this;
+		// 更新刷新状态（属性refreshing的值从false改为true会触发refresh组件的状态更新，反之亦然）
+		self.isRefreshing = ev.refreshing;
+
+		setTimeout(function () {
+			// 关闭刷新状态
+			self.isRefreshing = false
+			prompt.showToast({
+				message: '刷新完成'
+			})
+		}, 1000)
+
+		// 假数据
+		this.singles.length = 2; 
+
+	},
+
+	/* 滑动到底部时加载更多 */
+	scrollbottom() {
+		if (!this.isLoadingData) {
+			this.getJockList()
+		}
+	},
+	getJockList(){
+		this.isLoadingData = true;
+
+		// 假数据
+		setTimeout(() => {
+			this.singles = this.singles.concat( this.singles );	
+			this.isLoadingData = false;
+			this.hasMoreData = true;
+		}, 1000);
+	}
+
+}
+</script>

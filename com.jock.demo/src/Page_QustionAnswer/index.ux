@@ -1,0 +1,138 @@
+<import name="brain_teaser" src="./Page_BrainTeaser/index.ux"></import>
+<import name="riddles" src="./Page_Riddles/index.ux"></import>
+<import name="tongue_twister" src="./page_TongueTwister/index.ux"></import>
+
+<import name="add_shortcut" src="../Page_Home/component/c_add_shortcut.ux"></import>
+<import name="footer" src="../Page_Home/component/c_footer.ux"></import>
+  
+<template>
+	<!-- template里只能有一个根节点 -->
+	<div class='container'>
+		<!-- tab 部分开始 -->
+		<tabs onchange='onChangeTabIndex'>
+			<tab-bar class='tab-bar' mode='scrollable'>
+				<block for='tabs'>
+					<div class='tab-item'>
+						<text>{{$item}}</text>
+						<div class="{{$idx==currIndex? 'item_bg_active' : 'item_bg'}}"></div>
+					</div>
+				</block>
+
+			</tab-bar>
+
+			<tab-content class='tab_content'>
+				<!-- tabs的body部分 -->
+				<div class='div_tabcontent'>
+					<brain_teaser></brain_teaser>
+				</div>
+				<div class='div_tabcontent'>
+					<riddles></riddles>
+				</div>
+
+				<div class='div_tabcontent' >
+					<tongue_twister></tongue_twister>
+				</div>
+
+			</tab-content>
+		</tabs>
+
+		<add_shortcut></add_shortcut>
+		<footer></footer>
+	</div>
+
+</template>
+
+<style>
+.container {
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  /* background-color: #ffffff; */
+}
+
+.title {
+  font-size: 100px;
+}
+
+.bg_div {
+  background-color: #f55252;
+  width: 120px;
+  height: 4px;
+}
+
+.item_bg {
+  width: 150px;
+  height: 4px;
+  background-color: transparent;
+}
+
+.item_bg_active {
+  width: 150px;
+  height: 4px;
+  background-color: #ec4d4d;
+}
+
+.div_tabcontent {
+  width: 100%;
+}
+
+.div_tabcontent text {
+  width: 100%;
+  text-align: center;
+}
+
+.tab-bar {
+  margin-top: 29.7px;
+  margin-bottom: 16px;
+  width: 100%;
+  height: 68px;
+  justify-content: space-between;
+  border-bottom: 1px solid #bcbcbc;
+}
+
+.tab-item {
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+}
+
+.tab-item text {
+  opacity: 0.8;
+  margin-bottom: 7.8px;
+  font-size: 36px;
+  color: #1a1a1a;
+}
+
+.tab-item text:active {
+  opacity: 1;
+  font-size: 40px;
+  margin-bottom: 7.8px;
+  font-weight: bold;
+  color: #ec4d4d;
+}
+
+.tab_content {
+  width: 100%;
+}
+</style>
+
+<script>
+
+export default {
+	data: {
+		tabs: ['脑筋急转弯', '猜谜语', '绕口令'],
+		currIndex: 0
+	},
+	onInit() {
+		//TODO初始化 data中的数据
+		// this.$page.setTitleBar({ text: '笑话大全', textColor: '#1A1A1A' });
+	},
+	showContent(num) {
+		this.type = 'content_' + num
+	},
+	onChangeTabIndex(evt) {
+		this.currIndex = evt.index;
+	}
+}
+</script>

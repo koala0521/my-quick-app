@@ -1,0 +1,253 @@
+
+<import name="items" src="./c_news_imgs"></import>
+ 
+<template>
+	<!-- template里只能有一个根节点 -->
+	<div class="laugh_imgs">
+
+		<refresh refreshing="{{ isRefreshing }}" type="pulldown" @refresh="refreshData" class="hfull" >	
+			<list onscrollbottom="scrollbottom" style="width:100%;height:100%" >
+				<block for="{{ imgsLaugh }}">
+					<list-item type="jock"  style="width:100%" >
+						<items url="{{$item.url}}" content="{{ $item }}"></items>
+					</list-item>
+				</block>
+				<list-item type="loadStatus" class="load-status" if="{{ hasMoreData }}">
+					<progress type="circular"></progress>
+					<text show="{{ hasMoreData }}">加载更多</text>
+					<text show="{{ !hasMoreData }}">没有更多了~</text>
+				</list-item>
+			</list>
+		</refresh>
+		
+	</div>
+</template>
+
+<style>
+.laugh_imgs {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6px;
+  /* background-color: #ececec; */
+}
+
+.head {
+  color: #1a1a1a;
+  font-size: 35.4px;
+}
+
+.swiper {
+  width: 683px;
+  height: 385px;
+  margin-bottom: 28px;
+  margin-top: 8.9px;
+}
+
+.recommend_stack {
+  width: 683px;
+  height: 385px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.zx_head {
+  color: #ffffff;
+  font-size: 35.4px;
+  margin-bottom: 8.3px;
+}
+
+.zx_foot {
+  width: 649px;
+  height: 30px;
+  margin-bottom: 9px;
+  justify-content: space-between;
+}
+
+.zx_foot_text {
+  font-size: 21px;
+  color: #e6e6e6;
+}
+
+.image_text_div {
+  width: 683px;
+  height: 200px;
+  padding-left: 16.7px;
+  padding-right: 16.7px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.image {
+  width: 683px;
+  height: 385px;
+}
+
+/* .line {
+  width: 100%;
+  height: 6px;
+  background-color: #bcbcbc;
+}
+
+.line2 {
+  width: 100%;
+  height: 0.5px;
+  background-color: #bcbcbc;
+  margin-top: 24.5px;
+  margin-bottom: 24.5px;
+} */
+
+.load-status {
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.hfull{
+	height: 100%;
+}
+</style>
+
+<script>
+import router from '@system.router';
+import prompt from '@system.prompt';
+
+export default {
+	data: {
+		imgsLaugh: [
+			{
+				"id": "5e4dfd726e36bf5031dd6e3d",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924082_11202881dfae3142c43761c84ae33343_1582166428.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.690",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e3c",
+				"title": "<img src='https://static.hahamx.cn/images/face/000.gif' title='微笑' alt='微笑'>",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924098_d92fd10e9d763147042ad978435a0e46_1582167498.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.679",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e3b",
+				"title": "打破人与人之间的隔膜，享受极致而畅快淋漓的开放感",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924099_68f2590ae97c400d47ab7dd59df6b1e5_1582167586.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.670",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e3a",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924100_fcadb1b4c02a291825368cd91e57dd22_1582167691.png",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.658",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e43",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924089_b38fc8dc54470cb4aa837fdbb920793a_1582166959.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.754",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e42",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924090_095a7b3e70e7b896285d6f662b81c53d_1582167005.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.744",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e40",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924093_bc2cfceddba74d1b1dcbd11855191ea6_1582167282.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.726",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e3f",
+				"title": "亲子装模特，看着怎么这么不舒服呢",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924094_7a0417752696dc04a78569e135920991_1582167305.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.714",
+				"icon": "/Common/26.png"
+			},
+			{
+				"id": "5e4dfd726e36bf5031dd6e3e",
+				"title": "",
+				"img": "https://image.hahamx.cn/2020/02/20/middle/2924095_86183ee9bb21d5fbffe69a3425ca1019_1582167330.jpg",
+				"type": 2,
+				"ct": "2020-02-20 11:30:58.702",
+				"icon": "/Common/26.png"
+			},
+
+		],
+
+		isRefreshing: false,
+		isLoadingData: false,
+		page: 0,
+		hasMoreData: true 	// 是否还有数据
+
+	},
+	showContent(num) {
+		this.type = 'content_' + num
+	},
+	showImageNews(url) {
+		if (url === 'image') {
+			url = this.image.url;
+		}
+		if (url === 'text') {
+			url = this.text.url;
+		}
+		if (url === 'vedio') {
+			url = this.vedio.url;
+		}
+		router.push({
+			uri: url
+		})
+	},
+
+	// 下拉刷新
+	refreshData(ev) {
+
+		const self = this;
+		// 更新刷新状态（属性refreshing的值从false改为true会触发refresh组件的状态更新，反之亦然）
+		self.isRefreshing = ev.refreshing;
+
+		setTimeout(function () {
+			// 关闭刷新状态
+			self.isRefreshing = false
+			prompt.showToast({
+				message: '刷新完成'
+			})
+		}, 1000)
+
+		// 假数据
+		// this.imgsLaugh.length = 2; 
+
+	},
+
+	/* 滑动到底部时加载更多 */
+	scrollbottom() {
+		if (!this.isLoadingData) {
+			this.getJockList()
+		}
+	},
+	getJockList() {
+		this.isLoadingData = true;
+
+		// 假数据
+		setTimeout(() => {
+			this.imgsLaugh = this.imgsLaugh.concat(this.imgsLaugh);
+			this.isLoadingData = false;
+			this.hasMoreData = true;
+		}, 1000);
+	}
+
+}
+</script>

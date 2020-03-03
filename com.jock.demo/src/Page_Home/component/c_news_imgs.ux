@@ -1,0 +1,160 @@
+<template>
+	<div class='news_single wfull' onclick='rediect'>
+		<div class='wfull'>
+			<div class='news_single_title'>
+				<div class='head' if="{{ !!content.title }}">
+					<image class="head-img" src="{{ content.icon }}"></image>
+					<text class='font'>{{ content.title }} </text>
+				</div>
+				<div class="wfull" >
+					<image class="main-img" src="{{ content.img }}"></image>
+				</div>
+				<div class='foot'>
+					<div class="foot-item">
+						<div class="zan-wrap">
+							<image class="zan-img" src="/Common/02.png"></image>
+							<text class='zan-count font_color'>1123</text>
+						</div>
+						<div class="zan-wrap">
+							<image class="zan-img" src="/Common/01.png"></image>
+							<text class='zan-count font_color'>22</text>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style>
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* 页面总宽度750px,左右还有33px的margin，所以组件宽度未100%; */
+
+.news_single {
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 24.5px;
+  padding-bottom: 24px;
+  background-color: #fff;
+	border-bottom: 6px solid #ececec;
+}
+
+/* .news_single_content {
+  
+} */
+
+.news_single_title {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.head {
+  width: 100%;
+  align-items: center;
+}
+.head-img {
+  width: 64px;
+  margin-right: 16px;
+  resize-mode: contain;
+	object-fit: contain;
+}
+
+.foot {
+  margin-top: 16.7px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-item {
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+}
+.zan-wrap {
+  width: 25%;
+}
+.zan-img {
+  width: 48px;
+  resize-mode: contain;
+	object-fit: contain;
+}
+.zan-count {
+  margin-left: 16px;
+  font-size: 24px;
+}
+
+.news_single_img {
+  width: 222px;
+  height: 148px;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot_font {
+  font-size: 25px;
+  color: #555454;
+}
+
+.font_color {
+  color: #a2a2a2;
+}
+
+.font {
+  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: bold;
+}
+.main-img {
+
+  width: 100%;
+  margin: 16px 0;
+	resize-mode:contain;
+	object-fit: contain;
+
+}
+.wfull{
+  width: 100%;
+}
+</style>
+
+<script>
+import router from '@system.router';
+
+/*
+  参数说明：
+  url：新闻单叶草点击之后，跳转的页面url
+  title：单叶草新闻title
+  imgsrc：单叶草图片路径对象，要注意图拍的路径，示例： {src:'xxx/xxxx.png'}
+  footword:单叶草底部文字1
+  footsource:单叶草底部文字2
+ */
+export default {
+	props: [
+		'url',
+		'content'
+	],
+	initData() {
+		this.url = '/Page_Search';
+		this.title = '索尼A9大师说：开启专业摄影的微单时代获奖作品欣赏';
+		this.imgsrc = '../img/component_news_single/p1.png';
+		this.footword = '热点';
+		this.footsource = '不执着财经';
+	},
+	onInit: function () {
+	},
+	rediect() {
+
+		// router.push({ uri: this.url });
+	}
+
+}
+</script>

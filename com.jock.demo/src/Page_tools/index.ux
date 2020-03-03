@@ -1,0 +1,108 @@
+<template>
+	<div class="main">
+		<list>
+			<block for="list">
+				<list-item type="q_app" class="items" @click="clickItem($item)" >
+					<div>
+						<image src="{{ $item.pic }}"  class="icon"  ></image>
+					</div>
+					<div class="desc" >
+						<div class="infos" >
+							<text>{{$item.name}}</text>
+							<text>{{$item.desc}}</text>
+						</div>
+						<div>
+							<text class="btn" >{{ $item.btn_text }}</text>
+						</div>
+					</div>
+					
+				</list-item>
+			</block>
+		</list>
+	</div>
+</template>
+
+<script>
+import router from '@system.router';
+export default {
+	data: {
+		list: [
+			{
+				name: '笑话大全',
+				pic: '/Common/logo.png',
+				desc: '测试应用啦啦啦',
+				dp_link: '/Page_Home',
+				btn_text: '秒开'
+			}, {
+				name: '脑经急转弯',
+				pic: '/Common/logo.png',
+				desc: '开动你的大脑~~',
+				dp_link: '/Page_BrainTeaser',
+				btn_text: '进入'
+			}, {
+				name: '藏头诗',
+				pic: '/Common/logo.png',
+				desc: '测试应用啦啦啦',
+				dp_link: '/Page_TibetanPoem',
+				btn_text: '进入'
+			}, {
+				name: '家常菜谱',
+				pic: '/Common/logo.png',
+				desc: '测试应用啦啦啦',
+				dp_link: 'hap://app/com.jiachang.caipu.menu',
+				btn_text: '秒开'
+			}, {
+				name: '历史上的今天',
+				pic: '/Common/logo.png',
+				desc: '历史上的大事件',
+				dp_link: '/Page_historyData',
+				btn_text: '进入'
+			}
+		]
+	},
+	/**
+	 * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
+	 * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
+	*/
+	onMenuPress() {
+		this.$app.$def.showMenu()
+	},	
+	clickItem(item){
+		router.push({
+			uri: item.dp_link
+		})
+	}
+}
+</script>
+
+<style>
+	.main{
+		padding: 0 16px;
+	}
+	.items{
+		width: 100%;
+		align-items: center;
+		padding: 16px;
+	}
+	.icon{
+		width: 120px;
+		height: 120px;
+		margin-right: 32px;
+	}
+	.desc{
+		justify-content: space-between;
+		align-items: center;
+		flex: 1;
+	}
+	.infos{
+		flex-direction: column;
+	}
+	.btn{
+		padding: 16px 32px;
+		background-color: #ec4d4d;
+  		color:#fff;
+		font-size: 24px;
+		border-radius: 16px;
+		font-weight: bold;
+	}
+</style>

@@ -1,0 +1,164 @@
+<import name="single" src="../../Page_Home/component/c_news_single.ux"></import>
+ 
+<!-- 绕口令 -->
+ 
+<template>
+	<!-- template里只能有一个根节点 -->
+	<div class="recommend_container">
+
+        <list onscrollbottom="scrollbottom" class="list" >
+            <block for="{{ list }}">
+                <list-item type="tongue" class="tongue-twister" >
+                    <text class="title" >{{ $item.title }} </text>
+                    <text class="content" >{{ $item.content }}</text>
+                </list-item>
+            </block>
+            <list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
+                <progress type="circular"></progress>
+                <text show="{{ hasMoreData }}">加载更多</text>
+                <text show="{{ !hasMoreData }}">没有更多了~</text>
+            </list-item>
+        </list>        
+
+		<!-- <refresh refreshing="{{ isRefreshing }}" type="pulldown" @refresh="refreshData">
+			<list onscrollbottom="scrollbottom">
+				<block for="{{ list }}">
+					<list-item type="jock">
+						<single url="{{ $item.url }}" content="{{ $item }}"></single>
+					</list-item>
+				</block>
+				<list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
+					<progress type="circular"></progress>
+					<text show="{{ hasMoreData }}">加载更多</text>
+					<text show="{{ !hasMoreData }}">没有更多了~</text>
+				</list-item>
+			</list>
+		</refresh> -->
+	</div>
+</template>
+
+
+<script>
+export default {
+    data: {
+        list: [
+            {
+                "content": "树上的松鼠－－蹿上跳下",
+                "title": "树上的松鼠－－蹿上跳下"
+            },
+            {
+                "content": "男演员穿蓝制服，女演员穿棉制服，蓝制服是棉制服，棉制服是蓝制服。男演员穿蓝棉制服，女演员穿棉蓝制服。",
+                "title": "演员制服"
+            },
+            {
+                "content": "天上看，满天星；地下看，有个坑；坑里看，有盘冰。坑外长着—老松，松上落着一只鹰，松下坐着一老僧，僧前放着—部经，经前点着一盏灯，墙上钉着一根钉，钉上挂着一张弓。说刮风，就刮风，刮得男女老少难把眼睛睁。刮散了天上的星，刮平了地的坑，刮化了坑里的冰，刮倒了坑外的松，刮飞了松上的鹰，刮走了松下的僧，刮乱了僧前的经，刮灭了经前的灯，刮掉了墙上的钉，刮翻了钉上的弓。",
+                "title": "天上看，满天星"
+            },
+            {
+                "content": "小山屋南面来了个瘸子，腰里别着个橛子，北边来了个矬子，肩上挑着担茄子。别橛子的瘸子要用橛子换挑茄子的矬子的茄子，挑茄子的矬子不给别橛子的瘸子茄子。别橛子的瘸子抽出腰里的橛子打了挑茄子的矬子一橛子，挑茄子的矬子拿起茄子打了别橛子的瘸子一茄子。",
+                "title": "瘸子和矬子"
+            },
+            {
+                "content": "提灯笼小凤提着圆灯笼，小龙提着方灯笼。小凤的圆灯笼上画着龙，小龙的方灯笼上画着凤，小凤要拿圆龙灯笼换小龙的方凤灯笼。",
+                "title": "提灯笼绕口令"
+            },
+            {
+                "content": "从南边来了个喇嘛，提拉着五斤塔嘛。从北边来个哑吧，腰里别着个喇叭。提拉塔嘛的喇嘛，要拿塔嘛换别喇叭哑巴的喇叭，别喇叭的哑巴，不愿意拿喇叭换提拉塔嘛喇嘛的塔嘛。提拉塔嘛的喇嘛拿塔嘛打了别喇叭的哑巴一塔嘛，别喇叭的哑巴，拿喇叭打了提拉塔嘛的喇嘛一喇叭。也不知提拉塔嘛的喇嘛拿塔嘛打坏了别喇叭哑巴的喇叭。也不知别喇叭的哑巴拿喇巴打坏了提拉塔嘛喇嘛的塔嘛。提拉塔嘛的喇嘛敦塔嘛，别喇叭的哑巴吹喇叭。",
+                "title": "南边的喇嘛和北边的哑吧"
+            },
+            {
+                "content": "山前有个崔粗腿，山后有个崔腿粗。二人山前来比腿，不知是崔粗腿比崔腿粗的腿粗，还是崔腿粗比崔粗腿的腿粗？",
+                "title": "山前山后的崔粗腿和崔腿粗"
+            },
+            {
+                "content": "山前有个严圆眼，山后有个严眼圆，二人山前来比眼，不知是严圆眼的眼圆，还是严眼圆比严圆眼的眼圆？",
+                "title": "山前山后的严圆眼和严眼圆"
+            },
+            {
+                "content": "有个面铺门朝南，门上挂着蓝布棉门帘，摘了蓝布棉门帘，面铺门朝南；挂上蓝布棉门帘，面铺还是门朝南。",
+                "title": "有个面铺门朝南"
+            },
+            {
+                "content": "三山屹四水，四水绕三山；三山四水春常在，四水三山四时春。",
+                "title": "三山屹四水"
+            },
+            {
+                "content": "老屋老,老屋污，老屋经雨老屋涝：老屋老，老屋孤，老屋经风老屋秃。老屋涝，老屋秃，涝、老、污、秃是老屋.",
+                "title": "老屋老"
+            },
+            {
+                "content": "姥姥有个宝宝，宝宝有位姥姥，姥姥疼爱宝宝，宝宝喜爱姥姥。姥姥天天抱宝宝，宝宝天天亲姥姥，姥姥老，走不好，抱着宝宝摔—胶，跌了姥姥，摔了宝宝，宝宝连忙扶姥姥，姥姥赶快抱宝宝。",
+                "title": "姥姥有个宝宝"
+            },
+            {
+                "content": "树上有只小桃子，树下有只小猴子。风吹桃树哗哗响，树上掉下小桃子。桃子打着小猴子，猴子吃掉小桃子。",
+                "title": "猴子吃掉小桃子"
+            },
+            {
+                "content": "伯伯养了一群大白鹅，哥哥喂了三只小白鸽，伯伯教哥哥训鸽，哥哥帮伯伯放鹅。白鹅白鸽长得好，乐坏了伯伯和哥哥。",
+                "title": "白鸽和白鹅"
+            },
+            {
+                "content": "天连水，水连天，水天无边波涟涟，蓝蓝的在似绿水，绿绿的水似蓝天，到底是天连水，还是水连天？",
+                "title": "天连水"
+            },
+            {
+                "content": "麻家爷爷挑着一对麻叉口，走到麻家婆婆的家门口。麻家婆婆的一对麻花狗，咬破了麻家爷爷的麻叉口，麻家婆婆拿来麻针、麻线，来补麻家爷爷的麻叉口。",
+                "title": "麻子谣"
+            },
+            {
+                "content": "捡颗小石子，在地上画个方格子，画好方格子造房子，画个大方格子造个大房子，画个小方格子造个小房子，楼上的房子分给鸽子，楼下的房子分给小兔子。",
+                "title": "房子"
+            },
+            {
+                "content": "南南有个篮，篮篮装着盘盘，盘盘放着碗碗，碗碗盛着饭饭。南南翻了篮篮，篮篮扣了盘盘，盘盘打了碗碗，碗碗撒了饭饭。",
+                "title": "南南有个篮"
+            },
+            {
+                "content": "小花猫爱画画，先画一朵腊梅花，又画一个小喇叭，带着腊梅花，吹着小喇叭，回家去见妈妈，妈妈见了笑哈哈。",
+                "title": "小花毛"
+            },
+            {
+                "content": "小毛抱着花猫，花猫用爪抓小毛，小毛用手拍花猫，花猫抓破小毛，小毛打疼了花猫，小毛哭，花猫叫，小毛松开了花猫，花猫跪离了小毛。",
+                "title": "小毛和花猫"
+            }
+        ]
+    },
+}
+</script>
+
+
+<style>
+.recommend_container {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 32px;
+  /* margin-top: 6px; */
+}
+
+.list{
+    flex: 1;
+}
+
+.tongue-twister{
+    flex-direction: column;
+    padding: 16px 0;
+}
+.title{
+    font-size: 32px;
+    font-weight: bold;
+}
+.content{
+    font-size: 32px; 
+    line-height: 48px;
+}
+
+.load-status {
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+</style>
+

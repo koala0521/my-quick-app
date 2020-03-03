@@ -1,0 +1,49 @@
+<script>
+import util from './util';
+import WANKA_AD_SDK from './WankaAdSDK/dist/wanka_ad_sdk.min.js';
+import './qlz/appStatistics.min.js';
+
+
+export default {
+	showMenu: util.showMenu,
+	createShortcut: util.createShortcut,
+	wanka_ssp_sdk: {}, // 声明 SDK 组件对象
+	hongBaoState: 0,
+	adInfo: {
+		openId: '4707',		// 测试     appid = 1392
+		nativeId: '4708',	// 测试 
+		// openId: '4692',		// 正式    appid = 1386
+		// nativeId: '4693'	// 正式 
+	},
+	pagesInfo: {
+		showTime: 0,
+		hideTime: 0,
+		name: ''
+	},
+	// last 页面信息
+	lastpagesInfo: {
+		showTime: 0,
+		hideTime: 0,
+		name: ''
+	},
+
+	onCreate() {
+		// 初始化组件 
+		try {
+			this.$def.wanka_ssp_sdk = new WANKA_AD_SDK(this, '/Main');
+			//统计打点
+			APP_STATISTICS.app_sta_init(this);
+		} catch (error) {
+
+		}
+	},
+	//  监听应用错误的生命周期函数
+	onError(err) {
+		try {
+			// 错误统计打点代码
+			APP_STATISTICS.on_err(err);
+		} catch (error) { }
+
+	}
+}
+</script>

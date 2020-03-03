@@ -1,0 +1,133 @@
+
+<import name="footer" src="../Page_Home/component/c_footer.ux"></import>
+
+<template>
+	<div class="main">
+		<div class="item">
+			<text class="item-title">主题：</text>
+			<input @change="getKey" class="input" id="key" type="text" placeholder="输入藏头诗主题不超过8个字"></input>
+		</div>
+		<div class="item">
+			<text class="item-title">字数：</text>
+			<div class="btn-wrap">
+				<input class="btn {{ num==5 ? 'active' : '' }}"  type="button" value="五言" @click="chooseNum(5)" ></input>
+				<input class="btn {{ num==7 ? 'active' : '' }}" type="button" value="七言" @click="chooseNum(7)" ></input>
+			</div>
+
+		</div>
+		<div class="item">
+			<text class="item-title">位置：</text>
+			<div class="btn-wrap">
+				<input @click="chooseType(1)" class="btn {{ type == 1 ? 'active' : '' }}" type="button" value="藏头" ></input>
+				<input @click="chooseType(2)" class="btn {{ type == 2 ? 'active' : '' }}" type="button" value="藏尾"></input>
+				<input @click="chooseType(3)" class="btn {{ type == 3 ? 'active' : '' }}" type="button" value="藏中"></input>
+				<input @click="chooseType(4)" class="btn {{ type == 4 ? 'active' : '' }}" type="button" value="递增"></input>
+				<input @click="chooseType(5)" class="btn {{ type == 5 ? 'active' : '' }}" type="button" value="递减"></input>
+			</div>
+
+		</div>
+		<div class="item">
+			<text class="item-title">押韵：</text>
+			<div class="btn-wrap">
+				<input @click="chooseYayunType(1)" class="btn {{ yayuntype == 1 ? 'active' : '' }}" type="button" value="双句一压"></input>
+				<input @click="chooseYayunType(2)"  class="btn {{ yayuntype == 2 ? 'active' : '' }}" type="button" value="双句押韵"></input>
+				<input @click="chooseYayunType(3)"  class="btn {{ yayuntype == 3 ? 'active' : '' }}" type="button" value="一三四押"></input>
+			</div>
+
+		</div>
+		<div class="write-wrap">
+			<input @click="toDetail" type="button" class="write" value="一键创作"></input>
+		</div>
+		<footer></footer>
+
+	</div>
+</template>
+
+<script>
+import router from '@system.router';
+
+// type=1 藏头  // type=2 藏尾  // type=3 藏中  // type=4 递增  // type=5 递减    
+export default {
+	data: {
+		num: 5,
+		type: 1,
+		yayuntype: 1,
+		key: ''
+	},
+	chooseNum(n){
+		this.num = n;
+	},
+	chooseType(n){
+		this.type = n;
+	},
+	chooseYayunType(n){
+		this.yayuntype = n;
+	},
+	getKey(ev){
+		this.key = ev.value.trim();
+	},
+	toDetail(){
+		router.push({
+			uri: '/Page_TibetanPoemDetail',
+			params:{
+				num: this.num,
+				type: this.type,
+				yayuntype: this.yayuntype,
+				key: this.key
+			}
+		});
+	}
+}
+</script>
+
+<style>
+.main {
+  padding: 0 16px;
+  flex-direction: column;
+}
+.item {
+  flex-direction: column;
+  padding-top: 32px;
+  border-bottom: 1px solid #bcbcbc;
+}
+.item-title {
+  font-size: 32px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.btn-wrap {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.btn {
+  width: 180px;
+  margin-bottom: 32px;
+  margin-right: 32px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 28px;
+}
+.btn:active, .active {
+  background-color: #ec4d4d;
+  color: #ffffff;
+}
+.input {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #000000;
+  width: 500px;
+}
+.write-wrap {
+  justify-content: center;
+  margin-top: 64px;
+}
+.write {
+  width: 240px;
+  background-color: #ec4d4d;
+  color: #ffffff;
+  font-size: 32px;
+  border-radius: 16px;
+}
+</style>

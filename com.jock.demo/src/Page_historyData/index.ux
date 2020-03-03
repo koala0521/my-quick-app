@@ -1,0 +1,183 @@
+<template>
+	<div class="wrap">
+		<div class="btns-wrap">
+			<text class="today btn {{ time.value ? '' : 'active' }}" @click="pickToday" >今天</text>
+			<picker class="picker btn {{ !time.value ? '' : 'active' }}" type="date" value="{{ time.value || '选择' }}" @change="pickerDate" ></picker>
+		</div>
+		<list class="list" >
+			<block for="list">
+				<list-item type="withImg" class="item" if="!!$item.img" >
+					<text class="time-text" >{{ $item.year }}年{{ $item.month  }}月{{ $item.day }}日</text>
+					<text class="title-text" >{{ $item.title }}</text>
+					<image src="{{ $item.img }}"></image>
+				</list-item>
+				<list-item type="noImg" class="item" else >
+					<text class="time-text" >{{ $item.year }}年{{ $item.month  }}月{{ $item.day }}日</text>
+					<text class="title-text" >{{ $item.title }}</text>
+				</list-item>
+			</block>
+		</list>
+	</div>
+</template>
+
+<script>
+export default {
+	data: {
+		list: [
+			{
+				"title": "亚洲遭遇百年不遇大旱 粮食减产或致通货膨胀",
+				"img": "http://img.lssdjt.com/201003/26/0D185421661.jpg",
+				"month": 2,
+				"year": "2010",
+				"day": 25
+			},
+			{
+				"title": "李明博正式宣誓就任第17届韩国总统",
+				"img": "http://img.lssdjt.com/201002/15/F002438835.jpg",
+				"month": 2,
+				"year": "2008",
+				"day": 25
+			},
+			{
+				"title": "美国著名连环杀手“BTK”丹尼斯·雷德落网",
+				"month": 2,
+				"year": "2005",
+				"day": 25
+			},
+			{
+				"title": "卢武铉就任韩国第16任总统",
+				"img": "http://img.lssdjt.com/201002/15/A802226283.jpg",
+				"month": 2,
+				"year": "2003",
+				"day": 25
+			},
+			{
+				"title": "美白人警察枪杀无辜黑人的迪亚洛案件判决激起公愤",
+				"month": 2,
+				"year": "2000",
+				"day": 25
+			},
+			{
+				"title": "金大中当选韩国总统",
+				"img": "http://img.lssdjt.com/200402/25/23233331859.jpg",
+				"month": 2,
+				"year": "1998",
+				"day": 25
+			},
+			{
+				"title": "中共举行十五届二中全会",
+				"month": 2,
+				"year": "1998",
+				"day": 25
+			},
+			{
+				"title": "以色列连续4起爆炸案",
+				"img": "http://img.lssdjt.com/200905/17/F6141453213.jpg",
+				"month": 2,
+				"year": "1996",
+				"day": 25
+			},
+			{
+				"title": "首次国家杰出青年科学基金颁给49位青年学者",
+				"month": 2,
+				"year": "1995",
+				"day": 25
+			},
+			{
+				"title": "德国国会通过包装国会大厦--柏林计划",
+				"img": "http://img.lssdjt.com/200905/17/CF141537822.jpg",
+				"month": 2,
+				"year": "1994",
+				"day": 25
+			}
+		],
+		time: {
+			start: '2020-1-1',
+			end: '2020-12-31',
+			value: ''
+		},
+		date:{
+			day: '0',
+			month: '0'
+		}
+	},
+	onInit() {
+		this.$page.setTitleBar({ text: '历史上的今天', textColor: '#1A1A1A' });
+	},
+	pickerDate(ev){
+		console.log(`选择时间` , ev);
+		this.date.day = ev.day;
+		this.date.month = ev.month+1;
+		this.time.value = `${this.date.month}-${this.date.day}`;
+	},
+	pickToday(){
+		let month = (new Date).getMonth();
+		let day = (new Date).getDate();
+		this.time.value = ``;
+		this.date.day = month+1;
+		this.date.month = day;
+		console.log(`this.date >>>>>>>>>>` , this.date );
+		
+	}
+}
+</script>
+
+<style>
+.wrap {
+  flex-direction: column;
+  padding: 0px 32px;
+}
+.btns-wrap {
+  margin-top: 16px;
+  width: 240px;
+  border: 4px solid #ec4d4d;
+  justify-content: space-between;
+  border-radius: 16px;
+  background-color: #ec4d4d;
+  /* position: fixed;
+  top: 0px;
+  left: 32px; */
+}
+.btn {
+  width: 120px;
+  height: 60px;
+  color: #000000;
+  text-align: center;
+
+  background-color: #ffffff;
+}
+.today {
+  border-top-left-radius: 12px;
+
+  border-bottom-left-radius: 12px;
+}
+.picker {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.active,
+.btn:active {
+  background-color: #ec4d4d;
+  color: #ffffff;
+}
+.list{
+	margin-top: 32px;
+}
+.item{
+	flex-direction: column;
+	padding: 16px 0;
+	margin-top: 6px;
+	background-color: #fff;
+	border-bottom: 6px solid #ececec;
+}
+.time-text{
+
+}
+.title-text{
+	color: #000000;
+	font-size: 32px;
+	line-height: 48px;
+	margin: 12px 0;
+}
+
+</style>
