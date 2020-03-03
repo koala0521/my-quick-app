@@ -2,17 +2,23 @@
  <!-- 脑筋急转弯 -->
 <template>
 	<div class="wrap">
-		<list class="list" >
+		<list class="list" id="list" >
 			<block for="list" >
 				<list-item type="item" class="item" >
 					<qustion_and_answer data="{{ $item }}" btn-text="答案" ></qustion_and_answer>
 				</list-item>
 			</block>
+			<list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
+                <progress type="circular"></progress>
+                <text show="{{ hasMoreData }}">加载更多</text>
+                <text show="{{ !hasMoreData }}">没有更多了~</text>
+            </list-item>			
 		</list>
 	</div>
 </template>
 
 <script>
+	import util from '../../util.js';
 export default {
 	data: {
 		list: [
@@ -40,8 +46,17 @@ export default {
 				'answer': '是你自己呀。',
 				'question': '你爸爸和你妈妈生了个儿子，他既不是你哥哥又不是你弟弟，他是谁？'
 			}
-		]
+		],
+		hasMoreData: true
 	},
+	onInit() {
+		this.$on('clk_home_btn_on_tab_0', this.backTop);
+	},
+	backTop(evt){
+		util.scrollToTop( this.$element('list') );
+		evt.stop();
+
+	}
 }
 </script>
 

@@ -6,7 +6,7 @@
 					<image class="head-img" src="{{ content.icon }}"></image>
 					<text class='font'>{{ content.title }} </text>
 				</div>
-				<div class="wfull" >
+				<div class="img-wrap" >
 					<image class="main-img" src="{{ content.img }}"></image>
 				</div>
 				<div class='foot'>
@@ -113,13 +113,17 @@
   font-size: 32px;
   font-weight: bold;
 }
+.img-wrap{
+  height: 100%;
+  flex: 1;
+  width: 100%;
+}
 .main-img {
 
   width: 100%;
   margin: 16px 0;
 	resize-mode:contain;
 	object-fit: contain;
-
 }
 .wfull{
   width: 100%;

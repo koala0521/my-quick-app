@@ -25,11 +25,12 @@
 				<div class='div_tabcontent'>
 					<brain_teaser></brain_teaser>
 				</div>
+
 				<div class='div_tabcontent'>
 					<riddles></riddles>
 				</div>
 
-				<div class='div_tabcontent' >
+				<div class='div_tabcontent'>
 					<tongue_twister></tongue_twister>
 				</div>
 
@@ -37,10 +38,50 @@
 		</tabs>
 
 		<add_shortcut></add_shortcut>
-		<footer></footer>
+		<footer @click="clk_home_btn"></footer>
 	</div>
 
 </template>
+
+<script>
+
+export default {
+	data: {
+		tabs: ['脑筋急转弯', '猜谜语', '绕口令'],
+		currIndex: 0
+	},
+	onInit() {
+		//TODO初始化 data中的数据
+		// this.$page.setTitleBar({ text: '笑话大全', textColor: '#1A1A1A' });
+	},
+	showContent(num) {
+		this.type = 'content_' + num
+	},
+	onChangeTabIndex(evt) {
+		this.currIndex = evt.index;
+	},
+	clk_home_btn() {
+
+		// evt.stop();
+
+		switch (this.currIndex) {
+		case 1:
+
+			this.$broadcast('clk_home_btn_on_tab_1');
+			break;
+		case 2:
+
+			this.$broadcast('clk_home_btn_on_tab_2');
+			break;
+
+		default:
+			this.$broadcast('clk_home_btn_on_tab_0');
+			break;
+		}
+	}
+}
+</script>
+
 
 <style>
 .container {
@@ -78,8 +119,8 @@
 }
 
 .div_tabcontent text {
-  width: 100%;
-  text-align: center;
+  /* width: 100%;
+  text-align: center; */
 }
 
 .tab-bar {
@@ -116,23 +157,3 @@
   width: 100%;
 }
 </style>
-
-<script>
-
-export default {
-	data: {
-		tabs: ['脑筋急转弯', '猜谜语', '绕口令'],
-		currIndex: 0
-	},
-	onInit() {
-		//TODO初始化 data中的数据
-		// this.$page.setTitleBar({ text: '笑话大全', textColor: '#1A1A1A' });
-	},
-	showContent(num) {
-		this.type = 'content_' + num
-	},
-	onChangeTabIndex(evt) {
-		this.currIndex = evt.index;
-	}
-}
-</script>

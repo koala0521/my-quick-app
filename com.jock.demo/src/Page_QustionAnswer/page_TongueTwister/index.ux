@@ -1,15 +1,17 @@
 <import name="single" src="../../Page_Home/component/c_news_single.ux"></import>
  
 <!-- 绕口令 -->
- 
 <template>
 	<!-- template里只能有一个根节点 -->
 	<div class="recommend_container">
 
-        <list onscrollbottom="scrollbottom" class="list" >
+        <list onscrollbottom="scrollbottom" class="list" id="list">
             <block for="{{ list }}">
                 <list-item type="tongue" class="tongue-twister" >
-                    <text class="title" >{{ $item.title }} </text>
+                    <div>
+                        <image class="item-img" src="/Common/23.png"></image>
+                        <text class="title" >{{ $item.title }} </text>
+                    </div>
                     <text class="content" >{{ $item.content }}</text>
                 </list-item>
             </block>
@@ -21,24 +23,13 @@
         </list>        
 
 		<!-- <refresh refreshing="{{ isRefreshing }}" type="pulldown" @refresh="refreshData">
-			<list onscrollbottom="scrollbottom">
-				<block for="{{ list }}">
-					<list-item type="jock">
-						<single url="{{ $item.url }}" content="{{ $item }}"></single>
-					</list-item>
-				</block>
-				<list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
-					<progress type="circular"></progress>
-					<text show="{{ hasMoreData }}">加载更多</text>
-					<text show="{{ !hasMoreData }}">没有更多了~</text>
-				</list-item>
-			</list>
 		</refresh> -->
 	</div>
 </template>
 
 
 <script>
+import util from '../../util.js';
 export default {
     data: {
         list: [
@@ -122,8 +113,24 @@ export default {
                 "content": "小毛抱着花猫，花猫用爪抓小毛，小毛用手拍花猫，花猫抓破小毛，小毛打疼了花猫，小毛哭，花猫叫，小毛松开了花猫，花猫跪离了小毛。",
                 "title": "小毛和花猫"
             }
-        ]
+        ],
+        isLoadingData: false,
+        hasMoreData: true
     },
+	onInit() {
+		this.$on('clk_home_btn_on_tab_2', this.backTop);
+	},
+	backTop(evt){
+		util.scrollToTop( this.$element('list') );
+		evt.stop();
+
+	},
+    /* 滑动到底部时加载更多 */
+	scrollbottom() {
+		// if (!this.isLoadingData) {
+
+		// }
+	},    
 }
 </script>
 
@@ -144,10 +151,17 @@ export default {
 .tongue-twister{
     flex-direction: column;
     padding: 16px 0;
+    border-bottom: 6px solid #ececec;
 }
 .title{
     font-size: 32px;
     font-weight: bold;
+}
+.item-img{
+    width: 64px;
+    margin-right: 16px;
+    resize-mode: contain;
+    object-fit: contain;
 }
 .content{
     font-size: 32px; 

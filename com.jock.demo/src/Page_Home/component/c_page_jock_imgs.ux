@@ -6,9 +6,9 @@
 	<div class="laugh_imgs">
 
 		<refresh refreshing="{{ isRefreshing }}" type="pulldown" @refresh="refreshData" class="hfull" >	
-			<list onscrollbottom="scrollbottom" style="width:100%;height:100%" >
+			<list onscrollbottom="scrollbottom" style="width:100%;flex:;" >
 				<block for="{{ imgsLaugh }}">
-					<list-item type="jock"  style="width:100%" >
+					<list-item type="jock" style="width:100%;flex:1;" >
 						<items url="{{$item.url}}" content="{{ $item }}"></items>
 					</list-item>
 				</block>
@@ -22,89 +22,6 @@
 		
 	</div>
 </template>
-
-<style>
-.laugh_imgs {
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 6px;
-  /* background-color: #ececec; */
-}
-
-.head {
-  color: #1a1a1a;
-  font-size: 35.4px;
-}
-
-.swiper {
-  width: 683px;
-  height: 385px;
-  margin-bottom: 28px;
-  margin-top: 8.9px;
-}
-
-.recommend_stack {
-  width: 683px;
-  height: 385px;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.zx_head {
-  color: #ffffff;
-  font-size: 35.4px;
-  margin-bottom: 8.3px;
-}
-
-.zx_foot {
-  width: 649px;
-  height: 30px;
-  margin-bottom: 9px;
-  justify-content: space-between;
-}
-
-.zx_foot_text {
-  font-size: 21px;
-  color: #e6e6e6;
-}
-
-.image_text_div {
-  width: 683px;
-  height: 200px;
-  padding-left: 16.7px;
-  padding-right: 16.7px;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.image {
-  width: 683px;
-  height: 385px;
-}
-
-/* .line {
-  width: 100%;
-  height: 6px;
-  background-color: #bcbcbc;
-}
-
-.line2 {
-  width: 100%;
-  height: 0.5px;
-  background-color: #bcbcbc;
-  margin-top: 24.5px;
-  margin-bottom: 24.5px;
-} */
-
-.load-status {
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-.hfull{
-	height: 100%;
-}
-</style>
 
 <script>
 import router from '@system.router';
@@ -251,3 +168,72 @@ export default {
 
 }
 </script>
+
+
+<style>
+.laugh_imgs {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6px;
+  /* background-color: #ececec; */
+}
+
+.head {
+  color: #1a1a1a;
+  font-size: 35.4px;
+}
+
+.swiper {
+  width: 683px;
+  height: 385px;
+  margin-bottom: 28px;
+  margin-top: 8.9px;
+}
+
+.recommend_stack {
+  width: 683px;
+  height: 385px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.zx_head {
+  color: #ffffff;
+  font-size: 35.4px;
+  margin-bottom: 8.3px;
+}
+
+.zx_foot {
+  width: 649px;
+  height: 30px;
+  margin-bottom: 9px;
+  justify-content: space-between;
+}
+
+.zx_foot_text {
+  font-size: 21px;
+  color: #e6e6e6;
+}
+
+.image_text_div {
+  width: 683px;
+  height: 200px;
+  padding-left: 16.7px;
+  padding-right: 16.7px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.image {
+  width: 683px;
+  height: 385px;
+}
+.load-status {
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.hfull{
+	height: 100%;
+}
+</style>

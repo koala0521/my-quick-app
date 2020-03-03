@@ -2,6 +2,7 @@ import storage from "@system.storage";
 import file from "@system.file";
 import shortcut from "@system.shortcut";
 import prompt from "@system.prompt";
+import { list } from "@system.contact";
 
 // 文件存储路劲
 const filePath = "internal://files/favorite_menu/list.txt";
@@ -172,6 +173,10 @@ function fromBackstage(pagesInfo = {}, lastpagesInfo) {
   );
 }
 
+function scrollToTop(el){
+  el.scrollTo({ index: 0,smooth:true });
+}
+
 export default {
   showMenu,
   createShortcut,
@@ -186,5 +191,6 @@ export default {
   hasIcon,
   randomNum,
   curTimestamp,
-  fromBackstage
+  fromBackstage,
+  scrollToTop
 };

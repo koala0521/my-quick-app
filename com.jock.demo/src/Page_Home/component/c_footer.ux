@@ -2,7 +2,7 @@
 	<div class="footer">
 		<div class="btns-wrap">
 			<block for="{{ btns }}">
-				<div class="item" @click="clickbtn( $item )" show="{{ $item.show }}" >
+				<div class="item" @click="clickbtn( $item )" show="{{ $item.show }}">
 					<image class="btn-icon" src="{{ $idx == 0 ? $item.active_pic : $item.pic }}"></image>
 					<text class="btn-text">{{ $item.text }}</text>
 				</div>
@@ -10,39 +10,6 @@
 		</div>
 	</div>
 </template>
-
-<style>
-.footer {
-  width: 100%;
-  height: 120px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  border-top: 1px solid #cccccc;
-  padding: 0 32px;
-}
-.btns-wrap {
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-}
-.item {
-  flex-direction: column;
-  align-items: center;
-}
-.btn-icon {
-	width: 48px;
-	height: 48px;
-	resize-mode: contain;
-	object-fit: contain;
-}
-
-.btn-text {
-  font-size: 24px;
-}
-</style>
 
 
 <script>
@@ -86,35 +53,67 @@ export default {
 		let id = item.id;
 
 		switch (id) {
-			case 0: 
-				console.log(`点击首页`);
-				break;
+		case 0:
+			console.log(`点击首页`);
+			this.$dispatch('clk_home_btn');
+			break;
 
-			case 1: 
-				console.log(`点击发现`);
-				break;		
+		case 1:
+			console.log(`点击发现`);
+			break;
 
-			case 2: 
-				console.log(`点击工具`);
-				router.push({
-					uri: item.route
-				})
-				break;							
+		case 2:
+			router.push({
+				uri: item.route
+			})
+			break;
 
-			case 3: 
-				console.log(`点击关于`);
-				router.push({
-					uri: item.route
-				})
-				break;	
+		case 3:
+			router.push({
+				uri: item.route
+			})
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 	}
 }
 </script>
 
+
+<style>
+.footer {
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-top: 1px solid #cccccc;
+  padding: 0 32px;
+}
+.btns-wrap {
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.item {
+  flex-direction: column;
+  align-items: center;
+}
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  resize-mode: contain;
+  object-fit: contain;
+}
+
+.btn-text {
+  font-size: 24px;
+}
+</style>
 
 
 
