@@ -1,9 +1,12 @@
 <import name="qustion_and_answer" src="../../component/c_qustionAndAnswer.ux"></import>
- <!--  谜语大全  -->
+<import name="loading" src="../../component/loading.ux" src=""></import>
+ 
+<!--  谜语大全  -->
 <template>
 	<div class="wrap">
 		<div class="catgary-wrap">
-			<list class="catgary-list" >
+			<!-- 谜语分类 -->
+			<list class="catgary-list">
 				<block for="typeList">
 					<list-item type="catgary" @click="selectRiddles($item)">
 						<text class="item-name {{ activeId == $item.id ? 'active' : '' }}">{{ $item.name }}</text>
@@ -11,74 +14,110 @@
 				</block>
 			</list>
 		</div>
-		<list class="riddles-list" id="list" >
+		<list class="riddles-list" id="list" onscrollbottom="scrollbottom" >
 			<block for="list">
 				<list-item type="item" class="item">
-					<qustion_and_answer data="{{ $item }}" btn-text="谜底"></qustion_and_answer>
+					<qustion_and_answer data="{{ $item }}" btn-text="谜底" answer-text="" ></qustion_and_answer>
 				</list-item>
 			</block>
-			<list-item type="loadStatus" class="load-status"  if="{{ hasMoreData }}" >
-                <progress type="circular"></progress>
-                <text show="{{ hasMoreData }}">加载更多</text>
-                <text show="{{ !hasMoreData }}">没有更多了~</text>
-            </list-item>
+			<list-item type="loadStatus" class="load-status" if="{{ hasMoreData }}">
+				<progress type="circular"></progress>
+				<text show="{{ hasMoreData }}">加载更多...</text>
+				<text show="{{ !hasMoreData }}">没有更多了~~</text>
+			</list-item>
 		</list>
+		<loading if="{{ isLoadingData }}"></loading>
 	</div>
 </template>
 
 <script>
 import data from '../data.js';
 import util from '../../util.js';
+import api from '../../api/api.js';
+import prompt from '@system.prompt';
 
 export default {
 	data: {
-		list: [
-			{
-				'answer': '三代人',
-				'question': '两对父子去买帽子，为什么只买了三顶？'
-			},
-			{
-				'answer': '牙齿',
-				'question': '舔也硬，不舔也硬，想舒服睡，先搓搓它（人身上的东西）'
-			},
-			{
-				'answer': '那晚停电，有一只是照明蜡烛',
-				'question': '研研十四岁生日的晚上，庆祝宴上点了十五支蜡烛。那是为什么？'
-			},
-			{
-				'answer': '两座楼一个30层，一个3层',
-				'question': '一座大楼发生火灾,老陈逃到了楼顶后,无路可走,便逃到了隔壁的楼顶上,两楼只隔10公分,老陈却摔死了,为什么?'
-			},
-			{
-				'answer': '我在等秘书',
-				'question': '教师给学生们布置写作文，题目是假如我是一位经理。绝大部分学生马上埋头写作，惟有一位男生操着手，靠在椅子上，无动于衷。老师问他为什么不写，他给了一个令其哭笑不得的回答。'
-			},
-			{
-				'answer': '是你自己呀。',
-				'question': '你爸爸和你妈妈生了个儿子，他既不是你哥哥又不是你弟弟，他是谁？'
-			}
-		],
+		list: [],
 		typeList: [],
 		activeId: -1,
-		hasMoreData: true
+		page: 1,
+		maxPage: 999,
+		pageSize: 20,
+		hasMoreData: true,
+		isLoadingData: false
+
 	},
 	onInit() {
-
+		util.shuffle(data.riddlesCatgary);
 		this.typeList = data.riddlesCatgary.filter((el, index) => {
 			return index < 8
 		})
 		this.$on('clk_home_btn_on_tab_1', this.backTop);
+		this.getRiddles();
+
+
 	},
-	backTop(evt){
-		util.scrollToTop( this.$element('list') );
+	backTop(evt) {
+		util.scrollToTop(this.$element('list'));
 		evt.stop();
 
 	},
 	selectRiddles(item) {
 		console.log(`item >>>>`, item);
-
+		this.isLoadingData = true;
+		setTimeout(() => {	
+			this.isLoadingData = false;
+        }, 500);
+        
 		this.activeId = item.id;
-	}
+		this.page = 1;
+        this.getRiddles();
+
+	},
+
+	getRiddles(){
+		api.getRiddlesById({
+			page: this.page,
+			typeId: this.activeId
+		}).then(res =>{
+
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				prompt.showToast({
+					message: '请求失败请稍后重试~~'
+				})
+				return
+			}		
+			let obj = res.showapi_res_body.pb || {};
+
+			// 格式化数据
+			obj.contentlist.forEach( el => {
+				el.question = el.title;
+				el.icon = '/Common/29.png';
+			});
+
+			this.list = this.list.concat( obj.contentlist || []);
+			this.maxPage = obj.allPages;
+
+		}).catch(err=>{
+			console.log(`请求失败了 >>>>>>>>` , err);
+		})
+	},
+
+	/* 滑动到底部时加载更多 */
+	scrollbottom() {
+		this.page++;
+		console.log(`this.page >>>>` , this.page);
+		if ( this.page >= this.maxPage ){
+			this.hasMoreData = false;		
+			return
+		}
+		if (!this.isLoadingData) {
+			this.getRiddles();
+		}
+	},	
+
+
 }
 </script>
 
@@ -123,5 +162,10 @@ export default {
 .item {
   border-bottom: 6px solid #ececec;
   margin: 16px 0;
+}
+.load-status {
+  justify-content: center;
+  align-items: center;
+  height: 80px;
 }
 </style>

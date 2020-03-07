@@ -10,6 +10,10 @@ export default {
 			'name': '字谜'
 		},
 		{
+			'id': 'qtmy',
+			'name': '趣味谜语'
+		},		
+		{
 			'id': 'cymy',
 			'name': '成语谜语'
 		},
@@ -87,17 +91,9 @@ export default {
 			'name': '称谓谜语'
 		},
 		{
-			'id': 'qtmy',
-			'name': '趣味谜语'
-		},
-		{
 			'id': 'miyujingxuan',
 			'name': '谜语精选'
-		},
-		{
-			'id': 'njmy',
-			'name': '脑筋急转弯'
-		},
+		},		
 		{
 			'id': 'zlmy',
 			'name': '智力问答'

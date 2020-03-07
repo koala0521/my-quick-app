@@ -46,10 +46,6 @@
         "component": "index",
         "path": "/Page_Detail"
       },
-      "Page_Composite": {
-        "component": "index",
-        "path": "/Page_Composite"
-      },
       "Page_Hot": {
         "component": "index",
         "path": "/Page_Hot"

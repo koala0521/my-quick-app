@@ -1,83 +1,90 @@
 <template>
-    <div class="c-wrap" >
-        <div>
-            <image class="item-img" src="/Common/28.png"></image>
-            <text class="item-text" >{{ data.question }}</text>
-        </div>
-        <div class="answer-wrap" >
-            <text class="item-answer  {{ answerState }}" >答案：{{ data.answer }}</text>            
-        </div>
-        <div class="btns-wrap" >
-            <text class="btn" @click="lookAnswer" >{{ btnText }}</text>
-        </div>
-    </div>
+	<div class="c-wrap">
+		<div>
+			<image class="item-img" src="{{ data.icon || icon }}"></image>
+			<text class="item-text">{{ data.question }}</text>
+		</div>
+		<div class="answer-wrap">
+			<text class="item-answer  {{ answerState }}">{{ answerText }} {{ data.answer }}</text>
+		</div>
+		<div class="btns-wrap">
+			<text class="btn" @click="lookAnswer">{{ btnText }}</text>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-    props: {
-        data: {},
-        btnText: ''
-    },
-    data:{
-        answerState: ''
-    },
-    lookAnswer(){
-        this.answerState = 'show-answer';
-    }
+	props: {
+		data: {},
+    btnText: '',
+    answerText: ''
+	},
+	data: {
+		answerState: '',
+		icon: '/Common/28.png',
+		dfBtnTxt: '答案'
+	},
+	lookAnswer() {
+		this.answerState = 'show-answer';
+	}
 }
 </script>
 
 <style>
-    .c-wrap{
-        flex-direction: column;
-        width: 100%;
-        padding-bottom: 16px;
-    }
-    .item-img{
-        width: 64px;
-        margin-right: 16px;
-        resize-mode: contain;
-        object-fit: contain;
-    }
-    .btns-wrap{
-        width: 100%;
-        justify-content: flex-end;
-    }
-    .item-text{
-        color: #1a1a1a;
-        font-size: 32px;
-        line-height: 64px;
-    }
-    .answer-wrap{
-        width: 100%;
-        height: 120px;
-    }
-    .item-answer{
-        padding: 16px 0;
-        opacity: 0;
-        color: #ec4d4d;
-        font-weight: bold;
-    }
-    .show-answer{
-        animation-delay: 100ms;
-        animation-duration: 1500ms;
-        animation-timing-function: linear;
-        animation-name: showAnswer;
-        animation-fill-mode:forwards;
-    }
-    .btn{    
-        background-color: #ec4d4d;
-        color: #ffffff;
-        padding: 8px 32px;
-        border-radius: 16px;
-    }
-    @keyframes showAnswer {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+.c-wrap {
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 16px;
+}
+.item-img {
+  width: 64px;
+  margin-right: 16px;
+  resize-mode: contain;
+  object-fit: contain;
+}
+.btns-wrap {
+  width: 100%;
+  justify-content: flex-end;
+}
+.item-text {
+  color: #1a1a1a;
+  font-size: 32px;
+  line-height: 64px;
+}
+.answer-wrap {
+  width: 100%;
+  height: 120px;
+}
+.item-answer {
+  padding: 16px 0;
+  opacity: 0;
+  color: #ec4d4d;
+  font-weight: bold;
+}
+.show-answer {
+  animation-delay: 100ms;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-name: showAnswer;
+  animation-fill-mode: forwards;
+}
+.btn {
+  background-color: #ec4d4d;
+  color: #ffffff;
+  padding: 8px 32px;
+  border-radius: 16px;
+}
+.btn:active{
+  opacity: 0.6;
+}
+
+@keyframes showAnswer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 </style>

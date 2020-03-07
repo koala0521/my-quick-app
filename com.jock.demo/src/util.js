@@ -173,9 +173,26 @@ function fromBackstage(pagesInfo = {}, lastpagesInfo) {
   );
 }
 
+// list 返回顶部
 function scrollToTop(el){
   el.scrollTo({ index: 0,smooth:true });
 }
+
+
+//数组随机排序
+function shuffle(arr) { 
+ 
+  let i = arr.length; 
+
+  while (i) { 
+
+      let j = Math.floor(Math.random() * i--);  //5555
+
+      [arr[j], arr[i]] = [arr[i], arr[j]]; 
+
+  } 
+
+} 
 
 export default {
   showMenu,
@@ -192,5 +209,6 @@ export default {
   randomNum,
   curTimestamp,
   fromBackstage,
-  scrollToTop
+  scrollToTop,
+  shuffle
 };

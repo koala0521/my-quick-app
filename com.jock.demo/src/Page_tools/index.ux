@@ -33,13 +33,15 @@ export default {
 				desc: '测试应用啦啦啦',
 				dp_link: '/Page_Home',
 				btn_text: '秒开'
-			}, {
-				name: '脑经急转弯',
+			}, 
+			{
+				name: '谜语精选',
 				pic: '/Common/logo.png',
 				desc: '开动你的大脑~~',
 				dp_link: '/Page_BrainTeaser',
 				btn_text: '进入'
-			}, {
+			}, 
+			{
 				name: '藏头诗',
 				pic: '/Common/logo.png',
 				desc: '测试应用啦啦啦',

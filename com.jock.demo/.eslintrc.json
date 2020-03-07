@@ -20,7 +20,8 @@
     "clearTimeout": true,
     "setInterval": true,
     "clearInterval": true,
-    "APP_STATISTICS": true
+    "APP_STATISTICS": true,
+    "Promise": true
   },
   "plugins": [
     "hybrid"
