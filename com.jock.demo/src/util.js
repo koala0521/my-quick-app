@@ -2,7 +2,7 @@ import storage from "@system.storage";
 import file from "@system.file";
 import shortcut from "@system.shortcut";
 import prompt from "@system.prompt";
-import { list } from "@system.contact";
+import account from '@service.account';
 
 // 文件存储路劲
 const filePath = "internal://files/favorite_menu/list.txt";
@@ -174,8 +174,8 @@ function fromBackstage(pagesInfo = {}, lastpagesInfo) {
 }
 
 // list 返回顶部
-function scrollToTop(el){
-  el.scrollTo({ index: 0,smooth:true });
+function scrollToTop(el , smooth=true){
+  el.scrollTo({ index: 0,smooth: smooth });
 }
 
 
@@ -194,6 +194,11 @@ function shuffle(arr) {
 
 } 
 
+function getChannel(){
+  return account.getProvider().toLowerCase();
+}
+
+
 export default {
   showMenu,
   createShortcut,
@@ -210,5 +215,6 @@ export default {
   curTimestamp,
   fromBackstage,
   scrollToTop,
-  shuffle
+  shuffle,
+  getChannel
 };

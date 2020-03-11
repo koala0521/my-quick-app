@@ -60,6 +60,12 @@ export default {
 		// 设置标题栏
 		// this.$page.setTitleBar({ text: "关于" })
 	},
+	onShow() {
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码
+	},
+	onHide() {
+		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码、 
+	}, 		
 	createShortcut() {
 		// 创建快捷方式
 		this.$app.$def.createShortcut()

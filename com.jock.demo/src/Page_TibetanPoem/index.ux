@@ -1,8 +1,10 @@
 
 <import name="footer" src="../Page_Home/component/c_footer.ux"></import>
+<import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
 
 <template>
 	<div class="main">
+		<text class="title-bar" >藏头诗制作</text>
 		<div class="item">
 			<text class="item-title">主题：</text>
 			<input @change="getKey" class="input" id="key" type="text" placeholder="输入藏头诗主题不超过8个字"></input>
@@ -10,15 +12,15 @@
 		<div class="item">
 			<text class="item-title">字数：</text>
 			<div class="btn-wrap">
-				<input class="btn {{ num==5 ? 'active' : '' }}"  type="button" value="五言" @click="chooseNum(5)" ></input>
-				<input class="btn {{ num==7 ? 'active' : '' }}" type="button" value="七言" @click="chooseNum(7)" ></input>
+				<input class="btn {{ num==5 ? 'active' : '' }}" type="button" value="五言" @click="chooseNum(5)"></input>
+				<input class="btn {{ num==7 ? 'active' : '' }}" type="button" value="七言" @click="chooseNum(7)"></input>
 			</div>
 
 		</div>
 		<div class="item">
 			<text class="item-title">位置：</text>
 			<div class="btn-wrap">
-				<input @click="chooseType(1)" class="btn {{ type == 1 ? 'active' : '' }}" type="button" value="藏头" ></input>
+				<input @click="chooseType(1)" class="btn {{ type == 1 ? 'active' : '' }}" type="button" value="藏头"></input>
 				<input @click="chooseType(2)" class="btn {{ type == 2 ? 'active' : '' }}" type="button" value="藏尾"></input>
 				<input @click="chooseType(3)" class="btn {{ type == 3 ? 'active' : '' }}" type="button" value="藏中"></input>
 				<input @click="chooseType(4)" class="btn {{ type == 4 ? 'active' : '' }}" type="button" value="递增"></input>
@@ -30,8 +32,8 @@
 			<text class="item-title">押韵：</text>
 			<div class="btn-wrap">
 				<input @click="chooseYayunType(1)" class="btn {{ yayuntype == 1 ? 'active' : '' }}" type="button" value="双句一压"></input>
-				<input @click="chooseYayunType(2)"  class="btn {{ yayuntype == 2 ? 'active' : '' }}" type="button" value="双句押韵"></input>
-				<input @click="chooseYayunType(3)"  class="btn {{ yayuntype == 3 ? 'active' : '' }}" type="button" value="一三四押"></input>
+				<input @click="chooseYayunType(2)" class="btn {{ yayuntype == 2 ? 'active' : '' }}" type="button" value="双句押韵"></input>
+				<input @click="chooseYayunType(3)" class="btn {{ yayuntype == 3 ? 'active' : '' }}" type="button" value="一三四押"></input>
 			</div>
 
 		</div>
@@ -39,12 +41,17 @@
 			<input @click="toDetail" type="button" class="write" value="一键创作"></input>
 		</div>
 		<footer></footer>
-
+		<div class="ad-wrap" if="{{ adState }}">
+			<wanka_ad_view type="openning" adslot_id="{{ openId }}" enter_app="{{false}}" delay="{{ 4 }}" @ad-closed="onadClosed">
+			</wanka_ad_view>
+		</div>
 	</div>
 </template>
 
 <script>
 import router from '@system.router';
+import api from '../api/api.js';
+import util from '../util.js';
 
 // type=1 藏头  // type=2 藏尾  // type=3 藏中  // type=4 递增  // type=5 递减    
 export default {
@@ -52,31 +59,63 @@ export default {
 		num: 5,
 		type: 1,
 		yayuntype: 1,
-		key: ''
+		key: '',
+		openId: '',
+		adState: true,		
 	},
-	chooseNum(n){
+	onInit() {
+
+		this.openId = this.$app.$def.adInfo.openId;
+		let channel = util.getChannel() || 'vivo';
+		api.onlineState().then( res =>{
+
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				return
+			}			
+			let channelState = res.showapi_res_body.channel_state;
+			this.adState = channelState[channel] === false ? false : true;
+			
+		})		
+	},
+	chooseNum(n) {
 		this.num = n;
 	},
-	chooseType(n){
+	chooseType(n) {
 		this.type = n;
 	},
-	chooseYayunType(n){
+	chooseYayunType(n) {
 		this.yayuntype = n;
 	},
-	getKey(ev){
+	getKey(ev) {
 		this.key = ev.value.trim();
 	},
-	toDetail(){
+	toDetail() {
 		router.push({
 			uri: '/Page_TibetanPoemDetail',
-			params:{
+			params: {
 				num: this.num,
 				type: this.type,
 				yayuntype: this.yayuntype,
 				key: this.key
 			}
 		});
-	}
+	},
+	onShow() {
+		APP_STATISTICS.page_show(this);//在onShow方法的第一行加入此代码
+	},
+	onHide() {
+		APP_STATISTICS.page_hide(this); //在onHide方法的第一行加入此代码、 
+	},
+
+	onadClosed(){
+		this.adState = false;
+
+		this.$page.setTitleBar({ 
+			'backgroundColor': '#ffffff',
+			'text': '藏头诗制作',
+			'textColor': '#000',
+		});		
+	}	
 }
 </script>
 
@@ -84,6 +123,15 @@ export default {
 .main {
   padding: 0 16px;
   flex-direction: column;
+}
+.title-bar{
+	color: #000;
+	background-color: #fff;
+	padding: 32px 16px; 
+	font-size: 44px;
+    font-weight: 500;	
+	width: 100%;
+  	border-bottom: 2px solid #ececec;
 }
 .item {
   flex-direction: column;
@@ -109,7 +157,8 @@ export default {
   color: #000000;
   font-size: 28px;
 }
-.btn:active, .active {
+.btn:active,
+.active {
   background-color: #ec4d4d;
   color: #ffffff;
 }

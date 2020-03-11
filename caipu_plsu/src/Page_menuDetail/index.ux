@@ -72,7 +72,7 @@
 					@ad-closed="onadClosed" 
 					@ad-load="onadLoad" 
 					@ad-click="onAdClk" 
-        	@ad-show="onAdShow" 
+        			@ad-show="onAdShow" 
 				>
 				</wanka_ad_view>
 			</div>
@@ -91,7 +91,7 @@
 				@ad-error="onadError" 
 				@ad-closed="onadClosed" 
 				@ad-click="onAdClk" 
-        @ad-show="onAdShow" 	
+        		@ad-show="onAdShow" 	
 			>
 
 			</wanka_ad_view>

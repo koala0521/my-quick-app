@@ -5,7 +5,7 @@
 			<text class="item-text">{{ data.question }}</text>
 		</div>
 		<div class="answer-wrap">
-			<text class="item-answer  {{ answerState }}">{{ answerText }} {{ data.answer }}</text>
+			<text class="item-answer {{ answerState }}" show="{{ !!answerState }}" >{{ answerText }} {{ data.answer }}</text>
 		</div>
 		<div class="btns-wrap">
 			<text class="btn" @click="lookAnswer">{{ btnText }}</text>

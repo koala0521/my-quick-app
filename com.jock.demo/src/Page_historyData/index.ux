@@ -1,5 +1,10 @@
+
+<import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
 <template>
 	<div class="wrap">
+		
+		<text class="title-bar" >历史上的今天</text>
+
 		<div class="btns-wrap">
 			<text class="today btn {{ time.value ? '' : 'active' }}" @click="pickToday" >今天</text>
 			<picker class="picker btn {{ !time.value ? '' : 'active' }}" type="date" value="{{ time.value || '选择' }}" @change="pickerDate" ></picker>
@@ -17,10 +22,26 @@
 				</list-item>
 			</block>
 		</list>
+
+		<!-- 开屏 -->
+		<div class="ad-wrap" if="{{ adState }}">
+			<wanka_ad_view 
+				type="openning" 
+				adslot_id="{{ openId }}" 
+				enter_app="{{false}}" 
+				delay="{{ 4 }}"
+				@ad-closed="onadClosed"  	
+			>
+			</wanka_ad_view>
+		</div>
+
 	</div>
 </template>
 
 <script>
+import api from '../api/api.js';
+import util from '../util.js';
+
 export default {
 	data: {
 		list: [
@@ -99,11 +120,31 @@ export default {
 		date:{
 			day: '0',
 			month: '0'
-		}
+		},
+		openId: '',
+		adState: true,
 	},
 	onInit() {
-		this.$page.setTitleBar({ text: '历史上的今天', textColor: '#1A1A1A' });
+		// this.$page.setTitleBar({ text: '历史上的今天', textColor: '#1A1A1A' });
+
+		this.openId = this.$app.$def.adInfo.openId;
+		let channel = util.getChannel() || 'oppo';
+		api.onlineState().then( res =>{
+
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				return
+			}			
+			let channelState = res.showapi_res_body.channel_state;
+			this.adState = channelState[channel] === false ? false : true;
+			
+		})		
 	},
+	onShow() {
+		APP_STATISTICS.page_show( this );//在onShow方法的第一行加入此代码
+	},
+	onHide() {
+		APP_STATISTICS.page_hide( this ); //在onHide方法的第一行加入此代码、 
+	}, 		
 	pickerDate(ev){
 		console.log(`选择时间` , ev);
 		this.date.day = ev.day;
@@ -118,7 +159,11 @@ export default {
 		this.date.month = day;
 		console.log(`this.date >>>>>>>>>>` , this.date );
 		
-	}
+	},
+
+	onadClosed(){
+		this.adState = false;
+	}	
 }
 </script>
 
@@ -126,6 +171,16 @@ export default {
 .wrap {
   flex-direction: column;
   padding: 0px 32px;
+}
+.title-bar{
+	color: #000;
+	background-color: #fff;
+	padding: 32px 16px; 
+	font-size: 44px;
+    font-weight: 500;	
+	width: 100%;
+  	border-bottom: 2px solid #ececec;
+	margin-bottom: 16px;
 }
 .btns-wrap {
   margin-top: 16px;

@@ -31,7 +31,7 @@
     
     "data": {
       "wanka_ad": {
-          "app_id": "1386"
+          "app_id": "1392"
       }
     }    
   },
@@ -109,9 +109,9 @@
       },
       "Page_TibetanPoem":{
         "titleBarBackgroundColor": "#ffffff",
-        "titleBar": true,
         "titleBarText": "藏头诗制作",
         "titleBarTextColor": "#000",
+        "titleBar": false,
         "menu": false   
       },
       "Page_TibetanPoemDetail":{
@@ -123,9 +123,9 @@
       },     
       "Page_historyData":{
         "titleBarBackgroundColor": "#ffffff",
-        "titleBar": true,
+        "titleBar": false,
         "titleBarTextColor": "#000",
-        "menu": true  
+        "menu": false  
       },      
       "Yinsi":{
         "titleBarBackgroundColor": "#ffffff",

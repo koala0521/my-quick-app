@@ -2,7 +2,7 @@
 	<div class="footer">
 		<div class="btns-wrap">
 			<block for="{{ btns }}">
-				<div class="item" @click="clickbtn( $item )" show="{{ $item.show }}">
+				<div class="item" @click="clickbtn( $item )" if="{{ $item.show }}">
 					<image class="btn-icon" src="{{ $idx == 0 ? $item.active_pic : $item.pic }}"></image>
 					<text class="btn-text">{{ $item.text }}</text>
 				</div>

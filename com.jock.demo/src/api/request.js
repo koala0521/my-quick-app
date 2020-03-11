@@ -32,12 +32,17 @@ export default function requestFn(args = {}) {
 					'Content-Type': 'application/json'
 				},
 				success: function (data) {
-					console.log(`data >>>>>>>>>>` , data );
+
+					// console.log(`data >>>>>>>>>>` , data );
 					
 					resolve(JSON.parse(data.data));
 				},
 				fail: function (data, code) {
-					resolve(JSON.parse(data.data));
+					try {
+						resolve(JSON.parse(data));
+					} catch (error) {
+						resolve(data);
+					}
 				}
 			});
 			fetch.fetch(parmas);

@@ -58,21 +58,23 @@ export default {
 
 
 	},
-	backTop(evt) {
-		util.scrollToTop(this.$element('list'));
-		evt.stop();
+	backTop( smooth , evt) {
+		util.scrollToTop(this.$element('list') , smooth );
+		evt && evt.stop();
 
 	},
 	selectRiddles(item) {
-		console.log(`item >>>>`, item);
+
 		this.isLoadingData = true;
 		setTimeout(() => {	
 			this.isLoadingData = false;
-        }, 500);
+		}, 500);
         
 		this.activeId = item.id;
 		this.page = 1;
-        this.getRiddles();
+		this.list = [];
+		this.getRiddles();
+		this.backTop(false);
 
 	},
 

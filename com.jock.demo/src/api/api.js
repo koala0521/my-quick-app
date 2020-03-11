@@ -2,8 +2,7 @@ import requestFn from './request'
 
 
 const adurl = {
-	'v1': 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka',
-	'v2': 'https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2',
+	'v1': 'online_state',
 }
 
 /**
@@ -59,13 +58,26 @@ function getTongueTwisterList(data) {
 
 
 /**
+ * @description 藏头诗生成
+ * @host 950-1
+ * 
+ *  */
+function getTibetanPoem(){
+	return requestFn({
+		url: '950-1',
+		data
+	})
+}
+
+
+/**
  * @description 广告状态
  * @host /showAd/wanka 	https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka
  * @host /showAd/wanka/v2   https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2
  **/
-function getWankaAdState(data={}){
+function onlineState(data={}){
 	return requestFn({
-		baseurl: adurl.v2,
+		url: adurl.v1,
 		data
 	})
 }
@@ -75,6 +87,7 @@ export default {
 	getBrainTeaserList,
 	getTongueTwisterList,
 	getRandomRiddles,
-	getWankaAdState,
-	getRiddlesById
+	onlineState,
+	getRiddlesById,
+	getTibetanPoem
 }

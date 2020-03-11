@@ -48,4 +48,5 @@ export default {
 		this.$app.$def.lastpagesInfo.hideTime = util.curTimestamp();		  
 	} 
 }
+
 </script>

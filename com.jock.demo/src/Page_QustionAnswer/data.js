@@ -51,10 +51,6 @@ export default {
 			'name': '用语谜语'
 		},
 		{
-			'id': 'etmy',
-			'name': '儿童谜语'
-		},
-		{
 			'id': 'wpmy',
 			'name': '物品谜语'
 		},
@@ -93,6 +89,10 @@ export default {
 		{
 			'id': 'miyujingxuan',
 			'name': '谜语精选'
+		},		
+		{
+			'id': 'etmy',
+			'name': '儿童谜语'
 		},		
 		{
 			'id': 'zlmy',
