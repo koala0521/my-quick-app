@@ -36,7 +36,7 @@
     }    
   },
   "router": {
-    "entry": "Page_QustionAnswer",
+    "entry": "Page_TibetanPoem",
     "pages": {
       "Page_Home": {
         "component": "index",

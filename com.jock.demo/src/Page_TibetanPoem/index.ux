@@ -7,7 +7,7 @@
 		<text class="title-bar" >藏头诗制作</text>
 		<div class="item">
 			<text class="item-title">主题：</text>
-			<input @change="getKey" class="input" id="key" type="text" placeholder="输入藏头诗主题不超过8个字"></input>
+			<input @change="getKey" @enterkeyclick="enterkeyclick" class="input" id="key" type="text" placeholder="输入藏头诗主题不超过8个字"></input>
 		</div>
 		<div class="item">
 			<text class="item-title">字数：</text>
@@ -52,6 +52,7 @@
 import router from '@system.router';
 import api from '../api/api.js';
 import util from '../util.js';
+import prompt from '@system.prompt';
 
 // type=1 藏头  // type=2 藏尾  // type=3 藏中  // type=4 递增  // type=5 递减    
 export default {
@@ -90,15 +91,27 @@ export default {
 		this.key = ev.value.trim();
 	},
 	toDetail() {
-		router.push({
-			uri: '/Page_TibetanPoemDetail',
-			params: {
-				num: this.num,
-				type: this.type,
-				yayuntype: this.yayuntype,
-				key: this.key
-			}
-		});
+		console.log(`util.isChinese( this.key )` , util.isChinese( this.key ));
+		
+		if( util.isChinese( this.key ) && this.key.length <= 8 ){
+			router.push({
+				uri: '/Page_TibetanPoemDetail',
+				params: {
+					num: this.num,
+					type: this.type,
+					yayuntype: this.yayuntype,
+					key: this.key
+				}
+			});
+		}else{
+			prompt.showToast({
+				message: '主题为中文，且不超过8个字'
+			});
+		}
+	},
+	enterkeyclick(ev){
+		this.key = ev.value.trim();
+		this.toDetail();
 	},
 	onShow() {
 		APP_STATISTICS.page_show(this);//在onShow方法的第一行加入此代码
@@ -108,8 +121,10 @@ export default {
 	},
 
 	onadClosed(){
-		this.adState = false;
 
+		this.$element('key').focus();
+
+		this.adState = false;
 		this.$page.setTitleBar({ 
 			'backgroundColor': '#ffffff',
 			'text': '藏头诗制作',
@@ -179,4 +194,7 @@ export default {
   font-size: 32px;
   border-radius: 16px;
 }
+.write:active{
+	opacity: 0.6;
+}	
 </style>

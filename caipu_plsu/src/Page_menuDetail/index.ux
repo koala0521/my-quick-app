@@ -93,7 +93,6 @@
 				@ad-click="onAdClk" 
         		@ad-show="onAdShow" 	
 			>
-
 			</wanka_ad_view>
 		</div>
 

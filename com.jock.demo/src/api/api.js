@@ -62,7 +62,7 @@ function getTongueTwisterList(data) {
  * @host 950-1
  * 
  *  */
-function getTibetanPoem(){
+function getTibetanPoem(data){
 	return requestFn({
 		url: '950-1',
 		data

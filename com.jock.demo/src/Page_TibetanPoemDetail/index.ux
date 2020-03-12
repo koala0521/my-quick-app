@@ -1,12 +1,29 @@
+
+<import name="wanka_ad_view" src="../WankaAdSDK/dist/Ad-component/view.ux"></import>
+
 <template>
 	<div class="wrap" >
 
-		<text class="title">这是标题哦</text>
+		<text class="title">{{ key }}</text>
 
-		<text class="item">{{ list[0] }}</text>
+		<text class="item {{ animation }}">{{ list[ activeIndex ] }}</text>
 		<div class="btn-wrap" >
 			<text class="turn-other btn" @click="turnOther" >换一首</text>
 			<text class="copy btn" @click="copy" >复制</text>
+		</div>
+		<div class="ad-wrap" if="{{ adInfo.showAd && adState }}" >
+			<div class="ad" >
+				<wanka_ad_view
+					type="native"
+					adslot_id="{{ adInfo.nativeId }}"
+					width="{{700}}"
+					height="{{466}}"
+					title_style="{{ txtStyle }}" 
+					@ad-error="onadError"
+					@ad-closed="onadClosed"
+				>
+				</wanka_ad_view>
+			</div>
 		</div>
 	</div>
 </template>
@@ -15,6 +32,7 @@
 import clipboard from '@system.clipboard';
 import prompt from '@system.prompt';
 import api from '../api/api.js';
+import util from '../util.js';
 
 export default {
 	protected: {
@@ -36,15 +54,33 @@ export default {
 			' 我皇盛德苞六宇，不爱仙家登真诀。秃衿小袖调鹦鹉，鸟雀苦肥秋粟菽。沉水香消金鸭冷。',
 			' 我念过去微尘劫，泛爱不救沟壑辱。巫山小女隔云别，紫蟹霜肥秋纵好。花鸟争开斗鸭栏。'			
 		],
-		activeIndex: 0
+		activeIndex: 0,
+		adState: true,	// 广告开关
+		adInfo:{
+			nativeId: '',
+			showAd: false	// 广告当前展示状态
+		},
+		txtStyle:{
+			'color': '#ffffff',
+			'font-weight': 'bold'			
+		},
+		animation: ''
 	},
 	onInit() {
 		// 设置标题栏
 		this.$page.setTitleBar({ text: this.key })
-		this.list = this.list.map(el => {
-			return el.replace(/(，)|(。)/g, '\r\n').trim();
-		});
-		console.log(this.list );
+		this.adInfo.nativeId = this.$app.$def.adInfo.nativeId;
+		
+		let channel = util.getChannel() || 'vivo';
+		api.onlineState().then( res =>{
+
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				return
+			}			
+			let channelState = res.showapi_res_body.channel_state;
+			this.adState = channelState[channel] === false ? false : true;
+			
+		})		
 
 		api.getTibetanPoem({
 			num: this.num,
@@ -53,13 +89,40 @@ export default {
 			key: this.key,
 		}).then(res=>{
 			console.log(`res >>>> >>> >>>` , res );
-			
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				prompt.showToast({
+					message: '请稍后重试~~'
+				})
+				return
+			}	
+			this.list = this.formatList(res.showapi_res_body.list || []);
+
 		}).catch(err=>{
 
 		})
 	},
-	turnOther(){
+	formatList(list=[]){
+		return list.map(el => {
+			return el.replace(/(，)|(。)/g, '\r\n').trim();
+		});
+	},
+	onadError(args){
+		this.adInfo.showAd = false;
+	},
+	onadClosed(){
+		this.adInfo.showAd = false;
+	},
 
+	turnOther(){
+		this.animation = '';
+
+		if( this.adState === true ){
+			this.adInfo.showAd = true;
+		}
+		setTimeout(() => {
+			this.animation = 'opacity';
+			this.activeIndex =( this.activeIndex + 1 ) % this.list.length;
+		}, 500);
 	},
 	copy(){
 		clipboard.set({
@@ -112,4 +175,41 @@ export default {
 		border-radius: 16px;
 		padding: 16px;
 	}
+	.btn:active{
+		opacity: 0.6;
+	}	
+	.ad-wrap{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.3);
+		padding-top: 300px;
+	}	
+	.ad{
+		width: 700px;
+		height: 466px;
+		padding: 16px;
+	}
+
+	.opacity {
+		animation-delay: 300ms;
+		animation-duration: 1500ms;
+		animation-timing-function: ease-in-out;
+		animation-name: opacity;
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+
+	@keyframes opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+	}
+
 </style>
