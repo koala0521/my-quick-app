@@ -68,18 +68,18 @@ export default {
 	},
 	onInit() {
 		// 设置标题栏
-		this.$page.setTitleBar({ text: this.key })
+		this.$page.setTitleBar({ text: '藏头诗' || this.key })
 		this.adInfo.nativeId = this.$app.$def.adInfo.nativeId;
 		
-		let channel = util.getChannel() || 'vivo';
 		api.onlineState().then( res =>{
+			
+			let channel = util.getChannel() || 'vivo';
 
 			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
 				return
 			}			
 			let channelState = res.showapi_res_body.channel_state;
-			this.adState = channelState[channel] === false ? false : true;
-			
+			this.adState = channelState[channel] === false ? false : true;			
 		})		
 
 		api.getTibetanPoem({
@@ -98,7 +98,8 @@ export default {
 			this.list = this.formatList(res.showapi_res_body.list || []);
 
 		}).catch(err=>{
-
+			console.log( `err >>>>>>` , err );
+			
 		})
 	},
 	formatList(list=[]){
@@ -164,12 +165,13 @@ export default {
 		justify-content: space-around;
 		margin-top: 64px;
 		width: 100%;
+		height: 80px;
 	}
 	.btn{
   		font-size: 28px;
 		font-weight: bold;
 		color: #ffffff;
-		background-color: #ec4d4d;
+		background-color: #50bcb6;
 		text-align: center;
 		width: 240px;
 		border-radius: 16px;

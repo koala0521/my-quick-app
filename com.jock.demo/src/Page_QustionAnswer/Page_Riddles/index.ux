@@ -153,7 +153,7 @@ export default {
 .item-name:active,
 .active {
   color: #ffffff;
-  background-color: #ec4d4d;
+  background-color: #f04f7c;
 }
 
 .riddles-list {

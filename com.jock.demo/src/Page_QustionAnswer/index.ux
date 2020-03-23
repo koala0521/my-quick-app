@@ -152,7 +152,11 @@ export default {
 .item_bg_active {
   width: 150px;
   height: 4px;
-  background-color: #ec4d4d;
+  background-color: #f04f7c; 
+	/*
+	 #f04f7c 
+	 #f04f7c
+	*/
 }
 
 .div_tabcontent {
@@ -191,7 +195,7 @@ export default {
   font-size: 40px;
   margin-bottom: 7.8px;
   font-weight: bold;
-  color: #ec4d4d;
+  color: #f04f7c;
 }
 
 .tab_content {

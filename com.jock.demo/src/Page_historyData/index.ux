@@ -185,10 +185,10 @@ export default {
 .btns-wrap {
   margin-top: 16px;
   width: 240px;
-  border: 4px solid #ec4d4d;
+  border: 4px solid #f04f7c;
   justify-content: space-between;
   border-radius: 16px;
-  background-color: #ec4d4d;
+  background-color: #f04f7c;
   /* position: fixed;
   top: 0px;
   left: 32px; */
@@ -212,7 +212,7 @@ export default {
 }
 .active,
 .btn:active {
-  background-color: #ec4d4d;
+  background-color: #f04f7c;
   color: #ffffff;
 }
 .list{

@@ -1,6 +1,6 @@
 {
-  "package": "com.jock.demo",
-  "name": "笑话大全",
+  "package": "com.jinyu.brainTeaser",
+  "name": "脑筋急转弯",
   "versionName": "1.0.1",
   "versionCode": 1,
   "icon": "/Common/logo.png",
@@ -77,6 +77,9 @@
       "Yinsi":{
         "component": "index",
         "path": "/Yinsi"
+      },
+      "WankaAdSDK/dist/Ad-detail":{
+        "component": "index"
       }
     }
   },
@@ -85,54 +88,57 @@
     "pages": {
       "Page_Home": {
         "titleBar": false,
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "menu": false
       },
       "Page_QustionAnswer":{
         "titleBar": false,
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "menu": false
       },       
       "Page_tools":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBar": true,
         "titleBarText": "常用工具",
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "menu": true           
       },
       "About":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBar": true,
         "titleBarText": "关于",
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "menu": true      
       },
       "Page_TibetanPoem":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBarText": "藏头诗制作",
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "titleBar": false,
         "menu": false   
       },
       "Page_TibetanPoemDetail":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBar": true,
         "titleBarText": "藏头诗",
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "menu": true   
       },     
       "Page_historyData":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBar": false,
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "menu": false  
       },      
       "Yinsi":{
-        "titleBarBackgroundColor": "#ffffff",
+        "titleBarBackgroundColor": "#50bcb6",
         "titleBar": true,
         "titleBarText": "隐私政策",
-        "titleBarTextColor": "#000",
+        "titleBarTextColor": "#ffffff",
         "menu": true      
+      },
+      "WankaAdSDK/dist/Ad-detail": {
+        "titleBar": false
       }
     }
   }

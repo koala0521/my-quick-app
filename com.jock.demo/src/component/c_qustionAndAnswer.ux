@@ -59,7 +59,7 @@ export default {
 .item-answer {
   padding: 16px 0;
   opacity: 0;
-  color: #ec4d4d;
+  color: #f04f7c;
   font-weight: bold;
 }
 .show-answer {
@@ -70,7 +70,7 @@ export default {
   animation-fill-mode: forwards;
 }
 .btn {
-  background-color: #ec4d4d;
+  background-color: #f04f7c;
   color: #ffffff;
   padding: 8px 32px;
   border-radius: 16px;

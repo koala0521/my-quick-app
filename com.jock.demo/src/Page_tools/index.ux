@@ -34,13 +34,13 @@ export default {
 				dp_link: '/Page_Home',
 				btn_text: '秒开'
 			}, 
-			// {
-			// 	name: '谜语精选',
-			// 	pic: '/Common/logo.png',
-			// 	desc: '开动你的大脑~~',
-			// 	dp_link: '/Page_BrainTeaser',
-			// 	btn_text: '进入'
-			// }, 
+			{
+				name: '脑筋急转弯',
+				pic: '/Common/logo.png',
+				desc: '开动你的大脑~~',
+				dp_link: '/Page_QustionAnswer',
+				btn_text: '进入'
+			}, 
 			{
 				name: '藏头诗',
 				pic: '/Common/logo.png',
@@ -107,7 +107,7 @@ export default {
 	}
 	.btn{
 		padding: 16px 32px;
-		background-color: #ec4d4d;
+		background-color: #50bcb6;
   		color:#fff;
 		font-size: 24px;
 		border-radius: 16px;

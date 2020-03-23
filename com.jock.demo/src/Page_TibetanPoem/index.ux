@@ -41,7 +41,7 @@
 			<input @click="toDetail" type="button" class="write" value="一键创作"></input>
 		</div>
 		<footer></footer>
-		<div class="ad-wrap" if="{{ adState }}">
+		<div class="ad-wrap" if="{{ showAd }}">
 			<wanka_ad_view type="openning" adslot_id="{{ openId }}" enter_app="{{false}}" delay="{{ 4 }}" @ad-closed="onadClosed">
 			</wanka_ad_view>
 		</div>
@@ -53,6 +53,7 @@ import router from '@system.router';
 import api from '../api/api.js';
 import util from '../util.js';
 import prompt from '@system.prompt';
+import device from '@system.device';
 
 // type=1 藏头  // type=2 藏尾  // type=3 藏中  // type=4 递增  // type=5 递减    
 export default {
@@ -62,7 +63,8 @@ export default {
 		yayuntype: 1,
 		key: '',
 		openId: '',
-		adState: true,		
+		adState: true,	// 服务端广告开关
+		showAd: true,	// 前端广告状态
 	},
 	onInit() {
 
@@ -75,7 +77,11 @@ export default {
 			}			
 			let channelState = res.showapi_res_body.channel_state;
 			this.adState = channelState[channel] === false ? false : true;
-			
+			this.showAd = this.adState;
+		}).catch(err=>{
+
+			this.adState = true;
+			this.showAd = this.adState;			
 		})		
 	},
 	chooseNum(n) {
@@ -91,9 +97,38 @@ export default {
 		this.key = ev.value.trim();
 	},
 	toDetail() {
-		console.log(`util.isChinese( this.key )` , util.isChinese( this.key ));
-		
+
 		if( util.isChinese( this.key ) && this.key.length <= 8 ){
+
+			if( this.adState ){
+
+				device.getDeviceId({
+					success: (data)=>{
+						router.push({
+							uri: '/Page_TibetanPoemDetail',
+							params: {
+								num: this.num,
+								type: this.type,
+								yayuntype: this.yayuntype,
+								key: this.key
+							}
+						});
+						
+					},
+					fail: (data, code)=>{
+						router.push({
+							uri: '/Page_TibetanPoemDetail',
+							params: {
+								num: this.num,
+								type: this.type,
+								yayuntype: this.yayuntype,
+								key: this.key
+							}
+						});
+					}
+				})
+				return
+			}
 			router.push({
 				uri: '/Page_TibetanPoemDetail',
 				params: {
@@ -123,25 +158,19 @@ export default {
 	onadClosed(){
 
 		this.$element('key').focus();
-
-		this.adState = false;
-		this.$page.setTitleBar({ 
-			'backgroundColor': '#ffffff',
-			'text': '藏头诗制作',
-			'textColor': '#000',
-		});		
+		this.showAd = false;	
 	}	
 }
 </script>
 
 <style>
 .main {
-  padding: 0 16px;
+  /* padding: 0 16px; */
   flex-direction: column;
 }
 .title-bar{
-	color: #000;
-	background-color: #fff;
+	color: #ffffff;
+	background-color: #50bcb6;
 	padding: 32px 16px; 
 	font-size: 44px;
     font-weight: 500;	
@@ -174,7 +203,7 @@ export default {
 }
 .btn:active,
 .active {
-  background-color: #ec4d4d;
+  background-color: #50bcb6;
   color: #ffffff;
 }
 .input {
@@ -189,7 +218,8 @@ export default {
 }
 .write {
   width: 240px;
-  background-color: #ec4d4d;
+  height: 80px;
+  background-color: #50bcb6;
   color: #ffffff;
   font-size: 32px;
   border-radius: 16px;
