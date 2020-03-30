@@ -14,8 +14,7 @@
 						<div>
 							<text class="btn" >{{ $item.btn_text }}</text>
 						</div>
-					</div>
-					
+					</div>					
 				</list-item>
 			</block>
 		</list>
@@ -24,48 +23,71 @@
 
 <script>
 import router from '@system.router';
+import app from '@system.app';
+import api from '../api/api.js';
+
 export default {
 	data: {
 		list: [
-			{
-				name: '笑话大全',
-				pic: '/Common/logo.png',
-				desc: '测试应用啦啦啦',
-				dp_link: '/Page_Home',
-				btn_text: '秒开'
-			}, 
-			{
-				name: '脑筋急转弯',
-				pic: '/Common/logo.png',
-				desc: '开动你的大脑~~',
-				dp_link: '/Page_QustionAnswer',
-				btn_text: '进入'
-			}, 
-			{
-				name: '藏头诗',
-				pic: '/Common/logo.png',
-				desc: '测试应用啦啦啦',
-				dp_link: '/Page_TibetanPoem',
-				btn_text: '进入'
-			}, {
-				name: '家常菜谱',
-				pic: '/Common/logo.png',
-				desc: '测试应用啦啦啦',
-				dp_link: 'hap://app/com.jiachang.caipu.menu',
-				btn_text: '秒开'
-			}, {
-				name: '历史上的今天',
-				pic: '/Common/logo.png',
-				desc: '历史上的大事件',
-				dp_link: '/Page_historyData',
-				btn_text: '进入'
-			}
-		]
+			// {
+			// 	name: '笑话大全',
+			// 	pic: '/Common/logo.png',
+			// 	desc: '测试应用啦啦啦',
+			// 	dp_link: '/Page_Home',
+			// 	btn_text: '秒开'
+			// }, 
+			// {
+			// 	name: '脑筋急转弯',
+			// 	pic: '/Common/logo.png',
+			// 	desc: '开动你的大脑~~',
+			// 	dp_link: '/Page_QustionAnswer',
+			// 	btn_text: '进入'
+			// }, 
+			// {
+			// 	name: '藏头诗',
+			// 	pic: '/Common/logo.png',
+			// 	desc: '测试应用啦啦啦',
+			// 	dp_link: '/Page_TibetanPoem',
+			// 	btn_text: '进入'
+			// }, {
+			// 	name: '家常菜谱',
+			// 	pic: '/Common/logo.png',
+			// 	desc: '测试应用啦啦啦',
+			// 	dp_link: 'hap://app/com.jiachang.caipu.menu',
+			// 	btn_text: '秒开'
+			// }, {
+			// 	name: '历史上的今天',
+			// 	pic: '/Common/logo.png',
+			// 	desc: '历史上的大事件',
+			// 	dp_link: '/Page_historyData',
+			// 	btn_text: '进入'
+			// }
+		],
+		pkgName: '',
+		name: ''
 	},
 	/**
 	 * 当用户点击菜单按钮时触发，调用app中定义的方法showMenu
 	 * 注意：使用加载器测试`创建桌面快捷方式`功能时，请先在`系统设置`中打开`应用加载器`的`桌面快捷方式`权限
 	*/
+	onInit() {
+
+		let appInfo = app.getInfo();
+		this.pkgName = appInfo.packageName;
+		this.name = appInfo.name;
+		api.appList().then(res=>{
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				return
+			}		
+			this.list = res.showapi_res_body.list.filter(el=>{
+				return el.pkgName !== this.pkgName && el.name !== this.name;
+			});
+			console.log(`res ====>` , res);
+		}).catch(err=>{
+			console.log(`err ====>` , err);
+			
+		})
+	},
 	onMenuPress() {
 		this.$app.$def.showMenu()
 	},	

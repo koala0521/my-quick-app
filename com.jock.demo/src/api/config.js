@@ -1,12 +1,14 @@
   // 测试环境
 export default {
-    baseUrl: 'https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/'
+    baseUrl: 'https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/',
+    mockUrl: 'https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/'
 
 }
 
 // // 正式环境
 // export default {
-//     baseUrl:'https://route.showapi.com/'   
+//     baseUrl:'https://route.showapi.com/',
+//     mockUrl: 'https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/'   
 // }
 
 

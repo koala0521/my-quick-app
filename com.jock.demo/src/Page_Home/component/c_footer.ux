@@ -14,40 +14,52 @@
 
 <script>
 import router from '@system.router';
-
+import api from '../../api/api.js';
 export default {
 	data: {
 		btns: [
-			{
-				text: '首页',
-				id: 0,
-				pic: '/Page_Home/img/home.png',
-				active_pic: '/Page_Home/img/home_fill.png',
-				show: true,
-				route: '/'
-			}, {
-				text: '发现',
-				id: 1,
-				pic: '/Page_Home/img/find.png',
-				active_pic: '/Page_Home/img/find_fill.png',
-				show: false,
-				route: '/'
-			}, {
-				text: '工具',
-				id: 2,
-				pic: '/Page_Home/img/tool.png',
-				active_pic: '/Page_Home/img/tool_fill.png',
-				show: true,
-				route: '/Page_tools'
-			}, {
-				text: '关于',
-				id: 3,
-				pic: '/Page_Home/img/about.png',
-				active_pic: '/Page_Home/img/about_fill.png',
-				show: true,
-				route: '/About'
-			}
+			// {
+			// 	text: '首页',
+			// 	id: 0,
+			// 	pic: '/Page_Home/img/home.png',
+			// 	active_pic: '/Page_Home/img/home_fill.png',
+			// 	show: true,
+			// 	route: '/'
+			// }, {
+			// 	text: '发现',
+			// 	id: 1,
+			// 	pic: '/Page_Home/img/find.png',
+			// 	active_pic: '/Page_Home/img/find_fill.png',
+			// 	show: true,
+			// 	route: '/'
+			// }, {
+			// 	text: '工具',
+			// 	id: 2,
+			// 	pic: '/Page_Home/img/tool.png',
+			// 	active_pic: '/Page_Home/img/tool_fill.png',
+			// 	show: true,
+			// 	route: '/Page_tools'
+			// }, {
+			// 	text: '关于',
+			// 	id: 3,
+			// 	pic: '/Page_Home/img/about.png',
+			// 	active_pic: '/Page_Home/img/about_fill.png',
+			// 	show: true,
+			// 	route: '/About'
+			// }
 		],
+	},
+	onInit() {
+		api.footMenu().then(res=>{
+			if( res.showapi_res_code !== 0 || !res.showapi_res_body || res.showapi_res_body.ret_code != 0 ){
+				return
+			}		
+			this.btns = res.showapi_res_body.list;
+			console.log(`footMenu ====>` , res);
+		}).catch(err=>{
+			console.log(`err ====>` , err);
+			
+		})		
 	},
 	clickbtn(item) {
 		let id = item.id;

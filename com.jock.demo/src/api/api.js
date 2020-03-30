@@ -1,9 +1,13 @@
-import requestFn from './request'
+import requestFn from './request';
+import config from './config';
 
 
 const adurl = {
 	'v1': 'online_state',
 }
+
+const appListApi = 'app_list';	 // 应用列表
+const footMenuApi = 'foot_menu'; // 底部菜单状态
 
 /**
  * @description 脑经急转弯列表
@@ -72,12 +76,34 @@ function getTibetanPoem(data){
 
 /**
  * @description 广告状态
- * @host /showAd/wanka 	https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka
- * @host /showAd/wanka/v2   https://mockapi.eolinker.com/14c9jKx6f5bcb39be03e8182fde6085527b199281f1ff72/showAd/wanka/v2
+ * @host /showAd/wanka 
+ * @host /showAd/wanka/v2  
  **/
 function onlineState(data={}){
 	return requestFn({
-		url: adurl.v1,
+		baseurl: config.mockUrl + adurl.v1,
+		data
+	})
+}
+
+/**
+ * @description 应用列表
+ * @host /appList 	https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/app_list
+ **/
+function appList(data={}){
+	return requestFn({
+		baseurl: config.mockUrl + appListApi,
+		data
+	})
+}
+
+/**
+ * @description 底部菜单栏
+ * @host /footMenu 	https://mockapi.eolinker.com/Z3shjCRbd5c820753f8782b604d7a42c4b7db0fd8c53ca6/app_list
+ **/
+function footMenu(data={}){
+	return requestFn({
+		baseurl: config.mockUrl + footMenuApi,
 		data
 	})
 }
@@ -89,5 +115,7 @@ export default {
 	getRandomRiddles,
 	onlineState,
 	getRiddlesById,
-	getTibetanPoem
+	getTibetanPoem,
+	appList,
+	footMenu
 }
